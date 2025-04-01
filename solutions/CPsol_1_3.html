@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>COMPUTER PROBLEMS 1.3</h3>
+
+<b>1 (a)</b> Check the derivatives of \(f(x)=\sin x-x\) to see that
+\(f(0)=f'(0)=f''(0)=0\) and \(f'''(0)=-\cos 0=-1\), giving
+multiplicity \(3\). <p>
+<b>1 (b)</b> <tt> fzero</tt> returns \(x_c=-2.0735\times 10^{-8}\). The
+forward error is \(2.0735\times 10^{-8}\) and  the
+backward error is reported as \(|f(x_c)|=0\). This means the true backward
+error is likely less than machine epsilon.
+<hr>
+
+<b>3 (a)</b> The Matlab command
+<pre>
+>> xc=fzero(@(x) 2*x*cos(x)-2*x+sin(x^3),[-0.1,0.2])
+</pre>
+returns \(x_c=0.00016881\). The forward error is
+\(|x_c-r|=0.00016881\) and the backward error is reported by \Matlab as
+\(|f(x_c)|=0\). <p>
+<b>3 (b)</b> The bisection method with starting interval
+\([-0.1,0.2]\) stops after 13 steps, giving \(x_c=-0.00006103\).
+Neither method can determine the root \(r=0\) to more than about 3
+correct decimal places.
+<hr>
+
+<b>5</b> To use (1.21), set \(f(x)=(x-1)(x-2)(x-3)(x-4)\),
+\(\epsilon=-10^{-6}\) and \(g(x)=x^6\). Then near the root \(r=4\),
+\(\Delta r\approx-\epsilon g(r)/f'(r)=4^6\times 10^{-6}/6\approx0.00068267\).
+According to (1.22), the error magnification factor is
+\(|g(r)|/|rf'(r)|=4^6/24\approx170.7\). <tt>fzero</tt> returns the
+approximate root \(4.00068251\), close to the guess \(4.00068267\)
+given by (1.21).
+
+
