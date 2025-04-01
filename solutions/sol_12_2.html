@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 12.2</h3>
+\(\def\ds{\displaystyle}  \def\l{\lambda}\)
+<b>1 (a)</b> To find a Householder reflector for \([1,1]^T\), set
+\({\ds v=
+\left[\begin{array}{c}
+1\\1\\
+\end{array}\right]+
+\left[\begin{array}{c}
+\sqrt{2}\\0\\
+\end{array}\right]}\),
+\begin{eqnarray*}
+\hat{H}&=&I-\frac{2vv^T}{v^Tv}=
+\left[\begin{array}{cc}
+1&0\\0&1\\
+\end{array}\right]-
+\left[\begin{array}{cc}
+1+\frac{\sqrt{2}}{2}&\frac{\sqrt{2}}{2}\\\frac{\sqrt{2}}{2}&1
+-\frac{\sqrt{2}}{2}\\
+\end{array}\right]\\
+&=&
+\left[\begin{array}{rr}
+-\frac{\sqrt{2}}{2}&-\frac{\sqrt{2}}{2}\\-\frac{\sqrt{2}}{2}&
+\frac{\sqrt{2}}{2}\\
+\end{array}\right]
+\end{eqnarray*}
+Then the upper Hessenberg matrix is
+\[HAH=
+\left[\begin{array}{ccc}
+1&0&0\\
+0&-\frac{\sqrt{2}}{2}&-\frac{\sqrt{2}}{2}\\
+0&-\frac{\sqrt{2}}{2}&
+\frac{\sqrt{2}}{2}\\
+\end{array}\right]
+\left[\begin{array}{ccc}
+1&0&1\\
+1&1&0\\1&0&0\\
+\end{array}\right]
+\left[\begin{array}{ccc}
+1&0&0\\
+0&-\frac{\sqrt{2}}{2}&-\frac{\sqrt{2}}{2}\\
+0&-\frac{\sqrt{2}}{2}&
+\frac{\sqrt{2}}{2}\\
+\end{array}\right]=
+\left[\begin{array}{ccc}
+1&-\frac{\sqrt{2}}{2}&\frac{\sqrt{2}}{2}\\
+-\sqrt{2}&\frac{1}{2}&\frac{1}{2}\\
+0&\frac{1}{2}&\frac{1}{2}\\
+\end{array}\right]
+\]
+<b>1 (b)</b> To find a Householder reflector for \([0,1]^T\), set
+\({\ds v=
+\left[\begin{array}{c}
+0\\1\\
+\end{array}\right]-
+\left[\begin{array}{c}
+1\\0\\
+\end{array}\right]=
+\left[\begin{array}{r}
+-1\\1\\
+\end{array}\right]}
+\),
+\[
+\hat{H}=I-\frac{2vv^T}{v^Tv}=
+\left[\begin{array}{cc}
+1&0\\0&1\\
+\end{array}\right]-
+\frac{2}{2}\left[\begin{array}{rr}
+1&-1\\-1&1\\
+\end{array}\right]\\
+=
+\left[\begin{array}{cc}
+0&1\\1&0\\
+\end{array}\right].\]
+Then the upper Hessenberg matrix is
+\[HAH=
+\left[\begin{array}{ccc}
+1&0&0\\
+0&0&1\\
+0&1&0\\
+\end{array}\right]
+\left[\begin{array}{ccc}
+0&0&1\\
+0&1&0\\1&0&0\\
+\end{array}\right]
+\left[\begin{array}{ccc}
+1&0&0\\
+0&0&1\\
+0&1&0\\
+\end{array}\right]=
+\left[\begin{array}{ccc}
+0&1&0\\1&0&0\\0&0&1\\
+\end{array}\right]
+\]
+<b>1 (c)</b> To find a Householder reflector for \([4,3]^T\), set
+\({\ds v=
+\left[\begin{array}{c}
+-5\\0\\
+\end{array}\right]-
+\left[\begin{array}{c}
+4\\3\\
+\end{array}\right]=
+\left[\begin{array}{r}
+-9\\-3\\
+\end{array}\right]}
+\),
+\begin{eqnarray*}
+\hat{H}=I-\frac{2vv^T}{v^Tv}=
+\left[\begin{array}{cc}
+1&0\\0&1\\
+\end{array}\right]-
+\frac{2}{90}\left[\begin{array}{rr}
+81&27\\27&9\\
+\end{array}\right]\\
+=
+\left[\begin{array}{rr}
+-0.8&-0.6\\-0.6&0.8\\
+\end{array}\right]
+\end{eqnarray*}
+Then the upper Hessenberg matrix is
+\[
+\left[\begin{array}{rrr}
+1&0&0\\
+0&-0.8&-0.6\\
+0&-0.6&0.8\\
+\end{array}\right]
+\left[\begin{array}{ccc}
+2&1&0\\
+4&1&1\\3&0&1\\
+\end{array}\right]
+\left[\begin{array}{rrr}
+1&0&0\\
+0&-0.8&-0.6\\
+0&-0.6&0.8\\
+\end{array}\right]=
+\left[\begin{array}{rrr}
+2.00&-0.80&-0.60\\-5.00&1.48&-0.64\\0.00&0.36&0.52\\
+\end{array}\right]
+\]
+<b>1 (d)</b> To find a Householder reflector for \([2,2]^T\), set
+\({\ds v=
+\left[\begin{array}{c}
+-\sqrt{8}\\0\\
+\end{array}\right]-
+\left[\begin{array}{c}
+2\\2\\
+\end{array}\right]=
+\left[\begin{array}{r}
+-2\sqrt{2}-2\\-2\\
+\end{array}\right]}
+\),
+\[
+\hat{H}=I-\frac{2vv^T}{v^Tv}=
+\left[\begin{array}{cc}
+1&0\\0&1\\
+\end{array}\right]-
+\frac{2}{16+8\sqrt{2}}\left[\begin{array}{cc}
+12+8\sqrt{2}&4+4\sqrt{2}\\4+4\sqrt{2}&4\\
+\end{array}\right]\\
+=
+\left[\begin{array}{rr}
+-\frac{\sqrt{2}}{2}&-\frac{\sqrt{2}}{2}\\
+-\frac{\sqrt{2}}{2}&\frac{\sqrt{2}}{2}\\
+\end{array}\right].
+\]
+Then the upper Hessenberg matrix is
+\[HAH=
+\left[\begin{array}{rrr}
+1&0&0\\
+0&-\frac{\sqrt{2}}{2}&-\frac{\sqrt{2}}{2}\\
+0&-\frac{\sqrt{2}}{2}&\frac{\sqrt{2}}{2}\\
+\end{array}\right]
+\left[\begin{array}{ccc}
+1&1&0\\
+2&3&1\\2&1&0\\
+\end{array}\right]
+\left[\begin{array}{rrr}
+1&0&0\\
+0&-\frac{\sqrt{2}}{2}&-\frac{\sqrt{2}}{2}\\
+0&-\frac{\sqrt{2}}{2}&\frac{\sqrt{2}}{2}\\
+\end{array}\right]=
+\left[\begin{array}{ccc}
+1&-\frac{\sqrt{2}}{2}&-\frac{\sqrt{2}}{2}\\
+-2\sqrt{2}&\frac{5}{2}&\frac{3}{2}\\0&\frac{3}{2}&\frac{1}{2}\\
+\end{array}\right]
+\]
+<hr>
+
+<b>3</b> The matrix \(A\) is in upper Hessenberg form if and only if
+\(a_{ij}=0\) for \(i\geq j+2\). If in addition \(A\) is symmetric, then
+\(a_{ij}=a_{ji}=0\) for \(j\geq i+2\), or \(i\leq j-2\). Since \(a_{ij}=0\)
+unless \(j-1\leq i\leq j+1\), \(A\) is tridiagonal.
+<hr>
+
+<b>5 (a)</b> Normalized Simultaneous Iteration gives
+\begin{eqnarray*}
+\overline{Q}_0&=&I\\
+A\overline{Q}_0&=&
+\left[\begin{array}{cc}
+0&1\\1&0\\
+\end{array}\right]=\overline{Q}_1R_1 =
+\left[\begin{array}{cc}
+0&1\\1&0\\
+\end{array}\right]
+\left[\begin{array}{cc}
+1&0\\0&1\\
+\end{array}\right]\\
+A\overline{Q}_1&=&
+\left[\begin{array}{cc}
+1&0\\0&1\\
+\end{array}\right]=\overline{Q}_2R_2 =
+\left[\begin{array}{cc}
+1&0\\0&1\\
+\end{array}\right]
+\left[\begin{array}{cc}
+1&0\\0&1\\
+\end{array}\right]\\
+A\overline{Q}_2&=&
+\left[\begin{array}{cc}
+0&1\\1&0\\
+\end{array}\right]=\overline{Q}_3R_3 =
+\left[\begin{array}{cc}
+0&1\\1&0\\
+\end{array}\right]
+\left[\begin{array}{cc}
+1&0\\0&1\\
+\end{array}\right]
+\end{eqnarray*}
+and so forth, showing failure of convergence of the columns of
+\(\overline{Q}_j\).<p>
+<b>5 (b)</b> Normalized Simultaneous Iteration gives
+\begin{eqnarray*}
+\overline{Q}_0&=&I\\
+A\overline{Q}_0&=&
+\left[\begin{array}{rr}
+0&1\\-1&0\\
+\end{array}\right]=\overline{Q}_1R_1 =
+\left[\begin{array}{rr}
+0&1\\-1&0\\
+\end{array}\right]
+\left[\begin{array}{cc}
+1&0\\0&1\\
+\end{array}\right]\\
+A\overline{Q}_1&=&
+\left[\begin{array}{rr}
+-1&0\\0&-1\\
+\end{array}\right]=\overline{Q}_2R_2 =
+\left[\begin{array}{cc}
+1&0\\0&1\\
+\end{array}\right]
+\left[\begin{array}{rr}
+-1&0\\0&-1\\
+\end{array}\right]\\
+A\overline{Q}_2&=&
+\left[\begin{array}{rr}
+0&1\\-1&0\\
+\end{array}\right]=\overline{Q}_3R_3 =
+\left[\begin{array}{rr}
+0&1\\-1&0\\
+\end{array}\right]
+\left[\begin{array}{cc}
+1&0\\0&1\\
+\end{array}\right]
+\end{eqnarray*}
+and so forth, showing failure of convergence of the columns of
+\(\overline{Q}_j\).
+<hr>
+
+<b>7 (a)</b> The matrix is already in upper Hessenberg form. The preliminary
+version of the shifted QR Algorithm gives:
+\begin{eqnarray*}
+A_0&=&
+\left[\begin{array}{ccc}
+1&0&0\\0&0&1\\0&1&0\\
+\end{array}\right]=Q_1R_1=
+\left[\begin{array}{ccc}
+1&0&0\\0&0&1\\0&1&0\\
+\end{array}\right]
+\left[\begin{array}{ccc}
+1&0&0\\0&1&0\\0&0&1\\
+\end{array}\right]\\
+A_1&=&R_1Q_1=
+\left[\begin{array}{ccc}
+1&0&0\\0&0&1\\0&1&0\\
+\end{array}\right]
+\end{eqnarray*}
+showing that \(A_0=A_1=\ldots\). The method does not converge to
+Schur form for this matrix.<p>
+<b>7 (b)</b> Before changing to upper Hessenberg form,
+the shifted QR Algorithm gives:
+\begin{eqnarray*}
+A_0&=&
+\left[\begin{array}{ccc}
+0&0&1\\0&1&0\\1&0&0\\
+\end{array}\right]=Q_1R_1=
+\left[\begin{array}{ccc}
+0&0&1\\0&1&0\\1&0&0\\
+\end{array}\right]
+\left[\begin{array}{ccc}
+1&0&0\\0&1&0\\0&0&1\\
+\end{array}\right]\\
+A_1&=&R_1Q_1=
+\left[\begin{array}{ccc}
+0&0&1\\0&1&0\\1&0&0\\
+\end{array}\right]
+\end{eqnarray*}
+showing that \(A_0=A_1=\ldots\). The method does not converge to
+Schur form. To convert \(A\) to upper Hessenberg form, we use a
+Householder reflector
+\[A'=HAH=
+\left[\begin{array}{ccc}
+1&0&0\\0&0&1\\0&1&0\\
+\end{array}\right]
+\left[\begin{array}{ccc}
+0&0&1\\0&1&0\\1&0&0\\
+\end{array}\right]
+\left[\begin{array}{ccc}
+1&0&0\\0&0&1\\0&1&0\\
+\end{array}\right]=
+\left[\begin{array}{ccc}
+0&1&0\\1&0&0\\0&0&1\\
+\end{array}\right]
+\]
+Applying the preliminary shifted QR Algorithm to \(A'\) yields
+\begin{eqnarray*}
+A'_0&=&Q_1R_1=
+\left[\begin{array}{ccc}
+0&1&0\\1&0&0\\0&0&1\\
+\end{array}\right]
+\left[\begin{array}{ccc}
+1&0&0\\0&1&0\\0&0&1\\
+\end{array}\right]\\
+A'_1&=&R_1Q_1=
+\left[\begin{array}{ccc}
+0&1&0\\1&0&0\\0&0&1\\
+\end{array}\right]
+\end{eqnarray*}
+showing that \(A'_0=A'_1=\ldots\), so the preliminary version of
+the QR algorithm does not isolate the eigenvalues. (However, note that the
+matrix \(A'\) is already in Schur form, and the eigenvalues can
+be easily read, as in the general QR algorithm.)
+<hr>
+
+
+
+</html>

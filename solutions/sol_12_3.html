@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 12.3</h3>
+\(\def\ds{\displaystyle}  \def\l{\lambda}\)
+<b>1 (a)</b> The eigenvalues are \(-3,2\); the singular values are the
+absolute values \(s_1=3, s_2=2\). The eigenvectors \(v_1=[1,0]^T\) and
+\(v_2=[0,1]^T\) are the right singular vectors, and 
+the left singular vectors are \(u_1=[-1,0]^T\) and \(u_2=[0,1]^T\).
+Putting the information together, the SVD is
+\[\left[\begin{array}{rr}
+-3&0\\0&2\\
+\end{array}\right]=A=USV^T=
+\left[\begin{array}{rr}
+-1&0\\0&1\\
+\end{array}\right]
+\left[\begin{array}{rr}
+3&0\\0&2\\
+\end{array}\right]
+\left[\begin{array}{rr}
+1&0\\0&1\\
+\end{array}\right].
+\]
+The SVD is not quite unique; another correct factorization is
+\[\left[\begin{array}{rr}
+-3&0\\0&2\\
+\end{array}\right]=A=USV^T=
+\left[\begin{array}{rr}
+1&0\\0&1\\
+\end{array}\right]
+\left[\begin{array}{rr}
+3&0\\0&2\\
+\end{array}\right]
+\left[\begin{array}{rr}
+-1&0\\0&1\\
+\end{array}\right].
+\]
+Multiplication by the matrix expands vectors by factor of 3 and
+flips along \(x\)-axis, expands by factor of 2 along \(y\)-axis.
+<p>
+<b>1 (b)</b> The singular values are the eigenvalues
+\(s_1=3, s_2=0\). The eigenvectors are \(u_1=v_1=[0,1]^T\) and
+\(u_2=v_2=[1,0]^T\). The SVD is
+\[\left[\begin{array}{rr}
+0&0\\0&3\\
+\end{array}\right]=A=USV^T=
+\left[\begin{array}{rr}
+0&1\\1&0\\
+\end{array}\right]
+\left[\begin{array}{rr}
+3&0\\0&0\\
+\end{array}\right]
+\left[\begin{array}{rr}
+0&1\\1&0\\
+\end{array}\right].
+\]
+Projects onto \(y\) axis and expands by 3 in \(y\)-direction. <p>
+<b>1 (c)</b> The eigenvalues are \(s_1=2, s_2=1\), with corresponding unit
+eigenvectors \(u_1=v_1=[1/\sqrt{2},-1/\sqrt{2}]^T\) and
+\(u_2=v_2=[1/\sqrt{2},1/\sqrt{2}]^T\). The SVD is
+\[\left[\begin{array}{rr}
+\frac{3}{2}&-\frac{1}{2}\\-\frac{1}{2}&\frac{3}{2}\\
+\end{array}\right]=A=USV^T=
+\left[\begin{array}{rr}
+\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\-\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+\end{array}\right]
+\left[\begin{array}{rr}
+2&0\\0&1\\
+\end{array}\right]
+\left[\begin{array}{rr}
+\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+\end{array}\right].
+\]
+Another correct factorization is
+\[\left[\begin{array}{rr}
+\frac{3}{2}&-\frac{1}{2}\\-\frac{1}{2}&\frac{3}{2}\\
+\end{array}\right]=A=USV^T=
+\left[\begin{array}{rr}
+-\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+\end{array}\right]
+\left[\begin{array}{rr}
+2&0\\0&1\\
+\end{array}\right]
+\left[\begin{array}{rr}
+-\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+\end{array}\right].
+\]
+Expands into ellipse with major axis of length 4 along the line \(y=-x\). <p>
+<b>1 (d)</b> The eigenvalues are \(-2,-1\); the singular values are the
+absolute values \(s_1=2, s_2=1\). The eigenvectors are
+\(v_1=[1/\sqrt{2},-1/\sqrt{2}]^T\) and
+\(v_2=[1/\sqrt{2},1/\sqrt{2}]^T\). According to (13.26),
+the left singular vectors are \(u_1=[-1/\sqrt{2},1/\sqrt{2}]^T\) and
+\(u_2=[-1/\sqrt{2},-1/\sqrt{2}]^T\).
+The SVD is
+\[\left[\begin{array}{rr}
+-\frac{3}{2}&\frac{1}{2}\\\frac{1}{2}&-\frac{3}{2}\\
+\end{array}\right]=A=USV^T=
+\left[\begin{array}{rr}
+-\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\
+\end{array}\right]
+\left[\begin{array}{rr}
+2&0\\0&1\\
+\end{array}\right]
+\left[\begin{array}{rr}
+\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+\end{array}\right].
+\]
+Same as (c), but with a 180 degree rotation. <p>
+<b>1 (e)</b> The eigenvalues are \(2,-1/2\); the singular values are the
+absolute values \(s_1=2, s_2=1/2\). The eigenvectors are
+\(v_1=[1/\sqrt{2},1/\sqrt{2}]^T\) and
+\(v_2=[1/\sqrt{2},-1/\sqrt{2}]^T\). According to (13.26),
+the left singular vectors are \(u_1=[1/\sqrt{2},1/\sqrt{2}]^T\) and
+\(u_2=[-1/\sqrt{2},1/\sqrt{2}]^T\).
+The SVD is
+\[\left[\begin{array}{rr}
+\frac{3}{4}&\frac{5}{4}\\\frac{5}{4}&\frac{3}{4}\\
+\end{array}\right]=A=USV^T=
+\left[\begin{array}{rr}
+\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+\end{array}\right]
+\left[\begin{array}{rr}
+2&0\\0&\frac{1}{2}\\
+\end{array}\right]
+\left[\begin{array}{rr}
+\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\
+\end{array}\right].
+\]
+As usual, a different choice on the signs of the eigenvectors would lead to a
+different factorization, for example
+\[\left[\begin{array}{rr}
+\frac{3}{4}&\frac{5}{4}\\\frac{5}{4}&\frac{3}{4}\\
+\end{array}\right]=
+\left[\begin{array}{rr}
+-\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\-\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\
+\end{array}\right]
+\left[\begin{array}{rr}
+2&0\\0&\frac{1}{2}\\
+\end{array}\right]
+\left[\begin{array}{rr}
+-\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\-\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+\end{array}\right].
+\]
+Expands by factor of 2 along line \(y=x\) and contracts by factor of 2 along line \(y=-x\).
+<hr>
+
+<b>3</b> Four: <p>
+\begin{eqnarray*}
+\left[\begin{array}{rr}
+3&0\\0&\frac{1}{2}\\
+\end{array}\right]
+&=&
+\left[\begin{array}{rr}
+1&0\\0&1\\
+\end{array}\right]
+\left[\begin{array}{rr}
+3&0\\0&\frac{1}{2}\\
+\end{array}\right]
+\left[\begin{array}{rr}
+1&0\\
+0&1\\
+\end{array}\right]
+=
+\left[\begin{array}{rr}
+-1&0\\0&1\\
+\end{array}\right]
+\left[\begin{array}{rr}
+3&0\\0&\frac{1}{2}\\
+\end{array}\right]
+\left[\begin{array}{rr}
+-1&0\\
+0&1\\
+\end{array}\right]\\
+&=&
+\left[\begin{array}{rr}
+1&0\\0&-1\\
+\end{array}\right]
+\left[\begin{array}{rr}
+3&0\\0&\frac{1}{2}\\
+\end{array}\right]
+\left[\begin{array}{rr}
+1&0\\
+0&-1\\
+\end{array}\right]
+=
+\left[\begin{array}{rr}
+-1&0\\0&-1\\
+\end{array}\right]
+\left[\begin{array}{rr}
+3&0\\0&\frac{1}{2}\\
+\end{array}\right]
+\left[\begin{array}{rr}
+-1&0\\
+0&-1\\
+\end{array}\right]
+\end{eqnarray*}
+<hr>
+
+<b>5 (a)</b>
+\[\left[\begin{array}{rr}
+1/\sqrt{2}&0\ \ \\-1/\sqrt{2}&0\ \ \\0\ \ &1/\sqrt{2}\\0\ \ &-1/\sqrt{2}
+\end{array}\right]
+\left[\begin{array}{cc}
+2a&0\\0&2b
+\end{array}\right]
+\left[\begin{array}{rr}
+1/\sqrt{2}&1/\sqrt{2}\\1/\sqrt{2}&-1/\sqrt{2}
+\end{array}\right]\]
+<b>5 (b)</b>
+\[\left[\begin{array}{rr}
+1/\sqrt{2}&0\ \ \\-1/\sqrt{2}&0\ \ \\0\ \ &1/\sqrt{2}\\0\ \ &1/\sqrt{2}
+\end{array}\right]
+\left[\begin{array}{cc}
+2a&0\\0&2b
+\end{array}\right]
+\left[\begin{array}{rr}
+-1/\sqrt{2}&1/\sqrt{2}\\1/\sqrt{2}&1/\sqrt{2}
+\end{array}\right]\]
+<hr>
+
+<b>7 (a)</b>
+\[\left[\begin{array}{rr}
+1/2&1/2\\-1/2&-1/2\\1/2&-1/2\\-1/2&1/2
+\end{array}\right]
+\left[\begin{array}{cc}
+10a&0\\0&10b
+\end{array}\right]
+\left[\begin{array}{rr}
+0.6&0.8\\0.8&-0.6
+\end{array}\right]\]
+<b>7 (b)</b>
+\[\left[\begin{array}{rr}
+1/2&1/2\\-1/2&-1/2\\1/2&-1/2\\-1/2&1/2
+\end{array}\right]
+\left[\begin{array}{cc}
+10a&0\\0&10b
+\end{array}\right]
+\left[\begin{array}{rr}
+0.8&0.6\\-0.6&0.8
+\end{array}\right]\]
+
+
+</html>
