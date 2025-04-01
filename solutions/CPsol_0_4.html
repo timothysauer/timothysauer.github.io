@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>COMPUTER PROBLEMS 0.4</h3>
+
+<b>1 (a)</b> Compare the original expression to the revised version
+\(-1/(1+\sec x)\) from Exercise 1(a).
+\[\begin{array}{ccc}
+x&\text{original}&\text{revised}\\
+   0.10000000000000&  -0.49874791371143&  -0.49874791371143\\
+   0.01000000000000&  -0.49998749979096&  -0.49998749979166\\
+   0.00100000000000&  -0.49999987501429&  -0.49999987499998\\
+   0.00010000000000&  -0.49999999362793&  -0.49999999875000\\
+   0.00001000000000&  -0.50000004133685&  -0.49999999998750\\
+   0.00000100000000&  -0.50004445029084&  -0.49999999999987\\
+   0.00000010000000&  -0.51070259132757&  -0.50000000000000\\
+   0.00000001000000&                  0&  -0.50000000000000\\
+   0.00000000100000&                  0&  -0.50000000000000\\
+   0.00000000010000&                  0&  -0.50000000000000\\
+   0.00000000001000&                  0&  -0.50000000000000\\
+   0.00000000000100&                  0&  -0.50000000000000\\
+   0.00000000000010&                  0&  -0.50000000000000\\
+   0.00000000000001&                  0&  -0.50000000000000\\
+\end{array}\]
+<b>1 (b)</b> Compare the original expression to the revised version
+\(3-3x+x^2\) from Exercise 1(b).
+\[\begin{array}{ccc}
+x&\text{original}&\text{revised}\\
+   0.10000000000000&   2.71000000000000&   2.71000000000000\\
+   0.01000000000000&   2.97010000000001&   2.97010000000000\\
+   0.00100000000000&   2.99700100000000&   2.99700100000000\\
+   0.00010000000000&   2.99970000999905&   2.99970001000000\\
+   0.00001000000000&   2.99997000008379&   2.99997000010000\\
+   0.00000100000000&   2.99999700015263&   2.99999700000100\\
+   0.00000010000000&   2.99999969866072&   2.99999970000001\\
+   0.00000001000000&   2.99999998176759&   2.99999997000000\\
+   0.00000000100000&   2.99999991515421&   2.99999999700000\\
+   0.00000000010000&   3.00000024822111&   2.99999999970000\\
+   0.00000000001000&   3.00000024822111&   2.99999999997000\\
+   0.00000000000100&   2.99993363483964&   2.99999999999700\\
+   0.00000000000010&   3.00093283556180&   2.99999999999970\\
+   0.00000000000001&   2.99760216648792&   2.99999999999997\\
+\end{array}\]
+<hr>
+
+<b>3</b> Since \(a\) is large and negative, the expression represents subtraction of nearly equal numbers. Multiply numerator and denominator by the conjugate:
+\[a+\sqrt{a^2+b^2} = \frac{(a+\sqrt{a^2+b^2})(a-\sqrt{a^2+b^2})}{a-\sqrt{a^2+b^2}}
+=\frac{-b^2}{a-\sqrt{a^2+b^2}}\approx 6.1272\times 10^{-13}.\]
+<hr>
+
+<b>5</b> Set \(x=3344556600\) and \(y=1.2222222\). The difference
+between the lengths of the hypotenuse and the longer leg is
+\[
+\sqrt{x^2+y^2}-x = \left(\sqrt{x^2+y^2}-x\right)\frac{\sqrt{x^2+y^2}+x}
+{\sqrt{x^2+y^2}+x} = \frac{y^2}{\sqrt{x^2+y^2}+x}\]
+where we have rewritten the expression to eliminate the
+subtraction of nearly equal numbers. Although calculating the leftmost
+expression in double precision yields no correct significant digits,
+the rightmost expression gives the correct answer \(2.23322\times 10^{-10}\).
+
+
+</html>
