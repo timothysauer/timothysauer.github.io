@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>COMPUTER PROBLEMS 1.1</h3>
+
+<b>1 (a)</b> There is a root in \([2,3]\) (see Exercise 1.1.1). In
+Matlab, use the textbook's Program 1.1, <tt>bisect.m</tt>. Six correct decimal places
+corresponds to error tolerances \(5\times 10^{-7}\), according to
+Def. 1.3. The calling sequence 
+<pre>
+>> f=@(x) x^3-9;
+>> xc=bisect(f,2,3,5e-7)
+</pre>
+returns the approximate root \(2.080083\). <p>
+<b>1 (b)</b> Similar to (a), on interval \([1,2]\). The command
+<pre>
+>> xc=bisect(@(x) 3*x^3+x^2-x-5,1,2,5e-7)
+</pre>
+returns the approximate root \(1.169726\). <p>
+<b>1 (c)</b> Similar to (a), on interval \([6,7]\). The command
+<pre>
+>> xc=bisect(@(x) cos(x)^2+6-x,6,7,5e-7)
+</pre>
+returns the approximate root \(6.776092\).
+<hr>
+
+<b>3 (a)</b>  Plots for parts (a) - (c), from left to right, are:
+<p>
+<img width=300 async src="figs/cp1o1o3a.png" align=left>
+<img width=300 async src="figs/cp1o1o3b.png" align=left>
+<img width=300 async src="figs/cp1o1o3c.png" align=left>
+
+<br><br><br>
+<br clear="all" />
+<p>
+
+In part (a), it is clear from the graph that there is a root
+in each of the three intervals \([-2,-1]\), \([-1,0]\), and \([1,2]\). The
+command 
+<pre>
+>> bisect(@(x) 2*x^3-6*x-1,-2,-1,5e-7)
+</pre>
+yields the first approximate root \(-1.641783\). Repeating for the
+next two intervals gives the approximate roots \(-0.168254\) and
+\(1.810038\).<p>
+<b> 3(b)</b> There are roots in \([-2,-1]\), \([-0.5,0.5]\), and
+\([0.5, 1.5]\). Using <tt>bisect</tt> as in part (a) yields the
+approximate roots \(-1.023482\), \(0.163823\), and \(0.788942\).<p>
+<b>3(c)</b> There are roots in \([-1.7,-0.7]\), \([-0.7,0.3]\), and
+\([0.3,1.3]\). Using <tt>bisect</tt> as in part (a) yields the
+approximate roots \(-0.818094\), \(0\), and \(0.506308\).
+<hr>
+
+<b>5 (a)</b> There is a root in the interval \([1,2]\). Eight decimal
+place accuracy implies an error tolerance of \(5\times 10^{-9}\).
+The command
+<pre>
+>> bisect(@(x) x^3-2,1,2,5e-9)
+</pre>
+yields the approximate cube root \(1.25992105\) in 27 steps.
+<p>
+<b>5 (b)</b> There is a root in the interval \([1,2]\).
+Using <tt>bisect</tt> as in (a) gives the approximate cube
+root \(1.44224957\) in 27 steps. <p>
+<b>5 (c)</b> There is a root in the interval \([1,2]\).
+Using <tt>bisect</tt> as in (a) gives the approximate cube
+root \(1.70997595\) in 27 steps.
+<hr>
+
+<b>7</b> Trial and error, or a plot of \(f(x)=\det(A)-1000\), shows
+that \(f(-18)f(-17)<0\) and \(f(9)f(10)<0\). Applying <tt>bisect</tt> to
+\(f(x)\) yields the roots \(-17.188498\) and \(9.708299\). The backward
+errors of the roots are \(|f(-17.188498)|=0.0018\) and \(|f(9.708299)|=0.00014\).
+<hr>
+
+<b>9</b> The desired height is the root of the function
+\(f(H)=\pi{H^2}(1-\frac{1}{3}H)-1\). Using
+<pre>
+>> bisect(@(H) pi*H^2*(1-H/3)-1,0,1,0.001)
+</pre>
+gives the solution \(636\) mm.
+
+</html>
