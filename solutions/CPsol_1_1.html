@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Numerical Analysis 3rd Edition Sauer </title>
+<title>Numerical Analysis Sauer </title>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 </head>
 
 <h3>COMPUTER PROBLEMS 1.1</h3>
 
-<b>1 (a)</b> There is a root in \([2,3]\) (see Exercise 1.1.1). In
-Matlab, use the textbook's Program 1.1, <tt>bisect.m</tt>. Six correct decimal places
+<b>1 (a)</b> There is a root in \([2,3]\) (see Exercise 1.1.1). Use the textbook's Program 1.1, <tt>bisect.py</tt>. Six correct decimal places
 corresponds to error tolerances \(5\times 10^{-7}\), according to
 Def. 1.3. The calling sequence 
 <pre>
->> f=@(x) x^3-9;
->> xc=bisect(f,2,3,5e-7)
+f=lambda x: x**3-9;
+xc=bisect(f,2,3,5e-7)
 </pre>
 returns the approximate root \(2.080083\). <p>
 <b>1 (b)</b> Similar to (a), on interval \([1,2]\). The command
 <pre>
->> xc=bisect(@(x) 3*x^3+x^2-x-5,1,2,5e-7)
+f = lambda x:3*x**3+x**2-x-5
+xc=bisect(f,1,2,5e-7)
 </pre>
 returns the approximate root \(1.169726\). <p>
 <b>1 (c)</b> Similar to (a), on interval \([6,7]\). The command
 <pre>
->> xc=bisect(@(x) cos(x)^2+6-x,6,7,5e-7)
+f = lambda x: np.cos(x)**2+6-x
+xc=bisect(f,6,7,5e-7)
 </pre>
 returns the approximate root \(6.776092\).
 <hr>
@@ -40,11 +41,12 @@ returns the approximate root \(6.776092\).
 
 In part (a), it is clear from the graph that there is a root
 in each of the three intervals \([-2,-1]\), \([-1,0]\), and \([1,2]\). The
-command 
+commands
 <pre>
->> bisect(@(x) 2*x^3-6*x-1,-2,-1,5e-7)
+f = lambda x: 2*x**3-6*x-1
+bisect(f,-2,-1,5e-7)
 </pre>
-yields the first approximate root \(-1.641783\). Repeating for the
+yield the first approximate root \(-1.641783\). Repeating for the
 next two intervals gives the approximate roots \(-0.168254\) and
 \(1.810038\).<p>
 <b> 3(b)</b> There are roots in \([-2,-1]\), \([-0.5,0.5]\), and
@@ -57,11 +59,12 @@ approximate roots \(-0.818094\), \(0\), and \(0.506308\).
 
 <b>5 (a)</b> There is a root in the interval \([1,2]\). Eight decimal
 place accuracy implies an error tolerance of \(5\times 10^{-9}\).
-The command
+The commands
 <pre>
->> bisect(@(x) x^3-2,1,2,5e-9)
+f = lambda x: x**3-2
+>> bisect(f,1,2,5e-9)
 </pre>
-yields the approximate cube root \(1.25992105\) in 27 steps.
+yield the approximate cube root \(1.25992105\) in 27 steps.
 <p>
 <b>5 (b)</b> There is a root in the interval \([1,2]\).
 Using <tt>bisect</tt> as in (a) gives the approximate cube
