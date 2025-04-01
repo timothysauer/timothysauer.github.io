@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 6.1</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> Since \(y'(t) = \sin t + t\cos t\), the right-hand side
+of the differential equation is \(ty' = t\sin t+t^2\cos t = y+t^2\cos t\),
+agreeing with the left-hand side. <p>
+<b>1 (b)</b> Since \(y''(t) = 2\cos t - t\sin t = 2\cos t -y\), the differential equation
+is satisfied. <p>
+<b>1 (c)</b> Using the second derivative from (b), the left-hand side is
+\(t(y''+y) = t(2\cos t-t\sin t+t\sin t) = 2t\cos t = 2(t\cos t+\sin t)-2\sin t = 2y'-2\sin t\).
+<hr>
+
+<b>3 (a)</b> Separation of variables leads to
+\begin{eqnarray*}
+\int dy& =& \int t\ dt\\
+y&=&\frac{1}{2}t^2+C
+\end{eqnarray*}
+The initial condition is \(1=y(0)=\frac{1}{2}(0)^2+C\), so \(C=1\). The solution is
+\(y(t) = \frac{1}{2}t^2+1\). <p>
+<b>3 (b)</b>
+\begin{eqnarray*}
+\int \frac{dy}{y}& =& \int t^2\ dt\\
+\ln |y|&=&\frac{1}{3}t^3+C_1\\
+y &=& C_2e^{t^3/3}
+\end{eqnarray*}
+The initial condition is \(1=y(0)=C_2\), so \(C_2=1\). The solution is
+\(y(t) = e^{t^3/3}\). <p>
+<b>3 (c)</b>
+\begin{eqnarray*}
+\int \frac{dy}{y}& =& \int 2(t+1)\ dt\\
+\ln |y|&=&(t+1)^2+C_1\\
+y &=& C_2e^{(t+1)^2}
+\end{eqnarray*}
+The initial condition is \(1=y(0)=C_2e\), so \(C_2=1/e\). Solution is
+\(y(t) = \frac{1}{e}e^{(t+1)^2} = e^{t^2+2t}\). <p>
+<b>3 (d)</b>
+\begin{eqnarray*}
+\int \frac{dy}{y}& =& \int 5t^4\ dt\\
+\ln |y|&=&t^5+C_1\\
+y &=& C_2e^{t^5}
+\end{eqnarray*}
+The initial condition is \(1=y(0)=C_2\), so \(C_2=1\). The solution is
+\(y(t) = e^{t^5}\). <p>
+<b>3 (e)</b>
+\begin{eqnarray*}
+\int y^2\ dy& =& \int 1\ dt\\
+\frac{y^3}{3}&=&t+C_1\\
+y &=& (3t+C_2)^{1/3}
+\end{eqnarray*}
+The initial condition is \(1=y(0)=C_2^{1/3}\), so \(C_2=1\). The solution is
+\(y(t) = (3t+1)^{1/3}\). <p>
+<b>3 (f)</b>
+\begin{eqnarray*}
+\int y^2\ dy& =& \int t^3\ dt\\
+\frac{y^3}{3}&=&\frac{1}{4}t^4+C_1\\
+y &=& (\frac{3}{4}t^4+C_2)^{1/3}
+\end{eqnarray*}
+The initial condition is \(1=y(0)=C_2^{1/3}\), so \(C_2=1\). The solution is
+\(y(t) = (\frac{3}{4}t^4+1)^{1/3}\).
+<hr>
+
+<b>5 (a)</b> For the step size \(h=1/4\) on \([0,1]\), the grid is \(t_0=0, t_1=1/4,
+t_2=1/2, t_3=3/4, t_4=1\). Applying Euler's Method to \(y'=t\) gives the formula
+\(w_{i+1} = w_i+hf(t_i,w_i) = w_i+ht_i\). The approximate solution values are
+\begin{eqnarray*}
+w_0&=&y_0=1\\
+w_1&=&w_0+ht_0 = 1+\frac{1}{4}(0)=1\\
+w_2&=&w_1+ht_1 = 1+\frac{1}{4}\left(\frac{1}{4}\right)=\frac{17}{16}\\
+w_3&=&w_2+ht_2 = \frac{17}{16}+\frac{1}{4}\left(\frac{1}{2}\right)=\frac{19}{16}\\
+w_4&=&w_3+ht_3 = \frac{19}{16}+\frac{1}{4}\left(\frac{3}{4}\right)=\frac{22}{16} = \frac{11}{8}
+\end{eqnarray*}
+Compared with the correct solution \(y(1)=\frac{1}{2}(1)^2+1 = \frac{3}{2}\), the
+approximate solution \(w(1)=w_4 = \frac{11}{8}\) has error \( \left|\frac{3}{2}-
+\frac{11}{8}\right| = \frac{1}{8}\). <p>
+<b>5 (b)</b> Applying Euler's Method to \(y' = t^2y\) gives the formula
+\[w_{i+1} = w_i+ht_i^2w_i.\]
+The Euler steps are
+\begin{eqnarray*}
+w_0&=&y_0=1\\
+w_1&=&w_0+ht_0^2w_0 = 1.0000\\
+w_2&=&w_1+ht_1^2w_1 \approx 1.0156\\
+w_3&=&w_2+ht_2^2w_2 \approx 1.0791\\
+w_4&=&w_3+ht_3^2w_3 \approx 1.2309
+\end{eqnarray*}
+Comparing with the correct solution \(y(1)=e^{1/3}\), the error is
+\(|y(1)-w(1)|\approx 0.1648\).<p>
+<b>5 (c)</b> Applying Euler's Method to \(y' = 2(t+1)y\) gives the formula
+\[w_{i+1} = w_i+2h(t_i+1)w_i.\]
+The Euler steps are
+\begin{eqnarray*}
+w_0&=&y_0=1\\
+w_1&=&w_0+2h(t_0+1)w_0 = 1.5000\\
+w_2&=&w_1+2h(t_1+1)w_1 = 2.4375\\
+w_3&=&w_2+2h(t_2+1)w_2 \approx 4.2656\\
+w_4&=&w_3+2h(t_3+1)w_3 \approx 7.9980
+\end{eqnarray*}
+Comparing with the correct solution \(y(1)=e^{3}\), the error is
+\(|y(1)-w(1)|\approx 12.0875\).<p>
+<b>5 (d)</b> Applying Euler's Method to \(y' = 5t^4y\) gives the formula
+\[w_{i+1} = w_i+5ht_i^4w_i.\]
+The Euler steps are
+\begin{eqnarray*}
+w_0&=&y_0=1\\
+w_1&=&w_0+5ht_0^4w_0 = 1.0000\\
+w_2&=&w_1+5ht_1^4w_1\approx 1.0049\\
+w_3&=&w_2+5ht_2^4w_2 \approx 1.0834\\
+w_4&=&w_3+5ht_3^4w_3 \approx 1.5119
+\end{eqnarray*}
+Comparing with the correct solution \(y(1)=e\), the error is
+\(|y(1)-w(1)|\approx 1.2064\).<p>
+<b>5 (e)</b> Applying Euler's Method to \(y' = 1/y^2\) gives the formula
+\[w_{i+1} = w_i+\frac{h}{w_i^2}.\]
+The Euler steps are
+\begin{eqnarray*}
+w_0&=&y_0=1\\
+w_1&=&w_0+\frac{h}{w_0^2} = 1.2500\\
+w_2&=&w_1+\frac{h}{w_1^2} =1.4100\\
+w_3&=&w_2+\frac{h}{w_2^2} \approx 1.5357\\
+w_4&=&w_3+\frac{h}{w_3^2} \approx 1.6417
+\end{eqnarray*}
+Comparing with the correct solution \(y(1)=4^{1/3}\approx 1.5874\), the error is
+\(|y(1)-w(1)|\approx 0.0543\).<p>
+<b>5 (f)</b> Applying Euler's Method to \(y' = t^3/y^2\) gives the formula
+\[w_{i+1} = w_i+h\frac{t_i^3}{w_i^2}.\]
+The Euler steps are
+\begin{eqnarray*}
+w_0&=&y_0=1\\
+w_1&=&w_0+h\frac{t_0^3}{w_0^2} = 1.0000\\
+w_2&=&w_1+h\frac{t_1^3}{w_1^2}\approx 1.0039\\
+w_3&=&w_2+h\frac{t_2^3}{w_2^2} \approx 1.0349\\
+w_4&=&w_3+h\frac{t_3^3}{w_3^2} \approx 1.1334
+\end{eqnarray*}
+Comparing with the correct solution \(y(1)=(7/4)^{1/3}\approx 1.2051\), the error is
+\(|y(1)-w(1)|\approx 0.0717\).
+<hr>
+
+<b>7 (a)</b> Check the solution \(y=\tan (t+c)\) by differentiating: <p>
+\(y'(t)=\sec^2(t+c) = 1+\tan^2(t+c)=1+y^2\). <p>
+<b>7 (b)</b> \(y_0=y(0)=\tan (0+c) \Rightarrow c = \arctan y_0\).<p>
+therefore \(y(t)=\tan (t+\arctan y_0)\) solves the initial value problem \(y'=1+y^2, y(0)=y_0\).
+<hr>
+
+<b>9 (a)</b> The Lipschitz constant \(L=0\) holds for \(f(t,y)=t\)
+on the rectangle \([0,1]\times(-\infty,\infty)\). By Theorem 6.2,
+there exists exactly one solution to the IVP on \([0,1]\). <p>
+<b>9 (b)</b> The Lipschitz constant \(L=1\) holds for \(f(t,y)=y\)
+on the rectangle \([0,1]\times(-\infty,\infty)\). By Theorem 6.2,
+there exists exactly one solution to the IVP on \([0,1]\). <p>
+<b>9 (c)</b> Similar to (b). The Lipschitz constant \(L=1\) holds
+for \(f(t,y)=-y\),
+and there exists exactly one solution to the IVP on \([0,1]\). <p>
+<b>9 (d)</b> The partial derivative \(\ds \frac{\partial f}{\partial y}
+= -3y^2\) is unbounded on the rectangle \([0,1]\times(-\infty,\infty)\),
+showing that the Lipschitz condition fails on the rectangle.
+Theorem 6.2 does not guarantee a solution for \(t\) in \([0,1]\).
+<hr>
+
+<b>11 (a)</b> The solution is \(y(t)=\frac{1}{2}t^2+C\). For initial conditions
+\(y(0)=0\) and \(y(0)=1\), respectively, the solutions are \(Y(t)=\frac{1}{2}t^2\) and
+\(Z(t) = \frac{1}{2}t^2+1\). The Lipschitz constant is \(L=0\), and Theorem 6.3 implies
+\(|Y(t)-Z(t)|\leq |Y(0)-Z(0)|\). In this example, \(|Y(t)-Z(t)| = |Y(0)-Z(0)|=1\),
+consistent with the theory. <p>
+<b>11 (b)</b> The solution is \(y(t)=Ce^t\). The pair of solutions is \(Y(t)=0\) and
+\(Z(t)=e^t\), so that \(|Y(t)-Z(t)|=e^t\). The Lipschitz constant is \(L=1\). The inequality
+from Theorem 6.3 is
+\[|Y(t)-Z(t)|\leq e^{(t-0)}|Y(0)-Z(0)|=e^t,\]
+which holds for \(t \geq 0\). <p>
+<b>11 (c)</b> The solution is \(y(t)=Ce^{-t}\). The pair of solutions is \(Y(t)=0\) and
+\(Z(t)=e^{-t}\), so that \(|Y(t)-Z(t)|=e^{-t}\). The Lipschitz constant is \(L=1\). The inequality
+from Theorem 6.3 is
+\[|Y(t)-Z(t)|\leq e^{(t-0)}|Y(0)-Z(0)|=e^t,\]
+which holds for \(t \geq 0\). <p>
+<b>11 (d)</b> No Lipschitz constant exists on the rectangle \([0,1]\times (-\infty, \infty)\).
+ However, the solutions \(y(t)=0\)
+and \(y(t)=(1+2t)^{-1/2}\) exist for initial conditions \(y(0)=0\) and
+\(y(0)=1\), respectively.
+<hr>
+
+<b>13</b>
+\begin{eqnarray*}
+\int \frac{dy}{y^2} &=& \int dt\\
+\frac{y^{-1}}{-1} &=& t+C\\
+y&=& -\frac{1}{t+C}
+\end{eqnarray*}
+The initial condition is \(1=y(0)=-1/(0+C)\), implying \(C=-1\), and \(y(t)=1/(1-t)\).
+<hr>
+
+<b>15 (a)</b> Since \(f(t,y)=\sin y\) has Lipschitz constant \(L=1\) for all \((t,y)\), Theorem 6.2 guarantees a unique solution on the entire interval \([a,b]\) (and moreover, on \([a,\infty))\). <p>
+<b>15 (b)</b> Check the solution \(y(t)=2\arctan (e^{t-a}\tan \frac{y_a}{2})+2\pi\left\lfloor (y_a+\pi)/2\pi \right\rfloor,\) where \(\left\lfloor \ \  \right\rfloor\) denotes the greatest integer function, by differentiating:
+\[ y'(t)=\frac{2e^{t-a}\tan \frac{y_a}{2}}{1+e^{2(t-a)}\tan^2\frac{y_a}{2}}. \] To simplify this expression, notice that \({\ds \tan \left(\frac{y}{2}-\pi k\right)=e^{t-a}\tan \frac{y_a}{2}}\) where \(k\) is the greatest integer \(\left\lfloor (y_a+\pi)/2\pi \right\rfloor\), and so one can rewrite
+\[ y'(t)=\frac{2\tan (\frac{y}{2}-\pi k)}{1+\tan^2 (\frac{y}{2}-\pi k)} = 2\sin \left(\frac{y}{2}-\pi k\right) \cos \left(\frac{y}{2}-\pi k \right) = \sin (y-2\pi k) = \sin y.\]
+Second, the initial condition must be checked. Since
+\({\ds \arctan (\tan x) = x- \left\lfloor \frac{x+\frac{\pi}{2}}{\pi} \right\rfloor \pi,}\) 
+\begin{eqnarray*}
+y_a&=&y(a)=2\arctan (e^{a-a}\tan \frac{y_a}{2})+2\pi\left\lfloor \frac{y_a+\pi}{2\pi} \right\rfloor \\
+&=&2\left(\frac{y_a}{2}-\left\lfloor \frac{\frac{y_a}{2}+\frac{\pi}{2}}{\pi} \right\rfloor \pi \right)+
+2\pi\left\lfloor \frac{y_a+\pi}{2\pi} \right\rfloor=y_a
+\end{eqnarray*} 
+
+
+
+
+
+
+
+</html>

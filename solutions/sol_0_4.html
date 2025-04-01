@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 0.4</h3>
+
+<b>1 (a)</b> For \(x\) near \(2\pi n\) for integer \(n\), \(\sec x\approx 1\), and
+the numerator exhibits subtraction of nearly equal numbers. An algebraically
+equivalent expression avoids the difficulty:
+\begin{eqnarray*}
+\frac{1-1/\cos x}{\tan^2x} &=& \frac{\cos x-1}{\cos x\tan^2 x}\\
+&=& \frac{\cos x-1}{\sec x\sin^2 x}\cdot\frac{\cos x+1}{\cos x+1}\\
+&=& \frac{\cos^2-1}{\sec x\sin^2 x(\cos x+1)}\\
+&=&-\frac{1}{1+\sec x}
+\end{eqnarray*}
+<b>1 (b)</b> For \(x\) near \(0\), the numerator subtracts nearly equal
+numbers. Simplifying to
+\[
+\frac{1-(1-x)^3}{x} = \frac{1-(1-3x+3x^2-x^3)}{x} = 3-3x+x^2
+\]
+eliminates the loss of significance.<p>
+<b>1 (c)</b> For \(x\) near \(0\), there is subtraction of nearly equal
+numbers. Using common denominators eliminates the problem:
+\[
+\frac{1}{1+x}-\frac{1}{1-x} = \frac{1-x-(1+x)}{(1+x)(1-x)}
+= \frac{2x}{x^2-1} \]
+<hr>
+
+<b>3</b> Since \(b\) is positive, the roots should be calculated as
+in (0.13):
+\begin{eqnarray*}
+x_1&=& -\frac{b+\sqrt{b^2+4\times 10^{-12}}}{2}\\
+x_2&=& \frac{2\times 10^{-12}}{b+\sqrt{b^2+4\times 10^{-12}}}
+\end{eqnarray*}
+
+
+
+
+</html>

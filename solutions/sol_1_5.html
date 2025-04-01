@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 1.5</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> Applying the Secant Method with \(x_0=1\) and \(x_1=2\)
+yields \(\ds
+x_2=x_1-\frac{(x_1-x_0)f(x_1)}{f(x_1)-f(x_0)}=\frac{8}{5}\) and
+\(x_3\approx1.742268\). <p>
+<b>1 (b)</b> Using the Secant Method formula with \(x_0=1\) and
+\(x_1=2\) as in (a) returns \(x_2\approx1.578707\) and
+\(x_3\approx1.660160\). <p>
+<b>1 (c)</b> The Secant Method yields \(x_2\approx1.092907\) and
+\(x_3\approx1.119357\).
+<hr>
+
+<b>3 (a)</b> Applying IQI with \(x_0=1\), \(x_1=2\) and \(x_2=0\) yields
+\(x_3=-\frac{1}{5}\) and \(x_4\approx-0.11996018\) from formula
+(1.37). <p>
+<b>3 (b)</b> Applying the IQI formula gives \(x_3\approx1.75771279\)
+and \(x_4\approx1.66253117\). <p>
+<b>3 (c)</b>Applying IQI as in (a) and (b) yields
+\(x_3\approx1.13948155\) and \(x_4\approx1.12927246\).
+<hr>
+
+<b>5</b> Setting \(A=f(a)\), \(B=f(b)\), \(C=f(c)\), and \(y=0\) in (1.35)
+gives
+\begin{eqnarray*}
+P(0)&=&\frac{af(b)f(c)}{(f(a)-f(b))(f(a)-f(c))}+
+\frac{bf(a)f(c)}{(f(b)-f(a))(f(b)-f(c))}\\&+&
+\frac{cf(a)f(b)}{(f(c)-f(a))(f(c)-f(b))}
+\\&=&
+\frac{a\frac{f(b)-f(c)}{f(a)}+b\frac{f(c)-f(a)}{f(b)}+
+c\frac{f(a)-f(b)}{f(c)}}{(1-\frac{f(b)}{f(a)})
+(\frac{f(a)}{f(c)}-1)(1-\frac{f(c)}{f(b)})}\\&=&
+\frac{as(1-qs)+bqs(r-q)+c(q-1)}{(q-1)(r-1)(s-1)}\\&=&
+c+\frac{as(1-r)+br(r-q)-c(r^2-qr-rs+s)}{(q-1)(r-1)(s-1)}\\&=&
+c-\frac{(c-b)r(r-q)+(c-a)s(1-r)}{(q-1)(r-1)(s-1)}.
+\end{eqnarray*}
+<hr>
+
+<b>7 (a)</b> (A) is the Bisection Method, which cuts uncertainty in half on each step. <p>
+(B) Check that \(f(2^{1/4})=0\) and \(f'(2^{1/4}) = (4)2^{3/4}\neq 0\). Therefore the Secant Method converges superlinearly.<p>
+(C) \(2^{1/4}\) is a fixed point because \({\ds g(2^{1/4}) = \frac{2^{1/4}}{2}+\frac{1}{2^{3/4}}
+ = \frac{2^{1/4}+2^{1/4}}{2}=2^{1/4}.}\) <p>
+Note that  \({\ds g'(x)=\frac{1}{2}-\frac{3}{x^4} \Rightarrow g'(2^{1/4})=\frac{1}{2}-\frac{3}{(2^{1/4})^4} = \frac{1}{2}-\frac{3}{2}= -1.}\) <p>
+(D) \(2^{1/4}\) is a fixed point because \({\ds g(2^{1/4}) = \frac{2\cdot 2^{1/4}}{3}+\frac{2}{(3)2^{3/4}}
+ = \frac{2}{3}2^{1/4}+\frac{1}{3}2^{1/4}=2^{1/4}.}\)<p>
+Note that  \({\ds g'(x)=\frac{1}{3}-\frac{3}{3x^4} \Rightarrow g'(2^{1/4})=\frac{1}{3}-\frac{1}{(2^{1/4})^4} = \frac{1}{3}-\frac{1}{2}= -1/6.}\) <p>
+Fastest to slowest: (B), (D), (A); (C) does not converge to \(2^{1/4}\). <p>
+<b>7 (b)</b> Newton's Method will converge faster than the four above choices.
+
+
+</html>

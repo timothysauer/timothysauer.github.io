@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 6.7</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> Using the Explicit Trapezoid Method with \(y(0)=1\) and \(h=1/4\), we calculate
+\begin{eqnarray*}
+w_{1}&=&w_0+\frac{h}{2}[f(t_0,w_0)+f(t_0+h,w_0+hf(t_0,w_0))]\\
+&=&1+\frac{1}{8}[t_0+t_1] = 1+\frac{1}{8}\left[\frac{1}{4}\right]=\frac{33}{32}.
+\end{eqnarray*}
+For the remainder of the steps, we apply
+the Adams-Bashforth Two-Step Method, which is
+\begin{eqnarray*}
+w_{i+1}&=&w_i+h\left[\frac{3}{2}f(t_i,w_i)-\frac{1}{2}f(t_{i-1},w_{i-1})\right]\\
+&=&w_i+h\left[\frac{3}{2}t_i-\frac{1}{2}t_{i-1}\right].
+\end{eqnarray*}
+Therefore
+\begin{eqnarray*}
+w_2&=&\frac{33}{32}+\frac{1}{4}\left[\frac{3}{2}\cdot\frac{1}{4}\right] = \frac{9}{8}\\
+w_3&=&\frac{9}{8}+\frac{1}{4}\left[\frac{3}{2}\cdot\frac{1}{2}-\frac{1}{2}\cdot\frac{1}{4}\right] = \frac{41}{32}\\
+w_4&=&\frac{41}{32}+\frac{1}{4}\left[\frac{3}{2}\cdot\frac{3}{4}-\frac{1}{2}\cdot\frac{1}{2}\right] = \frac{3}{2}\\
+\end{eqnarray*}
+Global error at \(t=1\) is \(0\).<p>
+<b>1 (b)</b> Using the Explicit Trapezoid Method with \(y(0)=1\) and \(h=1/4\), we calculate
+\(w_1\approx 1.0078\), as in Exercise 6.2.1(b).
+The Adams-Bashforth Two-Step Method is
+\begin{eqnarray*}
+w_{i+1}&=&w_i+h[\frac{3}{2}f(t_i,w_i)-\frac{1}{2}f(t_{i-1},w_{i-1})]\\
+&=&w_i+h[\frac{3}{2}t_i^2w_i-\frac{1}{2}t_{i-1}^2w_{i-1}].
+\end{eqnarray*}
+Completing the last three steps results in the following table:
+\[\begin{array}{cr}
+t_i&w_i\ \ \ \ \\
+0&1.0000\\
+1/4&1.0078\\
+1/2&1.0314\\
+3/4&1.1203\\
+1&1.3243\\
+\end{array}\]
+Global error at \(t=1\) is \(0.0713\).<p>
+<b>1 (c)</b> The Explicit Trapezoid Method gives
+\(w_1\approx 1.7188\).
+The Adams-Bashforth Two-Step Method for the equation is
+\begin{eqnarray*}
+w_{i+1}&=&w_i+h[\frac{3}{2}f(t_i,w_i)-\frac{1}{2}f(t_{i-1},w_{i-1})]\\
+&=&w_i+h[\frac{3}{2}2(t_i+1)w_i-\frac{1}{2}2(t_{i-1}+1)w_{i-1}].
+\end{eqnarray*}
+The Adams-Bashforth approximation is
+\[\begin{array}{cr}
+t_i&w_i\ \ \ \ \\
+0&1.0000\\
+1/4&1.7188\\
+1/2&3.0801\\
+3/4&6.0081\\
+1&12.7386\\
+\end{array}\]
+Global error at \(t=1\) is \(7.3469\).<p>
+<b>1 (d)</b> The Explicit Trapezoid Method gives
+\(w_1\approx 1.0024\).
+The Adams-Bashforth Two-Step Method for the equation is
+\begin{eqnarray*}
+w_{i+1}&=&w_i+h[\frac{3}{2}f(t_i,w_i)-\frac{1}{2}f(t_{i-1},w_{i-1})]\\
+&=&w_i+h[\frac{3}{2}5t_i^4w_i-\frac{1}{2}5t_{i-1}^4w_{i-1}].
+\end{eqnarray*}
+The Adams-Bashforth approximation is
+\[\begin{array}{cr}
+t_i&w_i\ \ \ \ \\
+0&1.0000\\
+1/4&1.0024\\
+1/2&1.0098\\
+3/4&1.1257\\
+1&1.7540\\
+\end{array}\]
+Global error at \(t=1\) is \(0.9642\).<p>
+<b>1 (e)</b> The Explicit Trapezoid Method gives
+\(w_1\approx 1.2050\).
+The Adams-Bashforth Two-Step Method for the equation is
+\begin{eqnarray*}
+w_{i+1}&=&w_i+h[\frac{3}{2}f(t_i,w_i)-\frac{1}{2}f(t_{i-1},w_{i-1})]\\
+&=&w_i+h[\frac{3}{2}\frac{1}{w_i^2}-\frac{1}{2}\frac{1}{w_{i-1}^2}].
+\end{eqnarray*}
+The Adams-Bashforth approximation is
+\[\begin{array}{cr}
+t_i&w_i\ \ \ \ \\
+0&1.0000\\
+1/4&1.2050\\
+1/2&1.3383\\
+3/4&1.4616\\
+1&1.5673\\
+\end{array}\]
+Global error at \(t=1\) is \(0.0201\).<p>
+<b>1 (f)</b> The Explicit Trapezoid Method gives
+\(w_1\approx 1.0020\).
+The Adams-Bashforth Two-Step Method for the equation is
+\begin{eqnarray*}
+w_{i+1}&=&w_i+h[\frac{3}{2}f(t_i,w_i)-\frac{1}{2}f(t_{i-1},w_{i-1})]\\
+&=&w_i+h[\frac{3}{2}\frac{t_i^3}{w_i^2}-\frac{1}{2}\frac{t_{i-1}^3}{w_{i-1}^2}].
+\end{eqnarray*}
+The Adams-Bashforth approximation is
+\[\begin{array}{cr}
+t_i&w_i\ \ \ \ \\
+0&1.0000\\
+1/4&1.0020\\
+1/2&1.0078\\
+3/4&1.0520\\
+1&1.1796\\
+\end{array}\]
+Global error at \(t=1\) is \(0.0255\).
+<hr>
+
+<b>3</b> The local truncation error of a two-step explicit method is
+\[\frac{4+a_1}{12}h^3y_i'''+O(h^4)\]
+according to (6.79). Setting \(a_1= -4\) makes the local truncation error
+of order four, and the resulting method of order three. From (6.78), we
+calculate \(a_2=5, b_1=4, b_2=2\). Referring to the definition (6.74), the
+third-order two-step explicit method is
+\[w_{i+1} = -4w_i+5w_{i-1}+h[4f_i+2f_{i-1}].\]
+Stability is checked from the roots of the polynomial
+\[P(x) = x^2-a_1x-a_2 = x^2+4x-5 = (x+5)(x-1).\]
+The root \(-5\) causes the method to fail  Definition 6.6 of stability.
+<hr>
+
+<b>5</b> From (6.75) and (6.76), we need to check the requirements
+\begin{eqnarray*}
+a_1+a_2&=&1\\
+b_0+b_1+b_2-a_2&=&1\\
+a_2-2b_2+2b_0&=&1
+\end{eqnarray*}
+If so, then the local truncation error is \(O(h^3)\) and the method is
+second order. For the Implicit Trapezoidal Method (6.89), \(a_1=1, a_2=0,
+b_0=1/2, b_1=1/2, b_2=0\), and it is easy to check that the requirements
+are satisfied.
+<hr>
+
+<b>7 (a)</b> The second-order two-step methods are those that satisfy (6.77).
+The characteristic polynomial is
+\[ P(x)=x^2-a_1x-a_2 =x^2-a_1x-(1-a_1) = (x-1)(x+1-a_1).\]
+The roots are \(1\) and \(a_1-1\). The method is stable if \(|a_1-1|\leq 1\) and \(a_1\neq 2\),
+true for \(0\leq a_1< 2\). If \(0< a_1< 2\), there is only one root of absolute value
+one, and the method is strongly stable. <p>
+<b>7 (b)</b> From Exercise 7(a), the method is weakly stable if \(a_1=0\).
+<hr>
+
+<b>9 (a)</b> The coefficients of the method are \(a_1=3, a_2= -2, b_0 = 13/12,
+b_1= -5/3, b_2 = -5/12\). The first three equations of (6.91) are satisfied:
+\begin{eqnarray*}
+a_1+a_2&=& 3 - 2 = 1\\
+-a_2+b_0+b_1+b_2&=&2+\frac{13}{12}-\frac{5}{3}-\frac{5}{12} = 1\\
+a_2+2b_0-2b_2&=&-2+\frac{13}{6}+\frac{5}{6} = 1,
+\end{eqnarray*}
+implying that the method is at least second-order. It will be third order
+if and only if it satisfies the fourth equation of (6.91):
+\[ -a_2+3b_0+3b_2 = 2+\frac{13}{4}-\frac{5}{4} = 4\neq 1.\]
+Therefore the method is second order. The characteristic polynomial
+is \[ P(x) =  x^2-3x+2 = (x-2)(x-1).\]
+Since there is a root of absolute value greater than \(1\), the method is
+unstable. <p>
+<b>9 (b)</b> The coefficients are \(a_1=4/3, a_2= -1/3, b_0 = 2/3,
+b_1= b_2 = 0\). The first three equations of (6.91) are satisfied
+but the fourth equation fails:
+\[ -a_2+3b_0+3b_2 = \frac{1}{3}+2 \neq 1.\]
+The method is second order. The characteristic polynomial
+is \[ P(x) =  x^2-\frac{4}{3}x+\frac{1}{3} = (x-1)(x-\frac{1}{3})\]
+with all roots at most one in absolute value and only one root
+of absolute value one. Therefore the method is strongly stable. <p>
+<b>9 (c)</b> The coefficients are \(a_1=4/3, a_2= -1/3, b_0 = b_1=4/9,
+b_2= -2/9\). The first three equations of (6.91) are satisfied, and
+the fourth equation is satisfied as well:
+\[ -a_2+3b_0+3b_2 = \frac{1}{3}+\frac{4}{3}-\frac{2}{3} =  1.\]
+Therefore the method is third order. The characteristic polynomial
+is \[ P(x) =  x^2-\frac{4}{3}x+\frac{1}{3} = (x-1)(x-\frac{1}{3}).\]
+Since all roots are at most one in absolute value and only one root
+has absolute value one, the method is strongly stable. <p>
+<b>9 (d)</b> The coefficients are \(a_1=3, a_2= -2, b_0 = 7/12, b_1=-2/3,
+b_2= -11/12\). The first three equations of (6.91) are satisfied, and
+the fourth equation is satisfied as well:
+\[ -a_2+3b_0+3b_2 = 2+\frac{7}{4}-\frac{11}{4} =  1.\]
+The method is third order, with characteristic polynomial
+ \( P(x) =  x^2-3x+2 = (x-1)(x-2)\).<p>
+Because the roots are \(1\) and \(2\), the method is unstable. <p>
+<b>9 (e)</b> The coefficients are \(a_1=2, a_2= -1, b_0 = 1/2, b_1=0,
+b_2= -1/2\). The first three equations of (6.91) are satisfied, and
+the fourth equation is satisfied as well:
+\[ -a_2+3b_0+3b_2 = 1+\frac{3}{2}-\frac{3}{2} =  1.\]
+Therefore the method is third order. The characteristic polynomial
+is \( P(x) =  x^2-2x+1 = (x-1)^2\).
+Because of the double root, the method is unstable.
+<hr>
+
+<b>11</b> A second-order implicit method must satisfy \(b_0\neq 0\) and
+the first two equations of (6.91), and fail to satisfy the third.
+The characteristic polynomial is
+\[P(x)=x^2-a_1x-(1-a_1) = (x-1)(x-(a_1-1))\]
+with roots \(1\) and \(a_1-1\). To be weakly stable, \(a_1\) must be \(0\).
+If \(a_1=0\), then \(a_2=1\), and \(b_0+b_1+b_2=2\). For example,
+\(a_1=0, a_2=1, b_0=1, b_1= -1, b_2=2\) satisfy the requirements.
+<hr>
+
+<b>13</b>
+We mimic the development in the text.
+Assume that all previous \(w_i\) are correct, i.e. \(w_i=y_i\) and
+\(w_{i-1}=y_{i-1}\). Assume that \(b_0=0\) for an explicit method.
+The differential equation says
+that \(y'_i = f_i\), so that all terms can be expanded in a Taylor
+expansion as follows:
+\begin{eqnarray*}
+w_{i+1}&=&a_1w_i+a_2w_{i-1}+a_3w_{i-2}+
+h[b_0f_{i+1}+b_1f_i+b_2f_{i-1}+b_3f_{i-2}]\\
+&=&
+\begin{array}[t]{lllllllllllll}
+&&a_1[y_i]\\
+&+&a_2[y_i&-&hy'_i&+&\frac{h^2}{2}y''_i&-&\frac{h^3}{6}y'''_i&+&\frac{h^4}{24}y''''_i- \ldots]\\
+&+&a_3[y_i&-&2hy'_i&+&\frac{4h^2}{2}y''_i&-&\frac{8h^3}{6}y'''_i&+&\frac{16h^4}{24}y''''_i- \ldots]\\
+&+&b_1[&&hy'_i]\\
+&+&b_2[&&hy'_i&-&h^2y''_i&+&\frac{h^3}{2}y'''_i&-&\frac{h^4}{6}y''''_i+\ldots]\\
+&+&b_3[&&hy'_i&-&2h^2y''_i&+&\frac{4h^3}{2}y'''_i&-&\frac{8h^4}{6}y''''_i+\ldots]\\
+\end{array}
+\end{eqnarray*}
+Adding up the terms gives
+\begin{eqnarray*}
+w_{i+1} &=&
+(a_1+a_2+a_3)y_i\\
+&+&\textstyle (-a_2-2a_3+b_1+b_2+b_3)hy'_i+(a_2+4a_3-2b_2-4b_3)\frac{h^2}{2}y''_i\\
+&+&\textstyle(-a_2-8a_3+3b_2+12b_3)\frac{h^3}{6}y'''_i+
+(a_2+16a_3-4b_2-32b_3)\frac{h^4}{24}y''''_i+\ldots
+\end{eqnarray*}
+By choosing the \(a_i\) and \(b_i\) appropriately, the local
+truncation error \(y_{i+1}-w_{i+1}\), where
+\[
+y_{i+1} = y_i+hy'_i+\frac{h^2}{2}y''_i+\frac{h^3}{6}y'''_i+\ldots
+\]
+can be made as small as possible.
+Matching terms up to a fourth order local truncation error yields the system
+\begin{eqnarray*}
+a_1+a_2+a_3 &=& 1\\
+-a_2-2a_3+b_1+b_2+b_3&=& 1\\
+a_2+4a_3-2b_2-4b_3 &=& 1\\
+-a_2-8a_3+3b_2+12b_3&=&1.
+\end{eqnarray*}
+A three-step explicit method is third order if and only if these equations
+hold. <p>
+
+To make the method weakly stable, we could require
+\(P(x)=x(x+1)(x-1)=x^3-x\), or \(a_1=a_3=0\) and \(a_2=1\). Then the first of
+the above four equations is satisfied, and the three remaining equations
+are
+\begin{eqnarray*}
+-1+b_1+b_2+b_3&=& 1\\
+1-2b_2-4b_3 &=& 1\\
+-1+3b_2+12b_3&=&1.
+\end{eqnarray*}
+Solving the three equations yields \(b_1=7/3, b_2= -2/3\), and \(b_3=1/3\).
+Therefore
+\[w_{i+1} = w_{i-1}+h[\frac{7}{3}-\frac{2}{3}f_{i-1}+\frac{1}{3}f_{i-2}]\]
+is a weakly stable third-order three-step method.
+<hr>
+
+<b>15 (a)</b>  Note that \(s=3\) so \(a_1 = 1, a_2=a_3=0\) and the matrix formulation is 
+\[
+\left[\begin{array}{ccc}
+1&-1&-2\\
+1&(-1)^2&(-2)^2\\
+1&(-1)^3&(-2)^3
+\end{array}\right]
+\left[\begin{array}{r}
+b_0\\b_2\\b_3
+\end{array}\right]
+=
+\left[\begin{array}{r}
+1/2\\1/3\\1/4
+\end{array}\right]
+\]
+
+<p>
+<b>15 (b)</b> By elimination, the solution of the matrix formulation is
+\(b_0=9/24, b_2= -5/24, b_3= 1/24\), and we compute \(b_1=1-b_0-b_2-b_3=19/24.\) <p>
+<b>15 (c)</b> For the Adams-Moulton Three-Step Method, the coefficients
+are \(a_1=1, a_2=a_3=0, b_0=9/24, b_1=19/24, b_2= -5/24, b_3= 1/24.\)
+ The characteristic polynomial is \[P(x)= x^3-a_1x^2-a_2x-a_3=x^3-x^2=x^2(x-1),\]
+with a double root at \(0\) and a simple root at \(1\). The method is strongly stable.
+
+
+</html>

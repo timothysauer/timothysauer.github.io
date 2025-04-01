@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 4.4</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> The residual is \({\ds r = b-Ax_0 = 
+\left[\begin{array}{r}
+1\\0\\0
+\end{array}\right] = q_1=r}\).<p>
+\({\ds y=Aq_1 = 
+\left[\begin{array}{r}
+1\\0\\1
+\end{array}\right]}\) and we orthogonalize by
+\({\ds y'=y-q_1q_1^Ty = y-h_{11}q_1 = 
+\left[\begin{array}{r}
+0\\0\\1
+\end{array}\right], h_{11}=1}\), and so
+\({\ds q_2=
+\left[\begin{array}{r}
+0\\0\\1
+\end{array}\right]}\) and \(h_{21}=1\). The first estimate \(x_1\) is found by finding the number \(c_1\) that best fits
+\({\ds \left[\begin{array}{r}
+1\\1
+\end{array}\right] c_1 = 
+\left[\begin{array}{r}
+1\\0
+\end{array}\right]}\), which from the normal equations is \(c_1=1/2\). Therefore \({\ds x_1 = Q_1c_1+x_0=
+\left[\begin{array}{r}
+1\\0\\0
+\end{array}\right] (1/2)+
+\left[\begin{array}{r}
+0\\0\\0
+\end{array}\right]=
+\left[\begin{array}{c}
+1/2\\0\\0
+\end{array}\right] }\).<p>
+In step two, we find
+\({\ds y=Aq_2 = 
+\left[\begin{array}{r}
+0\\0\\1
+\end{array}\right]}\) and orthogonalize by 
+\begin{eqnarray*} y'&=&y-q_1q_1^Ty= y-h_{12}q_1 = 
+\left[\begin{array}{r}
+0\\0\\1
+\end{array}\right], h_{12}=0\\
+ y''&=&y'-q_2q_2^Ty= y-h_{22}q_1 = 
+\left[\begin{array}{r}
+0\\0\\0
+\end{array}\right], h_{22}=1.
+\end{eqnarray*}
+ Therefore
+\(h_{32}=0\), terminating the iteration. The second and final estimate \(x_2\) is found by finding the 2-vector \(c_2\) that best fits
+\({\ds \left[\begin{array}{rr}
+1&0\\1&1\\0&0
+\end{array}\right] c_2 = 
+\left[\begin{array}{r}
+1\\0\\0
+\end{array}\right]}\), which from the normal equations is \(c_2=[1, -1]^T\). Finally \({\ds x_2 = Q_2c_2+x_0=
+\left[\begin{array}{rr}
+1&0\\0&0\\0&1
+\end{array}\right] 
+\left[\begin{array}{r}
+1\\-1
+\end{array}\right]+
+\left[\begin{array}{r}
+0\\0\\0
+\end{array}\right]=
+\left[\begin{array}{r}
+1\\0\\-1
+\end{array}\right] }\). <p>
+
+<b>1 (b)</b> The residual is \({\ds r = b-Ax_0 = 
+\left[\begin{array}{r}
+1\\0\\0
+\end{array}\right] = q_1=r}\).<p>
+\({\ds y=Aq_1 = 
+\left[\begin{array}{r}
+1\\-1\\0
+\end{array}\right]}\) and we orthogonalize by
+\({\ds y'=y-q_1q_1^Ty = y-h_{11}q_1 = 
+\left[\begin{array}{r}
+0\\-1\\0
+\end{array}\right], h_{11}=1}\), and so
+\({\ds q_2=
+\left[\begin{array}{r}
+0\\-1\\0
+\end{array}\right]}\) and \(h_{21}=1\). The first estimate \(x_1\) is found by finding the number \(c_1\) that best fits
+\({\ds \left[\begin{array}{r}
+1\\1
+\end{array}\right] c_1 = 
+\left[\begin{array}{r}
+1\\0
+\end{array}\right]}\), which from the normal equations is \(c_1=1/2\). Therefore \({\ds x_1 = Q_1c_1+x_0=
+\left[\begin{array}{r}
+1\\0\\0
+\end{array}\right] (1/2)+
+\left[\begin{array}{r}
+0\\0\\0
+\end{array}\right]=
+\left[\begin{array}{c}
+1/2\\0\\0
+\end{array}\right] }\).<p>
+In step two, we find
+\({\ds y=Aq_2 = 
+\left[\begin{array}{r}
+-1\\-1\\0
+\end{array}\right]}\) and orthogonalize by 
+\begin{eqnarray*} y'&=&y-q_1q_1^Ty= y-h_{12}q_1 = 
+\left[\begin{array}{r}
+0\\-1\\0
+\end{array}\right], h_{12}=-1\\
+ y''&=&y'-q_2q_2^Ty= y-h_{22}q_1 = 
+\left[\begin{array}{r}
+0\\0\\0
+\end{array}\right], h_{22}=1.
+\end{eqnarray*}
+ Therefore
+\(h_{32}=0\), terminating the iteration. The second and final estimate \(x_2\) is found by finding the 2-vector \(c_2\) that best fits
+\({\ds \left[\begin{array}{rr}
+1&-1\\1&1\\0&0
+\end{array}\right] c_2 = 
+\left[\begin{array}{r}
+1\\0\\0
+\end{array}\right]}\), which from the normal equations is \(c_2=[1/2, -1/2]^T\). Finally \({\ds x_2 = Q_2c_2+x_0=
+\left[\begin{array}{rr}
+1&0\\0&-1\\0&0
+\end{array}\right] 
+\left[\begin{array}{r}
+1/2\\-1/2
+\end{array}\right]+
+\left[\begin{array}{r}
+0\\0\\0
+\end{array}\right]=
+\left[\begin{array}{r}
+1/2\\1/2\\0
+\end{array}\right] }\).<p>
+
+<b>1 (c)</b> The residual is \({\ds r = b-Ax_0 = 
+\left[\begin{array}{r}
+1\\0\\0
+\end{array}\right] = q_1=r}\).<p>
+\({\ds y=Aq_1 = 
+\left[\begin{array}{r}
+0\\1\\0
+\end{array}\right]}\) and we orthogonalize by
+\({\ds y'=y-q_1q_1^Ty = y-h_{11}q_1 = 
+\left[\begin{array}{r}
+0\\1\\0
+\end{array}\right], h_{11}=0}\), and so
+\({\ds q_2=
+\left[\begin{array}{r}
+0\\1\\0
+\end{array}\right]}\) and \(h_{21}=1\). The first estimate \(x_1\) is found by finding the number \(c_1\) that best fits
+\({\ds \left[\begin{array}{r}
+0\\1
+\end{array}\right] c_1 = 
+\left[\begin{array}{r}
+1\\0
+\end{array}\right]}\), which from the normal equations is \(c_1=0\). Therefore \({\ds x_1 = Q_1c_1+x_0=
+\left[\begin{array}{r}
+0\\0\\0
+\end{array}\right]}\). <p>
+In step two, we find
+\({\ds y=Aq_2 = 
+\left[\begin{array}{r}
+0\\0\\1
+\end{array}\right]}\) and orthogonalize by 
+\begin{eqnarray*} y'&=&y-q_1q_1^Ty= y-h_{12}q_1 = 
+\left[\begin{array}{r}
+0\\0\\1
+\end{array}\right], h_{12}=0\\
+ y''&=&y'-q_2q_2^Ty= y-h_{22}q_1 = 
+\left[\begin{array}{r}
+0\\0\\1
+\end{array}\right], h_{22}=0.
+\end{eqnarray*}
+ Therefore
+\(h_{32}=1\). The second estimate \(x_2\) is found by finding the vector \(c_2\) that best fits
+\({\ds \left[\begin{array}{rr}
+0&0\\1&0\\0&1
+\end{array}\right] c_2 = 
+\left[\begin{array}{rr}
+1\\0\\0
+\end{array}\right]}\), which from the normal equations is \({\ds c_2=
+\left[\begin{array}{r}
+0\\0
+\end{array}\right]
+}\). <p>
+Therefore \({\ds x_2 = Q_2c_2+x_0=
+\left[\begin{array}{r}
+0\\0\\0
+\end{array}\right]}\). <p>
+In step three, we find
+\({\ds y=Aq_3 = 
+\left[\begin{array}{r}
+1\\0\\0
+\end{array}\right]}\) and orthogonalize by 
+\begin{eqnarray*} y'&=&y-q_1q_1^Ty= y-h_{12}q_1 = 
+\left[\begin{array}{r}
+0\\0\\0
+\end{array}\right], h_{13}=1
+\end{eqnarray*}
+and \(h_{23}=h_{33}=h_{43}=0\).  The third and final estimate \(x_3\) is found by finding the 3-vector \(c_3\) that best fits
+\({\ds \left[\begin{array}{rrr}
+0&0&1\\1&0&0\\0&1&0\\0&0&0
+\end{array}\right] c_3 = 
+\left[\begin{array}{r}
+1\\0\\0\\0
+\end{array}\right]}\), which from the normal equations is \({\ds c_3=
+\left[\begin{array}{r}
+0\\0\\1
+\end{array}\right].
+}\) <p> Finally \({\ds x_3 = Q_3c_3+x_0=
+\left[\begin{array}{rrr}
+1&0&0\\0&1&0\\0&0&1
+\end{array}\right] 
+\left[\begin{array}{r}
+0\\0\\1
+\end{array}\right]+
+\left[\begin{array}{r}
+0\\0\\0
+\end{array}\right]=
+\left[\begin{array}{r}
+0\\0\\1
+\end{array}\right] }\).
+<hr>
+
+<b>3</b> GMRES terminates at the correct solution after two steps because \(h_{32}=0\) in the \(k=2\) step, since the Modified Gram Schmidt orthogonalization in the inner loop results in \(y=0\). To show this, it suffices to prove that \(A^2r\) belongs to span \(\langle r, Ar \rangle\). Write the matrix 
+\[A=
+\left[\begin{array}{ccc}
+1&0&a_{13}\\
+0&1&a_{23}\\
+0&0&1
+\end{array}\right]
+=
+\left[\begin{array}{cc}
+I&a\\
+0&I
+\end{array}\right]
+\] in block form where \({\ds 
+a=
+\left[\begin{array}{r}
+a_{13}\\a_{23}
+\end{array}\right], 
+}\) and the residual as \({\ds 
+r=
+\left[\begin{array}{ccc}
+r_1\\
+r_2
+\end{array}\right]
+}\) where \(r_1\) is a 2-vector and \(r_2\) is a scalar. In block form we can multiply
+\[Ar = 
+\left[\begin{array}{cc}
+I&a\\0&I
+\end{array}\right]
+\left[\begin{array}{c}
+r_1\\r_2
+\end{array}\right]=
+\left[\begin{array}{c}
+r_1+ar_2\\r_2
+\end{array}\right]= r+
+\left[\begin{array}{c}
+ar_2\\0
+\end{array}\right],\]
+and
+\[
+A^2r=Ar+A
+\left[\begin{array}{c}
+ar_2\\0
+\end{array}\right]=
+r+\left[\begin{array}{c}
+ar_2\\0
+\end{array}\right]+\left[\begin{array}{c}
+ar_2\\0
+\end{array}\right]=
+r+2\left[\begin{array}{c}
+ar_2\\0
+\end{array}\right],
+\]
+showing that \(A^2r\) belongs to span \(\langle r, Ar \rangle\).
+
+
+
+</html>

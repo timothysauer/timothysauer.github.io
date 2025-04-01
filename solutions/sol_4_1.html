@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 4.1</h3>
+\(\def\ds{\displaystyle} \)
+<b> 1(a)</b> To solve the normal equations we first calculate
+\[A^TA =
+\left[\begin{array}{rr}
+5&4\\4&6\\
+\end{array}\right]
+\text{ and }
+A^Tb =
+\left[\begin{array}{r}
+5\\8\\
+\end{array}\right].\]
+Solving \(A^TAx=A^Tb\) yields the least squares solution \(\overline{x}=[-1/7,10/7]^T\).
+The residual error is \(e=b-A\overline{x}=[2/7, -3/7, -1/7]\) with 2-norm \(||e||_2 = \sqrt{\frac{4}{49}
++\frac{9}{49}+\frac{1}{49}} = \sqrt{14}/7\). <p>
+<b>1 (b)</b> The normal equations are \(A^TAx=A^Tb\) where
+\[A^TA =
+\left[\begin{array}{cc}
+14&6\\6&3\\
+\end{array}\right]
+\text{ and }
+A^Tb =
+\left[\begin{array}{r}
+5\\3\\
+\end{array}\right].\]
+Solving the normal equations gives the least squares solution \(\overline{x}=[-1/2,2]^T\).
+The residual error is \(e=b-A\overline{x}=[-1/2, 1, -1/2]\) with 2-norm \(||e||_2 = \sqrt{\frac{1}{4}
++1+\frac{1}{4}} = \sqrt{6}/2\). <p>
+<b>1 (c)</b>  The normal equations are \(A^TAx=A^Tb\) where
+\[A^TA =
+\left[\begin{array}{cc}
+10&9\\9&10\\
+\end{array}\right]
+\text{ and }
+A^Tb =
+\left[\begin{array}{r}
+16\\16\\
+\end{array}\right].\]
+The normal equations give \(\overline{x}=[16/19,16/19]^T\).
+The residual error is \(e=b-A\overline{x}=[9/19,25/19,9/19,-26/19]\) with 2-norm \(||e||_2 \approx 2.013\).
+<hr>
+
+<b>3</b>  The normal equations are \(A^TAx=A^Tb\), or
+\[
+\left[\begin{array}{cc}
+3&0\\0&0\\
+\end{array}\right]
+\left[\begin{array}{r}
+x_1\\x_2\\
+\end{array}\right]=
+\left[\begin{array}{r}
+12\\0\\
+\end{array}\right].\]
+Solving the normal equations gives \(x_1=4\) and \(x_2\) arbitrary. Therefore there are
+infinitely many least squares solutions \(\overline{x}=[4,x_2]\).
+<hr>
+
+<b>5</b>  The three properties: <p>
+(i) \(||x||_2\geq 0\) is guaranteed by the
+definition \(||x||_2=\sqrt{x_1^2+\ldots+x_n^2}\), and if \(||x||_2=0\), all components
+\(x_i\) must be zero.<p>
+(ii) For a scalar \(\alpha\),
+\begin{eqnarray*}
+||\alpha x||_2 &=&\sqrt{\alpha^2 x_1^2+\ldots+\alpha^2 x_n^2}\\
+&=& |\alpha|\sqrt{x_1^2+\ldots+x_n^2}\\
+&=& |\alpha|\cdot||x||_2
+\end{eqnarray*}<p>
+(iii) Given two vectors \(x\) and \(y\),
+\begin{eqnarray*}
+||x+y||_2^2&=&(x_1+y_1)^2+\ldots+(x_n+y_n)^2\\
+&=&x_1^2+\ldots+x_n^2+y_1^2+\ldots+y_n^2+2(x_1y_1+\ldots+x_ny_n)\\
+&\leq& ||x||_2^2+||y||_2^2+2||x||_2||y||_2 = (||x||_2+||y||_2)^2
+\end{eqnarray*}
+where the Cauchy-Schwarz inequality was used to obtain the last line.
+Taking square roots proves the triangle inequality for the 2-norm.
+<hr>
+
+
+<b>7 (a)</b> Substituting the data points \((t,y)\) into the model \(y=c_1+c_2t\) gives the
+five equations
+\begin{eqnarray*}
+c_1+c_2(-3)&=&\ \ \ 3\\
+c_1+c_2(-1)&=&\ \ \ 2\\
+c_1+c_2(0)&=&\ \ \ 1\\
+c_1+c_2(1)&=&-1\\
+c_1+c_2(3)&=&-4.
+\end{eqnarray*}
+Converting to matrix form,
+\[Ax =
+\left[\begin{array}{rr}
+1&-3\\1&-1\\1&0\\1&1\\1&3\\
+\end{array}\right]
+\left[\begin{array}{r}
+c_1\\c_2\\
+\end{array}\right]=
+\left[\begin{array}{r}
+3\\2\\1\\-1\\-4\\
+\end{array}\right]=b.\]
+The normal equations are
+\[\left[\begin{array}{cc}
+5&0\\0&20\\
+\end{array}\right]
+\left[\begin{array}{r}
+c_1\\c_2\\
+\end{array}\right]=
+\left[\begin{array}{r}
+1\\-24\\
+\end{array}\right]\]
+and the least squares solution is \(\overline{c}=[1/5, -6/5]^T\), corresponding to the line
+\(y=\frac{1}{5}-\frac{6}{5}t\). The residual error is \(e=[-4/5, 3/5, 4/5, 0, -3/5]^T\), which has RMSE
+\[\frac{\sqrt{(-\frac{4}{5})^2+(\frac{3}{5})^2+(\frac{4}{5})^2+(-\frac{3}{5})^2}}{\sqrt{5}}
+ = \sqrt{\frac{2}{5}}.\]
+<b>7 (b)</b> Similar to (a). The model \(y=c_1+c_2t\) leads to the system
+\[Ax =
+\left[\begin{array}{rr}
+1&1\\1&1\\1&2\\1&2\\1&4\\
+\end{array}\right]
+\left[\begin{array}{r}
+c_1\\c_2\\
+\end{array}\right]=
+\left[\begin{array}{r}
+1\\2\\2\\3\\3\\
+\end{array}\right]=b.\]
+The normal equations are
+\[\left[\begin{array}{cc}
+5&10\\10&26\\
+\end{array}\right]
+\left[\begin{array}{r}
+c_1\\c_2\\
+\end{array}\right]=
+\left[\begin{array}{r}
+11\\25\\
+\end{array}\right]\]
+and the least squares solution is \(\overline{c}=[6/5, 1/2]^T\),
+corresponding to the line
+\(y=6/5+t/2\). The residual error is \(e=[-0.7, 0.3, -0.2, 0.8, -0.2]^T\),
+which has RMSE = \(\sqrt{26}/10\).
+<hr>
+
+<b>9 (a)</b> Substituting the four data points into the model \(y=c_1+c_2t+c_3t^2\)
+results in the system of equations
+\[\left[\begin{array}{ccc}
+1&0&0\\
+1&1&1\\
+1&2&4\\
+1&5&25\\
+\end{array}\right]
+\left[\begin{array}{r}
+c_1\\c_2\\c_3\\
+\end{array}\right]=
+\left[\begin{array}{r}
+0\\3\\3\\6\\
+\end{array}\right]\]
+The normal equations are
+\[\left[\begin{array}{ccc}
+4&8&30\\
+8&30&134\\
+30&134&642\\
+\end{array}\right]
+\left[\begin{array}{r}
+c_1\\c_2\\c_3\\
+\end{array}\right]=
+\left[\begin{array}{c}
+12\\39\\165\\
+\end{array}\right].\]
+Solving for \(c_1,c_2, c_3\) leads to the least squares parabola
+\(y=0.3481+1.9475t-0.1657t^2\). The RMSE is \(0.5519\), compared to
+\(0.6944\) for the least squares line fit in Exercise 8(a).<p>
+<b>9 (b)</b> Substituting the four data points into the model \(y=c_1+c_2t+c_3t^2\)
+results in the system of equations
+\[\left[\begin{array}{ccc}
+1&1&1\\
+1&3&9\\
+1&4&16\\
+1&6&36\\
+\end{array}\right]
+\left[\begin{array}{r}
+c_1\\c_2\\c_3\\
+\end{array}\right]=
+\left[\begin{array}{r}
+2\\2\\1\\3\\
+\end{array}\right]\]
+Solving the normal equations for \(c_1, c_2, c_3\) yields the best parabola
+\(y=2.9615-1.0128t+0.1667t^2\). The RMSE is \(0.4160\), compared to \(0.6504\)
+for the best line in Exercise 8(b). <p>
+<b>9 (c)</b> Substituting into the model parabola gives the system of
+equations
+\[\left[\begin{array}{ccc}
+1&0&0\\
+1&1&1\\
+1&2&4\\
+1&3&9\\
+\end{array}\right]
+\left[\begin{array}{r}
+c_1\\c_2\\c_3\\
+\end{array}\right]=
+\left[\begin{array}{r}
+5\\3\\3\\1\\
+\end{array}\right].\]
+The normal equations are
+\[\left[\begin{array}{ccc}
+4&6&14\\
+6&14&36\\
+14&36&98\\
+\end{array}\right]
+\left[\begin{array}{r}
+c_1\\c_2\\c_3\\
+\end{array}\right]=
+\left[\begin{array}{r}
+12\\12\\24\\
+\end{array}\right]\]
+Solving the normal equations gives \(c_1=4.8, c_2= -1.2, c_3=0.\)
+Therefore the best fit polynomial of degree two or less is the
+line \(y=4.8-1.2t\). The RMSE is \(0.4472\).
+<hr>
+
+<b>11</b> Substituting the data points into the given model
+\(h=a+bt-4.905t^2\) results in the system
+\begin{eqnarray*}
+a+b(1)-4.905(1)^2&=& 135\\
+a+b(2)-4.905(2)^2&=& 265\\
+a+b(3)-4.905(3)^2&=& 385\\
+a+b(4)-4.905(4)^2&=& 485
+\end{eqnarray*}
+which leads to the inconsistent system
+\[\left[\begin{array}{ccc}
+1&1\\
+1&2\\
+1&3\\
+1&4\\
+\end{array}\right]
+\left[\begin{array}{r}
+a\\b\\
+\end{array}\right]=
+\left[\begin{array}{r}
+135+4.905\\
+265+(4)4.905\\
+385+(9)4.905\\
+485+(16)4.905\\
+\end{array}\right]\]
+Solving the normal equations for \(a,b\) yields \(a=0.475, b=141.525\).
+The best model is the height \(h(t) = 0.475+141.525t-4.905t^2\).
+The maximum height occurs when \(0=h'(t)=141.525-9.81t\), or approximately
+\(t=14.4\) seconds.
+The corresponding height is 1021 meters. The rocket returns to earth
+at time \(28.9\) seconds, found from the quadratic formula.
+
+
+</html>

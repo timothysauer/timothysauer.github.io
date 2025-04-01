@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 6.4</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> The Midpoint Method is
+\[w_{i+1}=w_i+hf(t_i+\frac{h}{2},w_i+\frac{h}{2}f(t_i,w_i)).\]
+Applied to the differential equation \(y'=f(t,y)=t\), the method is
+\(\ds w_{i+1}=w_i+h(t_i+\frac{h}{2})\).<p>
+With \(y(0)=1\) and \(h=1/4\), we calculate
+\begin{eqnarray*}
+w_0&=&y(0)=1\\
+w_1&=&1+\frac{1}{4}\cdot\frac{1}{8}=\frac{33}{32}\\
+w_2&=&\frac{33}{32}+\frac{1}{4}\cdot\frac{3}{8} = \frac{9}{8}\\
+w_3&=&\frac{9}{8}+\frac{1}{4}\cdot\frac{5}{8}= \frac{41}{32}\\
+w_4&=&\frac{41}{32}+\frac{1}{4}\cdot\frac{7}{8}= \frac{3}{2}\\
+\end{eqnarray*}
+Global error at \(t=1\) is \(0\).<p>
+<b>1 (b)</b> The Midpoint Method applied to \(y'=f(t,y)=t^2y\) is
+\[w_{i+1}=w_i+h(t_i+\frac{1}{8})^2(w_i+\frac{1}{8}t_i^2w_i).\]
+Starting with \(y(0)=1\) we calculate
+\[\begin{array}{cr}
+t_i&w_i\ \ \ \ \\
+0&1.0000\\
+1/4&1.0039\\
+1/2&1.0395\\
+3/4&1.1442\\
+1&1.3786\\
+\end{array}\]
+Global error at \(t=1\) is \(0.0171\).<p>
+<b>1 (c)</b> The Midpoint Method applied to \(y'=f(t,y)=2(t+1)y\) is
+\[w_{i+1}=w_i+h2(t_i+\frac{1}{8}+1)(w_i+\frac{1}{8}2(t_i+1)w_i).\]
+\[\begin{array}{cr}
+t_i&w_i\ \ \ \ \\
+0&1.0000\\
+1/4&1.7031\\
+1/2&3.2399\\
+3/4&6.8595\\
+1&16.1038\\
+\end{array}\]
+Global error at \(t=1\) is \(3.9817\).<p>
+<b>1 (d)</b> The Midpoint Method applied to \(y'=f(t,y)=5t^4y\) is
+\[w_{i+1}=w_i+h5(t_i+\frac{1}{8})^4(w_i+\frac{1}{8}5t_i^4w_i).\]
+\[\begin{array}{cr}
+t_i&w_i\ \ \ \ \\
+0&1.0000\\
+1/4&1.0003\\
+1/2&1.0251\\
+3/4&1.2283\\
+1&2.3062\\
+\end{array}\]
+Global error at \(t=1\) is \(0.4121\).<p>
+<b>1 (e)</b> The Midpoint Method applied to \(y'=f(t,y)=1/y^2\) is
+\(\ds w_{i+1}=w_i+\frac{h}{(w_i+\frac{1}{8}\frac{1}{w_i^2})^2}.\)
+\[\begin{array}{cr}
+t_i&w_i\ \ \ \ \\
+0&1.0000\\
+1/4&1.1975\\
+1/2&1.3490\\
+3/4&1.4734\\
+1&1.5801\\
+\end{array}\]
+Global error at \(t=1\) is \(0.0073\).<p>
+<b>1 (f)</b> The Midpoint Method applied to \(y'=f(t,y)=t^3/y^2\) is
+\(\ds w_{i+1}=w_i+h\frac{(t_i+\frac{1}{8})^3}{(w_i+\frac{1}{8}\frac{t_i^3}{w_i^2})^2}.\)
+\[\begin{array}{cr}
+t_i&w_i\ \ \ \ \\
+0&1.0000\\
+1/4&1.0005\\
+1/2&1.0136\\
+3/4&1.0713\\
+1&1.2055\\
+\end{array}\]
+Global error at \(t=1\) is \(0.0004\).
+<hr>
+
+<b>3 (a)</b> The fourth-order Runge-Kutta Method applied to the
+differential equation \(y'=f(t,y)=t\) yields
+\begin{eqnarray*}
+w_0&=&y(0)=1\\
+s_1&=&f(t_0,w_0)=t_0=0\\
+s_2&=&f(t_0+h/2,w_0+hs_1/2)=1/8\\
+s_3&=&f(t_0+h/2,w_0+hs_2/2)=1/8\\
+s_4&=&f(t_0+h,w_0+hs_3)=1/4\end{eqnarray*}
+\begin{eqnarray*}
+w_1&=&w_0+\frac{h}{6}(s_1+2s_2+2s_3+s_4)=1+\frac{1}{24}
+(0+\frac{1}{4}+\frac{1}{4}+\frac{1}{4})=\frac{33}{32}\\
+w_2&=&1.1250\\
+w_3&=&1.2813\\
+w_4&=&1.5000
+\end{eqnarray*}
+Global error at \(t=1\) is \(0\).<p>
+<b>3 (b)</b> RK4 applied to \(y'=f(t,y)=t^2y\) yields
+\begin{eqnarray*}
+w_0&=&y(0)=1\\
+s_1&=&f(t_0,w_0)=t_0^2w_0=0\\
+s_2&=&f(t_0+h/2,w_0+hs_1/2)=(\frac{1}{8})^2(1)=\frac{1}{64}\\
+s_3&=&f(t_0+h/2,w_0+hs_2/2)=(\frac{1}{8})^2(1+\frac{1}{4}\frac{1}{128})=\frac{513}{2^{15}}\approx 0.0157\\
+s_4&=&f(t_0+h,w_0+hs_3)=(\frac{1}{4})^2(1+\frac{1}{4}\frac{513}{2^{15}})\approx 0.0627\\
+w_1&=&w_0+\frac{h}{6}(s_1+2s_2+2s_3+s_4)\approx 1.0052\\
+w_2&=&1.0425\\
+w_3&=&1.1510\\
+w_4&=&1.3956
+\end{eqnarray*}
+Global error at \(t=1\) is \(1.2476\times 10^{-5}\).<p>
+<b>3 (c)</b> RK4 applied to \(y'=f(t,y)=2(t+1)y\) gives
+\[\begin{array}{cr}
+t_i&w_i\ \ \ \ \\
+0&1.0000\\
+1/4&1.7545\\
+1/2&3.4865\\
+3/4&7.8448\\
+1&19.975\\
+\end{array}\]
+Global error at \(t=1\) is \(0.11007\).<p>
+<b>3 (d)</b> RK4 applied to \(y'=f(t,y)=5t^4y\) yields
+\[\begin{array}{cr}
+t_i&w_i\ \ \ \ \\
+0&1.0000\\
+1/4&1.0010\\
+1/2&1.0318\\
+3/4&1.2678\\
+1&2.7103\\
+\end{array}\]
+Global error at \(t=1\) is \(7.9505\times 10^{-3}\).<p>
+<b>3 (e)</b> RK4 applied to \(y'=f(t,y)=1/y^2\) gives
+\[\begin{array}{cr}
+t_i&w_i\ \ \ \ \\
+0&1.0000\\
+1/4&1.2051\\
+1/2&1.3573\\
+3/4&1.4813\\
+1&1.5874\\
+\end{array}\]
+Global error at \(t=1\) is \(4.1996\times 10^{-5}\).<p>
+<b>3 (f)</b> RK4 applied to \(y'=f(t,y)=t^3/y^2\) gives
+\[\begin{array}{cr}
+t_i&w_i\ \ \ \ \\
+0&1.0000\\
+1/4&1.0010\\
+1/2&1.0154\\
+3/4&1.0736\\
+1&1.2051\\
+\end{array}\]
+Global error at \(t=1\) is \(6.0464\times 10^{-5}\).
+<hr>
+
+<b>5</b> To compute the local truncation error of the ODE solver
+(6.49), assume that \(w_i=y_i\) and calculate \(y_{i+1}-w_{i+1}\).
+Using the Taylor expansion,
+\begin{eqnarray*}
+w_{i+1}&=&\textstyle y_i+h(1-\frac{1}{2\alpha})f(t_i,y_i)+\frac{h}{2\alpha}
+f(t_i+\alpha h,y_i+\alpha hf(t_i,y_i))\\
+&=&\textstyle y_i+h(\frac{2\alpha-1}{2\alpha})f(t_i,y_i)+\frac{h}{2\alpha}
+[f(t_i,y_i)+\alpha hf_t(t_i,y_i)+\alpha h f(t_i,y_i)f_y(t_i,y_i)+O(h^2)]\\
+&=&\textstyle y_i+hf(t_i,y_i)+\frac{1}{2}h^2[f_t(t_i,y_i)+f(t_i,y_i)f_y(t_i,y_i)]
++O(h^3)
+\end{eqnarray*}
+Comparing with (6.47), we conclude that \(y_{i+1}-w_{i+1}=O(h^3)\).
+Therefore Theorem 6.4 implies that (6.49) is an order two ODE solver.
+<hr>
+
+<b>7</b> Assume that \(f(t,y)=f(t)\) does not depend on \(y\). Using the
+Runge-Kutta order four formula, \(s_1=f(t_i)\), and \(s_2=s_3=f(t_i+h/2)\).
+Also, \(s_4=f(t_i+h)\), so that
+\[w_{i+1}=w_i+\frac{h}{6}[s_1+2s_2+2s_3+s_4]=
+w_i+\frac{h}{6}[f(t_i)+4f(t_i+h/2)+f(t_i+h)]\]
+which increments the solution with Simpson's Rule on the interval \([t_i,t_i+h]\).
+
+
+
+
+
+</html>

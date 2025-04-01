@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 1.1</h3>
+
+<b>1 (a)</b> Check that \(f(x)=x^3-9\) satisfies \(f(2)=-1\) and
+\(f(3)=27-9=18\). By the Intermediate Value Theorem, \(f(2)f(3)<0\)
+implies the existence of a root between \(x=2\) and \(x=3\).
+<p>
+<b>1 (b)</b> Define \(f(x)=3x^3+x^2-x-5\). Check that \(f(1)=-2\) and
+\(f(2)=21\), so there is a root in \([1,2]\).
+<p>
+<b>1 (c)</b> Define \(f(x)=\cos^2x-x+6\). Check that \(f(6)>0\) and
+\(f(7)<0\). There is a root in \([6,7]\).
+<hr>
+
+<b>3 (a)</b> Start with \(f(x)=x^3+9\) on \([2,3]\), where \(f(2)<0\) and
+\(f(3)>0\). The first step is to evaluate
+\(f(\frac{5}{2})=\frac{53}{8}>0\), which implies the new interval is
+\([2,\frac{5}{2}]\). The second step is to evaluate
+\(f(\frac{9}{4})=\frac{729}{64}-9>0\), giving the interval
+\([2,\frac{9}{4}]\). The best estimate is the midpoint
+\(x_c=\frac{17}{8}\).<p>
+<b>3 (b)</b> Start with \(f(x)=3x^3+x^2-x-5\) on \([1,2]\), where
+\(f(1)<0\) and \(f(2)>0\). Since \(f(\frac{3}{2})>0\), the second
+interval is \([1,\frac{3}{2}]\). Since \(f(\frac{5}{4})>0\), the third
+interval is \([1,\frac{5}{4}]\). The best estimate is the midpoint
+\(x_c=\frac{9}{8}\). <p>
+<b>3 (c)</b> Start with \(f(x)=\cos ^2x+6-x\) on \([6,7]\), where
+\(f(6)>0\) and \(f(7)<0\). Since \(f(6.5)>0\), the second interval is
+\([6.5,7]\). Since \(f(6.75)>0\), the third interval is \([6.75,7]\). The
+best estimate is the midpoint \(x_c=6.875\).
+<hr>
+
+<b>5 (a)</b> Setting \(f(x)=x^4-x^3-10\), check that \(f(2)=-2\) and
+\(f(3)=44\), so there is a root in \([2,3]\).<p>
+<b>5 (b)</b> According to (1.1), the error after n steps is less
+than \((3-2)/2^{n+1}\). Ensuring that the error is less than
+\(10^{-10}\) requires \(\left(\frac{1}{2}\right)^{n+1}<10^{-10}\), or
+\(2^{n+1}>{10^{10}}\), which yields \(n>10/\log_{10}(2)-1\approx
+32.2\). Therefore 33 steps are required.
+<hr>
+
+
+</html>

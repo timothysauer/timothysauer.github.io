@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h3>EXERCISES 2.6</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> For \(x=[x_1,x_2]\neq 0\),
+\[x^TAx =
+\left[\begin{array}{cc}
+x_1 &x_2
+\end{array}\right]
+\left[\begin{array}{cc}
+1&0\\0&3
+\end{array}\right]
+\left[\begin{array}{c}
+x_1 \\x_2\\
+\end{array}\right] =
+x_1^2+3x_2^2>0.
+\]
+<b>1 (b)</b> For \(x=[x_1,x_2]\neq 0\),
+\[x^TAx =
+\left[\begin{array}{cc}
+x_1 &x_2
+\end{array}\right]
+\left[\begin{array}{cc}
+1&3\\3&10
+\end{array}\right]
+\left[\begin{array}{c}
+x_1 \\x_2\\
+\end{array}\right] =
+x_1^2+6x_1x_2+10x_2^2 =(x_1+3x_2)^2+x_2^2>0.
+\]
+<b>1 (c)</b> For \(x=[x_1,x_2,x_3]\neq 0\),
+\[x^TAx =
+\left[\begin{array}{ccc}
+x_1 &x_2&x_3
+\end{array}\right]
+\left[\begin{array}{ccc}
+1&0&0\\0&2&0\\0&0&3\\
+\end{array}\right]
+\left[\begin{array}{c}
+x_1 \\x_2\\x_3\\
+\end{array}\right] =
+x_1^2+2x_2^2+3x_3^2 >0.
+\]
+<hr>
+
+<b>3 (a)</b> Clearly \({\ds R^TR  = 
+\left[\begin{array}{cc}
+\sqrt{1} &0\\
+0&\sqrt{3}
+\end{array}\right]
+\left[\begin{array}{cc}
+\sqrt{1} &0\\
+0&\sqrt{3}
+\end{array}\right]}\)
+is a Cholesky factorization; alternatively, \(R\) can be chosen to be the negative of this matrix. <p>
+<b>3 (b)</b> The top row of \(R\) is \(R_{11}=\sqrt{a_{11}}=1\), followed by \({\ds R_{12}=u=\frac{[3]}{\sqrt{a_{11}}}=3}\). Subtracting the outer product \(uu^T\) from the lower principal submatrix \([10]\) leaves \(10-9=1\). Repeating the factorization step for the remaining \(1\times 1\) matrix yields \(R_{22} = \sqrt{1}=1.\) Therefore
+\({\ds 
+R  = 
+\left[\begin{array}{cc}
+1 &3\\
+0&1
+\end{array}\right]
+}\) satisfies
+\({\ds R^TR  = 
+\left[\begin{array}{cc}
+1 &0\\
+3&1
+\end{array}\right]
+\left[\begin{array}{cc}
+1 &3\\
+0&1
+\end{array}\right]
+=
+\left[\begin{array}{cc}
+1 &3\\
+3&10
+\end{array}\right].
+}\) <p>
+<b>3 (c)</b> Clearly \({\ds R^TR  = 
+\left[\begin{array}{ccc}
+\sqrt{1} &0&0\\
+0&\sqrt{2}&0\\
+0&0&\sqrt{3}
+\end{array}\right]
+\left[\begin{array}{ccc}
+\sqrt{1} &0&0\\
+0&\sqrt{2}&0\\
+0&0&\sqrt{3}
+\end{array}\right]}\)
+is a Cholesky factorization; alternatively, \(R\) can be chosen to be the negative of this matrix.
+<hr>
+
+<b>5 (a)</b> The top row of \(R\) is \(R_{11}=\sqrt{a_{11}}=1\), followed by \({\ds R_{12}=u=\frac{[2]}{\sqrt{a_{11}}}=2}\). Subtracting the outer product \(uu^T\) from the lower principal submatrix \([8]\) leaves \(8-4=4\). Repeating the factorization step for the remaining \(1\times 1\) matrix yields \(R_{22} = \sqrt{4}=2.\) Therefore
+\({\ds 
+R  = 
+\left[\begin{array}{cc}
+1 &2\\
+0&2
+\end{array}\right]
+}\) satisfies
+\({\ds R^TR  = 
+\left[\begin{array}{cc}
+1 &0\\
+2&2
+\end{array}\right]
+\left[\begin{array}{cc}
+1 &2\\
+0&2
+\end{array}\right]
+=
+\left[\begin{array}{cc}
+1 &2\\
+2&8
+\end{array}\right].
+}\) <p>
+<b>5 (b)</b> The top row of \(R\) is \(R_{11}=\sqrt{a_{11}}=2\), followed by \({\ds R_{12}=u=\frac{[-2]}{\sqrt{a_{11}}}= -1}\). Subtracting the outer product \(uu^T\) from the lower principal submatrix \([5/4]\) leaves \(5/4-1=1/4\). Repeating the factorization step for the remaining \(1\times 1\) matrix yields \(R_{22} = \sqrt{1/4}=1/2.\) Therefore
+\({\ds 
+R  = 
+\left[\begin{array}{rr}
+2 &-1\\
+0&1/2
+\end{array}\right]
+}\) satisfies
+\({\ds R^TR  = 
+\left[\begin{array}{cc}
+2 &0\\
+-1&1/2
+\end{array}\right]
+\left[\begin{array}{cc}
+2 &-1\\
+0&1/2
+\end{array}\right]
+=
+\left[\begin{array}{rr}
+4 &-2\\
+-2&5/4
+\end{array}\right].
+}\) <p>
+<b>5 (c)</b> The top row of \(R\) is \(R_{11}=\sqrt{a_{11}}=5\), followed by \({\ds R_{12}=u=\frac{[5]}{\sqrt{a_{11}}}=1}\). Subtracting the outer product \(uu^T\) from the lower principal submatrix \([26]\) leaves \(26-1=25\). Repeating the factorization step for the remaining \(1\times 1\) matrix yields \(R_{22} = \sqrt{25}=5.\) Therefore
+\({\ds 
+R  = 
+\left[\begin{array}{cc}
+5 &1\\
+0&5
+\end{array}\right]
+}\) satisfies
+\({\ds R^TR  = 
+\left[\begin{array}{cc}
+5 &0\\
+1&5
+\end{array}\right]
+\left[\begin{array}{cc}
+5 &1\\
+0&5
+\end{array}\right]
+=
+\left[\begin{array}{cc}
+25 &5\\
+5&26
+\end{array}\right].
+}\) <p>
+<b>5 (d)</b> The top row of \(R\) is \(R_{11}=\sqrt{a_{11}}=1\), followed by \({\ds R_{12}=u=\frac{[-2]}{\sqrt{a_{11}}}= -2}\). Subtracting the outer product \(uu^T\) from the lower principal submatrix \([5]\) leaves \(5-(-2)(-2)=1\). Repeating the factorization step for the remaining \(1\times 1\) matrix yields \(R_{22} = \sqrt{1}=1.\) Therefore
+\({\ds 
+R  = 
+\left[\begin{array}{rr}
+1 &-2\\
+0&1
+\end{array}\right]
+}\) satisfies
+\({\ds R^TR  = 
+\left[\begin{array}{rr}
+1 &0\\
+-2&1
+\end{array}\right]
+\left[\begin{array}{rr}
+1 &-2\\
+0&1
+\end{array}\right]
+=
+\left[\begin{array}{rr}
+1 &-2\\
+-2&5
+\end{array}\right].
+}\)
+<hr>
+
+<b>7 (a)</b> The Cholesky factorization is 
+\({\ds R^TR  = 
+\left[\begin{array}{rr}
+1 &0\\
+-1&2
+\end{array}\right]
+\left[\begin{array}{rr}
+1 &-1\\
+0&2
+\end{array}\right]. }\) <p>
+The two-part back substitution is \(R^Tc=b\) followed by \(Rx=c\).  <p>
+The solution of 
+\({\ds \left[\begin{array}{rr}
+1 &0\\
+-1&2
+\end{array}\right]
+\left[\begin{array}{r}
+c_1\\
+c_2
+\end{array}\right]=
+\left[\begin{array}{r}
+3\\
+-7
+\end{array}\right]
+}\) is 
+\({\ds c= \left[\begin{array}{r}
+3\\
+-2
+\end{array}\right]}\), <p>
+ and the solution of
+\({\ds \left[\begin{array}{rr}
+1 &-1\\
+0&2
+\end{array}\right]
+\left[\begin{array}{r}
+x_1\\
+x_2
+\end{array}\right]=
+\left[\begin{array}{r}
+3\\
+-2
+\end{array}\right]
+}\) is 
+\({\ds x= \left[\begin{array}{r}
+2\\
+-1
+\end{array}\right].}\) <p>
+<b>7 (b)</b> The Cholesky factorization is 
+\({\ds R^TR  = 
+\left[\begin{array}{rr}
+2 &0\\
+-1&3
+\end{array}\right]
+\left[\begin{array}{rr}
+2 &-1\\
+0&3
+\end{array}\right]. }\) <p>
+The two-part back substitution is \(R^Tc=b\) followed by \(Rx=c\).  <p>
+The solution of 
+\({\ds \left[\begin{array}{rr}
+2 &0\\
+-1&3
+\end{array}\right]
+\left[\begin{array}{r}
+c_1\\
+c_2
+\end{array}\right]=
+\left[\begin{array}{c}
+10\\
+4
+\end{array}\right]
+}\) is 
+\({\ds c= \left[\begin{array}{r}
+5\\
+3
+\end{array}\right]}\), <p>
+ and the solution of
+\({\ds \left[\begin{array}{rr}
+2 &-1\\
+0&3
+\end{array}\right]
+\left[\begin{array}{r}
+x_1\\
+x_2
+\end{array}\right]=
+\left[\begin{array}{r}
+5\\
+3
+\end{array}\right]
+}\) is 
+\({\ds x= \left[\begin{array}{r}
+3\\
+1
+\end{array}\right].}\)
+<hr>
+
+<b>9</b> Multiply out
+\(\ds x^TAx =
+\left[\begin{array}{cc}
+x_1 &x_2
+\end{array}\right]
+\left[\begin{array}{cc}
+1&2\\2&d
+\end{array}\right]
+\left[\begin{array}{c}
+x_1 \\x_2\\
+\end{array}\right] =
+x_1^2+4x_1x_2+dx_2^2>0
+\)
+and complete the square as \((x_1+2x_2)^2+(d-4)x_2^2\). If \(d>4\), then \(x^TAx\) is expressed as
+a sum of squares and is positive for all \(x\neq 0\).
+<hr>
+
+<b>11</b> We attempt to find the Cholesky factorization.  The matrix \(A\) is positive-definite exactly when the diagonal entries of \(R\) are positive. The top row of \(R\) is \(R_{11}=\sqrt{a_{11}}=1\), followed by \({\ds [R_{12}\ R_{13}]=u^T=\frac{[-1\ 0]}{\sqrt{a_{11}}}= [-1\ 0]}\). Subtracting the outer product \({\ds uu^T=
+\left[\begin{array}{rr}
+1&0\\0&0
+\end{array}\right]
+}\) from the lower principal submatrix 
+\({\ds 
+\left[\begin{array}{rr}
+2&1\\1&d
+\end{array}\right]
+}\)
+ leaves 
+\({\ds 
+\left[\begin{array}{rr}
+1&1\\1&d
+\end{array}\right]
+}\). Repeating the factorization step for the remaining \(2\times 2\) matrix yields \(R_{22} = \sqrt{1}=1\), followed by  
+\({\ds R_{23}=u=\frac{[1]}{\sqrt{a_{22}}}=1}\). Subtracting the outer product \(uu^T\) from the lower principal submatrix \([d]\) leaves \(d-1\). The \(R_{33}\) entry will be the square root of \(d-1\). The matrix is positive-definite if and only if \(d>1\).
+<hr>
+
+<b>13 (a)</b> Following the Conjugate Gradient Method pseudocode:
+\begin{align*}
+x_0 &=  \left[\begin{array}{c}
+0\\
+0\\
+\end{array}\right], r_0 = d_0 =
+\left[\begin{array}{c}
+1\\
+1\\
+\end{array}\right]\\
+\alpha_0 &=   \frac{ \left[\begin{array}{c}
+1\\
+1\\
+\end{array}\right]^T
+\left[\begin{array}{c}
+1\\
+1\\
+\end{array}\right]}{
+\left[\begin{array}{c}
+1\\
+1\\
+\end{array}\right]^T
+\left[\begin{array}{cc}
+1&2\\
+2&5\\
+\end{array}\right]
+\left[\begin{array}{c}
+1\\
+1\\
+\end{array}\right]}=
+\frac{2}{10}=\frac{1}{5}
+\end{align*}
+\begin{align*}
+x_1&=  \left[\begin{array}{c}
+0\\
+0\\
+\end{array}\right]+
+\frac{1}{5}\left[\begin{array}{c}
+1\\
+1\\
+\end{array}\right]=
+\left[\begin{array}{c}
+1/5\\
+1/5\\
+\end{array}\right]
+\end{align*}
+\begin{align*}
+r_1&=  \left[\begin{array}{c}
+1\\
+1\\
+\end{array}\right]-
+\frac{1}{5}\left[\begin{array}{c}
+3\\
+7\\
+\end{array}\right]=
+\left[\begin{array}{r}
+0.4\\
+-0.4\\
+\end{array}\right]
+\\
+\beta_0&=  \frac{r_1^Tr_1}{r_0^Tr_0} = 0.16
+\end{align*}
+\begin{align*}
+d_1&=  \left[\begin{array}{r}
+0.4\\
+-0.4\\
+\end{array}\right]+
+0.16\left[\begin{array}{c}
+1\\
+1\\
+\end{array}\right]=
+\left[\begin{array}{r}
+0.56\\
+-0.24\\
+\end{array}\right]\\
+\alpha_1 &=   \frac{ \left[\begin{array}{r}
+0.4\\
+-0.4\\
+\end{array}\right]^T
+\left[\begin{array}{r}
+0.4\\
+-0.4\\
+\end{array}\right]}{
+\left[\begin{array}{r}
+0.56\\
+-0.24\\
+\end{array}\right]^T
+\left[\begin{array}{cc}
+1&2\\
+2&5\\
+\end{array}\right]
+\left[\begin{array}{c}
+0.56\\
+-0.24\\
+\end{array}\right]}=5
+\end{align*}
+\begin{align*}
+x_2&=  \left[\begin{array}{r}
+1/5\\
+1/5\\
+\end{array}\right]+
+5\left[\begin{array}{r}
+0.56\\
+-0.24\\
+\end{array}\right]=
+\left[\begin{array}{r}
+3\\
+-1\\
+\end{array}\right]
+\end{align*}
+\begin{align*}
+r_2&=  \left[\begin{array}{r}
+0.4\\
+-0.4\\
+\end{array}\right]-
+5\left[\begin{array}{cc}
+1&2\\
+2&5\\
+\end{array}\right]
+\left[\begin{array}{r}
+0.56\\
+-0.24\\
+\end{array}\right]=
+\left[\begin{array}{r}
+0\\
+0\\
+\end{array}\right]
+\end{align*}
+<b>13 (b)</b>
+\begin{align*}
+x_0 &=  \left[\begin{array}{c}
+0\\
+0\\
+\end{array}\right], r_0 = d_0 =
+\left[\begin{array}{c}
+1\\
+3\\
+\end{array}\right]
+\end{align*}
+\begin{align*}
+\alpha_0 &=   \frac{ \left[\begin{array}{c}
+1\\
+3\\
+\end{array}\right]^T
+\left[\begin{array}{c}
+1\\
+3\\
+\end{array}\right]}{
+\left[\begin{array}{c}
+1\\
+3\\
+\end{array}\right]^T
+\left[\begin{array}{cc}
+1&2\\
+2&5\\
+\end{array}\right]
+\left[\begin{array}{c}
+1\\
+3\\
+\end{array}\right]}=
+\frac{10}{58}=\frac{5}{29}
+\end{align*}
+\begin{align*}
+x_1&=  \left[\begin{array}{c}
+0\\
+0\\
+\end{array}\right]+
+\frac{5}{29}\left[\begin{array}{c}
+1\\
+3\\
+\end{array}\right]=
+\left[\begin{array}{c}
+5/29\\
+15/29\\
+\end{array}\right]
+\end{align*}
+\begin{align*}
+r_1&=  \left[\begin{array}{c}
+1\\
+3\\
+\end{array}\right]-
+\frac{5}{29}\left[\begin{array}{c}
+7\\
+17\\
+\end{array}\right]=
+\left[\begin{array}{r}
+-6/29\\
+2/29\\
+\end{array}\right]
+\\
+\beta_0&=  \frac{r_1^Tr_1}{r_0^Tr_0} = \frac{4}{(29)^2}
+\end{align*}
+\begin{align*}
+d_1&=  \left[\begin{array}{r}
+-6/29\\
+2/29\\
+\end{array}\right]+
+\frac{4}{(29)^2}\left[\begin{array}{c}
+1\\
+3\\
+\end{array}\right]=
+\left[\begin{array}{r}
+-\frac{170}{(29)^2}\\
+\frac{70}{(29)^2}\\
+\end{array}\right]
+\end{align*}
+\begin{align*}
+\alpha_1 &=   \frac{ \left[\begin{array}{r}
+-6/29\\
+2/29\\
+\end{array}\right]^T
+\left[\begin{array}{r}
+-6/29\\
+2/29\\
+\end{array}\right]}{
+\ds\frac{1}{(29)^4}
+\left[\begin{array}{r}
+-170\\
+70\\
+\end{array}\right]^T
+\left[\begin{array}{cc}
+1&2\\
+2&5\\
+\end{array}\right]
+\left[\begin{array}{c}
+-170\\
+70\\
+\end{array}\right]}=5.8
+\\
+x_2&=  \left[\begin{array}{r}
+5/29\\
+15/29\\
+\end{array}\right]+
+5.8\left[\begin{array}{r}
+-170/(29)^2\\
+70/(29)^2\\
+\end{array}\right]=
+\left[\begin{array}{r}
+-1\\
+1\\
+\end{array}\right]\\
+r_2&=  \left[\begin{array}{r}
+-6/29\\
+2/29\\
+\end{array}\right]-
+5.8\left[\begin{array}{cc}
+1&2\\
+2&5\\
+\end{array}\right]
+\left[\begin{array}{r}
+-170/(29)^2\\
+70/(29)^2\\
+\end{array}\right]=
+\left[\begin{array}{r}
+0\\
+0\\
+\end{array}\right]
+\end{align*}
+<hr>
+
+<b>15</b> \(\alpha_0=1/A, x_1=b/A, r_1=b-Ab/A=0\)
+
+ 
+
+</html>

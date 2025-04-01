@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 0.5</h3>
+
+<b>1 (a)</b> Since \(f(0)f(1) = (1)(-2)<0\), there exists \(c\) between
+\(0\) and \(1\) such that \(f(c)=0\) by the Intermediate Value Theorem.
+<p>
+<b>1 (b)</b> Since \(f(0)f(1) = (1)(-9)<0\), \(f(c)=0\) for some \(c\)
+between \(0\) and \(1\) as in (a).<p>
+<b>1 (c)</b> Since \(f(0)f(1/2) =
+(1)(-1/2)<0\), \(f(c)=0\) for some \(c\) between \(0\) and \(1/2\) by the
+Intermediate Value Theorem.
+<hr>
+
+<b>3 (a)</b> According to the Mean Value Theorem for Integrals, there
+exists \(c\) between \(0\) and \(1\) satisfying
+\({\displaystyle f(c)=\frac{\int^1_0 x\cdot x\ dx}{\int^1_0 x\ dx} = \frac{1/3}{1/2}
+=\frac{2}{3}.}\)
+Since \(f(x)=x\), choose \(c=2/3\). <p>
+<b>3 (b)</b> According to the Mean Value Theorem for Integrals, there
+exists \(c\) between \(0\) and \(1\) satisfying
+\[f(c)=\frac{\int^1_0 x^3\ dx}{\int^1_0 x\ dx} = \frac{1/4}{1/2}
+=\frac{1}{2}.\]
+Since \(f(x)=x^2\), this implies \(c^2=1/2\), or \(c=1/\sqrt{2}\). \nl
+<b>3 (c)</b> According to the Mean Value Theorem for Integrals, there
+exists \(c\) between \(0\) and \(1\) satisfying
+\({\displaystyle f(c)=\frac{\int^1_0 xe^x\ dx}{\int^1_0 e^x\ dx} = \frac{1}{e-1}.}\)
+Since \(f(x)=x\), choose \({\displaystyle c=\frac{1}{e-1}}\). 
+<hr>
+
+<b>5 (a)</b> The derivatives evaluated at \(x=0\) are \(f(0)=1, f'(0)=0,
+f''(0)=2, f'''(0)=0, f^{(iv)}(0)=12\), and \(f^{(v)}(0)=0\). Then
+the degree 5 Taylor polynomial is \(P(x) = 1+x^2+\frac{1}{2}x^4\). <p>
+<b>5 (b)</b> The derivatives evaluated at \(x=0\) are \(f(0)=1, f'(0)=0,
+f''(0)=-4, f'''(0)=0, f^{(iv)}(0)=16\), and \(f^{(v)}(0)=0\). The
+degree 5 Taylor polynomial is \(P(x) = 1-2x^2+\frac{2}{3}x^4\). <p>
+<b>5 (c)</b> The derivatives at \(x=0\) are \(f(0)=0, f'(0)=1,
+f''(0)=-1, f'''(0)=2, f^{(iv)}(0)=-6\), and \(f^{(v)}(0)=24\). The
+degree 5 Taylor polynomial is \(P(x) = x-\frac{1}{2}x^2+\frac{1}{3}x^3
+-\frac{1}{4}x^4+\frac{1}{5}x^5\). <p>
+<b>5 (d)</b> The derivatives at \(x=0\) are \(f(0)=0, f'(0)=0,
+f''(0)=2, f'''(0)=0, f^{(iv)}(0)=-8\), and \(f^{(v)}(0)=0\). The
+degree 5 Taylor polynomial is \(P(x) = x^2-\frac{1}{3}x^4\).
+<hr>
+
+<b>7 (a)</b> The derivatives at \(x=1\) are \(f(1)=0, f'(1)=1,
+f''(1)=-1, f'''(1)=2\), and \(f^{(iv)}(1)=-6\). The
+degree 4 Taylor polynomial is \(P(x) = x-1-\frac{1}{2}(x-1)^2
++\frac{1}{3}(x-1)^3-\frac{1}{4}(x-1)^4\). <p>
+<b>7 (b)</b> \(f(0.9)\) can be approximated by \(P(0.9)=
+-0.105358\overline{3}\). Likewise, \(f(1.1)\approx P(1.1)=
+0.095308\overline{3}\). <p>
+<b>7 (c)</b> The remainder term is \((x-1)^5/(5c^5)\), where \(c\)
+lies between \(x\) and \(1\). At \(x=0.9\), the error is \((0.1)^5/(5c^5)
+\leq (0.1)^5/(5(0.9)^5)\approx 0.000003387\), where the upper bound
+results from evaluating \(c\) at the worst case \(c=0.9\).
+At \(x=1.1\), the error is \((0.1)^5/(5c^5)
+\leq (0.1)^5/(5(1.0)^5)\approx 0.000002\). On the basis of the
+remainder, we predict smaller error at \(x=1.1\). <p>
+<b>7 (d)</b> The error at \(x=0.9\) is \(|f(0.9)-P(0.9)| = 0.00000218\),
+and the error at \(x=1.1\) is \(|f(1.1)-P(1.1)| = 0.00000185\).
+<hr>
+
+<b>9</b> The degree one Taylor polynomial is \(P(x)=1+\frac{1}{2}x\), with
+Taylor remainder \(E=x^2/(8(1+c)^{3/2})\) for \(c\) between \(x\) and \(0\).
+Setting \(x=0.02\), \(E\leq (0.02)^2/(8(1)^{3/2}) = 0.00005\). The actual
+values are \(\sqrt{1.02} \approx 1.0099505\) and \(1+\frac{1}{2}(0.02) =
+1.01\), which is a difference of \(0.0000495\), slightly less than the
+upper bound \(E\).
+</html>

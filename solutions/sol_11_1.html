@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 11.1</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> Begin by applying the DCT to \([3,3]^T\):
+\[y=Cx=
+\left[\begin{array}{cc}
+\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+\cos \frac{\pi}{4}&\cos \frac{3\pi}{4}
+\end{array}\right]
+\left[\begin{array}{c}
+3\\3\\
+\end{array}\right]=
+\left[\begin{array}{rr}
+\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\
+\end{array}\right]
+\left[\begin{array}{c}
+3\\3\\
+\end{array}\right]=
+\left[\begin{array}{c}
+3\sqrt{2}\\0\\
+\end{array}\right]
+\]
+Theorem 11.2 provides the interpolating function
+\[P_2(t)=\frac{1}{\sqrt{2}}y_0+y_1\cos\frac{(2t+1)\pi}{4}\]
+for the data \((0,3), (1,3)\). Since \(y_0=3\sqrt{2}\) and \(y_1=0\),
+this reduces to \(P_2(t)=3\). <p>
+<b>1 (b)</b> The DCT is
+\[y=
+\left[\begin{array}{rr}
+\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\
+\end{array}\right]
+\left[\begin{array}{r}
+2\\-2\\
+\end{array}\right]=
+\left[\begin{array}{c}
+0\\2\sqrt{2}\\
+\end{array}\right]
+\]
+The interpolating function is
+\begin{eqnarray*}
+P_2(t)&=&\frac{1}{\sqrt{2}}y_0+y_1\cos\frac{(2t+1)\pi}{4}\\
+&=&2\sqrt{2}\cos\frac{(2t+1)\pi}{4}
+\end{eqnarray*}
+<b>1 (c)</b> The DCT is
+\[y=
+\left[\begin{array}{rr}
+\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\
+\end{array}\right]
+\left[\begin{array}{r}
+3\\1\\
+\end{array}\right]=
+\left[\begin{array}{r}
+2\sqrt{2}\\\sqrt{2}
+\end{array}\right]
+\]
+The interpolating function is
+\begin{eqnarray*}
+P_2(t)&=&\frac{1}{\sqrt{2}}y_0+y_1\cos\frac{(2t+1)\pi}{4}\\
+&=&2+\sqrt{2}\cos\frac{(2t+1)\pi}{4}.
+\end{eqnarray*}
+<b>1 (d)</b> The DCT is
+\[y=
+\left[\begin{array}{rr}
+\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\
+\end{array}\right]
+\left[\begin{array}{r}
+4\\-1\\
+\end{array}\right]=
+\left[\begin{array}{r}
+\frac{3}{2}\sqrt{2}\\\frac{5}{2}\sqrt{2}
+\end{array}\right]
+\]
+The interpolating function is
+\begin{eqnarray*}
+P_2(t)&=&\frac{1}{\sqrt{2}}y_0+y_1\cos\frac{(2t+1)\pi}{4}\\
+&=&\frac{3}{2}+\frac{5\sqrt{2}}{2}\cos\frac{(2t+1)\pi}{4}
+\end{eqnarray*}
+<hr>
+
+<b>3 (a)</b> Begin by applying the DCT to \([1,0,1,0]^T\):
+\[y=Cx=
+\left[\begin{array}{rrrr}
+a&a&a&a\\
+b&c&-c&-b\\
+a&-a&-a&a\\
+c&-b&b&-c\\
+\end{array}\right]
+\left[\begin{array}{c}
+1\\0\\1\\0\\
+\end{array}\right]=
+\left[\begin{array}{c}
+1\\b-c\\0\\b+c\\
+\end{array}\right]
+\]
+where \[a = 
+\frac{1}{2}, \ \ b = \frac{1}{\sqrt{2}}\cos \frac{\pi}{8} =
+\frac{\sqrt{2+\sqrt{2}}}{2\sqrt{2}}, \ \ c = \frac{1}{\sqrt{2}}\cos \frac{3\pi}{8} =
+\frac{\sqrt{2-\sqrt{2}}}{2\sqrt{2}}.\]
+According to Theorem 11.2, the interpolating function is
+\begin{eqnarray*}
+P_4(t)&=&\frac{1}{2}y_0+\frac{1}{\sqrt{2}}\left[
+y_1\cos\frac{(2t+1)\pi}{8}+y_2\cos\frac{2(2t+1)\pi}{8}+
+y_3\cos\frac{3(2t+1)\pi}{8} \right]\\
+&=&\frac{1}{2}+\frac{b-c}{\sqrt{2}}\cos \frac{(2t+1)\pi}{8}
++\frac{b+c}{\sqrt{2}}\cos \frac{3(2t+1)\pi}{8}.
+\end{eqnarray*}
+<b>3 (b)</b> The DCT of \([1,1,1,1]^T\) is
+\[y=Cx=
+\left[\begin{array}{rrrr}
+a&a&a&a\\
+b&c&-c&-b\\
+a&-a&-a&a\\
+c&-b&b&-c\\
+\end{array}\right]
+\left[\begin{array}{c}
+1\\1\\1\\1\\
+\end{array}\right]=
+\left[\begin{array}{c}
+4a\\0\\0\\0\\
+\end{array}\right]=
+\left[\begin{array}{c}
+2\\0\\0\\0\\
+\end{array}\right]
+\]
+The interpolating function is
+\begin{eqnarray*}
+P_4(t)&=&\frac{1}{2}y_0+\frac{1}{\sqrt{2}}\left[
+y_1\cos\frac{(2t+1)\pi}{8}+y_2\cos\frac{2(2t+1)\pi}{8}+
+y_3\cos\frac{3(2t+1)\pi}{8} \right]=1.
+\end{eqnarray*}
+<b>3 (c)</b> The DCT of \([1,0,0,0]^T\) is
+\[y=Cx=
+\left[\begin{array}{rrrr}
+a&a&a&a\\
+b&c&-c&-b\\
+a&-a&-a&a\\
+c&-b&b&-c\\
+\end{array}\right]
+\left[\begin{array}{c}
+1\\0\\0\\0\\
+\end{array}\right]=
+\left[\begin{array}{c}
+1/2\\b\\1/2\\c\\
+\end{array}\right] 
+\]
+The interpolating function is
+\begin{eqnarray*}
+P_4(t)&=&\frac{1}{2}y_0+\frac{1}{\sqrt{2}}\left[
+y_1\cos\frac{(2t+1)\pi}{8}+y_2\cos\frac{2(2t+1)\pi}{8}+
+y_3\cos\frac{3(2t+1)\pi}{8} \right]\\
+&=&\frac{1}{4}+\frac{b}{\sqrt{2}}\cos\frac{(2t+1)\pi}{8}+\frac{1}{2\sqrt{2}}
+\cos\frac{2(2t+1)\pi}{8}+
+\frac{c}{\sqrt{2}}\cos\frac{3(2t+1)\pi}{8}.
+\end{eqnarray*}
+<b>3 (d)</b> The DCT of \([1,2,3,4]^T\) is
+\[y=Cx=
+\left[\begin{array}{rrrr}
+a&a&a&a\\
+b&c&-c&-b\\
+a&-a&-a&a\\
+c&-b&b&-c\\
+\end{array}\right]
+\left[\begin{array}{c}
+1\\2\\3\\4\\
+\end{array}\right]=
+\left[\begin{array}{c}
+5\\-c-3b\\0\\b-3c\\
+\end{array}\right].
+\]
+The interpolating function is
+\begin{eqnarray*}
+P_4(t)&=&\frac{1}{2}y_0+\frac{1}{\sqrt{2}}\left[
+y_1\cos\frac{(2t+1)\pi}{8}+y_2\cos\frac{2(2t+1)\pi}{8}+
+y_3\cos\frac{3(2t+1)\pi}{8} \right]\\
+&=&\frac{5}{2}-\frac{c+3b}{\sqrt{2}}\cos\frac{(2t+1)\pi}{8}+
+\frac{b-3c}{\sqrt{2}}\cos\frac{3(2t+1)\pi}{8}.
+\end{eqnarray*}
+<hr>
+
+<b>5</b> The half-angle formula for cosine is
+\[\cos\frac{\theta}{2}=\sqrt{\frac{1+\cos\theta}{2}}.\]
+Therefore
+\begin{eqnarray*}
+b&=&\frac{1}{\sqrt{2}}\cos \frac{\pi}{8} = \sqrt{\frac{1+\cos\frac{\pi}{4}}{4}}
+=\frac{\sqrt{2+\sqrt{2}}}{2\sqrt{2}}\\
+c&=&\frac{1}{\sqrt{2}}\cos \frac{3\pi}{8} = \sqrt{\frac{1+\cos\frac{3\pi}{4}}{4}}
+=\frac{\sqrt{2-\sqrt{2}}}{2\sqrt{2}}\\
+\end{eqnarray*}
+Using the identities \(\cos(2\pi-\theta)=\cos\theta\) and
+\(\cos(\pi-\theta)=-\cos \theta\), the rest of the matrix entries
+can be identified with \(\pm a,b\) or \(c\).
+
+
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 5.2</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> The composite Trapezoid Rule with \(m=1\) is the original
+Trapezoid Rule
+\[\int_0^1x^2\ dx\approx \frac{h}{2}(y_0+y_1).\]
+Since \(a=0, b=1, h=(b-a)/m=1\), the approximation evaluates to
+\(\frac{1}{2}(0^2+1^2)=\frac{1}{2}\). The correct integral is
+\(\frac{1}{3}\), so the approximation error is
+\(|\frac{1}{3}-\frac{1}{2}|=\frac{1}{6}\). <p>For \(m=2\), the Composite
+Trapezoid Rule approximation is
+\[\frac{h}{2}(y_0+y_2+2y_1) =
+\frac{1}{4}(0^2+1^2+2({\textstyle\frac{1}{2}})^2)=\frac{3}{8},\] and error \(=
+|\frac{1}{3}-\frac{3}{8}| = \frac{1}{24}\). <p>For \(m=4\), the approximation is
+\[\frac{h}{2}(y_0+y_4+2(y_1+y_2+y_3)) =
+{\textstyle\frac{1}{8}(0^2+1^2+2((\frac{1}{4})^2+(\frac{1}{2})^2
++(\frac{3}{4})^2))=
+\frac{11}{32}},\]
+and error \( =|\frac{1}{3}-\frac{11}{32}| = \frac{1}{96}\). <p>
+<b>1 (b)</b> The Composite Trapezoid Rule approximations are
+\begin{eqnarray*}
+m=1&:& \frac{\pi/2}{2}(\cos 0+\cos \frac{\pi}{2}) = \frac{\pi}{4},
+\text{error} = |1-\frac{\pi}{4}|\approx 0.214602\\
+m=2&:& \frac{\pi/4}{2}(\cos 0+\cos \frac{\pi}{2}+2\cos \frac{\pi}{4})
+= \frac{\pi(1+\sqrt{2})}{8},  \text{error} \approx 0.051941\\
+m=4&:& \frac{\pi/8}{2}(\cos 0+\cos \frac{\pi}{2}+2(\cos \frac{\pi}{8}
++\cos \frac{\pi}{4}+\cos\frac{3\pi}{8}))
+\approx 0.987116, \text{error} \approx 0.012884.
+\end{eqnarray*}
+<b>1 (c)</b> The Composite Trapezoid Rule approximations are
+\begin{eqnarray*}
+m=1&:& \frac{1}{2}(e^0+e^1) = \frac{1+e}{2},
+\text{ error } = |e-1-(1+e)/2|=\frac{3-e}{2}\approx 0.140859\\
+m=2&:& \frac{1/2}{2}(e^0+e^1+2e^{1/2})\approx 1.753931,
+ \text{ error } \approx 0.035649\\
+m=4&:& \frac{1/4}{2}(e^0+e^1+2(e^{1/4}+e^{1/2}+e^{3/4}))\approx
+1.727222,  \text{ error } \approx 0.008940.
+\end{eqnarray*}
+<hr>
+
+<b>3 (a)</b> Composite Simpson's Rule with \(m=1\) is
+\[\int_0^1x^2\ dx\approx \frac{h}{3}(y_0+y_2+4y_1).\]
+Since \(a=0, b=1, h=(b-a)/(2m)=1/2\), the approximation evaluates to
+\[\frac{1}{6}(0^2+1^2+4(1/2)^2)=\frac{1}{3},\] in exact agreement with the
+correct integral. The approximation error is zero. For \(m=2\) and \(m=4\),
+Composite Simpson's Rule approximation is again exact:
+\begin{eqnarray*}
+m=2&:& \frac{1/4}{3}(y_0+y_4+4(y_1+y_3)+2y_2)
+=\frac{1}{12}{\textstyle(0+1+4(\frac{1}{16}+\frac{9}{16})+2(\frac{1}{4}))=\frac{1}{3}}\\
+m=4&:& \frac{1/8}{3}(y_0+y_8+4(y_1+y_3+y_5+y_7)+2(y_2+y_4+y_6))= \frac{1}{3}.
+\end{eqnarray*}
+<b>3 (b)</b> Composite Simpson's Rule approximations are:
+\begin{eqnarray*}
+m=1&:& \frac{\pi/4}{3}(y_0+y_2+4y_1)=
+\frac{\pi}{12}(1+0+4\cos\frac{\pi}{4})\approx 1.002280, 
+\text{ error } = 0.002280\\
+m=2&:& \frac{\pi/8}{3}(y_0+y_4+4(y_1+y_3)+2y_2)\approx 1.000135, 
+\text{ error } = 0.000135\\
+m=4&:& \frac{\pi/16}{3}(y_0+y_8+4(y_1+y_3+y_5+y_7)+2(y_2+y_4+y_6))\\
+&& \approx 1.000008, 
+\text{ error } = 0.000008
+\end{eqnarray*}
+<b>3 (c)</b>  Composite Simpson's Rule approximations are:
+\begin{eqnarray*}
+m=1&:& \frac{1/2}{3}(y_0+y_2+4y_1)=
+\frac{1}{6}(e^0+e^1+4e^{1/2})\approx 1.718861, 
+\text{ error } = 0.000579\\
+m=2&:& \frac{1/4}{3}(y_0+y_4+4(y_1+y_3)+2y_2)\approx 1.718319, 
+\text{ error } = 0.000037\\
+m=4&:& \frac{1/8}{3}(y_0+y_8+4(y_1+y_3+y_5+y_7)+2(y_2+y_4+y_6))\\
+&&\approx 1.718284, 
+\text{ error } = 0.000002
+\end{eqnarray*}
+<hr>
+
+<b>5 (a)</b> The exact value is \({\ds \int^1_0 \frac{1}{\sqrt{x}}\ dx = 2.}\)
+The Composite Midpoint Rule with \(m=1\) is <p>
+\({\ds \int_0^1f(x) \ dx\approx hw_1= (1)f(1/2).}\)
+Since \(a=0, b=1, h=(b-a)/m=1\), the approximation evaluates to
+\((1)(1/\sqrt{1/2})=\sqrt{2}\). The approximation error is \(|\sqrt{2}-2| \approx 0.5858\).<p>
+ For \(m=2\) and \(m=4\), the
+Composite Midpoint Rule approximation is
+\begin{eqnarray*}
+m=2&:& \frac{1}{2}[f(1/4)+f(3/4)]
+=\frac{1}{2}[2+2/\sqrt{3}]=1.5774, \text{ error } = 0.4226\\
+m=4&:& \frac{1}{4}[f(1/8)+f(3/8)+f(5/8)+f(7/8)]= 1.6988,  \text{ error } = 0.3012.
+\end{eqnarray*}
+<b>5 (b)</b> The exact value is \({\ds \int^1_0 x^{-1/3}\ dx = 3/2.}\) Composite Midpoint Rule approximations are:
+\begin{eqnarray*}
+m=1&:& (1)f(1/2)
+=2^{1/3}=1.2599, \text{ error } = 0.2401\\
+m=2&:& \frac{1}{2}[f(1/4)+f(3/4)]=1.3440, \text{ error } = 0.1560\\
+m=4&:& \frac{1}{4}[f(1/8)+f(3/8)+f(5/8)+f(7/8)]= 1.4005,  \text{ error } = 0.0995.
+\end{eqnarray*}
+<b>5 (c)</b>  The exact value is \({\ds \int^2_0 \frac{dx}{\sqrt{2-x}} = 2\sqrt{2}\approx 2.8284}\). Composite Midpoint Rule approximations are:
+\begin{eqnarray*}
+m=1&:& (2)f(1)
+=2^{1}=2,\quad \text{ error } = 0.8284\\
+m=2&:& (1)[f(1/2)+f(3/2)]=2.2307, \text{ error } = 0.5977\\
+m=4&:& \frac{1}{2}[f(1/4)+f(3/4)+f(5/4)+f(7/4)]= 2.4025,  \text{ error } = 0.4259.
+\end{eqnarray*}
+<hr>
+
+<b>7 (a)</b> The exact value is \({\ds \int^1_0 \frac{1}{\sqrt{x}}\ dx = 2.}\)
+The Open Newton-Cotes Method (5.28) is <p>
+\({\ds \int_a^b f(x) \ dx\approx \frac{4h}{3}[2f(x_1)-f(x_2)+2f(x_3)].}\)
+Since \(a=0, b=1, h=(b-a)/4=1/4\), the approximation evaluates to
+\({\ds \frac{1}{3}[2f(1/4)-f(1/2)+2f(3/4)]=1.6317}\). The approximation error is \(0.3683\). <p>
+<b>7 (b)</b> The exact value is \({\ds \int^1_0 x^{-1/3}\ dx = 3/2.}\) 
+The Open Newton-Cotes Method yields <p>
+\({\ds \frac{1}{3}[2f(1/4)-f(1/2)+2f(3/4)]=1.3721,}\) with error \(0.1279\).<p>
+<b>7 (c)</b>  The exact value is \({\ds \int^2_0 \frac{dx}{\sqrt{2-x}} = 2\sqrt{2}\approx 2.8284}\). 
+The Open Newton-Cotes Method yields <p>
+\({\ds \frac{2}{3}[2f(1/2)-f(1)+2f(3/2)]=2.3076,}\) with error \(0.5208\).
+<hr>
+
+<b>9</b> Simpson's Rule applied to the integral is
+\[\int_0^1 x^4\ dx \approx \frac{1/2}{3}(y_0+4y_1+y_2)
+= \frac{1}{6}(0^4+4(\frac{1}{2})^4+1^4) = \frac{5}{24},\]
+where \(h=(b-a)/2=1/2\). The correct value of the integral is
+\(\frac{1}{5}\), for an error of \(|\frac{1}{5}-\frac{5}{24}| =
+\frac{5}{600}=\frac{1}{120}\). The error term of Simpson's Rule can be
+computed exactly since \(f^{(iv)}(x)=24\), and is
+\[\frac{h^5}{90}f^{(iv)}(c) = \frac{(1/2)^5}{90}24 = \frac{1}{120},\]
+agreeing with the actual error.
+<hr>
+
+<b>11 (a)</b> We must test polynomials of increasing degree for the
+exactness of the approximation
+\[\int_{-1}^1 f(x)\ dx = f(1)+f(-1).\]
+\begin{eqnarray*}
+\text{degree}=0& : & \int_{-1}^1 1\ dx = 2 \ \ \ \text{ and }\ \ \
+f(1)+f(-1) = 1+1=2  \\
+\text{degree}=1& : & \int_{-1}^1 x\ dx = 0 \ \ \ \text{ and }\ \ \
+f(1)+f(-1) = 1+(-1)=0\\
+\text{degree}=2& : & \int_{-1}^1 x^2\ dx = \frac{2}{3} \ \ \ \text{ and }\ \ \
+f(1)+f(-1) = 1+1=2
+\end{eqnarray*}
+Since the approximation is exact up to degree one polynomials,
+the degree of precision is one.<p>
+<b>11 (b)</b> Proceeding as in part (a), we find that the degree of precision is one:
+\begin{eqnarray*}
+\text{degree}=0& : & \int_{-1}^1 1\ dx = 2 \ \ \ \text{ and }\ \ \
+\frac{2}{3}[f(-1)+f(0)+f(1)] = \frac{2}{3}[1+1+1]=2  \\
+\text{degree}=1& : & \int_{-1}^1 x\ dx = 0  \ \ \ \text{ and }\ \ \
+\frac{2}{3}[f(-1)+f(0)+f(1)] = \frac{2}{3}[(-1)+0+1]=0\\
+\text{degree}=2& : & \int_{-1}^1 x^2\ dx = \frac{2}{3} \ \ \ \text{ and }\ \ \
+\frac{2}{3}[f(-1)+f(0)+f(1)] = \frac{2}{3}[1+0+1]=\frac{4}{3}
+\end{eqnarray*}
+<b>11 (c)</b> Proceeding as in part (a), we find that the degree of precision is three:
+\begin{eqnarray*}
+\text{degree}=0& : & \int_{-1}^1 1\ dx = 2 \ \ \ \text{ and }\ \ \
+[f(-1/\sqrt{3})+f(1/\sqrt{3})] = 1+1=2 \\
+\text{degree}=1& : & \int_{-1}^1 x\ dx = 0  \ \ \ \text{ and }\ \ \
+[f(-1/\sqrt{3})+f(1/\sqrt{3})] = -1/\sqrt{3}+1/\sqrt{3}=0\\
+\text{degree}=2& : & \int_{-1}^1 x^2\ dx = \frac{2}{3} \ \ \ \text{ and }\ \ \
+[f(-1/\sqrt{3})+f(1/\sqrt{3})] = \frac{1}{3}+\frac{1}{3}=\frac{2}{3}\\
+\text{degree}=3& : & \int_{-1}^1 x^3\ dx = 0 \ \ \ \text{ and }\ \ \
+[f(-1/\sqrt{3})+f(1/\sqrt{3})] = -\frac{1}{3\sqrt{3}}+\frac{1}{3\sqrt{3}}
+=0\\
+\text{degree}=4& : & \int_{-1}^1 x^4\ dx = \frac{2}{5} \ \ \ \text{ and }\ \ \
+[f(-1/\sqrt{3})+f(1/\sqrt{3})] = \frac{1}{9}+\frac{1}{9}=\frac{2}{9}
+\end{eqnarray*}
+<hr>
+
+<b>13</b> For a composite open Newton-Cotes rule, the terms never overlap.
+ On the interval \([a,b]\), set \(x_0=a\) and \(x_{4m}=b\)
+for an \(m\)-panel composite rule. Define \(h=(b-a)/(4m)=x_1-x_0\).
+\begin{eqnarray*}
+\int_{x_0}^{x_{4m}}f(x)\ dx &\approx& \frac{4h}{3}[2f(x_1)-f(x_2)+2f(x_3)
++2f(x_5)-f(x_6)+2f(x_7)+\ldots\\&+&2f(x_{4m-3})-f(x_{4m-2})+2f(x_{4m-1})]
++\frac{14}{45}h^5[f^{(iv)}(c_1)+\ldots+f^{(iv)}(c_m)]\\
+&=&\frac{4h}{3}\sum_{i=1}^m(2y_{4i-1}+2y_{4i-3}-
+y_{4i-2})+\frac{7}{90}(b-a)h^4f^{(iv)}(c)
+\end{eqnarray*}
+where \(c\) lies between \(a\) and \(b\). Here we have used Theorem 5.1 and
+the fact that \(4hm=b-a\) to simplify the error term.
+<hr>
+
+<b>15</b> It is easiest to simplify in terms of the midpoint \(x_2\).
+Sample computations:
+\begin{eqnarray*}
+d=2& : & \int_{x_0}^{x_4} x^2\ dx = \frac{(x_2+h)^3}{3}-\frac{(x_2-h)^3}{3}
+=  4hx_2^2+\frac{16}{3}h^3\\
+&\text{and}&\frac{2}{45}h[7(x_2-2h)^2+32(x_2-h)^2+12x_2^2+32(x_2+h)^2
++7(x_2+2h)^2]\\&& =
+4hx_2^2+\frac{16}{3}h^3\\
+d=5& : & \int_{x_0}^{x_4} x^5\ dx = \frac{(x_2+2h)^6}{6}-\frac{(x_2-2h)^6}{6}
+=  4hx_2^5+\frac{160}{3}x_2^3h^3+64x_2h^5\\
+&\text{and}&\frac{2}{45}h[7(x_2-2h)^5+32(x_2-h)^5+12x_2^5+32(x_2+h)^5
++7(x_2+2h)^5] \\&=&
+4hx_2^5+\frac{160}{3}x_2^3h^3+64x_2h^5
+\end{eqnarray*}
+The degree of precision is five.
+<hr>
+
+<b>17</b> Let \(P_3(x)=a_0+a_1x+a_2x^2+a_3x^3\). From Newton's divided differences,
+the interpolating polynomial \(P_2(x)\) is found to be \(P_2(x)=
+a_0+(a_1+a_3h^2)x+a_2x^2\). Integrating shows that
+\[\int_{-h}^hP_2(x)\ dx = 2ha_0+\frac{2}{3}h^3a_2 =\int_{-h}^hP_3(x)\ dx.\]
+Simpson's Rule approximates a definite integral by integrating the interpolating
+polynomial of the integrand at three evenly-spaced points. The result shows
+that this approximation is exact for integrands that are degree 3 polynomials.
+This explains why Simpson's Rule has degree of precision three.
+
+
+</html>

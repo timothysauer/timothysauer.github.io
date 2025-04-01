@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 10.2</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> The data given lies in the interval \([c,d]=[0,1]\).
+Applying the DFT to \([0,1,0,-1]^T\) gives
+\[F_4
+\left[\begin{array}{r}
+0\\1\\0\\-1\\
+\end{array}\right]
+=
+\frac{1}{2}
+\left[\begin{array}{rrrr}
+1&1&1&1\\1&-i&-1&i\\1&-1&1&-1\\1&i&-1&-i\\
+\end{array}\right]
+\left[\begin{array}{r}
+0\\1\\0\\-1\\
+\end{array}\right]
+=i\left[\begin{array}{r}
+0\\-1\\0\\1\\
+\end{array}\right],
+\]
+so \(a_0=a_1=a_2=0\) and \(b_1=-1\).
+Corollary 10.8 says that
+\begin{eqnarray*}
+P_4(t) &=& \frac{a_0}{2}+a_1\cos 2\pi t-b_1\sin 2\pi t+\frac{a_2}{2}\cos 4\pi t\\
+&=&\sin 2\pi t.
+\end{eqnarray*}
+<b>1 (b)</b> Similar to (a). The DFT of \([1, 1, -1, -1]^T\) is \([0, 1-i,0, 1+i]^T\), and
+the coefficients are \(a_0=0, a_1=1, a_2=0, b_1=-1\).
+Therefore the trigonometric interpolating polynomial is
+\begin{eqnarray*}
+P_4(t) &=& \frac{a_0}{2}+a_1\cos 2\pi t-b_1\sin 2\pi t+\frac{a_2}{2}\cos 4\pi t\\
+&=&\cos 2\pi t+\sin 2\pi t.
+\end{eqnarray*}
+<b>1 (c)</b> Similar to (a). The DFT of the vector \([-1, 1, -1, 1]^T\) is \([0, 0, -2, 0]^T\), and
+the coefficients are \(a_0=0, a_1=0, a_2=-2, b_1=0\).
+Therefore the trigonometric interpolating polynomial is
+\(P_4(t)=-\cos 4\pi t\). <p>
+<b>1 (d)</b> Similar to (a). The DFT of the vector \([1, 1, 1, 1]^T\) is \([2, 0, 0, 0]^T\), and
+the coefficients are \(a_0=2, a_1=0, a_2=0, b_1=0\).
+Therefore the trigonometric interpolating polynomial is
+\(P_4(t)=1\).
+<hr>
+
+<b>3 (a)</b>  The data given lies in the interval \([c,d]=[0,1]\).
+Applying the DFT to \([0,1,0,-1,0,1,0,-1]^T\) gives
+\[F_8
+\left[\begin{array}{r}
+0\\1\\0\\-1\\0\\1\\0\\-1\\
+\end{array}\right]
+= \frac{1}{\sqrt{8}}
+\left[\begin{array}{c}
+0\\ \omega^1-\omega^3+\omega^5-\omega^7\\
+\omega^2-\omega^6+\omega^{10}-\omega^{14}\\
+\omega^3-\omega^9+\omega^{15}-\omega^{21}\\
+\omega^4-\omega^{12}+\omega^{20}-\omega^{28}\\
+\omega^5-\omega^{15}+\omega^{25}-\omega^{35}\\
+\omega^6-\omega^{18}+\omega^{30}-\omega^{42}\\
+\omega^7-\omega^{21}+\omega^{35}-\omega^{49}\\
+\end{array}\right]
+=
+i
+\left[\begin{array}{r}
+0\\0\\-\sqrt{2}\\0\\0\\0\\\sqrt{2}\\0
+\end{array}\right],
+\]
+so \(a_0=a_1=a_2=a_3=a_4=b_1=0, b_2=-\sqrt{2}, b_3=0\).
+Corollary 10.8 says that
+\begin{eqnarray*}
+P_8(t) &=& \frac{a_0}{\sqrt{8}}
++\frac{1}{\sqrt{2}}\left(a_1\cos 2\pi t-b_1\sin 2\pi t\right)
++\frac{1}{\sqrt{2}}\left(a_2\cos 4\pi t-b_2\sin 4\pi t\right)\\
+&&+\frac{1}{\sqrt{2}}\left(a_3\cos 6\pi t-b_3\sin 6\pi t\right)
++\frac{a_4}{\sqrt{8}}\cos 8\pi t\\
+&=&\sin 4\pi t.
+\end{eqnarray*}
+<b>3 (b)</b> Similar to part (a). Applying the DFT to \([1,2,1,0,1,2,1,0]^T\) gives
+\[F_8
+\left[\begin{array}{r}
+1\\2\\1\\0\\1\\2\\1\\0\\
+\end{array}\right]=
+\frac{1}{\sqrt{8}}
+\left[\begin{array}{c}
+8\\ \omega^0+2\omega^1+\omega^2+\omega^4+2\omega^5+\omega^6\\
+\omega^0+2\omega^2+\omega^4+\omega^8+2\omega^{10}+\omega^{12}\\
+\omega^0+2\omega^3+\omega^6+\omega^{12}+2\omega^{15}+\omega^{18}\\
+\omega^0+2\omega^4+\omega^8+\omega^{16}+2\omega^{20}+\omega^{24}\\
+\omega^0+2\omega^5+\omega^{10}+\omega^{20}+2\omega^{25}+\omega^{30}\\
+\omega^0+2\omega^6+\omega^{12}+\omega^{24}+2\omega^{30}+\omega^{36}\\
+\omega^0+2\omega^7+\omega^{14}+\omega^{28}+2\omega^{35}+\omega^{42}\\
+\end{array}\right]
+=
+\left[\begin{array}{r}
+\sqrt{8}\\0\\-\sqrt{2}i\\0\\0\\0\\\sqrt{2}i\\0\\
+\end{array}\right],
+\]
+so \(a_0=\sqrt{8}, a_1=a_2=a_3=a_4=b_1=0, b_2=-\sqrt{2}, b_3=0\).
+Corollary 10.8 says that
+\begin{eqnarray*}
+P_8(t) &=& \frac{a_0}{\sqrt{8}}
++\frac{1}{\sqrt{2}}\left(a_1\cos 2\pi t-b_1\sin 2\pi t\right)
++\frac{1}{\sqrt{2}}\left(a_2\cos 4\pi t-b_2\sin 4\pi t\right)\\
+&&+\frac{1}{\sqrt{2}}\left(a_3\cos 6\pi t-b_3\sin 6\pi t\right)
++\frac{a_4}{\sqrt{8}}\cos 8\pi t\\
+&=&1+\sin 4\pi t.
+\end{eqnarray*}
+<b>3 (c)</b> Similar to part (a). Applying the DFT to \([1,1,1,1,0,0,0,0]^T\) gives
+\[F_8
+\left[\begin{array}{r}
+1\\1\\1\\1\\0\\0\\0\\0\\
+\end{array}\right]=
+\frac{1}{\sqrt{8}}
+\left[\begin{array}{c}
+4\\1-(\sqrt{2}+1)i\\0\\1-(\sqrt{2}-1)i\\0\\1+(\sqrt{2}-1)i\\ 0\\1+(\sqrt{2}+1)i\\
+\end{array}\right],
+\]
+so \(a_0=\sqrt{2}, a_1=a_3=1/\sqrt{8}, a_2=a_4=0, b_1=-(1+\sqrt{2})/\sqrt{8}, b_2=0,
+b_3=-(\sqrt{2}-1)/\sqrt{8}\).
+Corollary 10.8 says that
+\begin{eqnarray*}
+P_8(t) &=& \frac{a_0}{\sqrt{8}}
++\frac{1}{\sqrt{2}}\left(a_1\cos 2\pi t-b_1\sin 2\pi t\right)
++\frac{1}{\sqrt{2}}\left(a_2\cos 4\pi t-b_2\sin 4\pi t\right)\\
+&&+\frac{1}{\sqrt{2}}\left(a_3\cos 6\pi t-b_3\sin 6\pi t\right)
++\frac{a_4}{\sqrt{8}}\cos 8\pi t\\
+&=&\frac{1}{2}+\frac{1}{4}\cos 2\pi t+\frac{\sqrt{2}+1}{4}\sin 2\pi t
++\frac{1}{4}\cos 6\pi t+\frac{\sqrt{2}-1}{4}\sin 6\pi t.
+\end{eqnarray*}
+<b>3 (d)</b> Similar to part (a). Applying the DFT to \([1,-1,1,-1,1,-1,1,-1]^T\) gives
+\[F_8
+\left[\begin{array}{r}
+1\\-1\\1\\-1\\1\\-1\\1\\-1\\
+\end{array}\right]=
+\frac{1}{\sqrt{8}}
+\left[\begin{array}{r}
+0\\0\\0\\0\\8\\0\\0\\0\\
+\end{array}\right],
+\]
+so \(a_0=a_1=a_2=a_3=0, a_4=\sqrt{8}, b_1=b_2=b_3=0\).
+Corollary 10.8 says that \(P_8(t)=\cos 8\pi t\).
+<hr>
+
+<b>5</b> Start with the DFT Interpolation Theorem 10.6. If \(x=[x_0,\ldots,x_{n-1}]\) is
+real, then the function
+\[P(t)=\frac{1}{\sqrt{n}}\sum_{k=0}^{n-1}
+\left(a_k\cos \frac{2k\pi(t-c)}{d-c}-b_k\sin \frac{2k\pi(t-c)}{d-c}\right)
+\]
+satisfies \(P(t_j)=x_j\) for \(j=0,\ldots, n-1\), where \((t_j-c)/(d-c)=j/n\).
+Then for each integer \(j,k\),
+\[a_k\cos\frac{2k\pi(t_j-c)}{d-c} = a_k\cos\frac{2\pi kj}{n}
+= a_k\cos\frac{2\pi (n-k)j}{n} = a_k\cos\frac{2\pi (n-k)(t_j-c)}{d-c}
+\]
+by Lemma 10.7, and \(a_k=a_{n-k}\) due to Lemma 10.4. This shows that at \(t=t_j\),
+the cosine terms
+in \(P(t)\) for \(k=\frac{n+1}{2},\ldots, n-1\) are duplicates of the terms for
+\(k=1, \ldots,\frac{n-1}{2}\), in reverse order, and so we may discard the former,
+multiply the latter by \(2\), and still interpolate the data at the \(t_j\). <p>
+A similar argument can be made for the sine terms. For each integer \(j,k\),
+\[b_k\sin\frac{2k\pi(t_j-c)}{d-c} = b_k\sin\frac{2\pi kj}{n}
+= -b_k\sin\frac{2\pi (n-k)j}{n} = -b_k\sin\frac{2\pi (n-k)(t_j-c)}{d-c}
+\]
+by Lemma 10.7, and \(b_k=-b_{n-k}\) due to Lemma 10.4. This verifies that at
+\(t=t_j\), the sine terms
+in \(P(t)\) for \(k=\frac{n+1}{2},\ldots, n-1\) are also exact duplicates of the terms for
+\(k=1, \ldots,\frac{n-1}{2}\) in reverse order, and so again we may throw away the former
+and multiply the latter by \(2\). Therefore the version of (10.19) for an odd integer
+\(n\) is that
+\[P_n(t) = \frac{a_0}{\sqrt{n}}+\frac{2}{\sqrt{n}}\sum_{k=1}^{(n-1)/2}
+\left(a_k\cos \frac{2k\pi(t-c)}{d-c}-b_k\sin \frac{2k\pi(t-c)}{d-c}\right),
+\]
+satisfies \(P(t_j)=x_j\) for \(j=0,\ldots,n-1\).
+
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 9.4</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> We apply Ito's Formula (9.17) to \(y(t)=f(t,B_t)=tB_t+c\).
+Note that \(f(t,x)=tx+c\). The partial derivatives are \[\frac{\partial
+f}{\partial t}=x, \frac{\partial f}{\partial x}=t, \text{ and }
+\frac{\partial ^2 f}{\partial x^2}=0.\] Therefore Ito's Formula
+gives
+\begin{eqnarray*}
+dy&=&\frac{\partial f}{\partial t}(t,B_t)dt+\frac{\partial
+f}{\partial x}(t,B_t)dB_t+\frac{1}{2}\frac{\partial ^2 f}{\partial
+x^2}(t,B_t)\ dB_t\ dB_t\\
+&=&B_t\ dt+t\ dB_t
+\end{eqnarray*}
+ as required. The initial condition
+is \(y(0)=0B_t+c=c\).<p>
+<b>1 (b)</b> The partial derivatives of \(f(t,x)=x^2-t+c\) are
+\[\frac{\partial f}{\partial t}=-1, \frac{\partial f}{\partial
+x}=2x, \text{ and } \frac{\partial ^2 f}{\partial x^2}=2.\] Ito's Formula
+gives
+\(
+dy=-1 dt+2B_t\ dB_t+\frac{1}{2}2\ dB_t\ dB_t
+=-dt+2B_t\ dB_t+dt=2B_t\ dB_t\)
+as required. The initial condition is \(y(0)=0^2-0+c=c.\)
+<hr>
+
+<b>3 (a)</b> The partial derivatives of
+\(f(t,x)=(1+x)e^{\frac{t^2}{2}}\) are \[\frac{\partial f}{\partial
+t}=(1+x)te^{\frac{t^2}{2}}, \frac{\partial f}{\partial
+x}=e^{\frac{t^2}{2}}, \text{ and } \frac{\partial ^2 f}{\partial x^2}=0.\]
+Ito's Formula gives
+\[dy=(1+B_t)te^{\frac{t^2}{2}}\ dt+e^{\frac{t^2}{2}}\ dB_t=ty\ dt
++e^{\frac{t^2}{2}}\ dB_t\]
+as required. The initial condition is
+\(y(0)=(1+B_0)e^{\frac{0^2}{2}}=1\). <p>
+<b>3 (b)</b> The partial derivatives of \(f(t,x)=x^3-3tx\) are
+\[\frac{\partial f}{\partial t}=-3x, \frac{\partial f}{\partial
+x}=3x^2-3t, \text{ and } \frac{\partial ^2 f}{\partial x^2}=6x.\]
+Ito's Formula gives
+\begin{eqnarray*}
+dy&=&-3B_t\ dt+(3B_t^2-3t)\ dB_t+\frac{1}{2}6B_t\ dB_t\ dB_t\\
+&=&
+(-3B_t+3B_t)\ dt+(3B_t^2-3t)\ dB_t\\
+&=&(3B_t^2-3t)\ dB_t
+\end{eqnarray*}
+as required. The initial condition is \(y(0)=B_0^3-3(0)B_0=0.\)
+<hr>
+
+<b>5</b> The partial derivatives of \(f(t,x)=\ln(2x+e^{y_0})\) are
+\[\frac{\partial f}{\partial t}=0, \frac{\partial f}{\partial
+x}=\frac{2}{2x+e^{y_0}}, \text{ and } \frac{\partial ^2 f}{\partial
+x^2}=\frac{-4}{(2x+e^{y_0})^2}.\] Noting that \(e^y=2x+e^{y_0}\), Ito's
+Formula gives
+\begin{eqnarray*}
+dy&=&\frac{2}{e^y}\ dB_t+\frac{1}{2}\frac{-4}{e^{2y}}\ dB_t\ dB_t\\
+&=& 2e^{-y}\ dB_t-2e^{-2y}\ dt
+\end{eqnarray*}
+as required.
+
+
+
+
+
+
+
+</html>

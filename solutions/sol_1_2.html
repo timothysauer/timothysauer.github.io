@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 1.2</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> \({\displaystyle \frac{3}{x}=x \Rightarrow x^2=3 \Rightarrow x=\pm \sqrt{3}}\)<p>
+<b>1 (b)</b> \({\displaystyle x^2-2x+2=x \Rightarrow x^2-3x+2=0 \Rightarrow x=1, 2}\)<p>
+<b>1 (c)</b> \({\displaystyle x^2-4x+2=x \Rightarrow x^2-5x+2=0 \Rightarrow x=\frac{5\pm \sqrt{17}}{2}}\)
+<hr>
+
+<b>3 (a)</b> Check by substitution. For example, \({\displaystyle \frac{1^3+1-6}{6(1)-10} = 1}\). <p>
+<b>3 (b)</b> Check by substitution. 
+<hr>
+
+<b>5 (a)</b> No, \(g(\sqrt{3})\neq \sqrt{3}\). <p>
+<b>5 (b)</b>Yes, \({\ds g(\sqrt{3})=\frac{2\sqrt{3}}{3}+\frac{1}{\sqrt{3}} = \sqrt{3}}\). <p>
+<b>5 (c)</b> No, \(g(\sqrt{3})\neq \sqrt{3}\). <p>
+<b>5 (d)</b>Yes, \({\ds g(\sqrt{3})=1+\frac{2}{\sqrt{3}+1} = \sqrt{3}}\).
+<hr>
+
+<b>7 (a)</b> \(g'(x)=\frac{2}{3}(2x-1)^{-\frac{2}{3}}\), and
+\(|g'(1)|=\frac{2}{3}<1\). Theorem 1.6 implies that FPI is locally
+convergent to \(r=1\). <p>
+<b>7 (b)</b> \(g'(x)=\frac{3}{2}x^2\), and \(|g'(1)|=\frac{3}{2}>1\);
+FPI diverges from \(r=1\). <p>
+<b>7 (c)</b> \(g'(x)=\cos x+1\), and \(|g'(0)|=2>1\); FPI diverges from
+\(r=0\).
+<hr>
+
+<b>9 (a)</b> Solve \(\frac{1}{2}x^2+\frac{1}{2}x=x\) to find the fixed
+points \(r=0,1\). The derivative \(g'(x)=x+\frac{1}{2}\). By Theorem
+1.6, \(|g'(0)|=\frac{1}{2}<1\) implies that FPI converges to \(r=0\),
+and \(|g'(1)|=\frac{3}{2}>1\) implies that FPI diverges from \(r=1\). <p>
+<b>9 (b)</b> Solve \(x^2-\frac{1}{4}x+\frac{3}{8}=x\) to find the
+fixed points \(r=\frac{1}{2},\frac{3}{4}\). The derivative
+\(g'(x)=2x-\frac{1}{4}\). \(|g'(\frac{1}{2})|=\frac{3}{4}<1\) implies
+that FPI is locally convergent to \(r=\frac{1}{2}\).
+\(|g'(\frac{3}{4})|=\frac{5}{4}>1\) implies that FPI diverges from
+\(r=\frac{3}{4}\).
+<hr>
+
+<b>11 (a)</b> There is a variety of answers, obtained by rearranging
+the equation \(x^3-x+e^x=0\) to isolate \(x\). For example,
+\(x=x^3+e^x\), \(x=\sqrt[3]{x-e^x}\), \(x=\ln(x-x^3)\). <p>
+<b>11 (b)</b> As in (a), rearrange \(3x^{-2}+9x^3=x^2\) to isolate \(x\).
+For example, \(\ds x=\frac{3}{x^3}+9x^2\), \(\ds
+x=\frac{1}{9}-\frac{1}{3x^4}\), \(\ds x=\frac{{x^5}-{9x^6}}{3}\).
+<hr>
+
+<b>13 (a)</b> Solving the fixed point equation \(x=g(x)=0.39-x^2\) yields the fixed points \(r=0.3\) and \(-1.3\). <p>
+<b>13 (b)</b> \(g'(x)=-2x\) so \(|g'(0.3)|=0.6\) and \(|g'(-1.3)|=2.6\). By Theorem 1.6, Fixed Point Iteration is locally convergent to \(r=0.3\).<p>
+<b>13 (c)</b> Convergence by FPI is at the rate \(e_{i+1}\approx 0.6e_i\), which is slower than the Bisection Method.
+<hr>
+
+<b>15</b> Check that \(\sqrt{5}\) is a fixed point for each iteration. Then calculate convergence rates for the three iterations. <p>
+(A) \({\ds g'(x) = \frac{4}{5}-\frac{1}{x^2}, g'(\sqrt{5})= \frac{4}{5}-\frac{1}{\sqrt{5}^2}=\frac{3}{5}}\). <p>
+(B) \({\ds g'(x) = \frac{1}{2}+\frac{5}{2}\left(-\frac{1}{x^2}\right), g'(\sqrt{5})= \frac{1}{2}-\frac{1}{2}=0}\). <p>
+(C) \({\ds g'(x) = -\frac{4}{(x+1)^2}, g'(\sqrt{5})= -\frac{4}{(\sqrt{5}+1)^2}\approx -0.382}\). <p> From fastest to slowest: (B), (C), (A).
+<hr>
+
+<b>17</b> Solving \(\ds x^2=\frac{1-x}{2}\) for \(x\) results in the two separate
+equations \(\ds g_1(x)=\sqrt\frac{1-x}{2}\) and
+\(\ds g_2(x)=-\sqrt\frac{1-x}{2}\). First notice that \(g_1(x)\) returns
+only positive numbers, and \(g_2(x)\) only negative. Therefore \(-1\)
+cannot be a fixed point of \(g_1(x)\), and \(\frac{1}{2}\) cannot be a
+fixed point of \(g_2(x)\). Check that \(g_1(\frac{1}{2})=\frac{1}{2}\)
+and \(\ds g_1'(x)=-\frac{1}{2\sqrt{2-2x}}\).
+\(|g_1'(\frac{1}{2})|=\frac{1}{2}<1\) confirms that FPI with
+\(g_1(x)\) is locally convergent to \(r=\frac{1}{2}\). Likewise,
+\(g_2(-1)=-1\), \(\ds g_2'(x)=\frac{1}{2\sqrt{2-2x}}\) and
+\(|g_2'(-1)|=\frac{1}{4}\) implies that FPI with \(g_2(x)\) is locally
+convergent to \(r=-1\).
+<hr>
+
+<b>19</b> Define \(g(x)=(x+A/x^2)/2\). Since
+\(|g'(\sqrt[3]A)|=\frac{1}{2}<1\), FPI is locally convergent to the
+cube root \(\sqrt[3]A\).
+<hr>
+
+<b>21 (a)</b> Substitute roots and check. <p>
+<b>21 (b)</b> \(g'(x)=-5+15x-\frac{15}{2}x^2\). FPI diverges from all
+three roots, because \(|g'(1-\sqrt{3/5})|=|g'(1+\sqrt{3/5})|=2\) and
+\(|g'(1)|=2.5\).
+<hr>
+
+<b>23</b> The slopes of \(g\) at \(r_1\) and \(r_3\) imply that the graph
+of \(y=g(x)\) must pass through the line \(y=x\) at \(x=r_2\) from below
+the line to above the line. Therefore \(g'(r_2)\) must belong to the
+interval \((1,\infty)\).
+<hr>
+
+<b>25</b> Assume \(0 \le g'(x) \le B \lt 1\), and let \(x_0\) belong to \([a,b]\). By the Mean Value Theorem,
+\(x_1 - r = g(x_0)-g(r)=g'(c)(x_0-r)\) where \(0\le g'(c)\lt 1\). 
+If \(x_0\ge r\), then \(x_1-r = g'(c)(x_0-r)\lt x_0-r\), and \(x_1-r = g'(c)(x_0-r)\ge 0\), so \(r \le x_1 \lt x_0\).
+If \(x_0\le r\), then \(r-x_1 = g'(c)(r-x_0)\lt r-x_0\), and \(r-x_1 = g'(c)(r-x_0)\ge 0\), so \(x_0 \lt x_1 \le r\).
+In either case, since \(r\) and \(x_0\) belong to \([a,b]\),
+\(x_1=g(x_0)\) does also, and by extension, so does \(x_2\), \(x_3\),
+etc. Finally, \(|x_1-r|\leq B|x_0-r|\) extends to \(|x_i-r|\leq
+B^i|x_0-r|\), which converges to zero as \(i\to\infty\).
+<hr>
+
+<b>27 (a)</b> Solving \(x-x^3=x\) yields \(x^3=0\), or \(x=0\). <p>
+<b>27 (b)</b> Assume \( 0 \lt x_0<1 \). Then \( x_0^3\lt x_0\), and so
+\(0\lt x_1=x_0-x_0^3\lt x_0\lt1\). The same argument implies by induction
+that \(x_0\gt x_1\gt x_2\gt ...\gt 0\). <p>
+<b>27 (c)</b>The limit \(\ds L=\lim_{i\to\infty}x_i\) exists because
+the \(x_i\) form a bounded monotonic sequence. Since \(g(x)\) is
+continuous, \(\ds
+g(L)=g(\lim_{i\to\infty}x_i)=\lim_{i\to\infty}g(x_i)=
+\lim_{i\to\infty}x_{i+1}=L\), so \(L\) is a fixed point, and by (a),
+\(L=0\).
+<hr>
+
+<b>29 (a)</b>Set \(\ds g(x)=\frac{x^3+(c+1)x-2}{c}\). Then \(\ds
+g'(x)=\frac{3x^2+(c+1)}{c}\), and \(\ds |g'(1)|=|\frac{4+c}{c}|<1\)
+for \(c<-2\). By Theorem 1.6, FPI is locally convergent to \(r=1\) if
+\(c<-2\). <p>
+<b>29 (b)</b> \(g'(1)=0\) if \(c=-4\).
+<hr>
+
+<b>31</b> By factoring or the quadratic formula, the roots of the
+equation are \(-\frac{5}{4}\) and \(\frac{1}{4}\). Set
+\(g(x)=\frac{5}{16}-x^2\). Using the cobweb diagram of \(g(x)\), it is
+clear that initial guesses in \((-\frac{5}{4},\frac{5}{4})\)
+converge to \(r_2=\frac{1}{4}\), and initial guesses in \((-\infty,
+-\frac{5}{4})\cup(\frac{5}{4},\infty)\) diverge to \(-\infty\) under
+FPI. Initial guesses \(-\frac{5}{4}\) and \(\frac{5}{4}\) limit on
+\(-\frac{5}{4}\).
+<hr>
+
+<b>33 (a)</b>   Choose \(a=0\) and \(|b|<1\), \(c\) arbitrary. Since \(a=0\), \(r=0\) is a fixed point, and \(g'(x)=b+2cx\) implies \(|g'(0)|=|b|<1\), so FPI is locally convergent to \(0\) by Theorem 1.6. <p>
+<b>33 (b)</b>  Choose \(a=0\) and \(|b|>1\) to make initial guesses move away from the fixed point \(0\).
+
+
+
+
+</html>

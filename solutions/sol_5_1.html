@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 5.1</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> The two-point forward-difference formula is
+\[\frac{f(x+h)-f(x)}{h} = \frac{\ln (1+0.1)-\ln 1}{0.1} = 0.9531.\]
+The correct value is \(f'(1) = 1\), so the approximation error is the
+difference \(0.0469\). <p>
+<b>1 (b)</b> \({\ds \frac{\ln (1+0.01)-\ln 1}{0.01} = 0.9950}\), approximation error \(0.0050\). <p> 
+<b>1 (c)</b>
+\({\ds \frac{\ln (1+0.001)-\ln 1}{0.001} = 0.9995}\), approximation
+error  \(0.0005\).
+<hr>
+
+<b>3 (a)</b> The two-point forward-difference formula is
+\[ \frac{f(x+h)-f(x)}{h} = \frac{\sin (\frac{\pi}{3}+0.1)-\sin \frac{\pi}{3}}{0.1} = 0.455902.\]
+Comparing with the correct answer \({\ds \cos\frac{\pi}{3} = \frac{1}{2}}\), the approximation
+error is \(0.044098\). The error term of the formula (5.3) is \({\ds -\frac{h}{2}f''(c) =
+\frac{0.1}{2}\sin c}\), where \({\ds \frac{\pi}{3}&lt c&lt \frac{\pi}{3}+0.1}\), which covers the
+range from \(0.05\sin \pi/3 \approx 0.0433\) to \(0.05\sin (\pi/3+0.1) \approx 0.0456\),
+containing the actual approximation error as expected. <p>
+<b>3 (b)</b> The two-point forward-difference formula gives
+\({\ds \frac{\sin (\frac{\pi}{3}+0.01)-\sin \frac{\pi}{3}}{0.01} = 0.495662}\).
+Comparing with the correct answer \({\ds \frac{1}{2}}\), the approximation
+error is \(0.004338\). The error term is \({\ds -\frac{h}{2}f''(c) =
+\frac{0.01}{2}\sin c}\), where \({\ds \frac{\pi}{3}&lt c&lt \frac{\pi}{3}+0.01}\), implying that
+the error must lie between \(0.005\sin \pi/3 \approx 0.004330\) and \(0.005\sin (\pi/3+0.01)
+\approx 0.004355\). <p>
+<b>3 (c)</b> The two-point forward-difference formula gives
+\({\ds \frac{\sin (\frac{\pi}{3}+0.001)-\sin \frac{\pi}{3}}{0.001} = 0.499567}\).
+Comparing with the correct answer \({\ds \frac{1}{2}}\), the approximation
+error is \(0.000433\). The error term is \({\ds -\frac{h}{2}f''(c) =
+\frac{0.001}{2}\sin c}\), where \({\ds \frac{\pi}{3}&lt c&lt \frac{\pi}{3}+0.001}\), implying that
+the error must lie between \(0.0005\sin \pi/3 \approx 0.0004330\) and \(0.0005\sin (\pi/3+0.001)
+\approx 0.0004333\).
+<hr>
+
+<b>5 (a)</b> The three-point centered-difference formula for the second derivative is
+\[ \frac{f(x-h)-2f(x)+f(x+h)}{h^2}  = \frac{\frac{1}{0.9}-2+\frac{1}{1.1}}{(0.1)^2}
+\approx 2.02020202\]
+for \(f(x) = 1/x\). Comparing with the correct answer \(f''(1) = 2\), the approximation
+error is \(0.02020202\).  <p>
+<b>5 (b)</b> Using \(h=0.01\), the second derivative approximation is
+\[ \frac{f(x-h)-2f(x)+f(x+h)}{h^2}  = \frac{\frac{1}{0.99}-2+\frac{1}{1.01}}{(0.01)^2}
+\approx 2.00020002,\]
+with approximation error \(0.00020002\).
+<b>5 (c)</b> Using \(h=0.001\), the second derivative approximation is
+\[ \frac{f(x-h)-2f(x)+f(x+h)}{h^2}  = \frac{\frac{1}{0.999}-2+\frac{1}{1.001}}{(0.001)^2}
+\approx 2.00000200,\]
+with approximation error \(0.00000200\).
+<hr>
+
+<b>7</b> According to Taylor's Theorem, if \(f\) is twice continuously differentiable, then
+\[f(x-h) = f(x)-hf'(x)+\frac{h^2f''(c)}{2},\] where \(x-h&lt c&lt x\).  Solving for \(f'(x)\) gives the formula
+\[f'(x) = \frac{f(x)-f(x-h)}{h}+\frac{h}{2}f''(c).\]
+<hr>
+
+<b>9</b> According to Taylor's Theorem, if \(f\) is three times continuously differentiable, then
+\begin{eqnarray*}
+f(x-2h) &=& f(x)-2hf'(x)+\frac{4}{2}h^2f''(x)+O(h^3)\\
+f(x-h)&=& f(x)-hf'(x)+\frac{1}{2}h^2f''(x)+O(h^3).
+\end{eqnarray*}
+  Subtracting \(4\) times the second equation
+from the first eliminates the \(f''(x)\) term and results in
+\[
+f(x-2h)-4f(x-h)+3f(x)= 2hf'(x)+O(h^3).\]
+Solving for \(f'(x)\) gives the second order
+formula \[f'(x) = \frac{f(x-2h)-4f(x-h)+3f(x)}{2h}+O(h^2).\]
+<hr>
+
+<b>11</b> Extrapolation for the first-order formula \(K(h)=(f(x+h)-f(x))/h\) is
+\[\frac{2K(\frac{h}{2})-K(h)}{2-1} = \frac{2[f(x+\frac{h}{2})-f(x)]}{h/2}
+- \frac{f(x+h)-f(x)}{h}.\]
+Therefore
+\[f'(x) \approx \frac{4f(x+\frac{h}{2})-3f(x)-f(x+h)}{h}.\]
+<hr>
+
+<b>13</b> According to Taylor's Theorem, if \(f\) is three times continuously differentiable, then
+\begin{eqnarray*}
+f(x+3h) &=& f(x)+3hf'(x)+\frac{9}{2}h^2f''(x)+\frac{27}{6}h^3f'''(c_1)\\
+f(x-h)&=& f(x)-hf'(x)+\frac{1}{2}h^2f''(x)-\frac{1}{6}h^3f'''(c_2)
+\end{eqnarray*}
+where \(c_1\) and \(c_2\) lie between \(x-h\) and \(x+3h\).  Subtracting \(9\) times the second equation
+from the first eliminates the \(f''(x)\) term and results in
+\begin{eqnarray*}
+f(x+3h)-9f(x-h)+8f(x)&=& 12hf'(x)+\frac{9}{2}h^3f'''(c_1)+\frac{3}{2}h^3f'''(c_2)\\
+&=& 12hf'(x)+6h^3f'''(c)
+\end{eqnarray*}
+where Theorem 5.1 has been used to combine the \(f'''\) terms. Solving for \(f'(x)\) gives the
+formula with error term
+\[f'(x) = \frac{f(x+3h)-9f(x-h)+8f(x)}{12h}-\frac{1}{2}h^2f'''(c),\]
+where \(c\) lies between \(x-h\) and \(x+3h\). 
+<hr>
+
+<b>15</b> If \(f\) is four times continuously differentiable, then Taylor's Theorem implies
+the expansions
+\begin{eqnarray*}
+f(x+3h) &=& f(x)+3hf'(x)+\frac{9}{2}h^2f''(x)+\frac{27}{6}h^3f'''(x)+\frac{27}{8}h^4f^{(iv)}(c_1)\\
+f(x-h)&=& f(x)-hf'(x)+\frac{1}{2}h^2f''(x)-\frac{1}{6}h^3f'''(x)+\frac{1}{24}h^4f^{(iv)}(c_2)
+\end{eqnarray*}
+where \(c_1\) and \(c_2\) lie between \(x-h\) and \(x+3h\).  Adding \(\frac{1}{3}\)
+times the first equation
+to the second equation eliminates the \(f'(x)\) term and results in
+\begin{eqnarray*}
+\frac{1}{3}f(x+3h)+f(x-h)-\frac{4}{3}f(x)&=& 2h^2f''(x)+\frac{4}{3}h^3f'''(x)+
+\frac{7}{12}h^4f^{(iv)}(c)
+\end{eqnarray*}
+where Theorem 5.1 has been used to combine the fourth derivative terms.
+Solving for \(f''(x)\) gives the first order formula
+\[f''(x) = \frac{\frac{1}{6}f(x+3h)+\frac{1}{2}f(x-h)-\frac{2}{3}f(x)}{h^2}
+-\frac{2}{3}hf'''(x)-\frac{7}{24}h^2f^{(iv)}(c).\]
+<hr>
+
+<b>17</b>  Using Taylor's Theorem, if \(f\) is three times continuously differentiable, then
+\begin{eqnarray*}
+f(x+3h) &=& f(x)+3hf'(x)+\frac{9}{2}h^2f''(x)+\frac{27}{6}h^3f'''(c_1)\\
+f(x-2h)&=& f(x)-2hf'(x)+2h^2f''(x)-\frac{4}{3}h^3f'''(c_2)
+\end{eqnarray*}
+where \(c_1\) and \(c_2\) lie between \(x-2h\) and \(x+3h\).  Subtracting \(9/4\) times the second equation
+from the first eliminates the \(f''(x)\) term and results in
+\begin{eqnarray*}
+f(x+3h)-\frac{9}{4}f(x-2h)+\frac{5}{4}f(x)&=& \frac{15}{2}hf'(x)+\frac{9}{2}h^3f'''(c_1)
++3h^3f'''(c_2)\\
+&=& \frac{15}{2}hf'(x)+\frac{15}{2}h^3f'''(c)\\
+\end{eqnarray*}
+for \(x-2h&lt c&lt x+3h\), where Theorem 5.1 has been used to combine the \(f'''\) terms.
+Solving for \(f'(x)\) gives the following formula with error term, where \(c\) lies between \(x-2h\) and \(x+3h\):
+\[f'(x) = \frac{4f(x+3h)-9f(x-2h)+5f(x)}{30h}-h^2f'''(c).\]
+<hr>
+
+<b>19</b>  Using Taylor's Theorem, if \(f\) is five times continuously differentiable, then
+\begin{eqnarray*}
+f(x+2h) &=& f(x)+2hf'(x)+2h^2f''(x)+\frac{4}{3}h^3f'''(x)+\frac{2}{3}h^4f^{(iv)}(x)+O(h^5)\\
+f(x+h)&=& f(x)+hf'(x)+\frac{1}{2}h^2f''(x)+\frac{1}{6}h^3f'''(x)+\frac{1}{24}h^4f^{(iv)}(x)+O(h^5)\\
+f(x-h)&=& f(x)-hf'(x)+\frac{1}{2}h^2f''(x)-\frac{1}{6}h^3f'''(x)+\frac{1}{24}h^4f^{(iv)}(x)+O(h^5)\\
+f(x-2h) &=& f(x)-2hf'(x)+2h^2f''(x)-\frac{4}{3}h^3f'''(x)+\frac{2}{3}h^4f^{(iv)}(x)+O(h^5)
+\end{eqnarray*}
+Then
+\[-f(x-2h)+2f(x-h)-2f(x+h)+f(x+2h) = 2h^3f'''(x)+O(h^5)\]
+and the result follows.
+<hr>
+
+<b>21</b> Using the Taylor expansions from Exercise 19, notice that
+\[f(x-2h)-4f(x-h)-4f(x+h)+f(x+2h) = -6f(x)+h^4f^{(iv)}(x)+O(h^6)\]
+since the \(h^5f^{(v)}(x)\) terms cancel. Solving for \(f^{(iv)}\) gives the result.
+<hr>
+
+<b>23</b> Using Taylor's Theorem, if \(f\) is five times continuously differentiable, then
+\begin{align*}
+f(x+h)&= &&f(x)&+&hf'(x)&+\frac{1}{2}&h^2f''(x)&+\frac{1}{6}&h^3f'''(x)&+\frac{1}{24}&h^4f^{(iv)}(x)+O(h^5)\\
+f(x+h/2) &=&& f(x)&+\frac{1}{2}&hf'(x)&+\frac{1}{8}&h^2f''(x)&+\frac{1}{48}&h^3f'''(x)&+\frac{1}{384}&h^4f^{(iv)}(x)+O(h^5)\\
+f(x-h/2) &=&& f(x)&-\frac{1}{2}&hf'(x)&+\frac{1}{8}&h^2f''(x)&-\frac{1}{48}&h^3f'''(x)&+\frac{1}{384}&h^4f^{(iv)}(x)
++O(h^5)\\
+f(x-h)&= &&f(x)&-&hf'(x)&+\frac{1}{2}&h^2f''(x)&-\frac{1}{6}&h^3f'''(x)&+\frac{1}{24}&h^4f^{(iv)}(x)+O(h^5).
+\end{align*}
+Then
+\({\ds f(x-h)-8f(x-h/2)+8f(x+h/2)-f(x+h) = 6hf'(x)+O(h^5)}\)
+and 
+\[f'(x) = \frac{f(x-h)-8f(x-h/2)+8f(x+h/2)-f(x+h)}{6h}+O(h^4).\]
+<hr>
+
+<b>25</b> The \(y\)-intercept of the line through the two points
+\((Kh^n,F(h))\) and \((K(h/2)^n,F(h/2))\) represents the value of the linear interpolant
+of the two points when the \(x\)-coordinate, or error, is zero. The
+\(y\)-intercept is easily computed to be
+\[\frac{2^nF(\frac{h}{2})-F(h)}{2^n-1},\]
+in agreement with the extrapolation formula (5.15).
+
+
+
+
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 3.2</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> The Newton divided difference triangle is
+<table cellpadding="8">
+  <tr>
+<td>\(0\)</td> <td>\(|\)</td> <td>\(0\)</td> <td>\(\)</td> <td>\(\)</td> 
+  </tr>  <tr>
+<td>\(\)</td> <td>\(|\)</td> <td>\(\)</td> <td>\(\frac{2}{\pi}\)</td> <td>\(\)</td> 
+  </tr>  <tr>
+<td>\(\frac{\pi}{2}\)</td> <td>\(|\)</td> <td>\(1\)</td> <td>\(\)</td> <td>\(-\frac{4}{\pi^2}\)</td> 
+  </tr>  <tr>
+<td>\(\)</td> <td>\(|\)</td> <td>\(\)</td> <td>\(-\frac{2}{\pi}\)</td> <td>\(\)</td> 
+  </tr>  <tr>
+<td>\(\pi\)</td> <td>\(|\)</td> <td>\(0\)</td> <td>\(\)</td> <td>\(\)</td> 
+</tr>
+</table>
+The degree 2 interpolating polynomial is
+\({\ds P_2(x)=\frac{2}{\pi}x-\frac{4}{\pi ^2}x\left(x-\frac{\pi}{2}\right)}\). <p>
+<b>1 (b)</b>
+\({\ds P_2\left(\frac{\pi}{4}\right)=\frac{2}{\pi}\frac{\pi}{4}-\frac{4}{\pi
+^2}\frac{\pi}{4}(-\frac{\pi}{4})=\frac{1}{2}+\frac{1}{4}=\frac{3}{4}}\) <p>
+<b>1 (c)</b> The interpolation error formula in Theorem 3.3 applies
+to give \[\left|\sin\frac{\pi}{4}-P_2\left(\frac{\pi}{4}\right)\right|\leq
+\frac{\frac{\pi}{4}\frac{\pi}{4}\frac{3\pi}{4}}{6}=\frac{\pi
+^3}{128}\approx 0.242.\]
+<b>1 (d)</b> The error is
+\({\ds \left|\sin\frac{\pi}{4}-P_2\left(\frac{\pi}{4}\right)\right|=\left|\frac{\sqrt2}{2}-\frac{3}{4}\right|
+\approx0.043,}\)
+less than the error bound in (c).
+<hr>
+
+<b>3 (a)</b> According to Theorem 3.3,
+\[|f(x)-P_9(x)|=\left|\frac{(x-0)(x-\frac{1}{9})\cdots
+(x-1)}{10!}\right|2^{10}e^{-2c}\] where c is between \(0\) and \(1\). At
+\(x=\frac{1}{2}\), the error is \[\left|f\left(\frac{1}{2}\right)-P_9\left(
+\frac{1}{2}\right)\right|\leq
+\frac{\frac{9}{18}\frac{7}{18}\frac{5}{18}\frac{3}{18}\frac{1}{18}\frac{1}{18}
+\frac{3}{18}\frac{5}{18}\frac{7}{18}\frac{9}{18}}{10!}2^{10}
+\times1\approx7.06\times10^{-11}.\]
+<b>3 (b)</b> Since \(f(\frac{1}{2})=1/e\), we can use \(P_9(\frac{1}{2})\)
+as an approximation for \(1/e\). According to (a), since
+\(7.06\times10^{-11}\leq0.5\times10^{-9}\), the approximation will
+have at least \(9\) correct decimal places.
+<hr>
+
+<b>5</b> By Theorem 3.3, the interpolation error at \(x\) is
+\[|f(x)-P(x)|\leq \left|\frac{(x-0.1)(x-0.2)\cdots
+(x-0.6)}{6!}\right| |f^{(6)}(c)|\] where \(c\) is between the smallest and
+largest of \(0.1, 0.2, \ldots, 0.6\), and \(x\). We are given no
+information about \(f^{(6)}(c)\). All things being equal, the ratio of
+the errors at \(x=0.55\) and \(x=0.35\) is
+\[\frac{|(0.55-0.1)(0.55-0.2)\cdots(0.55-0.6)|}{|(0.35-0.1)(0.35-0.2)\cdots(0.35-0.6)|}=
+\frac{(0.45)(0.35)(0.25)(0.15)(0.05)(0.05)}{(0.25)(0.15)(0.05)(0.05)(0.15)(0.25)}=4.2.\]
+<hr>
+
+
+
+
+
+</html>

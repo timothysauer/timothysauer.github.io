@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 8.3</h3>
+\(\def\ds{\displaystyle} \)
+<b>1</b> The \(x\)-partial derivatives are
+\(\ds u_x=\frac{2x}{x^2+y^2}\) and
+\(\ds u_{xx}=\frac{2(y^2-x^2)}{(x^2+y^2)^2}\). Similarly,
+\(\ds u_{yy}=\frac{2(x^2-y^2)}{(x^2+y^2)^2}\). Therefore \(u(x,y)\) satisfies
+the Laplace equation \(\Delta u=0\). Checking the conditions on the
+boundary of the square \([0,1]\times[1,2]\) is achieved by substitution
+into \(\ln(x^2+y^2)\).
+<hr>
+
+<b>3 (a)</b> The partial derivatives are
+\(u_{xx}=-\pi^2e^{-\pi y}\sin\pi x\) and \(u_{yy}=\pi^2e^{-\pi y}\sin\pi
+x\), so \(u\) satisfies the Laplace equation. The boundaries'
+conditions are easily checked. <p>
+<b>3 (b)</b> The partial derivatives are \(u_{xx}=\pi^2\sinh
+\pi x\sin\pi y\) and \(u_{yy}=-\pi^2\sinh\pi x\sin\pi y\), so \(u\)
+satisfies the Laplace equation. The boundary conditions are easily
+checked.
+<hr>
+
+<b>5 (a)</b> The partial derivatives are
+\(u_{xx}=-\frac{\pi^2y^2}{4}\sin\frac{\pi}{2}xy\) and
+\(u_{yy}=-\frac{\pi^2x^2}{4}\sin\frac{\pi}{2}xy\), so that \(\Delta
+u=-\frac{\pi^2}{4}(x^2+y^2)u\).  The boundary conditions are easily checked. <p>
+<b>5 (b)</b> The partial derivatives are \(u_{xx}=y^2e^{xy}\)
+and \(u_{yy}=x^2e^{xy}\), and \(\Delta u=(x^2+y^2)e^{xy}\). The boundary conditions are
+checked by substitution.
+<hr>
+
+<b>7 (a)</b> The partial derivatives are
+\(u_{xx}=2\) and
+\(u_{yy}=2\), so that \(\Delta u + u/(x^2+y^2) = 4+1 = 5.\)  The boundary conditions are easily checked. <p>
+<b>7 (b)</b> The partial derivatives are \(u_{xx}=2y^2/x^3\)
+and \(u_{yy}=2/x\), and \(\Delta u=2y^2/x^3+2/x = 2u/x^2+2/x\). The boundary conditions are
+checked by substitution.
+<hr>
+
+
+<b>9</b> Since \(\overline{x}=(x_1+x_2+x_3)/3\),
+\(\overline{y}=(y_1+y_2+y_3)/3\) and \(\phi(x,y)=ax+by+c\) is linear,
+\begin{eqnarray*}
+\phi(\overline{x},\overline{y})&=&\phi(\frac{x_1+x_2+x_3}{3},\frac{y_1+y_2+y_3}{3})\\
+&=&a\frac{x_1+x_2+x_3}{3}+b\frac{y_1+y_2+y_3}{3}+c\\&=&
+\frac{1}{3}(ax_1+by_1+c)+\frac{1}{3}(ax_2+by_2+c)+\frac{1}{3}(ax_3+by_3+c)\\&=&
+\frac{1}{3}(\phi(x_1,y_1)+\phi(x_2,y_2)+\phi(x_3,y_3))=\frac{1}{3}.
+\end{eqnarray*}
+
+
+
+</html>

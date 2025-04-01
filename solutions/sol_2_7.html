@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h3>EXERCISES 2.7</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> \({\ds DF(u,v)=
+\left[\begin{array}{cc}
+3u^2 & 0\\
+v^3 & 3uv^2\\
+\end{array}\right]}\) <p>
+<b>1 (b)</b>
+ \({\ds DF(u,v)=
+\left[\begin{array}{cc}
+v\cos uv & u\cos uv\\
+ve^{uv} & ue^{uv}\\
+\end{array}\right]}\) <p>
+<b>1 (c)</b> \({\ds DF(u,v)=
+\left[\begin{array}{cc}
+2u & 2v\\
+2(u-1) & 2v\\
+\end{array}\right]}\) <p>
+<b>1 (d)</b>
+ \({\ds DF(u,v,w)=
+\left[\begin{array}{ccc}
+2u & 1 & -2w\\
+vw\cos uvw & uw\cos uvw & uv\cos uvw\\
+vw^4 & uw^4 & 4uvw^3\\
+\end{array}\right]}\)
+<hr>
+
+<b>3 (a)</b> The curves are circles with radius \(1\) centered at
+\((u,v)=(0,0)\) and \((1,0)\), respectively. Solving the first equation
+for \(v^2\) and substituting into the second yields \((u-1)^2+1-u^2=1\)
+or \(-2u+1=0\), so \(u=\frac{1}{2}\). The two solutions are \((u,v)=
+(\frac{1}{2},\frac{\sqrt{3}}{2})\) and \((\frac{1}{2},-\frac{\sqrt{3}}{2})\). <p>
+<b>3 (b)</b> The curves are ellipses with semimajor axes \(1\) and \(2\)
+centered at zero and aligned with the \(x\) and \(y\) axes. Solving by
+substitution gives the four solutions \((u,v)=(\pm \frac{2}{\sqrt{5}},
+\pm \frac{2}{\sqrt{5}})\). <p>
+<b>3 (c)</b> The curves are a hyperbola and a circle that intersects
+one half of the hyperbola in two points. Solving by substitution
+gives the two solutions \((u,v)=(\frac{4}{5}(1+\sqrt{6}), \pm \frac{1}{5}
+\sqrt{3+8\sqrt{6}})\).
+<hr>
+
+<b>5 (a)</b> Given initial values \(A_0=I\) and \(x_0=[1, 1]^T\),
+set
+\({\ds F\left[\begin{array}{c}
+u\\v\\ \end{array}\right]
+= \left[\begin{array}{c}
+u^2+v^2-1\\
+(u-1)^2+v^2-1\\
+\end{array}\right].}\)
+According to Broyden's Method,
+\begin{eqnarray*}
+x_1&=&x_0-A_0^{-1}F(x_0)=
+\left[\begin{array}{c}
+1\\1 \end{array}\right]-
+\left[\begin{array}{c}
+1\\0 \end{array}\right]=
+\left[\begin{array}{c}
+0\\1 \end{array}\right]\\
+\Delta_1 &=&   F(x_1)-F(x_0)=F\left[\begin{array}{c}
+0\\1\\ \end{array}\right]-
+F\left[\begin{array}{c}
+1\\1\\ \end{array}\right]=
+\left[\begin{array}{c}
+0\\1\\ \end{array}\right]-
+\left[\begin{array}{c}
+1\\0\\ \end{array}\right]
+\left[\begin{array}{r}
+-1\\1\\ \end{array}\right]\\
+\delta_1&=&x_1-x_0=
+\left[\begin{array}{r}
+-1\\0\\ \end{array}\right]
+\end{eqnarray*}
+\begin{eqnarray*}
+A_1&=&  A_0+\frac{(\Delta_1-A_0\delta_1)\delta_1^T}{\delta_1^T\delta_1}=
+\left[\begin{array}{cc}
+1&0\\0&1\\ \end{array}\right]+
+\frac{
+\left[\begin{array}{c}
+0\\1\\ \end{array}\right]
+\left[\begin{array}{cc}
+-1&0\\ \end{array}\right]}
+{\left[\begin{array}{cc}
+-1&0\\ \end{array}\right]
+\left[\begin{array}{r}
+-1\\0\\ \end{array}\right]}
+=
+\left[\begin{array}{rr}
+1&0\\-1&1\\ \end{array}\right]\\
+x_2&=&x_1-A_1^{-1}F(x_1)=
+\left[\begin{array}{c}
+0\\1 \end{array}\right]-
+\left[\begin{array}{c}
+0\\1 \end{array}\right]=
+\left[\begin{array}{c}
+0\\0 \end{array}\right]
+\end{eqnarray*} <p>
+<b>5 (b)</b>
+Proceed as in (a), with
+\({\ds F\left[\begin{array}{c}
+u\\v\\ \end{array}\right]
+= \left[\begin{array}{c}
+u^2+4v^2-4\\
+4u^2+v^2-4\\
+\end{array}\right].}\)
+According to Broyden's Method,
+\begin{eqnarray*}
+x_1&=&x_0-A_0^{-1}F(x_0)=
+\left[\begin{array}{c}
+1\\1 \end{array}\right]-
+\left[\begin{array}{c}
+1\\1 \end{array}\right]=
+\left[\begin{array}{c}
+0\\0 \end{array}\right]\\
+\Delta_1 &=&   F(x_1)-F(x_0)=F\left[\begin{array}{c}
+0\\0\\ \end{array}\right]-
+F\left[\begin{array}{c}
+1\\1\\ \end{array}\right]=
+\left[\begin{array}{c}
+-4\\-4\\ \end{array}\right]-
+\left[\begin{array}{c}
+1\\1\\ \end{array}\right]=
+\left[\begin{array}{r}
+-5\\-5\\ \end{array}\right]\\
+\delta_1&=&x_1-x_0=
+\left[\begin{array}{c}
+-1\\-1\\ \end{array}\right]\\
+A_1&=&  A_0+\frac{(\Delta_1-A_0\delta_1)\delta_1^T}{\delta_1^T\delta_1}=
+\left[\begin{array}{cc}
+1&0\\0&1\\ \end{array}\right]+
+\frac{
+\left[\begin{array}{c}
+-4\\-4\\ \end{array}\right]
+\left[\begin{array}{cc}
+-1&-1\\ \end{array}\right]}
+{\left[\begin{array}{cc}
+-1&-1\\ \end{array}\right]
+\left[\begin{array}{r}
+-1\\-1\\ \end{array}\right]}
+=
+\left[\begin{array}{cc}
+3&2\\2&3\\ \end{array}\right]\\
+x_2&=&x_1-A_1^{-1}F(x_1)=
+\left[\begin{array}{c}
+0\\0 \end{array}\right]-
+\left[\begin{array}{cc}
+3&2\\2&3\\ \end{array}\right]^{-1}
+\left[\begin{array}{c}
+-4\\-4 \end{array}\right]=
+\left[\begin{array}{c}
+0.8\\0.8 \end{array}\right]
+\end{eqnarray*} <p>
+<b>5 (c)</b>
+Proceed as in (a), with
+\({\ds F\left[\begin{array}{c}
+u\\v\\ \end{array}\right]
+= \left[\begin{array}{c}
+u^2-4v^2-4\\
+(u-1)^2+v^2-4\\
+\end{array}
+\right].}\)
+According to Broyden's Method,
+\begin{eqnarray*}
+x_1&=&x_0-A_0^{-1}F(x_0)=
+\left[\begin{array}{c}
+1\\1 \end{array}\right]-
+\left[\begin{array}{c}
+-7\\-3 \end{array}\right]=
+\left[\begin{array}{c}
+8\\4 \end{array}\right]\\
+\Delta_1 &=&   F(x_1)-F(x_0)=F\left[\begin{array}{c}
+8\\4\\ \end{array}\right]-
+F\left[\begin{array}{c}
+1\\1\\ \end{array}\right]=
+\left[\begin{array}{r}
+-4\\61\\ \end{array}\right]-
+\left[\begin{array}{c}
+-7\\-3\\ \end{array}\right]=
+\left[\begin{array}{r}
+3\\64\\ \end{array}\right]\\
+\delta_1&=&x_1-x_0=
+\left[\begin{array}{c}
+7\\3\\ \end{array}\right]
+\\
+A_1&=&  A_0+\frac{(\Delta_1-A_0\delta_1)\delta_1^T}{\delta_1^T\delta_1}=
+\left[\begin{array}{cc}
+1&0\\0&1\\ \end{array}\right]+
+\frac{
+\left[\begin{array}{r}
+-4\\61\\ \end{array}\right]
+\left[\begin{array}{cc}
+7&3\\ \end{array}\right]}
+{\left[\begin{array}{cc}
+7&3\\ \end{array}\right]
+\left[\begin{array}{r}
+7\\3\\ \end{array}\right]}
+=
+\left[\begin{array}{rr}
+0.5172&-0.2069\\7.3621&4.1552 \end{array}\right]
+\end{eqnarray*}
+\begin{eqnarray*}
+x_2&=&x_1-A_1^{-1}F(x_1)=
+\left[\begin{array}{c}
+8\\4 \end{array}\right]-
+A_1^{-1}
+\left[\begin{array}{r}
+-4\\61 \end{array}\right]=
+\left[\begin{array}{r}
+9.0892\\-12.6103 \end{array}\right]
+\end{eqnarray*}
+
+</html>

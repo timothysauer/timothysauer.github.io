@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 1.4</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> \(x_1=x_0-(x_0^3+x_0-2)/(3x_0^2+1)=0-(-2)/(1)=2\);
+\(x_2=2-(2^3+2-2)/(3(2^2)+1)=18/13\). <p>
+<b>1 (b)</b> \(x_1=x_0-(x_0^4-x_0^2+x_0-1)/(4x_0^3-2x_0+1)=1\);
+\(x_2=1\). <p>
+<b>1 (c)</b> \(x_1=x_0-(x_0^2-x_0-1)/(2x_0-1)=-1\);
+\(x_2=-\frac{2}{3}\).
+<hr>
+ 
+<b>3 (a)</b> According to Theorem 1.11, \(f'(-1)=8\) implies that
+convergence to \(r=-1\) is quadratic, with
+\(e_{i+1}\approx|f''(-1)/(2f'(-1))|e_i^2=|-40/(2)(8)|e_i^2=2.5e_i^2\);
+\(f'(0)=-1\) implies convergence to \(r=0\) is quadratic,
+\(e_{i+1}\approx 2e_i^2\); \(f'(1)=f''(1)=0\) and \(f'''(1)=12\) implies
+that convergence to \(r=1\) is linear,
+\(e_{i+1}\approx\frac{2}{3}e_i\). <p>
+<b>3 (b)</b> \(f'(-\frac{1}{2})=-27/4\) implies that convergence to
+\(r=-\frac{1}{2}\) is quadratic, with error relationship
+\(e_{i+1}\approx|27/2(-\frac{27}{4})|e_i^2=2e_i^2\);
+\(f'(1)=f''(1)=0\) and \(f'''(1)=18\) implies that convergence to
+\(r=1\) is linear, \(e_{i+1}\approx\frac{2}{3}e_i\).
+<hr>
+
+<b>5</b> Convergence to \(r=0\) is quadratic since \(f'(0)=-1\neq 0\),
+so Newton's Method converges faster than the Bisection Method.
+Convergence to \(r=\frac{1}{2}\) is linear since
+\(f'(\frac{1}{2})=f''(\frac{1}{2})=0\) and \(f'''(\frac{1}{2})=24\),
+with \(e_{i+1}\approx\frac{2}{3}e_i\). Since
+\(S=\frac{2}{3}>\frac{1}{2}\), Newton's Method will converge to
+\(r=\frac{1}{2}\) slower than the Bisection Method.
+<hr>
+
+<b>7</b> Computing derivatives, \(f'(2)=f''(2)=0\) and
+\(f'''(2)=6\) implies that \(r=2\) is a
+triple root. Therefore Newton's Method does not converge
+quadratically, but converges linearly and
+\(e_{i+1}/e_i\to\frac{2}{3}\) according to Theorem 1.12.
+<hr>
+
+<b>9</b> Since \(f'(x)=2x\), Newton's Method is
+\[x_{i+1}=x_i-\frac{x_i^2-A}{2x_i}=
+\frac{x_i}{2}+\frac{A}{2x_i}=\frac{x_i+A/x_i}{2}.\]
+<hr>
+
+<b>11</b> The \(n^{th}\) root of \(A\) is the real root of
+\(f(x)=x^n-A=0\). Newton's Method applied to the equation is
+\[x_{i+1}=x_i-\frac{x_i^n-A}{nx_i^{n-1}}=
+\frac{n-1}{n}x_i+\frac{A}{nx_i^{n-1}}=
+\frac{(n-1)x_i+A/x_i^{n-1}}{n}.\]
+Since \(f'(A^\frac{1}{n})=nA^{\frac{n-1}{n}}\), Theorem
+1.11 implies that Newton's Method converges quadratically as long
+as \(A\neq0\).
+<hr>
+
+<b>13 (a)</b> Newton's Method converges quadratically to \(r=2\) since
+\(f'(2)=8\neq0\), and \(e_5\approx
+f''(2)/(2f'(2))e_4^2=\frac{3}{4}{(10^{-6})}^2=0.75\times
+10^{-12}\). <p>
+<b>13 (b)</b> Since \(f'(0)=-4\) and \(f''(0)=0\), Theorem 1.11 implies
+that \(\ds \lim_{i\to\infty} e_{i+1}/e_i^2=0\), and no useful
+estimate of \(e_5\) follows. Essentially, convergence is faster than
+quadratic. Reverting to the definition of Newton's Method, \(\ds
+x_{i+1}=x_i-\frac{x_i^3-4x_i}{3x_i^2-4}=\frac{2x_i^3}{3x_i^2-4}\),
+and because \(r=0\), \(\ds
+e_{i+1}=\left|\frac{2e_i^3}{3e_i^2-4}\right|\). Substituting
+\(e_4=10^{-6}\) yields \(\ds e_5=\left|\frac{2\times
+10^{-18}}{3\times 10^{-12}-4}\right| \approx 0.5\times 10^{-18}\).
+<hr>
+
+
+</html>

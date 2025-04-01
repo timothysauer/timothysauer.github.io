@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 11.3</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> Of the eight symbols, A appears 2 times, B
+appears 5 times, and C one time. The empirical probabilities
+are \(P(A)=2/8=1/4, P(B)=5/8\), and \(P(C)=1/8\). The Shannon information
+is
+\[I=-\sum_{i=1}^3 p_i\log_2 p_i = -\frac{1}{4}\log_2\frac{1}{4}
+-\frac{5}{8}\log_2\frac{5}{8}-\frac{1}{8}\log_2\frac{1}{8}
+\approx 1.30.\]
+<b>1 (b)</b> The empirical probabilities
+are \(P(A)=3/8, P(B)=1/4\), and \(P(C)=3/8\). The Shannon information
+is
+\[I=-\sum_{i=1}^3 p_i\log_2 p_i = -\frac{3}{8}\log_2\frac{3}{8}
+-\frac{1}{4}\log_2\frac{1}{4}-\frac{3}{8}\log_2\frac{3}{8}
+\approx 1.56.\]
+<b>1 (c)</b> The empirical probabilities
+are \(P(A)=1/2, P(B)=3/8\), and \(P(C)=1/8\). The Shannon information
+is
+\[I=-\sum_{i=1}^3 p_i\log_2 p_i = -\frac{1}{2}\log_2\frac{1}{2}
+-\frac{3}{8}\log_2\frac{3}{8}-\frac{1}{8}\log_2\frac{1}{8}
+\approx 1.41.\]
+<hr>
+
+<b>3 (a)</b> The empirical probabilities of the symbols are
+\begin{array}{ccccccccc}
+\text{ A}&\text{ B}&\text{ C}&\text{ R}&\text{ M}&\text{ U}&\text{ Y}&\text{ !}&\text{ -}\\
+  \frac{3}{11}&\frac{1}{11}&\frac{1}{11}&\frac{1}{11}&\frac{1}{11}&\frac{1}{11}&\frac{1}{11}&\frac{1}{11}&\frac{1}{11}
+\end{array}
+The Shannon information is \[I=-\sum_{i=1}^9 p_i\log_2 p_i
+=-\left(\frac{3}{11}\log_2\frac{3}{11}+\frac{8}{11}\log_2\frac{1}{11}\right)
+ \approx 3.03.\]
+ The Huffman tree is <p>
+ <img width=300 async src="figs/cp11o3o3a.png" align=left>
+<br clear="all" />
+<p>
+
+The bit stream representing the message <tt>AY CARUMBA!</tt> is
+\[10\ 1101\ 1111\ 001\ 10\ 011\ 1100\ 010\ 000\ 10\ 1110\]
+The stream contains 34 bits, or \(34/11\approx 3.09\) bits/symbol. <p>
+<b>3 (b)</b> The empirical probabilities of the symbols are
+\begin{array}{ccccccccccccc}
+\text{ A}&\text{ C}&\text{ E}&\text{ G}&\text{ H}&\text{ I}&\text{ M}&\text{ O}&\text{ P}&\text{ R}&\text{ S}&\text{ T}&\text{ -}\\
+\hline  \frac{1}{21}&\frac{1}{21}&\frac{3}{21}&\frac{1}{21}&\frac{1}{21}&\frac{1}{21}&\frac{2}{21}&\frac{1}{21}&\frac{1}{21}&\frac{1}{21}&\frac{5}{21}&\frac{1}{21}&\frac{2}{21}
+\end{array}
+The Shannon information is \[I=-\sum_{i=1}^{13} p_i\log_2 p_i
+\approx 3.42.\]
+A Huffman tree is <p>
+<img width=300 async src="figs/cp11o3o3b.png" align=left>
+<br clear="all" />
+<p>
+The bit stream representing <tt>COMPRESS THIS MESSAGE</tt> is <p>
+\[0010\ 01110\ 110\ 01111\ 1110\ 010\ 10\ 10\ 0000\ 
+ 1111\  01100\ 01101\ 10\ 0000\
+ 110\ 010\ 10\ 10\ 0001\ 0011\ 010 \]
+
+The stream contains 73 bits, or \(73/21\approx 3.48\) bits/symbol. <p>
+<b>3 (c)</b> The empirical probabilities of the symbols are
+\begin{array}{ccccccccccc}
+\text{ A}&\text{ B}&\text{ E}&\text{ H}&\text{ L}&\text{ O}&\text{ R}&\text{ S}&\text{ T}&\text{ Y}&\text{ -}\\
+ \frac{2}{35}&\frac{1}{35}&\frac{1}{5}&\frac{4}{35}&\frac{4}{35}&\frac{1}{35}&\frac{1}{35}&\frac{8}{35}&\frac{1}{35}&\frac{1}{35}&\frac{1}{7}
+\end{array}
+
+The Shannon information is \[I=-\sum_{i=1}^{11} p_i\log_2 p_i
+\approx 3.04.\]
+A Huffman tree is <p>
+<img width=300 async src="figs/cp11o3o3c.png" align=left>
+<br clear="all" />
+<p>
+
+
+
+The bit stream representing <tt> SHE SELLS SEASHELLS BY THE SEASHORE</tt> is
+\[00\ 110\ 10\ 010\ 00\ 10\ 111\ 111\ 00\ 010\ 00\ 10\ 01100\ 00\ 110\
+10\ 111\ 111\  00\ 010\ \] \[01101\ 011111\ 010\ 011110\ 110\ 10\ 010\
+00\ 10\ 01100\ 00\ 110\ 011100\ 011101\ 10\]
+
+The stream contains 108 bits, or \(108/35\approx 3.09\) bits/symbol.
+
+
+</html>

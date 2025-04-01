@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 7.1</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> Check the hypotheses of Thm. 7.1: \(f_y = 1 &gt 0, f_z = 0\) <p>
+<b>1 (b)</b> \(f_y = 2+4t^2 &gt 0, f_z = 0\) <p>
+<b>1 (c)</b> \(f_y = 8 &gt 0, f_z = 0\) <p>
+<b>1 (d)</b> \(f_y = 1+6(y-e^t)^2 &gt 0, f_z = 0\)
+<hr>
+
+<b>3 (a)</b> Follows from Thm. 7.1 <p>
+<b>3 (b)</b> \(y(t) = \frac{e^{-b\sqrt{c}}y_a-e^{-a\sqrt{c}}y_b}{e^{(a-b)\sqrt{c}}-e^{(b-a)\sqrt{c}} }e^{\sqrt{c}t}+\frac{e^{a\sqrt{c}}y_b-e^{b\sqrt{c}}y_a}{e^{(a-b)\sqrt{c}}-e^{(b-a)\sqrt{c}} }e^{-\sqrt{c}t}\)
+<hr>
+
+<b>5 (a)</b> Since \(f_y = 2e^{2d-2y}, f_z = 0\), existence and uniqueness follow from Thm 7.1. <p>
+<b>5 (b)</b> Substituting \(-e^{2d-2y} = -e^{2d-2\ln t -2d} = -t^{-2} = y''\) verifies the differential equation.
+<hr>
+
+<b>7</b> All requirements are easily checked by substitution.
+<hr>
+
+<b>9 (a)</b> The linearly independent solutions of \(y''=-4y\) are
+\(y_1(t)=\cos 2t\) and \(y_2(t)=\sin 2t\).<p>
+<b>9 (b)</b> All solutions of the differential equation have form
+\(y(t)=c_1\cos 2t+c_2\sin 2t\). Substituting the boundary conditions
+gives
+\[y_a=y(0)=c_1\cos 0+c_2\sin 0 = c_1\]
+and
+\[y_b=y(\pi)=c_1\cos 2\pi+c_2\sin 2\pi = c_1.\]
+Therefore a solution to the boundary value problem exists if and
+only if \(y_a= y_b\).<p>
+<b>9 (c)</b> From part (b), \(y_a=y(0)=c_1\). Additionally,
+\[y_b=y(\pi/2)=c_1\cos \pi+c_2\sin \pi = -c_1.\]
+Therefore a solution to the BVP problem exists if and only if \(y_a+y_b=0\).
+<p>
+<b>9 (d)</b> From part (b), \(y_a=c_1\). Additionally,
+\[y_b=y(\frac{\pi}{4})=c_1\cos \frac{\pi}{2}+c_2\sin \frac{\pi}{2} = c_2.\]
+Therefore the solution \(y(t)=y_a\cos 2t+y_b\sin 2t\) exists for arbitrary
+\(y_a, y_b\).
+
+</html>

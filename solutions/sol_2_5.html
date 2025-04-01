@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h3>EXERCISES 2.5</h3>
+<b>1 (a)</b> The Jacobi equations are
+\begin{align*}
+u_{k+1}&=  \frac{5+v_k}{3}\\
+v_{k+1}&=  \frac{4+u_k}{2}\\
+\end{align*}
+Starting with \([u_0,v_0]=[0,0]\), the first two steps are
+\[\left[\begin{array}{r}
+u_1\\v_1\\
+\end{array}\right]=
+\left[\begin{array}{r}
+\frac{5}{3}\\2\\
+\end{array}\right],
+\left[\begin{array}{r}
+u_2\\v_2\\
+\end{array}\right]=
+\left[\begin{array}{c}
+\frac{7}{3}\\\frac{17}{6}\\
+\end{array}\right].\]
+The Gauss-Seidel equations are
+\begin{align*}
+u_{k+1}&=  \frac{5+v_k}{3}\\
+v_{k+1}&=  \frac{4+u_{k+1}}{2}\\
+\end{align*}
+Starting with \([u_0,v_0]=[0,0]\), the first two steps are
+\[\left[\begin{array}{r}
+u_1\\v_1\\
+\end{array}\right]=
+\left[\begin{array}{r}
+5/3\\17/6\\
+\end{array}\right],
+\left[\begin{array}{r}
+u_2\\v_2\\
+\end{array}\right]=
+\left[\begin{array}{c}
+\frac{47}{18}\\\frac{119}{36}\\
+\end{array}\right].\]
+
+<b>1 (b)</b> The Jacobi equations are
+\begin{align*}
+u_{k+1}&=  \frac{v_k}{2}\\
+v_{k+1}&=  \frac{u_k+w_k+2}{2}\\
+w_{k+1}&=  \frac{v_k}{2}
+\end{align*}
+Starting with \([u_0,v_0,w_0]=[0,0,0]\), the first two steps are
+\[\left[\begin{array}{r}
+u_1\\v_1\\w_1\\
+\end{array}\right]=
+\left[\begin{array}{r}
+0\\1\\0\\
+\end{array}\right],
+\left[\begin{array}{r}
+u_2\\v_2\\w_2\\
+\end{array}\right]=
+\left[\begin{array}{r}
+\frac{1}{2}\\1\\\frac{1}{2}\\
+\end{array}\right].\]
+The Gauss-Seidel equations are
+\begin{align*}
+u_{k+1}&=  \frac{v_k}{2}\\
+v_{k+1}&=  \frac{u_{k+1}+w_k+2}{2}\\
+w_{k+1}&=  \frac{v_{k+1}}{2}
+\end{align*}
+Starting with \([u_0,v_0,w_0]=[0,0,0]\), the first two steps are
+\[\left[\begin{array}{r}
+u_1\\v_1\\w_1\\
+\end{array}\right]=
+\left[\begin{array}{r}
+0\\1\\\frac{1}{2}\\
+\end{array}\right],
+\left[\begin{array}{r}
+u_2\\v_2\\w_2\\
+\end{array}\right]=
+\left[\begin{array}{r}
+{1}/{2}\\{3}/{2}\\{3}/{4}\\
+\end{array}\right].\]
+
+<b>1 (c)</b> The Jacobi equations are
+\begin{align*}
+u_{k+1}&=  \frac{6-v_k-w_k}{3}\\
+v_{k+1}&=  \frac{3-u_k-w_k}{3}\\
+w_{k+1}&=  \frac{5-u_k-v_k}{3}
+\end{align*}
+Starting with \([u_0,v_0,w_0]=[0,0,0]\), the first two steps are
+\[\left[\begin{array}{r}
+u_1\\v_1\\w_1\\
+\end{array}\right]=
+\left[\begin{array}{r}
+2\\1\\\frac{5}{3}\\
+\end{array}\right],
+\left[\begin{array}{r}
+u_2\\v_2\\w_2\\
+\end{array}\right]=
+\left[\begin{array}{r}
+{10}/{9}\\-{2}/{9}\\{2}/{3}\\
+\end{array}\right].\]
+The Gauss-Seidel equations are
+\begin{align*}
+u_{k+1}&=  \frac{6-v_k-w_k}{3}\\
+v_{k+1}&=  \frac{3-u_{k+1}-w_k}{3}\\
+w_{k+1}&=  \frac{5-u_{k+1}-v_{k+1}}{3}
+\end{align*}
+Starting with \([u_0,v_0,w_0]=[0,0,0]\), the first two steps are
+\[\left[\begin{array}{r}
+u_1\\v_1\\w_1\\
+\end{array}\right]=
+\left[\begin{array}{r}
+2\\\frac{1}{3}\\\frac{8}{9}\\
+\end{array}\right],
+\left[\begin{array}{r}
+u_2\\v_2\\w_2\\
+\end{array}\right]=
+\left[\begin{array}{c}
+\frac{43}{27}\\\frac{14}{81}\\ \frac{262}{243}\\
+\end{array}\right].\]
+<hr>
+
+<b>3 (a)</b> The SOR equations are
+\begin{align*}
+u_{k+1}&=  (1-\omega)u_k+\omega\frac{5+v_k}{3}\\
+v_{k+1}&=  (1-\omega)v_k+\omega\frac{4+u_{k+1}}{2}
+\end{align*}
+where \(\omega=1.5\). Starting with \([u_0,v_0]=[0,0]\), the first two
+steps are
+\begin{align*}
+u_1&=  -\frac{1}{2}u_0+\frac{3(5+v_0)}{6} = \frac{5}{2}\\
+v_1&=  -\frac{1}{2}v_0+\frac{3(4+u_1)}{4} = \frac{39}{8}\\
+\end{align*}
+and
+\begin{align*}
+u_2&=  -\frac{1}{2}u_1+\frac{3(5+v_1)}{6} = \frac{59}{16}\\
+v_2&=  -\frac{1}{2}v_1+\frac{3(4+u_2)}{4} = \frac{213}{64}\\
+\end{align*}
+
+<b>3 (b)</b> The SOR equations are
+\begin{align*}
+u_{k+1}&=  (1-\omega)u_k+\omega\frac{v_k}{2}\\
+v_{k+1}&=  (1-\omega)v_k+\omega\frac{u_{k+1}+w_k+2}{2}\\
+w_{k+1}&=  (1-\omega)w_k+\omega\frac{v_{k+1}}{2}
+\end{align*}
+where \(\omega=1.5\). Starting with \([u_0,v_0,w_0]=[0,0,0]\), the first two
+steps are  \([u_1,v_1,w_1]=[0,\frac{3}{2},\frac{9}{8}]\)
+and  \([u_2,v_2,w_2]=[\frac{9}{8},\frac{39}{16},\frac{81}{64}]\).<p>
+
+<b>3 (c)</b> The SOR equations are
+\begin{align*}
+u_{k+1}&=  (1-\omega)u_k+\omega\frac{6-v_k-w_k}{3}\\
+v_{k+1}&=  (1-\omega)v_k+\omega\frac{3-u_{k+1}-w_k}{3}\\
+w_{k+1}&=  (1-\omega)w_k+\omega\frac{5-u_{k+1}-v_{k+1}}{3}
+\end{align*}
+where \(\omega=1.5\). Starting with \([u_0,v_0,w_0]=[0,0,0]\), the first two
+steps are \([u_1,v_1,w_1]=[3,0,1]\)
+and  \([u_2,v_2,w_2]=[1,\frac{1}{2},\frac{5}{4}]\)
+<hr>
+
+<b>5 (a)</b> By dividing an eigenvector \(v\) associated to \(\lambda\)
+by its largest magnitude entry, we can find an eigenvector whose
+largest magnitude entry \(v_m\) is exactly \(1\). The \(m\)th row of the
+eigenvalue equation \(Av=\lambda v\) is therefore
+\[A_{m1}v_1+\ldots+A_{m,m-1}v_{m-1}+A_{mm}+A_{m,m+1}v_{m+1}+\ldots+A_{mn}v_n=\lambda.
+\]
+Since \(|v_i|\leq 1\) for all \(1\leq i\leq n\), it follows that
+\begin{align*}
+|A_{mm}-\lambda|&=  | A_{m1}v_1+\ldots+A_{m,m-1}v_{m-1}+A_{m,m+1}v_{m+1}+\ldots+A_{mn}v_n|\\
+&\leq \sum_{j\neq m} |A_{mj}|.
+\end{align*}
+<b>5 (b)</b> If \(\lambda=0\) is an eigenvalue of \(A\), then by the
+Gerschgorin Circle Theorem there exists an \(m\) such that
+\(\displaystyle |A_{mm}|\leq\sum_{j\neq m} |A_{mj}|\), which contradicts strict
+diagonal dominance.
+
+ 
+
+</html>

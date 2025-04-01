@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 4.2</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> Substituting the data into the periodic model yields the four equations
+\begin{eqnarray*}
+c_1+c_2\cos 2\pi(0)+c_3\sin 2\pi(0)&=&1\\
+c_1+c_2\cos 2\pi\left(\frac{1}{4}\right)+c_3\sin 2\pi\left(\frac{1}{4}\right)&=&3\\
+c_1+c_2\cos 2\pi\left(\frac{1}{2}\right)+c_3\sin 2\pi\left(\frac{1}{2}\right)&=&2\\
+c_1+c_2\cos 2\pi\left(\frac{3}{4}\right)+c_3\sin 2\pi\left(\frac{3}{4}\right)&=&0\\
+\end{eqnarray*}
+The matrix form of the equations is
+\[Ac=\left[\begin{array}{rrr}
+1&1&0\\
+1&0&1\\
+1&-1&0\\
+1&0&-1\\
+\end{array}\right]
+\left[\begin{array}{rrr}
+c_1\\c_2\\c_3\\
+\end{array}\right]
+=
+\left[\begin{array}{rrr}
+1\\3\\2\\0\\
+\end{array}\right] = b.\]
+The normal equations \(A^TAc = A^Tb\) are
+\[\left[\begin{array}{rrr}
+4&0&0\\0&2&0\\0&0&2\\
+\end{array}\right]
+\left[\begin{array}{rrr}
+c_1\\c_2\\c_3\\
+\end{array}\right]
+=
+\left[\begin{array}{rrr}
+6\\-1\\3\\
+\end{array}\right]\]
+with solution \(c=[3/2, -1/2, 3/2]\). The best fit model is
+\[F_3(t) = \frac{3}{2}-\frac{1}{2}\cos 2\pi t+\frac{3}{2}\sin 2\pi t.\]
+The errors of the fit are \(e=b-Ac\), or
+\[
+e=\left[\begin{array}{r}
+1\\3\\2\\0\\
+\end{array}\right]
+-
+\left[\begin{array}{rrr}
+1&1&0\\
+1&0&1\\
+1&-1&0\\
+1&0&-1\\
+\end{array}\right]
+\left[\begin{array}{r}
+\frac{3}{2}\\-\frac{1}{2}\\\frac{3}{2}\\
+\end{array}\right]=
+\left[\begin{array}{r}
+0\\0\\0\\0\\
+\end{array}\right],
+\]
+so
+\(||e||_2 = 0\) and \(\text{ RMSE } = 0\).<p>
+<b>1 (b)</b> Similar to (a). The normal equations are
+\[\left[\begin{array}{rrr}
+4&0&0\\0&2&0\\0&0&2\\
+\end{array}\right]
+\left[\begin{array}{rrr}
+c_1\\c_2\\c_3\\
+\end{array}\right]
+=
+\left[\begin{array}{rrr}
+7\\-1\\2\\
+\end{array}\right]\]
+with solution \(c=[7/4, -1/2, 1]\). The best fit model is \(F_3(t) =
+\frac{7}{4}-\frac{1}{2}\cos 2\pi t+\sin 2\pi t\).
+The errors of the fit are \(e=b-Ac\), or
+\[
+e=\left[\begin{array}{r}
+1\\3\\2\\1\\
+\end{array}\right]
+-
+\left[\begin{array}{rrr}
+1&1&0\\
+1&0&1\\
+1&-1&0\\
+1&0&-1\\
+\end{array}\right]
+\left[\begin{array}{r}
+7/4\\-1/2\\1\\
+\end{array}\right]=
+\left[\begin{array}{r}
+-1/4\\1/4\\-1/4\\1/4\\
+\end{array}\right],
+\]
+so
+\(||e||_2 = \sqrt{(\frac{1}{4})^2+(\frac{1}{4})^2+(\frac{1}{4})^2+(\frac{1}{4})^2} = \frac{1}{2}\)
+and \(\text{ RMSE } = ||e||_2/\sqrt{4} = \frac{1}{4}\).<p>
+<b>1 (c)</b>  Similar to (a). The normal equations are
+\[\left[\begin{array}{rrr}
+4&0&0\\0&4&0\\0&0&0\\
+\end{array}\right]
+\left[\begin{array}{rrr}
+c_1\\c_2\\c_3\\
+\end{array}\right]
+=
+\left[\begin{array}{rrr}
+9\\3\\0\\
+\end{array}\right]\]
+with solution \(c=[9/4, 3/4, 0]\). The best fit model is \(F_3(t) =
+\frac{9}{4}+\frac{3}{4}\cos 2\pi t\).
+The errors of the fit are
+\(e=[0, -1/2, 0, 1/2]\) and so
+\(||e||_2 = 1/\sqrt{2}\), RMSE = \( \sqrt{2}/4\).
+<hr>
+
+<b>3 (a)</b> Fitting to the model \(y=c_1e^{c_2t}\) by linearization means
+finding the best least squares model \(\ln y = \ln c_1+c_2t\) for the data.
+Setting \(k=\ln c_1\) and substituting data into the model gives
+the matrix equation
+\[Ac=\left[\begin{array}{rr}
+1&-2\\
+1&0\\
+1&1\\
+1&2\\
+\end{array}\right]
+\left[\begin{array}{c}
+k\\c_2\\
+\end{array}\right]
+=
+\left[\begin{array}{c}
+0\\\ln 2\\\ln 2\\\ln 5\\
+\end{array}\right].\]
+The normal equations \(A^TAc = A^Tb\) are
+\[\left[\begin{array}{rr}
+4&1\\1&9\\
+\end{array}\right]
+\left[\begin{array}{cc}
+k\\c_2\\
+\end{array}\right]
+=
+\left[\begin{array}{c}
+\ln 20\\\ln 50\\
+\end{array}\right]\]
+with solution \(k=0.6586, c_2=0.3615\). Since \(c_1=e^k \approx 1.932\), the best fit model is
+\(y= 1.932e^{0.3615t}\).
+The errors of the exponential fit are
+\[
+e=\left[\begin{array}{r}
+1\\2\\2\\5\\
+\end{array}\right]
+-
+\left[\begin{array}{c}
+c_1e^{c_2(-2)}\\
+c_1e^{c_2(0)}\\
+c_1e^{c_2(1)}\\
+c_1e^{c_2(2)}\\
+\end{array}\right]
+\]
+which has 2-norm
+\(||e||_2 \approx 1.2825\). Note that the 2-norm error of the exponential model fit
+is not minimized by linearized least squares. Instead, the 2-norm difference of the
+logs of the above vectors have been minimized. (This minimum is \(0.4052\).) <p>
+<b>3 (b)</b> Similar to (a). Substituting data into the linearized model gives
+the matrix equation
+\[Ac=\left[\begin{array}{rr}
+1&0\\
+1&1\\
+1&1\\
+1&2\\
+\end{array}\right]
+\left[\begin{array}{c}
+k\\c_2\\
+\end{array}\right]
+=
+\left[\begin{array}{c}
+0\\0\\\ln 2\\\ln 4\\
+\end{array}\right].\]
+The normal equations are
+\[\left[\begin{array}{rr}
+4&4\\4&6\\
+\end{array}\right]
+\left[\begin{array}{cc}
+k\\c_2\\
+\end{array}\right]
+=
+\left[\begin{array}{c}
+\ln 8\\\ln 32\\
+\end{array}\right]\]
+with solution \(k= -(\ln 2)/4, c_2=\ln 2\). Therefore \(c_1=e^{-\frac{1}{4}\ln 2} =
+2^{-\frac{1}{4}}\) and the best fit model is
+\(y= 2^{-\frac{1}{4}}e^{(\ln 2)t} = 2^{t-1/4}\). The 2-norm of the fit errors is
+\(||e||_2 \approx 0.9982\).
+<hr>
+
+<b>5 (a)</b> Fitting to the power law model \(y=c_1t^{c_2}\) by linearization means
+finding the best least squares model \(\ln y = \ln c_1+c_2\ln t\) for the data.
+Setting \(k=\ln c_1\) and substituting data into the model gives
+the matrix equation
+\[Ac=\left[\begin{array}{cc}
+1&0\\
+1&\ln 2\\
+1&\ln 3\\
+1&\ln 4\\
+\end{array}\right]
+\left[\begin{array}{c}
+k\\c_2\\
+\end{array}\right]
+=
+\left[\begin{array}{c}
+\ln 6\\\ln 2\\0\\0\\
+\end{array}\right].\]
+The solution of the normal equations is
+\(k=1.7159, c_2= -1.3778\). Since \(c_1=e^k \approx 5.5618\), the best fit model is
+\(y= 5.5618t^{-1.3778}\).
+The errors of the  fit are
+\[
+e=\left[\begin{array}{r}
+6\\2\\1\\1\\
+\end{array}\right]
+-
+\left[\begin{array}{c}
+c_1(1)^{c_2}\\
+c_1(2)^{c_2}\\
+c_1(3)^{c_2}\\
+c_1(4)^{c_2}\\
+\end{array}\right]
+\]
+which has RMSE
+\(\approx 0.2707\).<p>
+<b>5 (b)</b> Fitting the least squares model \(\ln y = \ln c_1+c_2\ln t\)  gives
+the matrix equation
+\[Ac=\left[\begin{array}{cc}
+1&0\\
+1&0\\
+1&\ln 2\\
+1&\ln 3\\
+1&\ln 5\\
+\end{array}\right]
+\left[\begin{array}{c}
+k\\c_2\\
+\end{array}\right]
+=
+\left[\begin{array}{c}
+\ln 2\\\ln 4\\\ln 5\\\ln 6\\\ln 10\\
+\end{array}\right].\]
+The solution of the normal equations is
+\(k=1.0387, c_2= 0.7614\). Since \(c_1=e^k \approx 2.8256\), the best fit model is
+\(y= 2.8256t^{0.7614}\).
+The  RMSE of the fit is
+\(\approx 0.7099\).
+
+
+
+</html>

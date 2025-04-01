@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 6.2</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> The Explicit Trapezoid Method is
+\[w_{i+1}=w_i+\frac{h}{2}[f(t_i,w_i)+f(t_i+h,w_i+hf(t_i,w_i))].\]
+Applied to the differential equation \(y'=f(t,y)=t\), the method is
+\[w_{i+1}=w_i+\frac{h}{2}[t_i+t_i+h]=w_i+h[t_i+\frac{h}{2}].\]
+With \(y(0)=1\) and \(h=1/4\), we calculate
+\begin{eqnarray*}
+w_0&=&y(0)=1\\
+w_1&=&1+\frac{1}{4}(0)+\frac{1}{2}\left(\frac{1}{4}\right)^2=\frac{33}{32}\\
+w_2&=&\frac{33}{32}+\frac{1}{4}\left(\frac{1}{4}\right)+\frac{1}{32} = \frac{9}{8}\\
+w_3&=&\frac{9}{8}+\frac{1}{4}\left(\frac{1}{2}\right)+\frac{1}{32} = \frac{41}{32}\\
+w_4&=&\frac{41}{32}+\frac{1}{4}\left(\frac{3}{4}\right)+\frac{1}{32} = \frac{3}{2}\\
+\end{eqnarray*}
+Global error at \(t=1\) is \(0\).<p>
+<b>1 (b)</b> The Explicit Trapezoid Method applied to \(y'=f(t,y)=t^2y\) is
+\[w_{i+1}=w_i+\frac{h}{2}[t_i^2w_i+(t_i+h)^2(w_i+h(t_i^2w_i))].\]
+Starting with \(y(0)=1\) we calculate
+\[\begin{array}{cr}
+t_i&w_i\ \ \ \ \\
+0&1.0000\\
+1/4&1.0078\\
+1/2&1.0477\\
+3/4&1.1587\\
+1&1.4054\\
+\end{array}\]
+Global error at \(t=1\) is \(0.0097\).<p>
+<b>1 (c)</b> The Explicit Trapezoid Method applied to \(y'=f(t,y)=2(t+1)y\) is
+\[w_{i+1}=w_i+\frac{h}{2}[2(t_i+1)w_i+2(t_i+h+1)(w_i+2h(t_i+1)w_i)].\]
+\[\begin{array}{cr}
+t_i&w_i\ \ \ \ \\
+0&1.0000\\
+1/4&1.7188\\
+1/2&3.3032\\
+3/4&7.0710\\
+1&16.7935\\
+\end{array}\]
+Global error at \(t=1\) is \(3.2920\).<p>
+<b>1 (d)</b> The Explicit Trapezoid Method applied to \(y'=f(t,y)=5t^4y\) is
+\[w_{i+1}=w_i+\frac{h}{2}[5t_i^4w_i+5(t_i+h)^4(w_i+5h(t_i^4w_i))].\]
+\[\begin{array}{cr}
+t_i&w_i\ \ \ \ \\
+0&1.0000\\
+1/4&1.0024\\
+1/2&1.0442\\
+3/4&1.3077\\
+1&2.7068\\
+\end{array}\]
+Global error at \(t=1\) is \(0.0115\).<p>
+<b>1 (e)</b> The Explicit Trapezoid Method applied to \(y'=f(t,y)=1/y^2\) is
+\[w_{i+1}=w_i+\frac{h}{2}\left[\frac{1}{w_i^2}+\frac{1}{(w_i+h/w_i^2)^2}\right].\]
+\[\begin{array}{cr}
+t_i&w_i\ \ \ \ \\
+0&1.0000\\
+1/4&1.2050\\
+1/2&1.3570\\
+3/4&1.4810\\
+1&1.5871\\
+\end{array}\]
+Global error at \(t=1\) is \(0.0003\).<p>
+<b>1 (f)</b> The Explicit Trapezoid Method applied to \(y'=f(t,y)=t^3/y^2\) is
+\[w_{i+1}=w_i+\frac{h}{2}\left[\frac{t_i^3}{w_i^2}+\frac{(t_i+h)^3}{(w_i+ht_i^3/w_i^2)^2}\right].\]
+\[\begin{array}{cr}
+t_i&w_i\ \ \ \ \\
+0&1.0000\\
+1/4&1.0020\\
+1/2&1.0193\\
+3/4&1.0823\\
+1&1.2182\\
+\end{array}\]
+Global error at \(t=1\) is \(0.0132\).
+<hr>
+
+<b>3 (a)</b> The second-order Taylor Method is
+\[w_{i+1}=w_i+hf(t_i,w_i)+\frac{h^2}{2}[f_t(t_i,w_i)+f_y(t_i,y_i)f(t_i,w_i)].\]
+For \(f(t,y)=ty\), the partial derivatives are \(f_t=y\) and \(f_y=t\),
+so the Taylor Method step is
+\begin{eqnarray*}
+w_{i+1}&=& w_i+ht_iw_i+\frac{h^2}{2}[w_i+t_i(t_iw_i)]\\
+&=&w_i+ht_iw_i+\frac{h^2}{2}[w_i+t_i^2w_i]
+\end{eqnarray*}
+<b>3 (b)</b> Since the partial derivatives are \(f_t=y^2\) and \(f_y=2ty+3y^2\),
+the second-order Taylor Method is
+\[w_{i+1}=w_i+h(t_iw_i^2+w_i^3)+\frac{h^2}{2}[w_i^2+(2t_iw_i+3w_i^2)
+(t_iw_i^2+w_i^3)].\]
+<b>3 (c)</b> The partial derivatives are \(f_t=0\) and \(f_y=\sin y+y\cos y\).
+The second-order Taylor Method is
+\[w_{i+1}=w_i+hw_i\sin w_i+\frac{h^2}{2}(\sin w_i+w_i\cos w_i)w_i\sin w_i.\]
+<b>3 (d)</b> The partial derivatives are \(f_t=2tye^{yt^2}\) and
+\(f_y=t^2e^{yt^2}\). The second-order Taylor Method is
+\[w_{i+1}=w_i+he^{w_it_i^2}+\frac{h^2}{2}
+[2t_iw_ie^{w_it_i^2}+t_i^2e^{2w_it_i^2}].\]
+<hr>
+
+<b>5 (a)</b> At step 3, the global error satisfies \[g_3=|w_3-y_3|\leq
+|w_3-z_1(t_3)|+|z_1(t_3)-y_3|,\]
+where \(z_1(t_3)\) is the solution of the differential equation on
+\([t_2,t_3]\) with initial condition \(z_1(t_2)=w_2\). By definition,
+\(e_3=|w_3-z_1(t_3)|\) is less than the local truncation error, and
+\[|z_1(t_3)-y_3|\leq |z_1(t_2)-y_2|e^{Lh}=|w_2-y_2|e^{Lh}=g_2e^{Lh}.\]
+Therefore \[g_3\leq e_3+g_2e^{Lh}\leq e_3+(e_2+e^{Lh}e_1)e^{Lh} =
+e_3+e^{Lh}e_2+e^{2Lh}e_1,\] as required. <p>
+<b>5 (b)</b> The argument in part (a) can be continued to prove
+\(g_i\leq e_i+g_{i-1}e^{Lh}\). Then, using the same fact for \(g_{i-1}\)
+we can write
+\begin{eqnarray*}
+g_i&\leq& e_i+g_{i-1}e^{Lh}\\
+&\leq& e_i+e^{Lh}(e_{i-1}+g_{i-2}e^{Lh})\\
+&\leq& e_i+e^{Lh}e_{i-1}+e^{2Lh}e_{i-2}+\ldots+e^{(i-1)Lh}e_{1}
+\end{eqnarray*}
+
+
+</html>

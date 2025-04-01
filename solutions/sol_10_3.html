@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 10.3</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> According to Theorem 10.11, the order 2 least square approximation results from
+dropping all but the first two terms in the trigonometric interpolating function \(P_4(t)=
+0+0\cos 2\pi t +\sin 2\pi t+ 0\cos 2\pi t\).
+Therefore the approximating function is \(P_2(t)=0\). <p>
+<b>1 (b)</b> Similar to (a). Dropping all but the first two terms from the
+trigonometric interpolating function \(P_4(t)=\cos 2\pi t+\sin 2\pi t\) yields
+\(P_2(t)=\cos 2\pi t\). <p>
+<b>1 (c)</b> Similar to (a). Dropping all but the first two terms from the
+trigonometric interpolating function \(P_4(t)= -\cos 4\pi t\) yields \(P_2(t)=0\). <p>
+<b>1 (d)</b> Similar to (a). Dropping all but the first two terms from the
+trigonometric interpolating function \(P_4(t)=1\) yields \(P_2(t)=1\).
+<hr>
+
+<b>3 (a)</b> The trigonometric interpolating function is
+\begin{eqnarray*}
+P_8(t) &=& \frac{a_0}{\sqrt{8}}
++\frac{1}{\sqrt{2}}\left(a_1\cos 2\pi t-b_1\sin 2\pi t\right)
++\frac{1}{\sqrt{2}}\left(a_2\cos 4\pi t-b_2\sin 4\pi t\right)\\
+&& + \frac{1}{\sqrt{2}}\left(a_3\cos 6\pi t-b_3\sin 6\pi t\right)
++\frac{a_4}{2}\cos 8\pi t\\
+&=&\sin 4\pi t.
+\end{eqnarray*}
+According to Theorem 10.11, the least squares approximating function is
+obtained by dropping  all but the first four terms. Therefore \(P_4(t)=0\). <p>
+<b>3 (b)</b> Similar to part (a). The trigonometric interpolation function is
+\(P_8(t)=1+\sin 4\pi t\), so \(P_4(t)=1\). <p>
+<b>3 (c)</b> Similar to part (a). The trigonometric interpolation function is
+\[P_8(t)=\frac{1}{2}+\frac{1}{4}\cos 2\pi t+\frac{\sqrt{2}+1}{4}\sin 2\pi t
++\frac{1}{4}\cos 6\pi t+\frac{\sqrt{2}-1}{4}\sin 6\pi t,\] and the least
+squares approximation is \(P_4(t)=
+\frac{1}{2}+\frac{1}{4}\cos 2\pi t+\frac{\sqrt{2}+1}{4}\sin 2\pi t\).<p>
+<b>3 (d)</b>  The trigonometric interpolation function is
+\(P_8(t)=\cos 8\pi t\), so \(P_4(t)=0\).
+<hr>
+
+<b>5</b> Assume that \(k, l,\) and \(n\geq 1\) are integers. Set \(\omega=e^{-i2\pi/n}\),
+a primitive \(n\)th root of unity. Then
+\begin{eqnarray*}
+\cos\frac{2\pi jk}{n}\cos\frac{2\pi jl}{n}&=& \frac{1}{2}\left[e^{i\frac{2\pi jk}{n}}
++ e^{-i\frac{2\pi jk}{n}}  \right]\frac{1}{2}\left[e^{i\frac{2\pi jl}{n}}
++ e^{-i\frac{2\pi jl}{n}}  \right]\\
+&=&\frac{1}{4}[\omega^{jk}+\omega^{-jk}][\omega^{jl}+\omega^{-jl}]\\
+&=&\frac{1}{4}[\omega^{j(k+l)}+\omega^{-j(k+l)}+\omega^{j(k-l)}+\omega^{j(l-k)}].
+\end{eqnarray*}
+Now Lemma 10.1 applies. If both \((k-l)/n\) and \((k+l)/n\) are integers, then so are
+\((l-k)/n\) and \(-(k+l)/n\), so
+\begin{eqnarray*}
+\sum_{j=0}^{n-1}\cos\frac{2\pi jk}{n}\cos\frac{2\pi jl}{n}
+&=&\frac{1}{4}\sum_{j=0}^{n-1} [\omega^{j(k+l)}+\omega^{-j(k+l)}+\omega^{j(k-l)}+\omega^{j(l-k)}]\\
+&=&\frac{1}{4}[n+n+n+n]=n.
+\end{eqnarray*}
+If one or the other of \((k-l)/n\) and \((k+l)/n\) is an integer, then two of the four terms sum
+to \(n\) and the other two sum to zero, leaving \([n+n+0+0]/4 = n/2\). If neither is an integer,
+then Lemma 10.1 implies the sum is zero. The same strategy can be applied to the second
+equality. Note that
+\begin{eqnarray*}
+\cos\frac{2\pi jk}{n}\sin\frac{2\pi jl}{n}&=& \frac{1}{2}\left[e^{i\frac{2\pi jk}{n}}
++ e^{-i\frac{2\pi jk}{n}}  \right]\frac{1}{2i}\left[e^{i\frac{2\pi jl}{n}}
+- e^{-i\frac{2\pi jl}{n}}  \right]\\
+&=&\frac{1}{4i}[\omega^{jk}+\omega^{-jk}][\omega^{jl}-\omega^{-jl}]\\
+&=&\frac{1}{4i}[\omega^{j(k+l)}-\omega^{-j(k+l)}-\omega^{j(k-l)}+\omega^{j(l-k)}].
+\end{eqnarray*}
+Whether \((k+l)/n\) is an integer or not,
+\[\sum_{j=0}^{n-1} (\omega^{j(k+l)}-\omega^{-j(k+l)}) = 0,\]
+by Lemma 10.1. Likewise, whether \((k-l)/n\) is an integer or not,
+\[\sum_{j=0}^{n-1} (\omega^{j(k-l)}-\omega^{j(l-k)}) = 0.\]
+Therefore
+\[\sum_{j=0}^{n-1}\cos\frac{2\pi jk}{n}\sin\frac{2\pi jl}{n}=0\]
+for all integers \(k,l,n\geq 1\).
+Finally, we can express
+\begin{eqnarray*}
+\sin\frac{2\pi jk}{n}\sin\frac{2\pi jl}{n}&=& \frac{1}{2i}\left[e^{i\frac{2\pi jk}{n}}
+- e^{-i\frac{2\pi jk}{n}}  \right]\frac{1}{2i}\left[e^{i\frac{2\pi jl}{n}}
+- e^{-i\frac{2\pi jl}{n}}  \right]\\
+&=&-\frac{1}{4}[\omega^{jk}-\omega^{-jk}][\omega^{jl}-\omega^{-jl}]\\
+&=&-\frac{1}{4}[\omega^{j(k+l)}+\omega^{-j(k+l)}-\omega^{j(k-l)}-\omega^{j(l-k)}].
+\end{eqnarray*}
+If both \((k-l)/n\) and \((k+l)/n\) are integers, all four contributions sum to \(n\), and the
+total is \(-[n+n-n-n]/4=0\). If \((k-l)/n\) is an integer and \((k+l)/n\) is not, then by
+Lemma 10.1, the sum is \(-[0+0-n-n]/4 = n/2\). If \((k+l)/n\) is an integer and \((k-l)/n\) is not,
+the sum is \(-[n+n-0-0]/4 = -n/2\). If neither is an integer, the sum is zero.
+
+
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 11.4</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> If \(x\) is a four-dimensional vector, the MDCT is
+\[Mx=E\left[\begin{array}{c}
+-Rx_3-x_4\\x_1-Rx_2
+\end{array}\right]=
+E\left[\begin{array}{c}
+-x_3-x_4\\x_1-x_2
+\end{array}\right]
+\]
+where \(E\) is the \(2\times 2\) DCT4 matrix
+\[E=\left[\begin{array}{rr}
+b&c\\c&-b
+\end{array}\right]
+\]
+with entries \(b=\cos \pi/8, c=\cos 3\pi/8\). Therefore
+\[M\left[\begin{array}{c}
+1\\3\\5\\7\\
+\end{array}\right]=
+E\left[\begin{array}{c}
+-x_3-x_4\\x_1-x_2
+\end{array}\right]=
+\left[\begin{array}{rr}
+b&c\\c&-b
+\end{array}\right]
+\left[\begin{array}{r}
+-12\\-2\\
+\end{array}\right]=
+\left[\begin{array}{c}
+-12b-2c\\-12c+2b\\
+\end{array}\right].\]
+<b>1 (b)</b> Similar to (a). The MDCT is
+\[M\left[\begin{array}{r}
+-2\\-1\\1\\2\\
+\end{array}\right]=
+\left[\begin{array}{rr}
+b&c\\c&-b
+\end{array}\right]
+\left[\begin{array}{r}
+-3\\-1\\
+\end{array}\right]=
+\left[\begin{array}{c}
+-3b-c\\-3c+b\\
+\end{array}\right].\]
+<b>1 (c)</b> Similar to (a). The MDCT is
+\[M\left[\begin{array}{r}
+4\\-1\\3\\5\\
+\end{array}\right]=
+\left[\begin{array}{rr}
+b&c\\c&-b
+\end{array}\right]
+\left[\begin{array}{r}
+-8\\5\\
+\end{array}\right]=
+\left[\begin{array}{c}
+-8b+5c\\-5b-8c\\
+\end{array}\right].\]
+<hr>
+
+<b>3 (a)</b> To quantize to 4 bits on \((-1,1)\), we divide by
+\(q=2L/(2^b-1)=2/15\) and round. Given \(y=2/3\),
+\[z=\text{round}\left(\frac{2/3}{2/15}\right)=5 = +101.\]
+Dequantizing is multiplication by \(q\):
+\[\overline{y}=qz=\frac{2}{15}5=\frac{2}{3},\]
+and the quantization error is \(0\). <p>
+<b>3 (b)</b> Divide by
+\(2/15\) and round.
+\[z=\text{round}\left(\frac{0.6}{2/15}\right)=5 = +101.\]
+Dequantizing is multiplication by \(q\):
+\[\overline{y}=qz=\frac{2}{15}5=\frac{2}{3},\]
+and the quantization error is \(|2/3-3/5|=1/15\). <p>
+<b>3 (c)</b> Divide by
+\(2/15\) and round.
+\[z=\text{round}\left(\frac{3/7}{2/15}\right)=3 = +011.\]
+Dequantizing is multiplication by \(q\):
+\[\overline{y}=qz=\frac{2}{15}3=\frac{2}{5},\]
+and the quantization error is \(|2/5-3/7|=1/35\).
+<hr>
+
+<b>5 (a)</b> To quantize to 8 bits on \((-4,4)\), we divide by
+\(q=2(4)/(2^8-1)=8/255\) and round. Given \(y=3/2\),
+\[z=\text{round}\left(\frac{3/2}{8/255}\right)=48 = +0110000.\]
+Dequantization:
+\[\overline{y}=qz=\frac{8}{255}48=\frac{384}{255},\]
+quantization error \(=384/255-3/2=1/170\). <p>
+<b>5 (b)</b> Divide by
+\(8/255\) and round.
+\[z=\text{round}\left(\frac{-7/5}{8/255}\right)=-45 = -0101101.\]
+Dequantization:
+\[\overline{y}=qz=\frac{8}{255}(-45)=-\frac{72}{51},\]
+and the quantization error is \(|-72/51+7/5|=1/85\). <p>
+<b>5 (c)</b> Divide by
+\(8/255\) and round.
+\[z=\text{round}\left(\frac{2.9}{8/255}\right)=92 = +1011100.\]
+Dequantization:
+\[\overline{y}=qz=\frac{8}{255}92=\frac{736}{255},\]
+and the quantization error is \(|736/255-2.9|=7/510\). <p>
+<b>5 (d)</b> Divide by
+\(8/255\) and round.
+\[z=\text{round}\left(\frac{\pi}{8/255}\right)=100 = +1100100.\]
+Dequantization:
+\[\overline{y}=qz=\frac{8}{255}100=\frac{160}{51},\]
+and the quantization error is \(|160/51-\pi|\approx 0.0043\).
+<hr>
+
+<b>7 (a)</b> To quantize to 4 bits on \((-6,6)\), we divide by
+\(q=2(6)/(2^4-1)=4/5\) and round.
+\[v_1=M\left[\begin{array}{r}
+-3\\-2\\-1\\1\\
+\end{array}\right]=
+\left[\begin{array}{r}
+-c\\b\\
+\end{array}\right]\approx
+\left[\begin{array}{r}
+  -0.3827\\
+    0.9239\\
+\end{array}\right]\longrightarrow
+\left[\begin{array}{r}
+0\\1\\
+\end{array}\right],\]
+\[v_2=M\left[\begin{array}{r}
+-1\\1\\2\\3\\
+\end{array}\right]=
+\left[\begin{array}{r}
+-5b-2c\\2b-5c\\
+\end{array}\right]\approx
+\left[\begin{array}{c}
+   -5.3848\\
+   -0.0657\\
+\end{array}\right]\longrightarrow
+\left[\begin{array}{r}
+-7\\0\\
+\end{array}\right]
+\]
+Dequantization:
+\[\overline{v}_1=\frac{4}{5}\left[\begin{array}{r}
+0\\1\\
+\end{array}\right]=
+\left[\begin{array}{r}
+0.0\\0.8\\
+\end{array}\right],\quad
+\overline{v}_2=\frac{4}{5}\left[\begin{array}{r}
+-7\\0\\
+\end{array}\right]=
+\left[\begin{array}{r}
+-5.6\\0.0\\
+\end{array}\right]\]
+\[\left[\begin{array}{r}
+w_1\\w_2\\
+\end{array}\right]=N\overline{v}_1=
+\left[\begin{array}{r}
+   -0.7391\\
+    0.7391\\
+   -0.3061\\
+   -0.3061\\
+\end{array}\right],\quad
+\left[\begin{array}{r}
+w_3\\w_4\\
+\end{array}\right]=N\overline{v}_2=
+\left[\begin{array}{r}
+    -2.1430\\
+   2.1430\\
+   5.1737\\
+   5.1737\\
+\end{array}\right]\]
+The reconstruction is
+\[u_2=\frac{1}{2}(w_2+w_3)=\frac{1}{2}
+\left(
+\left[\begin{array}{r}
+   -0.3061\\
+   -0.3061\\
+\end{array}\right]+
+\left[\begin{array}{r}
+    -2.1430\\
+   2.1430\\
+\end{array}\right]\right)=
+\left[\begin{array}{r}
+    -1.2246\\
+   0.9184\\
+\end{array}\right],
+\]
+compared to the original overlapped data \([-1, 1]\).<p>
+
+<b>7 (b)</b> Similar to part (a).
+\[v_1=M\left[\begin{array}{r}
+1\\-2\\2\\-1\\
+\end{array}\right]=
+\left[\begin{array}{r}
+-b+3c\\-3b-c\\
+\end{array}\right]\approx
+\left[\begin{array}{r}
+    0.2242\\
+   -3.1543\\
+\end{array}\right]\longrightarrow
+\left[\begin{array}{r}
+0\\-4\\
+\end{array}\right],\]
+\[v_2=M\left[\begin{array}{r}
+2\\-1\\3\\0\\
+\end{array}\right]=
+\left[\begin{array}{r}
+-3b+3c\\-3b-3c\\
+\end{array}\right]\approx
+\left[\begin{array}{c}
+   -1.6236\\
+   -3.9197\\
+\end{array}\right]\longrightarrow
+\left[\begin{array}{r}
+-2\\-5\\
+\end{array}\right]
+\]
+Dequantization:
+\[\overline{v}_1=\frac{4}{5}\left[\begin{array}{r}
+0\\-4\\
+\end{array}\right]=
+\left[\begin{array}{r}
+0.0\\-3.2\\
+\end{array}\right],\quad
+\overline{v}_2=\frac{4}{5}\left[\begin{array}{r}
+-2\\-5\\
+\end{array}\right]=
+\left[\begin{array}{r}
+-1.6\\-4.0\\
+\end{array}\right]\]
+\[\left[\begin{array}{r}
+w_1\\w_2\\
+\end{array}\right]=N\overline{v}_1=
+\left[\begin{array}{r}
+    2.9564\\
+   -2.9564\\
+    1.2246\\
+    1.2246\\
+\end{array}\right],\quad
+\left[\begin{array}{r}
+w_3\\w_4\\
+\end{array}\right]=N\overline{v}_1=
+\left[\begin{array}{r}
+    3.0832\\
+   -3.0832\\
+    3.0089\\
+    3.0089\\
+\end{array}\right]\]
+The reconstruction is
+\[u_2=\frac{1}{2}(w_2+w_3)=\frac{1}{2}
+\left(
+\left[\begin{array}{r}
+   1.2246\\
+   1.2246\\
+\end{array}\right]+
+\left[\begin{array}{r}
+    3.0832\\
+   -3.0832\\
+\end{array}\right]\right)=
+\left[\begin{array}{r}
+    2.1539\\
+   -0.9293\\
+\end{array}\right],
+\]
+compared to the original overlapped data \([2, -1]\). <p>
+
+<b>7 (c)</b> Similar to part (a).
+\[v_1=M\left[\begin{array}{r}
+4\\1\\-2\\-3\\
+\end{array}\right]=
+\left[\begin{array}{r}
+5b+3c\\-3b+5c\\
+\end{array}\right]\approx
+\left[\begin{array}{r}
+    5.7674\\
+   -0.8582\\
+\end{array}\right]\longrightarrow
+\left[\begin{array}{r}
+7\\-1\\
+\end{array}\right],\]
+\[v_2=M\left[\begin{array}{r}
+-2\\-3\\0\\3\\
+\end{array}\right]=
+\left[\begin{array}{r}
+-3b+c\\-b-3c\\
+\end{array}\right]\approx
+\left[\begin{array}{c}
+   -2.3890\\
+   -2.0719\\
+\end{array}\right]\longrightarrow
+\left[\begin{array}{r}
+-3\\-3\\
+\end{array}\right]
+\]
+Dequantization:
+\[\overline{v}_1=\frac{4}{5}\left[\begin{array}{r}
+7\\-1\\
+\end{array}\right]=
+\left[\begin{array}{r}
+5.6\\-0.8\\
+\end{array}\right],\quad
+\overline{v}_2=\frac{4}{5}\left[\begin{array}{r}
+-3\\-3\\
+\end{array}\right]=
+\left[\begin{array}{r}
+-2.4\\-2.4\\
+\end{array}\right]\]
+\[\left[\begin{array}{r}
+w_1\\w_2\\
+\end{array}\right]=N\overline{v}_1=
+\left[\begin{array}{r}
+    2.8821\\
+   -2.8821\\
+   -4.8676\\
+   -4.8676\\
+\end{array}\right],\quad
+\left[\begin{array}{r}
+w_3\\w_4\\
+\end{array}\right]=N\overline{v}_1=
+\left[\begin{array}{r}
+     1.2989\\
+   -1.2989\\
+    3.1358\\
+    3.1358\\
+\end{array}\right]\]
+The reconstruction is
+\[u_2=\frac{1}{2}(w_2+w_3)=\frac{1}{2}
+\left(
+\left[\begin{array}{r}
+   -4.8676\\
+   -4.8676\\
+\end{array}\right]+
+\left[\begin{array}{r}
+1.2989\\
+   -1.2989\\
+\end{array}\right]\right)=
+\left[\begin{array}{r}
+    -1.7844\\
+   -3.0832\\
+\end{array}\right].
+\]
+<hr>
+
+<b>9</b> It is clear from the definition that \(c_{j+4n}=c_j\) for each integer
+\(j\). By Lemma 11.10, the \(c_j\) for \(-n\leq j\leq 3n-1\) are equal to \(\pm c_{k'}\) for
+some \(0\leq k'\leq n-1\), and so it holds for all \(j\). In particular, \(c_{5n}=c_n
+=-c_{2n-1-n} = -c_{n-1}\) by Lemma 11.10(b), and \(c_{6n}=c_{2n}=-c_{2n-1-2n} = -c_{-1}
+=-c_{-1-(-1)} = -c_0\) by Lemma 11.10 (b) and (a).
+
+
+</html>

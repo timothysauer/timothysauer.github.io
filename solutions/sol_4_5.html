@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 4.5</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> As in Example 4.21, we seek the point \((\overline{x},\overline{y})\)
+that minimizes the sum of the squared distances to the three circles.
+The distance to the \(i\)th circle is \(r_i=\sqrt{(x-x_i)^2+(y-y_i)^2}-R_i\),
+where \((x_i,y_i)\) is the center and \(R_i\) the radius. Therefore
+\[Dr =
+\left[\begin{array}{cc}
+\frac{x-x_1}{S_1}&\frac{y-y_1}{S_1}\\
+\frac{x-x_2}{S_2}&\frac{y-y_2}{S_2}\\
+\frac{x-x_3}{S_3}&\frac{y-y_3}{S_3}\\
+\end{array}\right]=
+\left[\begin{array}{rr}
+0&-1\\
+-1/\sqrt{2}&-1/\sqrt{2}\\
+0&1\\
+\end{array}\right]\]
+where \(S_i=\sqrt{(x-x_i)^2+(y-y_i)^2}\). To take a Gauss-Newton step,
+start with \(x^0=[0,0]\) and compute
+\[ Dr^TDr =
+\left[\begin{array}{rr}
+1/2&1/2\\
+1/2&5/2\\
+\end{array}\right] \text{ and }
+Dr^Tr\left[\begin{array}{c}
+1/\sqrt{2}-1\\
+1/\sqrt{2}-1\\
+\end{array}\right].\]
+Solving \(Dr^TDrv=-Dr^Tr\) yields \(v=(2-\sqrt{2},0)\), and \(x^1 = x^0+v=
+(2-\sqrt{2},0)\).<p>
+<b>1 (b)</b> Similar to (a).
+\[Dr =
+\left[\begin{array}{cc}
+1&0\\
+-1/\sqrt{2}&-1/\sqrt{2}\\
+-1/\sqrt{2}&1/\sqrt{2}\\
+\end{array}\right]\]
+and so
+\[ Dr^TDr =
+\left[\begin{array}{rr}
+2&0\\0&1\\
+\end{array}\right] \text{ and }
+Dr^Tr=\left[\begin{array}{c}
+\sqrt{2}-2\\
+0\\
+\end{array}\right].\]
+Solving \((Dr^TDr)v=-Dr^Tr\) yields \(v=(1-\sqrt{2}/2,0)\), and \(x^1 = x^0+v=
+(1-\sqrt{2}/2,0)\).
+<hr>
+
+<b>3</b> The distance from \((x,y)\) to the circle occurs along a line segment
+connecting \((x,y)\) to the center of the circle. If \((x,y)\) lies outside the
+circle, the distance to the circle equals the distance to the center,
+\(\sqrt{(x-x_1)^2+(y-y_1)^2}\), minus the radius \(R_1\). If \((x,y)\) lies
+inside the circle, the distance to the circle is the radius \(R_1\) minus
+the distance to the center. In either case, the distance is
+\(|\sqrt{(x-x_1)^2+(y-y_1)^2}-R_1|\).
+<hr>
+
+<b>5 (a)</b> The functions to be minimized are
+\(r_1(c_1,c_2)= c_1t_1^{c_2}-y_1,
+r_2(c_1,c_2)= c_1t_2^{c_2}-y_2\), and
+\(r_3(c_1,c_2)= c_1t_3^{c_2}-y_3\).
+The Jacobian is
+\({\ds Dr =
+\left[\begin{array}{cc}
+t_1^{c_2}&c_1t_1^{c_2}\ln t_1\\
+t_2^{c_2}&c_1t_2^{c_2}\ln t_2\\
+t_3^{c_2}&c_1t_3^{c_2}\ln t_3\\
+\end{array}\right]}\)<p>
+<b>5 (b)</b> The functions to be minimized are
+\(
+r_1(c_1,c_2)= c_1t_1e^{c_2t_1}-y_1,
+r_2(c_1,c_2)= c_1t_2e^{c_2t_2}-y_2\), and
+\(r_3(c_1,c_2)= c_1t_3e^{c_2t_3}-y_3\).
+The Jacobian is
+\[ Dr =
+\left[\begin{array}{cc}
+t_1e^{c_2t_1}&c_1t_1^2e^{c_2t_1}\\
+t_2e^{c_2t_2}&c_1t_2^2e^{c_2t_2}\\
+t_3e^{c_2t_3}&c_1t_3^2e^{c_2t_3}\\
+\end{array}\right]\]
+<hr>
+
+<b>7</b> The solutions correspond to the common intersection of
+three circles. If the three circles coincide, there are infinitely
+many solutions. In any other configuration, the common intersection
+will be two or fewer points.
+<hr>
+
+
+
+
+
+
+</html>

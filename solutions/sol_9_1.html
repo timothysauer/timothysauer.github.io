@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 9.1</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> The linear congruential generator has the form
+\(x_i=2x_{i-1} \mod 5, u_i=x_i/5\). Starting with \(x_0=1\), the LCG
+cycles through all possible values of \(u_0=\frac{1}{5}\),
+\(u_1=\frac{2}{5}\), \(u_2=\frac{4}{5}\), \(u_3=\frac{3}{5}\),
+\(u_4=\frac{1}{5}\). Since \(u_0=u_4\), the period of repetition is \(4\). <p>
+<b>1 (b)</b> The LCG is \(x_i=4x_{i-1}+1 \mod 9, u_i=x_i/9\).
+Starting with \(x_0=1\), the LCG cycles through \(\frac{1}{9}\),
+\(\frac{5}{9}\), \(\frac{3}{9}\), \(\frac{4}{9}\), \(\frac{8}{9}\),
+\(\frac{6}{9}\), \(\frac{7}{9}\), \(\frac{2}{9}\), \(0\), and then
+repeats with \(\frac{1}{9}\). The period is \(9\).
+<hr>
+
+<b>3 (a)</b> The LCG \(x_i=2x_{i-1} \mod 5\), \(u_i=x_i/5\) provides
+the \(x\)-coordinates \(\frac{1}{5}\), \(\frac{2}{5}\), \(\frac{4}{5}\),
+\(\frac{3}{5}\) before repeating. The area approximation is
+\[(1-0)\frac{(\frac{1}{5})^2+(\frac{2}{5})^2+(\frac{4}{5})^2+
+(\frac{3}{5})^2}{4}=\frac{30}{100}=0.3\]
+<b>3 (b)</b> The LCG provides the \(x\)-coordinates \(\frac{1}{9}\),
+\(\frac{5}{9}\), \(\frac{3}{9}\), \(\frac{4}{9}\), \(\frac{8}{9}\),
+\(\frac{6}{9}\), \(\frac{7}{9}\), \(\frac{2}{9}\), \(0\). The area
+approximation is
+\[(1-0)\frac{(0)^2+(\frac{1}{9})^2+(\frac{2}{9})^2+\dots+
+(\frac{8}{9})^2}{9}=0.28.\]
+<hr>
+
+<b>5</b> The LCG is \(x_i=(2^{24}+3)x_{i-1} \mod 2^{48}\). We calculate
+\begin{eqnarray*}
+x_{i+2}&=&(2^{24}+3)x_{i+1} \mod 2^{48}\\
+&=&(2^{24}+3)(2^{24}+3)x_i \mod
+2^{48}\\
+&=&(2^{48}+6\times 2^{24}+9)x_i \mod 2^{48}\\
+&=&(6\times
+2^{24}+9)x_i \mod 2^{48}\\
+x_{i+1}&=&(2^{24}+3)x_i \mod 2^{48}
+\end{eqnarray*}
+Thus
+\begin{eqnarray*}
+x_{i+2}-6x_{i+1}&=&(6\times 2^{24}+9-6\times 2^{24}-18)x_i \mod
+2^{48}\\&=&-9x_i \mod 2^{48}.
+\end{eqnarray*}
+
+
+</html>

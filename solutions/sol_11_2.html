@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 11.2</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> The 2D-DCT is obtained by \(Y=CXC^T\), where \(C\) is the
+\(2\times 2\) DCT matrix.
+\[Y=\left[\begin{array}{rr}
+\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\
+\end{array}\right]
+\left[\begin{array}{rr}
+1&0\\0&0\\
+\end{array}\right]
+\left[\begin{array}{rr}
+\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\
+\end{array}\right]=
+\left[\begin{array}{rr}
+\frac{1}{2}&\frac{1}{2}\\
+\frac{1}{2}&\frac{1}{2}\\
+\end{array}\right].\]
+The interpolating function is given by Theorem 11.6:
+\begin{eqnarray*}
+P_2(s,t)&=& \sum_{k=0}^1\sum_{l=0}^1 y_{kl}a_ka_l\cos\frac{k(2s+1)\pi}{4}
+\cos\frac{l(2t+1)\pi}{4}\\
+&=&\frac{1}{4}
++\frac{1}{2}\frac{1}{\sqrt{2}}\cos\frac{(2t+1)\pi}{4}
++\frac{1}{2}\frac{1}{\sqrt{2}}\cos\frac{(2s+1)\pi}{4}\\
+&&+\frac{1}{2}\cos\frac{(2s+1)\pi}{4}\cos\frac{(2t+1)\pi}{4}
+\end{eqnarray*}
+<b>1 (b)</b>
+\[Y=\left[\begin{array}{rr}
+\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\
+\end{array}\right]
+\left[\begin{array}{rr}
+1&0\\1&0\\
+\end{array}\right]
+\left[\begin{array}{rr}
+\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\
+\end{array}\right]=
+\left[\begin{array}{rr}
+1&1\\0&0\\
+\end{array}\right].\]
+The interpolating function is given by Theorem 11.6:
+\begin{eqnarray*}
+P_2(s,t)
+&=&\frac{1}{2}+\frac{1}{\sqrt{2}}\cos\frac{(2t+1)\pi}{4}
+\end{eqnarray*}
+<b>1 (c)</b>
+\[Y=\left[\begin{array}{rr}
+\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\
+\end{array}\right]
+\left[\begin{array}{rr}
+1&1\\1&1\\
+\end{array}\right]
+\left[\begin{array}{rr}
+\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\
+\end{array}\right]=
+\left[\begin{array}{rr}
+2&0\\0&0\\
+\end{array}\right].\]
+The interpolating function is
+\(
+P_2(s,t)=1
+\) <p>
+<b>1 (d)</b>
+\[Y=\left[\begin{array}{rr}
+\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\
+\end{array}\right]
+\left[\begin{array}{rr}
+1&0\\0&1\\
+\end{array}\right]
+\left[\begin{array}{rr}
+\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\
+\end{array}\right]=
+\left[\begin{array}{rr}
+1&0\\0&1\\
+\end{array}\right].\]
+The interpolating function is
+\begin{eqnarray*}
+P_2(s,t)&=& \frac{1}{2}+\cos\frac{(2s+1)\pi}{4}\cos\frac{(2t+1)\pi}{4}
+\end{eqnarray*}
+<hr>
+
+<b>3 (a)</b> The 2D-DCT is
+ \[Y=CXC^T\left[
+\begin{array}{cccc}
+0&{2}(c+b)&2&{2}(c-b)\\
+0&0&0&0\\
+0&0&0&0\\
+0&0&0&0\\
+\end{array}\right],\]
+where \[ b = \frac{1}{\sqrt{2}}\cos \frac{\pi}{8} =
+\frac{\sqrt{2+\sqrt{2}}}{2\sqrt{2}}, \ \ c = \frac{1}{\sqrt{2}}\cos \frac{3\pi}{8} =
+\frac{\sqrt{2-\sqrt{2}}}{2\sqrt{2}}.\]
+The least squares approximation is composed of the first three terms
+of the interpolating function given by Theorem 11.6, corresponding to
+the three upper-left-most entries in the transform \(Y\). Substituting the
+values from \(Y\), we find
+\[P(t)=\frac{b+c}{\sqrt{2}}\cos\frac{(2t+1)\pi}{8}.\]
+<b>3 (b)</b> Similar to part (a). The 2D-DCT is
+\[\left[
+\begin{array}{rrrr}
+1&0&0&0\\
+0&1&0&0\\
+0&0&1&0\\
+0&0&0&1\\
+\end{array}\right],\]
+and the least squares approximating function is \(P(t)=1/4\). <p>
+<b>3 (c)</b>  The 2D-DCT is
+\[ \left[
+\begin{array}{rrrr}
+1&0&-1&0\\
+0&0&0&0\\
+-1&0&1&0\\
+0&0&0&0\\
+\end{array}\right],\]
+and the least squares approximating function is \(P(t)=1/4\). <p>
+<b>3 (d)</b> The 2D-DCT is
+\[\left[
+\begin{array}{cccc}
+8&0&4&0\\
+4(b-c)&0&-4(b-c)&0\\
+0&0&0&0\\
+4(b+c)&0&-4(b+c)&0\\
+\end{array}\right].\]
+The interpolating function is
+\[ P_4(s,t) = 2
++\sqrt{2}(b-c)\cos \frac{(2s+1)\pi}{8}.\]
+
+
+
+
+</html>

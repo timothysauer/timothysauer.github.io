@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 3.1</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> The Lagrange interpolating polynomial through the points
+\((0,1), (2,3), (3,0)\) is
+\[
+P(x) = 1\frac{(x-2)(x-3)}{(0-2)(0-3)} +
+3\frac{(x-0)(x-3)}{(2-0)(2-3)}
+ + 0\frac{(x-0)(x-2)}{(3-0)(3-2)}
+\]
+<b>1 (b)</b> The Lagrange interpolating polynomial is
+\[
+P(x) = 1\frac{(x+1)(x-3)(x-5)}{(2+1)(2-3)(2-5)} +
+1\frac{(x+1)(x-2)(x-5)}{(3+1)(3-2)(3-5)}
+ + 2\frac{(x+1)(x-2)(x-3)}{(5+1)(5-2)(5-3)}
+\]
+<b>1 (c)</b> The Lagrange interpolating polynomial is
+\[
+P(x) = -2\frac{(x-2)(x-4)}{(0-2)(0-4)} +
+1\frac{(x-0)(x-4)}{(2-0)(2-4)}
+ + 4\frac{(x-0)(x-2)}{(4-0)(4-2)}
+\]
+<hr>
+
+<b>3 (a)</b> Compute the Newton's divided differences of the data
+points:
+<table cellpadding="8">
+  <tr>
+<td>\(-1\)</td> <td>\(|\)</td> <td>\(3\)</td> <td>\(\)</td> <td>\(\)</td> <td>\(\)</td>  
+  </tr>  <tr>
+<td>\(\)</td> <td>\(|\)</td> <td>\(\)</td> <td>\(-1\)</td> <td>\(\)</td> <td>\(\)</td>
+  </tr>  <tr>
+<td>\(1\)</td> <td>\(|\)</td> <td>\(1\)</td> <td>\(\)</td> <td>\(1\)</td> <td>\(\)</td>
+  </tr>  <tr>
+<td>\(\)</td> <td>\(|\)</td> <td>\(\)</td> <td>\(2\)</td> <td>\(\)</td> <td>\(0\)</td>
+  </tr>  <tr>
+<td>\(2\)</td> <td>\(|\)</td> <td>\(3\)</td> <td>\(\)</td> <td>\(1\)</td> <td>\(\)</td>
+  </tr>  <tr>
+<td>\(\)</td> <td>\(|\)</td> <td>\(\)</td> <td>\(4\)</td> <td>\(\)</td> <td>\(\)</td>
+  </tr>  <tr>
+<td>\(3\)</td> <td>\(|\)</td> <td>\(7\)</td> <td>\(\)</td> <td>\(\)</td> <td>\(\)</td>
+</tr>
+</table>
+The interpolating polynomial is given by
+\(P(x)=3-(x+1)+(x+1)(x-1).\) <p>
+<b>3 (b)</b> By Theorem 3.2, there is exactly one polynomial of degree
+\(\leq 3\) that passes through all four points. This is the degree
+\(2\) polynomial in (a). No degree \(3\) polynomial exists. <p>
+<b>3 (c)</b> Infinitely many of degree
+\(6\); the following works for any nonzero degree 2 polynomial \(Q(x)\):
+\[
+P(x) = 3-(x+1)+(x+1)(x-1)+(x+1)(x-1)(x-2)(x-3)Q(x)
+\]
+<hr>
+
+<b>5 (a)</b> Compute the Newton's divided differences of the data
+points: <p>
+<table cellpadding="8">
+  <tr>
+<td>\(-2\)</td> <td>\(|\)</td> <td>\(8\)</td> <td>\(\)</td> <td>\(\)</td> <td>\(\)</td>  
+  </tr>  <tr>
+<td>\(\)</td> <td>\(|\)</td> <td>\(\)</td> <td>\(-2\)</td> <td>\(\)</td> <td>\(\)</td>
+  </tr>  <tr>
+<td>\(0\)</td> <td>\(|\)</td> <td>\(4\)</td> <td>\(\)</td> <td>\(0\)</td> <td>\(\)</td>
+  </tr>  <tr>
+<td>\(\)</td> <td>\(|\)</td> <td>\(\)</td> <td>\(-2\)</td> <td>\(\)</td> <td>\(0\)</td>
+  </tr>  <tr>
+<td>\(1\)</td> <td>\(|\)</td> <td>\(2\)</td> <td>\(\)</td> <td>\(0\)</td> <td>\(\)</td>
+  </tr>  <tr>
+<td>\(\)</td> <td>\(|\)</td> <td>\(\)</td> <td>\(-2\)</td> <td>\(\)</td> <td>\(\)</td>
+  </tr>  <tr>
+<td>\(3\)</td> <td>\(|\)</td> <td>\(-2\)</td> <td>\(\)</td> <td>\(\)</td> <td>\(\)</td>
+</tr>
+</table>
+The polynomial \(P(x)=8-2(x+2)\) passes through the four data
+points. <p>
+<b>5 (b)</b> According to Theorem 3.2, there are no other degree
+\(\leq 3\) polynomials through the four data points, but
+\(P_4(x)=8-2(x+2)+c(x+2)x(x-1)(x-3)\) interpolates for all \(c\).
+<hr>
+
+<b>7</b> By definition, \(P(x)\) passes through the points
+\((1,0),...,(10,0),(12,44)\). In Lagrange form, the interpolating
+polynomial can be written
+\[
+P(x) = 44\frac{(x-1)\cdots(x-10)}{(12-1)\cdots(12-10)}
+\]
+Substituting \(x=0\) gives
+\({\ds
+P(x) = 44\frac{(0-1)\cdots(0-10)}{(12-1)\cdots(12-10)} =
+44\frac{1\times 2\times \cdots\times 10}{11\times 10 \times
+\cdots\times 2} = 4.
+}\)
+<hr>
+
+<b>9 (a)</b> For the data
+points \((1,0),(2,0),(3,0),(4,0),(5,0),(6,0),(7,10)\),
+the Lagrange interpolating polynomial  is
+\[
+L(x) = 10\frac{(x-1)(x-2)\cdots(x-6)}{(7-1)(7-2)\cdots(7-6)}
+\]
+<b>9 (b)</b> The degree \(6\) polynomial asked for contains the seven
+data points in (a). According to Theorem 3.2, there is only one
+polynomial that does so, the one computed above. Therefore it
+suffices to check whether the \(L(x)\) from part (a) passes through
+\((8,70)\). Since
+\[
+L(8) = 10\frac{7\times 6\times \cdots\times 2}{6\times 5\times
+\cdots\times 1} = 70
+\]
+the polynomial \(L(x)\) from part (a) also works for part (b).
+<hr>
+
+<b>11</b> Since the four points have distinct x-coordinates,
+Theorem 3.2 implies that only one polynomial of degree \(\leq 3\)
+passes through them. This polynomial is obviously the parabola
+\(y=ax^2+bx+c\). Therefore no cubic polynomials pass through the
+four points.
+<hr>
+
+<b>13</b> The polynomial \(Q(x)=P(x)-5\) passes through the points\nl
+\((-5, 0), (-4, 0), (-3, 0), (-2, 0), (-1, 0), (0,0), (1, 0), (2, 0), (3, 0), (4, 0), (5, 37)\). <p> The Lagrange form of the interpolating polynomial is
+\[Q(x) = 37\frac{(x+5)(x+4)(x+3)(x+2)(x+1)(x)(x-1)(x-2)(x-3)(x-4)}{(5+5)(5+4)(5+3)(5+2)(5+1)(5)(5-1)(5-2)(5-3)(5-4)}.\]
+Then
+\[P(6) = Q(6)+5=37\frac{(11)(10)(9)(8)(7)(6)(5)(4)(3)(2)}{(10)(9)(8)(7)(6)(5)(4)(3)(2)(1)}+5 = 412.\]
+<hr>
+
+<b>15</b> The constant term of a polynomial \(P(x)\) is \(P(0)\). Therefore we require the polynomial \(P(x)\) to pass through \((0, 25), (1, -1), (2, -2), \ldots, (25, -25)\).  Define \(Q(x) = P(x)+x\). The polynomial \(Q(x)\) passes through \((0, 25), (1, 0), (2, 0), \ldots, (25, 0)\). The Lagrange form is
+\[Q(x) = 25\frac{(x-1)(x-2)\cdots (x-25)}{(0-1)(0-2)\cdots (0-25)}.\] Thus \({\ds P(x) = -x-\frac{25}{25!}(x-1)(x-2)\cdots (x-25) = -x-(x-1)(x-2)\cdots (x-25)/24!}\)
+<hr>
+
+<b>17 (a)</b> The Newton's divided difference triangle follows:
+<table cellpadding="8">
+  <tr>
+<td>\(1800\)</td> <td>\(|\)</td> <td>\(280\)</td> <td>\(\)</td> <td>\(\)</td> <td>\(\)</td>  
+  </tr>  <tr>
+<td>\(\)</td> <td>\(|\)</td> <td>\(\)</td> <td>\(0.06\)</td> <td>\(\)</td> <td>\(\)</td>
+  </tr>  <tr>
+<td>\(1850\)</td> <td>\(|\)</td> <td>\(283\)</td> <td>\(\)</td> <td>\(0.0010\)</td> <td>\(\)</td>
+  </tr>  <tr>
+<td>\(\)</td> <td>\(|\)</td> <td>\(\)</td> <td>\(0.16\)</td> <td>\(\)</td> <td>\(0.000016\)</td>
+  </tr>  <tr>
+<td>\(1900\)</td> <td>\(|\)</td> <td>\(291\)</td> <td>\(\)</td> <td>\(0.0042\)</td> <td>\(\)</td>
+  </tr>  <tr>
+<td>\(\)</td> <td>\(|\)</td> <td>\(\)</td> <td>\(0.79\)</td> <td>\(\)</td> <td>\(\)</td>
+  </tr>  <tr>
+<td>\(2000\)</td> <td>\(|\)</td> <td>\(370\)</td> <td>\(\)</td> <td>\(\)</td> <td>\(\)</td>
+</tr>
+</table>
+The interpolating polynomial is
+\(P(x)=280+0.06(x-1800)+0.001(x-1800)(x-1850) +0.000016(x-1800)(x-1850)(x-1900). \)
+Estimate the \(1950\) carbon dioxide concentration by <p>
+\(
+P(1950)=280+0.06(150)+0.001(150)(100)+0.000016(150)(100)(50) = 316.
+\) <p>
+<b>17 (b)</b> Estimate the \(2050\) concentration by
+\(
+P(2050)=280+0.06(250)+0.001(250)(200)+0.000016(250)(200)(150)=465
+\)
+
+
+
+
+
+</html>

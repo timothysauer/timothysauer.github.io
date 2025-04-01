@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 0.2</h3>
+\(\def\oneth{\frac{1}{3}} \def\oneh{\frac{1}{2}} \def\oneq{\frac{1}{4}} \def\twoth{\frac{2}{3}} \)
+
+ <b>1 (a)</b>  \((64)_{10} = (2^6)_{10} = (1000000)_2\)<p>
+<b>1 (b)</b> \((17)_{10} = (16 + 1)_{10} = (10001)_2\)<p>
+<b>1 (c)</b> 
+\begin{eqnarray}
+79 \div 2 &=& 39 \mbox{ R } 1 \nonumber\\
+39 \div 2 &=& 19 \mbox{ R } 1 \nonumber\\
+19 \div 2 &=& \ \ 9 \mbox{ R } 1 \nonumber\\
+9 \div 2 &=& \ \ 4 \mbox{ R } 1 \nonumber\\
+4 \div 2 &=& \ \ 2 \mbox{ R } 0 \nonumber\\
+2 \div 2 &=& \ \ 1 \mbox{ R } 0 \nonumber\\
+1 \div 2 &=& \ \ 0 \mbox{ R } 1 \nonumber
+\end{eqnarray}
+Therefore \((79)_{10} = (1001111)_2\).<p>
+<b>1 (d)</b> 
+\begin{eqnarray}
+227 \div 2 &=& 113 \mbox{ R } 1 \nonumber\\
+113 \div 2 &=& \ \ 56 \mbox{ R } 1 \nonumber\\
+56 \div 2 &=& \ \ 28 \mbox{ R } 0 \nonumber\\
+28 \div 2 &=& \ \ 14 \mbox{ R } 0 \nonumber\\
+14 \div 2 &=& \ \ \ \ 7 \mbox{ R } 0 \nonumber\\
+7 \div 2 &=& \ \ \ \ 3 \mbox{ R } 1 \nonumber\\
+3 \div 2 &=& \ \ \ \ 1 \mbox{ R } 1 \nonumber\\
+1 \div 2 &=& \ \ \ \ 0 \mbox{ R } 1 \nonumber
+\end{eqnarray}
+Therefore \((227)_{10} = (11100011)_2.\)
+
+<hr>
+ <b>3 (a)</b>
+ \(10.5 = 10+0.5\). Integer part: \((10)_{10} = (8+2)_{10} = (1010)_2\).
+Fractional part: \((0.5)_{10} =
+(0.1)_2\), so \((10.5)_{10} = (1010.1)_2.\) <p>
+ <b>3 (b)</b>
+\begin{eqnarray}
+\oneth \times 2 &=& \twoth + 0 \nonumber\\
+\twoth \times 2 &=& \oneth + 1 \nonumber\\
+\oneth \times 2 &=& \twoth + 0 \nonumber\\
+&\vdots\nonumber
+\end{eqnarray}
+Therefore \((\oneth)_{10} = (0.\overline{01})_{2}.\)<p>
+ <b>3 (c)</b>
+\begin{eqnarray}
+\frac{5}{7} \times 2 &=& \frac{3}{7} + 1 \nonumber\\
+\frac{3}{7} \times 2 &=& \frac{6}{7} + 0 \nonumber\\
+\frac{6}{7} \times 2 &=& \frac{5}{7} + 1 \nonumber\\
+\frac{5}{7} \times 2 &=& \frac{3}{7} + 1 \nonumber\\
+\frac{3}{7} \times 2 &=& \frac{6}{7} + 0 \nonumber\\
+&\vdots\nonumber
+\end{eqnarray}
+Therefore \((\frac{5}{7})_{10} = (0.\overline{101})_{2}.\)<p>
+ <b>3 (d)</b> \((12.8)_{10} = (12)_{10}+(0.8)_{10}; (12)_{10} = (1100)_2.\)
+\begin{eqnarray}
+0.8 \times 2 &=& 0.6 + 1 \nonumber\\
+0.6 \times 2 &=& 0.2 + 1 \nonumber\\
+0.2 \times 2 &=& 0.4 + 0 \nonumber\\
+0.4 \times 2 &=& 0.8 + 0 \nonumber\\
+0.8 \times 2 &=& 0.6 + 1 \nonumber\\
+&\vdots\nonumber
+\end{eqnarray}
+Therefore \((12.8)_{10} = (1100.\overline{1100})_{2}.\)<p>
+ <b>3 (e)</b> \((55.4)_{10} = (55)_{10}+(0.4)_{10}; (55)_{10} =
+(32+16+4+2+1)_{10} = (110111)_2.\)
+\begin{eqnarray}
+0.4 \times 2 &=& 0.8 + 0 \nonumber\\
+0.8 \times 2 &=& 0.6 + 1 \nonumber\\
+0.6 \times 2 &=& 0.2 + 1 \nonumber\\
+0.2 \times 2 &=& 0.4 + 0 \nonumber\\
+0.4 \times 2 &=& 0.8 + 0 \nonumber\\
+&\vdots\nonumber
+\end{eqnarray}
+Therefore \((55.4)_{10} = (110111.\overline{0110})_{2}.\)<p>
+ <b>3 (f)</b>
+\begin{eqnarray}
+0.1 \times 2 &=& 0.2 + 0 \nonumber\\
+0.2 \times 2 &=& 0.4 + 0 \nonumber\\
+0.4 \times 2 &=& 0.8 + 0 \nonumber\\
+0.8 \times 2 &=& 0.6 + 1 \nonumber\\
+0.6 \times 2 &=& 0.2 + 1 \nonumber\\
+0.2 \times 2 &=& 0.4 + 0 \nonumber\\
+&\vdots\nonumber
+\end{eqnarray}
+Therefore \((0.1)_{10} = (0.0\overline{0011})_{2}.\)
+<hr>
+
+ <b>5</b> \((\pi)_{10} = (3)_{10}+(\pi-3)_{10}\)
+\begin{eqnarray}
+0.14159265 \times 2 &=& 0.28318531 + 0 \nonumber\\
+0.28318531 \times 2 &=& 0.56637061 + 0 \nonumber\\
+0.56637061 \times 2 &=& 0.13274123 + 1 \nonumber\\
+0.13274123 \times 2 &=& 0.26548246 + 0 \nonumber\\
+0.26548246 \times 2 &=& 0.53096491 + 0 \nonumber\\
+0.53096491 \times 2 &=& 0.06192983 + 1 \nonumber\\
+0.06192983 \times 2 &=& 0.12385966 + 0 \nonumber\\
+0.12385966 \times 2 &=& 0.24771932 + 0 \nonumber\\
+0.24771932 \times 2 &=& 0.49543864 + 0 \nonumber\\
+0.49543864 \times 2 &=& 0.99087728 + 0 \nonumber\\
+0.99087728 \times 2 &=& 0.98175455 + 1 \nonumber\\
+0.98175455 \times 2 &=& 0.96350910 + 1 \nonumber\\
+0.96350910 \times 2 &=& 0.92701821 + 1 \nonumber\\
+&\vdots\nonumber
+\end{eqnarray}
+Therefore \((\pi)_{10} = (11.0010010000111\ldots)_{2}.\)
+<hr>
+<b>7 (a)</b>\((1010101)_2 =  (2^0+2^2+2^4+2^6)_{10} = (1+4+16+64)_{10} = (85)_{10}\)<p>
+<b>7 (b)</b> \((1011.101)_2 = (2^3+2^1+2^0+2^{-1}+2^{-3})_{10} = (11+\oneh+\frac{1}{8})_{10}
+ = (93/8)_{10}.\)<p>
+<b>7 (c)</b> \((10111.\overline{01})_2 = (2^4+2^2+2^1+2^0)_{10}+(0.\overline{01})_2\)
+Set \(x=(0.\overline{01})_2.\) Then \(2^2x-x =(01)_2 = 1\) implies \(x=\oneth.\) Therefore
+\((10111.\overline{01})_2 = (23+\oneth)_{10} = (70/3)_{10}.\)<p>
+<b>7 (d)</b> \((110.\overline{10})_2 = (2^2+2^1)_{10}+(0.\overline{10})_2.\)
+Set \(x=(0.\overline{10})_2.\) Then \(2^2x-x = (10)_2\) implies \(x=\twoth.\)
+Therefore \((110.\overline{10})_2 = (6+\twoth)_{10} = (20/3)_{10}.\)<p>
+<b>7 (e)</b> \((10.\overline{110})_2 = (2)_{10}+(0.\overline{110})_2.\)
+Set \(x=(0.\overline{110})_2.\)  Then \(2^3x-x = (110)_2 = 6\) implies \(x=6/7.\)
+Therefore \((10.\overline{110})_2 = (2+\frac{6}{7})_{10} = (20/7)_{10}.\)<p>
+<b>7 (f)</b> \((110.1\overline{101})_2 = (6)_{10}+(\oneh)_{10}+(0.0\overline{101})_2
+ = (\frac{13}{2}+\frac{x}{2})_{10},\) where
+\(x=(0.\overline{101})_2.\) Since \(2^3x-x = (101)_2 = 5\), \(x=5/7.\)
+Therefore \((110.1\overline{101})_2 = (\frac{13}{2}+\frac{5}{7}\oneh)_{10} = (48/7)_{10}.\)<p>
+<b>7 (g)</b> \((10.010\overline{1101})_2 = (2)_{10}+(\oneq)_{10}+\frac{1}{8}
+(0.\overline{1101})_2\) Set
+\(x=(0.\overline{1101})_2.\) Then \(2^4x-x = (1101)_2 = 13,\) implying that \(x=\frac{13}{15}.\)
+Therefore \((10.010\overline{1101})_2 = (\frac{9}{4}+\frac{1}{8}\frac{13}{15})_{10} =
+(283/120)_{10}.\)<p>
+<b>7 (h)</b> \((111.\overline{1})_2 = (7)_{10}+(0.\overline{1})_2 = (7)_{10}+x,\) where
+\(x=(0.\overline{1})_2.\) Since \(2^1x-x = (1)_2, x=1,\) and \((111.\overline{1})_2 = (7+1)_{10}
+ = (8)_{10}.\)
+ <hr>
+ 
+ 
+</html>

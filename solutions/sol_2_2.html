@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 2.2</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> Subtracting \(3\) times the top row from the second row
+yields the upper triangular matrix \(\ds U=
+\left[\begin{array}{rr}
+1&2\\
+0&-2\\
+\end{array}\right].\)
+The matrix of multipliers is
+\(\ds L=\left[\begin{array}{rr}
+1&0\\
+3&1\\
+\end{array}\right].\)
+Check by multiplication:
+\[LU =
+\left[\begin{array}{rr}
+1&0\\
+3&1\\
+\end{array}\right]
+\left[\begin{array}{rr}
+1&2\\
+0&-2\\
+\end{array}\right]=
+\left[\begin{array}{rr}
+1&2\\
+3&4\\
+\end{array}\right].
+\]
+
+
+
+<b>1 (b)</b> Subtracting \(2\) times the top row from the second row
+yields \[ U=\left[\begin{array}{rr}
+1&3\\
+0&-4\\
+\end{array}\right] \text{ and } L=\left[\begin{array}{rr}
+1&0\\
+2&1\\
+\end{array}\right].\]
+Check by multiplication:
+\[LU =
+\left[\begin{array}{rr}
+1&0\\
+2&1\\
+\end{array}\right]
+\left[\begin{array}{rr}
+1&3\\
+0&-4\\
+\end{array}\right]=
+\left[\begin{array}{rr}
+1&3\\
+2&2\\
+\end{array}\right].
+\]
+
+
+<b>1 (c)</b> Subtracting \(\ds -\frac{5}{3}\) times the top row from the second row
+yields \[ U=\left[\begin{array}{rr}
+3&-4\\
+0&-\frac{14}{3}\\
+\end{array}\right] \text{ and } L=\left[\begin{array}{rr}
+1&0\\
+-\frac{5}{3}&1\\
+\end{array}\right].\]
+Check by multiplication:
+\[LU =
+\left[\begin{array}{rr}
+1&0\\
+-\frac{5}{3}&1\\
+\end{array}\right]
+\left[\begin{array}{rr}
+3&-4\\
+0&-\frac{14}{3}\\
+\end{array}\right]=
+\left[\begin{array}{rr}
+3&-4\\
+-5&2\\
+\end{array}\right].
+\]
+<hr>
+
+<b>3 (a)</b> Subtracting \(2\) times the top row from the second row gives
+the factorization
+\[ LU =
+\left[\begin{array}{rr}
+1&0\\
+2&1\\
+\end{array}\right]
+\left[\begin{array}{rr}
+3&7\\
+0&-13\\
+\end{array}\right].
+\]
+Solving \(Lc=b\), or
+\[
+\left[\begin{array}{rr}
+1&0\\
+2&1\\
+\end{array}\right]
+\left[\begin{array}{r}
+c_1\\
+c_2\\
+\end{array}\right]=
+\left[\begin{array}{rr}
+1\\
+-11\\
+\end{array}\right],
+\]
+yields \(c_1=1\) and \(2(1)+c_2=-11\), or \(c_2=-13\). Solving \(Ux=c\), or
+\[
+\left[\begin{array}{rr}
+3&7\\
+0&-13\\
+\end{array}\right]
+\left[\begin{array}{r}
+x_1\\
+x_2\\
+\end{array}\right]=
+\left[\begin{array}{rr}
+1\\
+-13\\
+\end{array}\right],
+\]
+gives \(x_2=1\) and \(3x_1+7=1\), or \(x_1=-2\). Thus \(x=[-2,1]\). <p>
+
+<b>3 (b)</b> Subtracting \(2\) times the top row from the second row gives
+the factorization
+\[ LU =
+\left[\begin{array}{rr}
+1&0\\
+2&1\\
+\end{array}\right]
+\left[\begin{array}{rr}
+2&3\\
+0&1\\
+\end{array}\right].
+\]
+Solving \(Lc=b\), or
+\[
+\left[\begin{array}{rr}
+1&0\\
+2&1\\
+\end{array}\right]
+\left[\begin{array}{r}
+c_1\\
+c_2\\
+\end{array}\right]=
+\left[\begin{array}{rr}
+1\\
+3\\
+\end{array}\right],
+\]
+yields \(c_1=1\) and \(2(1)+c_2=3\), or \(c_2=1\). Solving \(Ux=c\), or
+\[
+\left[\begin{array}{rr}
+2&3\\
+0&1\\
+\end{array}\right]
+\left[\begin{array}{r}
+x_1\\
+x_2\\
+\end{array}\right]=
+\left[\begin{array}{rr}
+1\\
+1\\
+\end{array}\right],
+\]
+gives \(x_2=1\) and \(2x_1+3(1)=1\), or \(x_1=-1\). Thus \(x=[-1,1]\).
+<hr>
+
+<b>5</b> Since \(A\) is already factored as \(LU\), only the back
+substitution is needed. Solving \(Lc=b\), or
+\[\left[\begin{array}{rrrr}
+1&0&0&0\\
+0&1&0&0\\
+1&3&1&0\\
+4&1&2&1\\
+\end{array}\right]
+\left[\begin{array}{r}
+c_1\\c_2\\c_3\\c_4\\
+\end{array}\right]=
+\left[\begin{array}{r}
+1\\1\\2\\0\\
+\end{array}\right],
+\]
+yields \(c_1=1, c_2=1, c_3= -2\), and \(c_4= -1\). Solving \(Ux=c\), or
+\[\left[\begin{array}{rrrr}
+2&1&0&0\\
+0&1&2&0\\
+0&0&-1&1\\
+0&0&0&1\\
+\end{array}\right]
+\left[\begin{array}{r}
+x_1\\x_2\\x_3\\x_4\\
+\end{array}\right]=
+\left[\begin{array}{r}
+1\\1\\-2\\-1\\
+\end{array}\right],
+\]
+yields \(x_4= -1, x_3=1, x_2= -1\), and \(x_1= 1\). Thus \(x=[1, -1,1, -1]\).
+<hr>
+
+<b>7</b> To solve 1000 upper-triangular \(500\times 500\) systems requires
+1000 back substitutions, or approximately \(1000(500)^2\) operations.
+To solve one full \(5000\times 5000\) system requires approximately \(2(5000)^3/3+2(5000)^2\approx 2(5000)^3/3\)
+operations. The number of seconds to solve the latter is the ratio
+\[ \frac{2(5000)^3/3}{1000(500)^2} = \frac{1000}{3}\approx 333 \text{ seconds},
+\] or 5 minutes, 33 seconds (or 5 minutes, 34 seconds if the \(2(5000)^2\) term is not neglected).
+<hr>
+
+<b>9</b> The first problem \(Ax=b_0\) requires approximately \(2n^3/3\)
+multiplications, while the 100 subsequent problems require \(2n^2\)
+each. Setting the two equal gives the equation
+\({\ds \frac{2n^3}{3}=200n^2,}\)
+or \(n=300\).
+<hr>
+
+
+
+
+
+
+</html>

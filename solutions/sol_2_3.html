@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>EXERCISES 2.3</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> The matrix infinity norm is the maximum of the
+absolute row sums, in this case the maximum of \(3\) and \(7\). So
+\(||A||_\infty =7\). <p>
+<b>1 (b)</b> The maximum of the absolute row sums is \(|1|+|-7|+|0|=8\).
+<hr>
+
+<b>3 (a)</b> The solution of the system
+\[
+\left[\begin{array}{ll}
+1&1\\
+1.0001&1\\
+\end{array}\right]
+\left[\begin{array}{r}
+x_1\\
+x_2\\
+\end{array}\right]=
+\left[\begin{array}{rr}
+2\\
+2.0001\\
+\end{array}\right],
+\]
+is \([1,1]\). The forward error is \(||[1,1]-[-1,3]||_\infty = 2\). The
+backward error is the infinity norm of
+\[b-Ax_c=
+\left[\begin{array}{rr}
+2\\
+2.0001\\
+\end{array}\right]-
+\left[\begin{array}{ll}
+1&1\\
+1.0001&1\\
+\end{array}\right]
+\left[\begin{array}{rr}
+-1\\
+3\\
+\end{array}\right]=
+\left[\begin{array}{rr}
+0\\
+0.0002\\
+\end{array}\right],\]
+which is \(0.0002\). The error magnification factor is the ratio
+of the relative forward and backward errors, or
+\((2/1)/(0.0002/2.0001)=20001\). <p>
+<b>3 (b)</b> The forward error is \(||[1,1]-[0,2]||_\infty=1\). The backward
+error is the infinity norm of
+\[b-Ax_c=
+\left[\begin{array}{rr}
+2\\
+2.0001\\
+\end{array}\right]-
+\left[\begin{array}{rr}
+2\\
+2\\
+\end{array}\right]=
+\left[\begin{array}{rr}
+0\\
+0.0001\\
+\end{array}\right],\]
+which is \(0.0001\). The error magnification factor is the ratio
+of the relative forward and backward errors, or
+\((1/1)/(0.0001/2.0001)=20001\). <p>
+<b>3 (c)</b> The calculation is similar to (a) and (b).
+ The forward error is \(||[1,1]-[2,2]||_\infty=1\), the backward
+error is \(||[-2,-2.0001]||_\infty=2.0001\), and the error magnification factor
+is \((1/1)/(2.0001/2.0001)=1\). <p>
+<b>3 (d)</b> Forward error is \(||[1,1]-[-2,4]||_\infty=3\), the backward
+error is \(||[0,0.0003]||_\infty=0.0003\), and the error magnification factor
+is \((3/1)/(0.0003/2.0001)=20001\). <p>
+<b>3 (e)</b> Forward error is \(||[1,1]-[-2,4.0001]||_\infty=3.0001\), the backward
+error is \(||[0.0001,0.0002]||_\infty=0.0002\), and the error magnification factor
+is \((3.0001/1)/(0.0002/2.0001)=30002.5\).
+<hr>
+
+<b>5 (a)</b> The solution of the system
+\[
+\left[\begin{array}{rr}
+1&-2\\
+3&-4\\
+\end{array}\right]
+\left[\begin{array}{r}
+x_1\\
+x_2\\
+\end{array}\right]=
+\left[\begin{array}{rr}
+3\\
+7\\
+\end{array}\right],
+\]
+is \([1,-1]\). The forward error is \(||[1,-1]-[-2,-4]||_\infty = 3\), and
+the relative forward error is \(3/||[1,-1]||_\infty=3\). The
+backward error is the infinity norm of
+\[b-Ax_c=
+\left[\begin{array}{rr}
+3\\
+7\\
+\end{array}\right]-
+\left[\begin{array}{ll}
+1&-2\\
+3&-4\\
+\end{array}\right]
+\left[\begin{array}{rr}
+-2\\
+-4\\
+\end{array}\right]=
+\left[\begin{array}{rr}
+-3\\
+-3\\
+\end{array}\right],\]
+and the relative backward error is is \(||[-3,-3||/||[3,7]||_\infty=3/7\).
+The error magnification factor is the ratio
+of the relative forward and backward errors, or
+\(3/\frac{3}{7}=7\). <p>
+<b>5 (b)</b>
+The forward error is \(||[1,-1]-[-2,-3]||_\infty = 3\), and
+the relative forward error is \(3/1=3\). The
+backward error is the infinity norm of
+\[b-Ax_c=
+\left[\begin{array}{rr}
+3\\
+7\\
+\end{array}\right]-
+\left[\begin{array}{ll}
+1&-2\\
+3&-4\\
+\end{array}\right]
+\left[\begin{array}{rr}
+-2\\
+-3\\
+\end{array}\right]=
+\left[\begin{array}{r}
+-1\\
+1\\
+\end{array}\right],\]
+and the relative backward error is is \(||[-1,1||_\infty/7=1/7\).
+The error magnification factor is the ratio
+\(3/\frac{1}{7}=21\). <p>
+<b>5 (c)</b>
+The forward error is \(||[1,-1]-[0,-2]||_\infty = 1\), and
+the relative forward error is \(1/1=1\). The
+backward error is the infinity norm of \([-1,-1]\),
+and the relative backward error is is \(1/7\).
+The error magnification factor is the ratio
+of the relative forward and backward errors, or
+\(1/\frac{1}{7}=7\). <p>
+<b>5 (d)</b>
+The forward error is \(||[1,-1]-[-1,-1]||_\infty = 2\), and
+the relative forward error is \(2/1=2\). The
+backward error is \(||[3,7]-[1,1]||_\infty = 6\),
+and the relative backward error is is \(6/7\).
+The error magnification factor is
+\(2/\frac{6}{7}=7/3\). <p>
+<b>5 (e)</b> The inverse matrix is
+\[A^{-1}=
+\left[\begin{array}{ll}
+-2&1\\
+-\frac{3}{2}&\frac{1}{2}\\
+\end{array}\right].
+\]
+The condition number of \(A\) is \(||A||_\infty\cdot||A^{-1}||_\infty = 7\cdot3=21\).
+<hr>
+
+<b>7</b> The maximum row of the \(5\times 5\) Hilbert matrix is the top row
+\([1,\frac{1}{2},\frac{1}{3},\frac{1}{4},\frac{1}{5}]\), and
+\(||H||_\infty=1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\frac{1}{5}=\frac{137}{60}\).
+<hr>
+
+<b>9 (a)</b> The inverse is \[ 
+A^{-1}=\left[\begin{array}{ccc}
+0&0&1\\
+1&0&0\\
+0&1&0
+\end{array}\right].\]
+The condition number is \(||A||_\infty\cdot||A^{-1}||_\infty = 1\cdot 1 = 1.\) <p>
+<b>9 (b)</b> The inverse \(D^{-1}\) is a diagonal matrix with entries \(d_1^{-1},\ldots,d_n^{-1}.\)
+The condition number is \(||D||_\infty\cdot||D^{-1}||_\infty = \max |d_i| \cdot \max 1/|d_i| = \max |d_i| / \min |d_i|.\)
+<hr>
+
+<b>11 (a)</b> The three properties that define a vector norm must be checked. <p>
+ (i) \(||x||_\infty\geq 0\) is guaranteed by the definition \(||x||_\infty = \max|x_i|\),
+and if \(||x||_\infty=0\), then all components \(x_i\) must be zero.<p>
+(ii) For a scalar
+\(\alpha\),
+\begin{align*}
+||\alpha x||_\infty &= \max\{|\alpha x_1|,\ldots,|\alpha x_n|\}\\
+&=\max\{|\alpha||x_1|,\ldots,|\alpha||x_n|\}\\
+&=|\alpha|\max\{|x_1|,\ldots,|x_n|\}\\
+&= |\alpha|\cdot||x||_\infty.
+\end{align*} <p>
+(iii)
+\begin{align*}
+||x+y||_\infty&=  \max \{|x_1+y_1|,\ldots,|x_n+y_n|\}\\
+&\leq \max\{|x_1|+|y_1|,\ldots,|x_n|+|y_n|\}\\
+&\leq \max\{|x_1|,\ldots,|x_n|\}+\max\{|y_1|,\ldots,|y_n|\}\\
+&=  ||x||_\infty+||y||_\infty
+\end{align*}
+<b>11 (b)</b> The three properties: <p>
+(i) \(||x||_1\geq 0\) is guaranteed by the
+definition \(||x||_1=|x_1|+\ldots+|x_n|\), and if \(||x||_1=0\), all components
+\(x_i\) must be zero. <p>
+(ii) For a scalar \(\alpha\),
+\begin{align*}
+||\alpha x||_1 &=  |\alpha x_1|+\ldots+|\alpha x_n|\\
+&=   |\alpha|(|x_1|+\ldots+|x_n|)\\
+&=   |\alpha|\cdot||x||_1
+\end{align*}
+(iii) The triangle inequality is
+\begin{align*}
+||x+y||_1&=  |x_1+y_1|+\ldots+|x_n+y_n|\\
+&\leq |x_1|+|y_1|+\ldots+|x_n|+|y_n|\\
+&=   ||x||_1+||y||_1
+\end{align*}
+<hr>
+
+<b>13</b> For a matrix \(A\), the operator norm of the vector infinity norm is
+\[\max\frac{||Ax||_\infty}{||x||_\infty}\]
+where the maximum is taken over all vectors \(x\). By property (ii) of vector norms,
+this is equal to the maximum \(||Ax||_\infty\), where the maximum is taken over all
+unit vectors \(x\) in the infinity norm, or
+\[\max ||Ax||_\infty = \max \{a_{11}x_1+\ldots+a_{1n}x_n,\ldots,a_{n1}x_1+\ldots
++a_{nn}x_n\}\]
+where \(|x_1|,\ldots,|x_n|\leq 1\). In fact, the maximum is reached when all \(x_i\)
+are \(+1\) or \(-1\), where the sign of \(x_i\) is chosen to match the sign of \(a_{i1}\).
+Here \(i\) denotes the largest row in the sense of the infinity vector norm. Therefore
+\[||A||_\infty=
+\max_{||x||=1} ||Ax||=\max_{x} \frac{||Ax||_\infty}{||x||_\infty}. \]
+<hr>
+
+<b>15 (a)</b> The unit vector that maximizes \(||Ax||_\infty\) is \(x=[1,1]\), so that
+\[Ax=
+\left[\begin{array}{ll}
+1&2\\
+3&4\\
+\end{array}\right]
+\left[\begin{array}{l}
+1\\
+1\\
+\end{array}\right]=
+\left[\begin{array}{l}
+3\\
+7\\
+\end{array}\right].\]
+Note that \(||x||_\infty = 1, ||Ax||_\infty=7\), and \(||A||_\infty=7\). Any scalar multiple
+of \(x\) will work as well. <p>
+<b>15 (b)</b> The unit vector that maximizes \(||Ax||_\infty\) is \(x=[1,-1,1]\). The signs
+are chosen to maximize row 3 of \(Ax\). Since
+\[Ax=
+\left[\begin{array}{rrr}
+1&5&1\\
+-1&2&-3\\
+1&-7&0\\
+\end{array}\right]
+\left[\begin{array}{r}
+1\\
+-1\\
+1\\
+\end{array}\right]=
+\left[\begin{array}{r}
+-3\\
+-6\\
+8\\
+\end{array}\right],\]
+we have \(||x||_\infty=1, ||Ax||_\infty=8\), and \(||A||_\infty = 8\). Any scalar multiple
+of \(x\) will also work.
+<hr>
+
+<b>17</b> Applying Gaussian elimination yields the matrices
+\[\left[\begin{array}{ccc}
+10&20&1\\
+1&1.99&6\\
+0&50&1\\
+\end{array}\right]\longrightarrow
+\left[\begin{array}{ccc}
+10&20&1\\
+0&-0.01&5.9\\
+0&50&1\\
+\end{array}\right]\longrightarrow
+\left[\begin{array}{ccc}
+10&20&1\\
+0&-0.01&5.9\\
+0&0&29501\\
+\end{array}\right]\]
+where the last multiplier is \(l_{32}=-5000\). The LU-factorization is
+\[LU=
+\left[\begin{array}{ccc}
+1&0&0\\
+0.1&1&0\\
+0&-5000&1\\
+\end{array}\right]
+\left[\begin{array}{ccc}
+10&20&1\\
+0&-0.01&5.9\\
+0&0&29501\\
+\end{array}\right],\]
+and the largest magnitude multiplier is \(-5000\).
+
+
+
+
+
+</html>
