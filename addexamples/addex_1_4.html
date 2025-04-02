@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h2>Additional Examples 1.4 </h1>
+
+<b>1</b>  Investigate the convergence of Newton's method applied to the roots \(1\) and \(-1\) of \(f(x) = x^3-2x^2+2-1/x\). Use Theorems 1.11 and 1.12 to approximately express the error \(e_{i+1}\) in terms of \(e_i\) during convergence.<p>
+<a href="mp4/sauer_na3e_ve1_4.mp4"> <img width=100 async src="figs/videoicon.png" align=left> </a> <br clear="all" /><p>
+<hr>
+We will use the convergence theorem of Newton's method to analyze local convergence and rate of convergence. The derivatives of \(f(x)=x^3-2x^2+2-1/x\) are:
+\begin{eqnarray*} f'(x) &=& 3x^2-4x+x^{-2}\\
+f''(x) &=& 6x-4-2x^{-3}\\
+f'''(x) &=& 6+6x^{-4}
+\end{eqnarray*}
+Evaluating at the root \(r=-1.\)
+\begin{eqnarray*}f'(-1) &=& 3+4+1 = 8\\
+f''(-1) &=& -6 -4 -2(-1) = -8
+\end{eqnarray*}
+therefore Newton's method converges locally and  quadratically to the root \(-1,\) and \(e_{i+1} \approx \left|\frac{f''(-1)}{2f'(-1)}\right| e_i^2 =
+ \left|\frac{-8}{2(8)}\right| e_i^2 =  \frac{1}{2}e_i^2.\)
+ <p>
+The derivatives of \(f(x)\) at \(r=1\) are:
+\begin{eqnarray*} f'(x) &=& 3x^2-4x+x^{-2} \rightarrow f'(1) = 0\\
+f''(x) &=& 6x-4-2x^{-3} \  \rightarrow f''(1) = 0\\
+f'''(x) &=& 6+6x^{-4} \ \ \ \ \ \ \ \ \rightarrow f'''(1) = 12 \neq 0
+\end{eqnarray*}
+
+Therefore \(r=1\) is a root of multiplicity 3. It follows that Newton's method converges locally and linearly to the root \(r=1\) with error  \(e_{i+1} \approx \frac{m-1}{m}e_i =  \frac{2}{3} e_i.\)
+<hr><hr>
+<b>2</b> Adapt the <tt> fpi.m</tt> code from Section 1.2 to calculate all three roots of the equation \(x^5+4x^2 = \sin x + 4x^4+1\) by Newton's Method.
+<hr>
+The Matlab code
+<pre>
+f=@(x) x^5+4*x^2-sin(x)-4*x^4-1;
+df=@(x) 5*x^4+8*x-cos(x)-16*x^3;
+g=@(x) x-f(x)/df(x);
+x=fpi(g,-1,4)
+</pre>
+applies 4 steps of Newton's Method with initial guess \(-1,\) converging to \(-0.870330\) to six decimal places. The same code with initial guess \(-0.5\) converges to \(-0.428275.\) The third root is found with initial guess \(4,\) converging to root \(3.712147\) in 4 Newton's Method steps.
+
+
+
+
+
+
+
+</html>
