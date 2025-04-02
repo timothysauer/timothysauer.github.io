@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h2>Additional Examples 5.4 </h1>
+
+<b>1</b> Carry out Adaptive Quadrature by hand, using Simpson's Rule with tolerance TOL = 0.01 to approximate the integral \( \int_1^3 \frac{1}{x}\ dx \).
+
+<p>
+<hr>
+Simpson's Rule is \(S_{[a,b]}=
+\frac{b-a}{6}[f(a)+4f(\frac{a+b}{2})+f(b)]\). For \(f(x)=1/x\) on \([1,3]\), begin with one interval \(S_{[1,3]} = \frac{2}{6}[1+4(\frac{1}{2})+\frac{1}{3}] = \frac{10}{9} \approx 1.1111  \).
+On the two subintervals,
+\begin{eqnarray*}
+S_{[1,2]}&=& \frac{1}{6}\left[1+4(\frac{2}{3})+\frac{1}{2}\right] = \frac{25}{36} \approx 0.6944\\
+S_{[2,3]}&=& \frac{1}{6}\left[\frac{1}{2}+4(\frac{2}{5})+\frac{1}{3}\right] = \frac{73}{180} \approx 0.4056.
+\end{eqnarray*}
+The estimate \(S_{[1,2]}+S_{[2,3]}=1.1000\) is within \(10\times \) TOL of \( S_{[1,3]} \), and so 
+1.1000 is accepted for the integral. The exact integral is \( \ln 3 = 1.0986 \), well within the error tolerance TOL \( = 0.01\).
+
+<hr><hr>
+<b>2</b> Use  the integral \( \int_0^1 \sqrt{1-x^2}\ dx \) and <tt> adapquad.m </tt> to calculate \( \pi \) to 8 correct decimal places.
+<p>
+<hr>
+First check that the integral equals \(\pi/4\), so we must approximate the integral and multiply by 4.
+Executing the Python code:<p>
+<pre>
+import numpy as np
+from adapquad import adapquad
+f=lambda x:np.sqrt(1-x**2);
+out=4*adapquad(f,0.,1.,1e-9)
+</pre>
+returns the approximation \(  3.141592651734296 \), which agrees to  8  decimal places with \( \pi. \)
+</html>

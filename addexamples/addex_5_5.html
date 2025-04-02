@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h2>Additional Examples 5.5 </h1>
+
+<b>1</b> Translate the integral  \( {\displaystyle \int_1^2 x\ln x\ dx} \) to the interval \([-1, 1]\) and approximate with degree 4 Gaussian quadrature.
+
+<p>
+<hr>
+
+\({\displaystyle \int_1^2 x\ln x\ dx = \frac{1}{2} \int_{-1}^1 f\left(\frac{t+3}{2}\right)\ dt =  \frac{1}{2} \int_{-1}^1 \left(\frac{t+3}{2}\right) \ln  \left(\frac{t+3}{2}\right)\ dt}.\approx
+\frac{1}{2}[c_1f(t_1)+c_2f(t_2)+c_3f(t_3)+c_4f(t_4)] =  0.6362943333  \), which compares to the exact integral \( 2\ln 2 - 3/4 = 0.6362943611.\) 
+
+<hr><hr>
+<b>2</b> Use  the integral \( {\displaystyle \int_0^1 \frac{dx}{1+x^2}} \) and Gaussian quadrature of degree 4 to approximate \( \pi \). How many decimal places are correct?
+<p>
+<hr>
+
+Note that \( {\displaystyle \int_0^1 \frac{dx}{1+x^2}} = \pi/4\), so \(\pi\) can be approximated by multiplying the integral by \(4.\)
+\({\displaystyle 4\int_0^1  \frac{dx}{1+x^2} =4 \left(\frac{1}{2}\right) \int_{-1}^1 f\left(\frac{t+1}{2}\right)\ dt =  2 \int_{-1}^1 \frac{dt}{1+(\frac{t+1}{2})^2}\  }\approx
+2[c_1f(t_1)+c_2f(t_2)+c_3f(t_3)+c_4f(t_4)] =  3.1416119052  \), which agrees with \( \pi \) to 4 decimal places.
+
+</html>
