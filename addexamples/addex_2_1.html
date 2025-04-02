@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h2>Additional Examples 2.1 </h1>
+
+<b>1</b> Put the system \(x+2y-z = 3, -3x+y+z = -6, 2x+z = 8\) into tableau form and solve by Gaussian elimination.
+<hr>
+In tableau form, the system is
+\begin{align*}
+\left[\begin{array}{rrrcr}
+1&2&-1&|&3\\
+-3&1&1&|&-6\\
+2&0&1&|&8
+\end{array}\right] 
+&  
+\longrightarrow \stackrel{\textstyle{\mbox{subtract \(-3\) x row
+1}}}{\mbox{from row 2}}
+\longrightarrow \left[\begin{array}{rrrcr}
+1&2&-1&|&3\\
+0&7&-2&|&3\\
+2&0&1&|&8
+\end{array}\right]
+\end{align*}   
+\begin{align*} &
+\longrightarrow \stackrel{\textstyle{\mbox{subtract \(2\) x row
+1}}}{\mbox{from row 3}} \longrightarrow \left[\begin{array}{rrrcr}
+1&2&-1&|&3\\
+0&7&-2&|&3\\
+0&-4&3&|&2
+\end{array}\right] 
+\end{align*}   
+\begin{align*} &
+\longrightarrow \stackrel{\textstyle{\mbox{subtract \(-4/7\) x row
+2}}}{\mbox{from row 3}} \longrightarrow \left[\begin{array}{rrrcr}
+1&2&-1&|&3\\
+0&7&-2&|&3\\
+0&0&\frac{13}{7}&|&\frac{26}{7}
+\end{array}\right]. 
+\end{align*}    
+Solving from bottom to top, 
+\begin{eqnarray*}
+\frac{13}{7}z &=& \frac{26}{7} \longrightarrow z=2\\
+7y &=& 3+2z = 7 \longrightarrow y=1\\
+x &=& -2y+z+3 = -2(1)+2+3 = 3
+\end{eqnarray*}
+The solution is \([x,y,z]=[3,1,2].\)
+
+<hr><hr>
+<b>2</b> Assume that a computer can solve 200 upper-triangular matrix problems of 3000 variables in 3000 unknowns per second.   
+Estimate how long it would take to solve one, not necessarily upper-triangular, problem of 5000 equations in 5000 unknowns. 
+<hr>
+Solving an \(n\times n\) upper-triangular matrix system requires \(n^2\) operations. The computer can carry out \((200)(3000)^2\) operations per second. <p>
+To solve a full \(n\times n\) matrix system requires \(\frac{2}{3}n^3+O(n^2)\)  operations. Therefore the total time required for this computer is
+\[ \frac{\frac{2}{3}(5000)^3}{200(3000)^2} \approx 46.3\ {\rm sec.} \]
+</html>

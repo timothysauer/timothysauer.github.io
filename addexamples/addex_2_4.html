@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h2>Additional Examples 2.4 </h1>
+
+<b>1</b> Find the \(PA=LU\) factorization of the matrix
+\( A=\left[\begin{array}{rr}
+1&2\\3&4
+\end{array}\right].
+\)<p>
+
+<hr>
+Partial pivoting requires exchanging the rows using 
+\( P=\left[\begin{array}{rr}
+0&1\\1&0
+\end{array}\right].
+\)
+Subtracting \( 1/3\) times row one from row two yields 
+\( U=\left[\begin{array}{cc}
+3&4\\0&2/3
+\end{array}\right],
+\)
+yielding the \( PA=LU\) factorization
+\[
+\left[\begin{array}{rr}
+0&1\\1&0
+\end{array}\right]
+\left[\begin{array}{rr}
+1&2\\3&4
+\end{array}\right] = 
+\left[\begin{array}{cc}
+1&0\\1/3&1
+\end{array}\right]
+\left[\begin{array}{cc}
+3&4\\0&2/3
+\end{array}\right]
+\]
+
+
+<hr><hr>
+<b>2</b> Solve
+\begin{align*}
+\left[\begin{array}{rrr}
+-1&1&-2\\
+2&3&1\\
+4&8&-4\\
+\end{array}\right] 
+\left[\begin{array}{rrr}
+x_1\\x_2\\x_3
+\end{array}\right]  = 
+\left[\begin{array}{rrr}
+-5\\2\\-4
+\end{array}\right]
+\end{align*}
+using the PA=LU factorization with partial pivoting. <p>
+<p>
+<a href="mp4/sauer_na3e_ve2_4.mp4"> <img width=100 async src="figs/videoicon.png" align=left> </a> <br clear="all" /><p>
+<hr>
+The steps involved in the PA=LU factorization are:
+\begin{align*}
+\left[\begin{array}{rrr}
+-1&1&-2\\
+2&3&1\\
+4&8&-4\\
+\end{array}\right] 
+\longrightarrow \stackrel{ \textstyle{P= \left[\begin{array}{rrr}
+0&0&1\\
+0&1&0\\
+1&0&0\\
+\end{array}\right]
+}}{\mbox{ exchange rows 1 and 3}}
+ \longrightarrow
+\left[\begin{array}{rrr}
+4&8&-4\\
+2&3&1\\
+-1&1&-2\\
+\end{array}\right]    
+\end{align*}   
+\begin{align*}&  
+\longrightarrow \stackrel{\textstyle{\mbox{subtract $\frac{1}{2}$ x row
+1}}}{\mbox{from row 2}}
+\longrightarrow \left[\begin{array}{rrr}
+4&8&-4\\
+{\frac{1}{2}}&-1&3\\
+-1&1&-2\\
+\end{array}\right]
+\end{align*}   
+\begin{align*} &
+\longrightarrow \stackrel{\textstyle{\mbox{subtract \(-\frac{1}{4}\) x row
+1}}}{\mbox{from row 3}} \longrightarrow \left[\begin{array}{rrr}
+4&8&-4\\
+{\frac{1}{2}}&-1&3\\
+{-\frac{1}{4}}&3&-3\\
+\end{array}\right]
+\end{align*} 
+
+
+\begin{align*}
+%\left[\begin{array}{rrr}
+%4&8&-4\\
+%\frac{1}{2}&-1&3\\
+%-\frac{1}{4}&3&-3\\
+%\end{array}\right]
+\longrightarrow \stackrel{ \textstyle{ P= \left[\begin{array}{rrr}
+0&0&1\\
+1&0&0\\
+0&1&0\\
+\end{array}\right]
+}}{\mbox{ exchange rows 2 and 3}}
+ \longrightarrow
+\left[\begin{array}{rrr}
+4&8&-4\\
+-\frac{1}{4}&3&-3\\
+\frac{1}{2}&-1&3\\
+\end{array}\right]    
+\end{align*}   
+
+\begin{align*}
+&  
+\longrightarrow \stackrel{\textstyle{\mbox{subtract $-\frac{1}{3}$ x row
+2}}}{\mbox{from row 3}}
+\longrightarrow \left[\begin{array}{rrr}
+4&8&-4\\
+-\frac{1}{4}&3&-3\\
+\frac{1}{2}&-\frac{1}{3}&2\\
+\end{array}\right]
+\end{align*}   
+The PA=LU factorization is:
+\[\left[\begin{array}{rrr}
+0&0&1\\
+1&0&0\\
+0&1&0\\
+\end{array}\right]
+\left[\begin{array}{rrr}
+-1&1&-2\\
+2&3&1\\
+4&8&-4
+\end{array}\right]=
+\left[\begin{array}{rrr}
+1&0&0\\
+-\frac{1}{4}&1&0\\
+\frac{1}{2}&-\frac{1}{3}&1\\
+\end{array}\right]
+\left[\begin{array}{rrr}
+4&8&-4\\
+0&3&-3\\
+0&0&2\\
+\end{array}\right]\] 
+
+Next we apply the two backsubstitution steps. First, solve \(Lc=Pb\):
+\[
+\left[\begin{array}{rrr}
+1&0&0\\
+-\frac{1}{4}&1&0\\
+\frac{1}{2}&-\frac{1}{3}&1\\
+\end{array}\right]
+\left[\begin{array}{r}
+c_1\\
+c_2\\
+c_3\\
+\end{array}\right]
+= \left[\begin{array}{rrr}
+0&0&1\\
+1&0&0\\
+0&1&0\\
+\end{array}\right]
+\left[\begin{array}{r}
+-5\\
+2\\
+-4\\
+\end{array}\right]
+= \left[\begin{array}{r}
+-4\\
+-5\\
+2\\
+\end{array}\right]
+\]
+
+Starting at the top,
+\begin{align*}
+c_1&=  -4\\
+-\frac{1}{4}(-4)+c_2&=  -5 \ \ \ \Rightarrow \ \ \ c_2 = -6\\
+\frac{1}{2}(-4)-\frac{1}{3}(-6)+c_3&=  2 \ \ \ \Rightarrow \ \ \ c_3 = 2
+\end{align*}    
+
+Secondly, solve \(Ux=c\):
+\[
+\left[\begin{array}{rrr}
+4&8&-4\\
+0&3&-3\\
+0&0&2\\
+\end{array}\right]
+\left[\begin{array}{r}
+x_1\\
+x_2\\
+x_3\\
+\end{array}\right]
+= \left[\begin{array}{r}
+-4\\
+-6\\
+2\\
+\end{array}\right]
+\]
+
+Starting at the bottom,
+\begin{align*}
+2x_3&=  2 \quad \Rightarrow\quad x_3= 1 \\
+3x_2-3(1)&=  -6 \quad\Rightarrow\quad x_2 = -1\\
+4x_1+8(-1)-4(1)&=  -4 \quad\Rightarrow\quad x_1 = 2
+\end{align*}
+Therefore the solution is  \(x=[2,-1,1]\). 
+
+
+
+</html>

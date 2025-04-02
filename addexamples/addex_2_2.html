@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h2>Additional Examples 2.2 </h1>
+
+<b>1</b> Solve
+\begin{align*}
+\left[\begin{array}{rrr}
+2&4&-2\\
+1&-2&1\\
+4&-4&8
+\end{array}\right] 
+\left[\begin{array}{rrr}
+x_1\\x_2\\x_3
+\end{array}\right]  = 
+\left[\begin{array}{rrr}
+6\\3\\0
+\end{array}\right]
+\end{align*}
+using the A=LU factorization. <p>
+<a href="mp4/sauer_na3e_ve2_2.mp4"> <img width=100 async src="figs/videoicon.png" align=left> </a> <br clear="all" /><p>
+<hr>
+Strategy: (1) Factor A into A=LU, and  (2) carry out the two back-substitutions Lc=b and Ux=c.
+
+\begin{align*}
+\left[\begin{array}{rrr}
+2&4&-2\\
+1&-2&1\\
+4&-4&8
+\end{array}\right] 
+&  
+\longrightarrow \stackrel{\textstyle{\mbox{subtract \(\frac{1}{2}\) x row
+1}}}{\mbox{from row 2}}
+\longrightarrow \left[\begin{array}{rrr}
+2&4&-2\\
+0&-4&2\\
+4&-4&8
+\end{array}\right]
+\end{align*}   
+\begin{align*} &
+\longrightarrow \stackrel{\textstyle{\mbox{subtract \(2\) x row
+1}}}{\mbox{from row 3}} \longrightarrow \left[\begin{array}{rrr}
+2&4&-2\\
+0&-4&2\\
+0&-12&12
+\end{array}\right]
+\end{align*}    
+
+\begin{align*} 
+&  
+\longrightarrow \stackrel{\textstyle{\mbox{subtract \(3\) x row
+2}}}{\mbox{from row 3}}
+\longrightarrow \left[\begin{array}{rrr}
+2&4&-2\\
+0&-4&2\\
+0&0&6
+\end{array}\right]
+\end{align*}  
+The A=LU factorization is
+\[
+\left[\begin{array}{rrr}
+2&4&-2\\
+1&-2&1\\
+4&-4&8
+\end{array}\right]=
+\left[\begin{array}{rrr}
+1&0&0\\
+\frac{1}{2}&1&0\\
+2&{3}&1
+\end{array}\right]
+\left[\begin{array}{rrr}
+2&4&-2\\
+0&-4&2\\
+0&0&6
+\end{array}\right]. \]
+Next, carry out the two back-substitutions. Solve Lc=b:
+\[
+\left[\begin{array}{rrr}
+1&0&0\\
+\frac{1}{2}&1&0\\
+2&{3}&1
+\end{array}\right]
+\left[\begin{array}{r}
+c_1\\
+c_2\\
+c_3\\
+\end{array}\right]
+= \left[\begin{array}{r}
+6\\
+3\\
+0\\
+\end{array}\right] \]
+Starting at the top,
+\begin{align*}
+c_1&=  6\\
+\frac{1}{2}(6)+c_2&=  3 \ \ \ \Rightarrow \ \ \ c_2 = 0\\
+2(6)+3(0)+c_3&=  0 \ \ \ \Rightarrow \ \ \ c_3 = -12
+\end{align*}    
+Solve Ux=c:
+\[
+\left[\begin{array}{rrr}
+2&4&-2\\
+0&-4&2\\
+0&0&6
+\end{array}\right]
+\left[\begin{array}{r}
+x_1\\
+x_2\\
+x_3\\
+\end{array}\right]
+= \left[\begin{array}{r}
+6\\
+0\\
+-12\\
+\end{array}\right] \]
+
+Starting at the bottom,
+\begin{align*}
+6x_3&=  -12 \quad \Rightarrow\quad x_3= -2 \\
+-4x_2+2(-2)&= \quad 0\quad\Rightarrow\quad x_2 = -1\\
+2x_1+4(-1)-2(-2)&=  6 \quad\Rightarrow\quad x_1 = 3
+\end{align*}
+Therefore the solution is  \(x=[3,-1,-2].\) 
+
+<hr><hr>
+<b>2</b> Assume that a computer can carry out an LU-factorization of a \(5000\times 5000\) matrix in 1 second. How long will it take to solve 100 problems \(Ax=b\), with the same \(3000\times 3000\) matrix \(A\) and 100 different \(b\)?
+<hr>
+The computer can carry out \(\frac{2}{3}n^3 = \frac{2}{3}(5000)^3\) operations per second. To solve 100 problems \(Ax=b\) with the same \(A\) takes \(\frac{2}{3}(3000)^3+2(3000)^2\) for the first problem (note that two back-substitutions are required), and  \(2(3000)^2\) operations for each of the remaining 99 (since we already know \(L\) and \(U\)), or a total of \(\frac{2}{3}(3000)^3+100(2)(3000)^2.\)  The time required is therefore
+\[ \frac{\frac{2}{3}(3000)^3+200(3000)^2}{\frac{2}{3}(5000)^3} \approx 0.24\ {\rm sec.}\] 
+
+
+</html>

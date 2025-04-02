@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h2>Additional Examples 2.3 </h1>
+
+<b>1</b>  Find the determinant and the condition number (in the infinity norm) of the matrix
+\(\left[\begin{array}{ll}
+811802&810901\\810901&810001
+\end{array}\right].\)
+
+<hr>
+The determinant is 1. To find the condition number, find the inverse of the matrix, which is
+\(\left[\begin{array}{rr}
+810001&-810901\\-810901&811802
+\end{array}\right].\)
+Therefore the condition number is \(||A||_\infty ||A^{-1}||_\infty = (1622703)^2\approx 2.6332\times 10^{12}.\)
+
+<hr><hr>
+<b>2</b> 
+The solution of the system
+\(\left[\begin{array}{ll}
+2&4.01\\3&6
+\end{array}\right]
+\left[\begin{array}{r}
+x_1\\ x_2
+\end{array}\right]=
+\left[\begin{array}{l}
+6.01\\9
+\end{array}\right]\)
+is \([1,1].\)
+(a) Find the relative forward and backward errors and error magnification (in the infinity norm) for the approximate solution \([21, -9].\) (b) Find the condition number of the coefficient matrix.
+<hr>
+(a)  The forward error is \(||[1,1]-[21,-9]||_\infty = ||[-20,10]||_\infty= 20,\) and
+the relative forward error is \(20/||[1,1]||_\infty=20.\) The
+backward error is the infinity norm of
+\[b-Ax_c=
+\left[\begin{array}{ll}
+6.01\\
+9\\
+\end{array}\right]-
+\left[\begin{array}{ll}
+2&4.01\\
+3&6\\
+\end{array}\right]
+\left[\begin{array}{rr}
+21\\
+-9\\
+\end{array}\right]=
+\left[\begin{array}{ll}
+0.1\\
+0\\
+\end{array}\right],\]
+and the relative backward error is is \(||[0.1,0||/||[6.01,9]||=1/90.\)
+The error magnification factor is the ratio
+of the relative forward and backward errors, or
+\(20/(1/90)=1800.\)
+<p>
+(b) To calculate the condition number, first find the inverse:
+\[A^{-1} = \frac{1}{-0.03}\left[\begin{array}{cc}
+6&-4.01\\-3&2
+\end{array}\right] = 
+\left[\begin{array}{rr}
+-200&401/3\\
+100&-200/3
+\end{array}\right].\]
+The condition number is \(||A||_\infty||A^{-1}||_\infty =(9)(1001/3) = 3003.\)
+
+
+
+</html>
