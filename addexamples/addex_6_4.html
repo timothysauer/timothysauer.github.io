@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h1>Additional Examples 6.4 </h1>
+
+<b>1</b> Consider the initial value problem
+ \[ \left\{
+\begin{array}{l}
+y'=ty\\
+y(0)=1.
+\end{array} \right. \]
+Find the approximate solution on \([0,1]\) by the Runge-Kutta Order 4 method with step size \(h = 1/4\). Report the global truncation error at \(t=1\).
+<p>
+<hr>
+The formulas for RK4 applied to \(y'=ty\) are
+\begin{eqnarray*}
+s_1 &=& t_iw_i\\
+s_2 &=& \left(t_i+\frac{h}{2}\right)\left(w_i+\frac{h}{2}s_1\right)\\
+s_3 &=& \left(t_i+\frac{h}{2}\right)\left(w_i+\frac{h}{2}s_2\right)\\
+s_4 &=& \left(t_i+h\right)\left(w_i+hs_3\right)\\
+w_{i+1} &=& w_i+\frac{s_1+2s_2+2s_3+s_4}{6}
+\end{eqnarray*}
+Using \(h=1/4\), we calculate
+<table cellpadding="8">
+  <tr>
+    <th>\(i\)</th>
+    <th>\(t_i\)</th>
+    <th>\(w_i\)</th>
+  </tr>
+  <tr>
+    <td>0   </td>
+    <td>0.00</td>
+    <td>1.000000</td>
+  </tr>
+    <tr>
+        <td>1   </td>
+    <td>0.25</td>
+    <td>1.031743</td>
+  </tr>
+    <tr>
+        <td>2   </td>
+    <td>0.50</td>
+    <td>1.133148</td>
+  </tr>
+    <tr>
+        <td>3   </td>
+    <td>0.75</td>
+    <td>1.324782</td>
+  </tr>
+     <tr>
+        <td>4   </td>
+    <td>1.00</td>
+    <td>1.648710</td>
+  </tr>
+</table>
+<p>
+The solution of the IVP is \(y(t) = e^{t^2/2},\) and \( y(1)\approx 1.648721.\) The global truncation error at \(t=1\) is \(|w_4-e^{0.5}| =  0.000011.\)
+<p>
+<hr> <hr>
+<b>2</b> Show that \(y(t) = e^{\sin t}\) is a solution of the initial value problem
+ \[ \left\{
+\begin{array}{l}
+y''+y\sin t-y'\cos t =0\\
+y(0)=1\\
+y'(0)=1.
+\end{array} \right. \]
+Convert the differential equation to an equivalent first-order system, and plot the Runge-Kutta Order 4 approximate solution for step size \(h=1/2\). Compute the global truncation error \(|y(4)-w(4)|\) at \(t=4\) for the step sizes \(h=1/2, 1/4, 1/8\) and \(1/16.\)
+
+
+<p>
+<hr>
+Program 6.2 can be adapted to carry out the RK4 Method for this equation. The <tt>eulerstep</tt> function should be replaced by <tt>rk4step</tt>. The red curve is the exact solution, and the blue curve is the approximate solution with step size
+\(h=1/2.\) The global truncation errors at \(t=4\) are
+<table>
+  <tr>
+    <th>h</th>
+    <th>error</th>
+  </tr>
+  <tr>
+    <td>1/2</td>
+    <td>0.0023141</td>
+  </tr>
+    <tr>
+    <td>1/4</td>
+    <td>0.0001597</td>
+  </tr>
+    <tr>
+    <td>1/8</td>
+    <td>0.0000104</td>
+  </tr>
+    <tr>
+    <td>1/16</td>
+    <td>0.0000007</td>
+  </tr>
+</table>
+<p>
+Note the decrease in error of a factor of approximately \((1/2)^4\) for each decrease in step size of \(1/2\). 
+<p>
+<img width=400 async src="figs/AddEx6_4_2.png" align=left>
+
+
+</html>
