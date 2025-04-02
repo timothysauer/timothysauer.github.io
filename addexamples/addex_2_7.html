@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h2>Additional Examples 2.7 </h1>
+
+<b>1</b> 
+Use Multivariate Newton's Method to find the intersection points in \(R^2\) of the circle of radius 2 centered at the origin, and the circle of radius 1 centered at \( (1,1)\).
+<p>
+<hr>
+The Matlab code 
+<pre>
+n=10;
+x=[1;0];
+f=@(x) [x(1)^2+x(2)^2-4;(x(1)-1)^2+(x(2)-1)^2-1];
+df=@(x) 2*[x(1) x(2);x(1)-1 x(2)-1];
+for i=1:n
+  v=df(x)\f(x);
+  x=x-v
+end
+</pre>
+uses the initial guess \((1,0)\) to locate the root \((1.9114,0.5886)\). Using the initial guess \((0,1),\) the second root \((0.5886,1.9114)\) is located. 
+
+<p>
+<hr><hr>
+
+<b>2</b> 
+
+Use the Broyden II method to find the two intersection points in \(R^3\) of three spheres: the sphere of radius 2 centered at the origin, and the two spheres of radius 1 centered at \( (1,1,1)\) and \( (1,1,0) \), respectively.
+
+<p>
+<hr>
+Using initial guess \((0,1,1)\), the <tt>broyden2.py</tt> code finds the intersection point \((1.8090,0.6910, 0.5000)\)  from 
+the commands
+<pre>
+f=lambda x: [x[0]**2+x[1]**2+x[2]**2-4.,(x[0]-1)**2+(x[1]-1)**2+(x[2]-1)**2-1,(x[0]-1)**2+(x[1]-1)**2+x[2]**2-1];
+x=broyden2(f,np.array([0,1,1]),15)
+</pre>
+Using initial guess \((1,0,1)\), the other intersection point \((0.6910,1.8090, 0.5000)\) is located.
+
+</html>
