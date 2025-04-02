@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h2>Additional Examples 5.2 </h1>
+
+<b>1</b> Show by direct calculation that the open Newton-Cotes formula \( \int_0^b f(x) \ dx \approx \frac{b}{3} \left[ 2f(b/4)-f(b/2) + 2f(3b/4) \right] \) has degree of precision 3 .
+<hr>
+We need to check exactness for all polynomials of degree 3 or less, and note that exactness fails for degree 4.
+
+\begin{eqnarray*}
+f(x) = 1: && \frac{b}{3}[2 - 1 + 2] = b = \int_0^b 1\ dx\\
+f(x) = x: && \frac{b}{3}\left[2\frac{b}{4} - \frac{b}{2} + 2\frac{3b}{4}\right] = \frac{b^2}{2} = \int_0^b x\ dx\\
+f(x) = x^2: && \frac{b}{3}\left[2(\frac{b}{4})^2 - (\frac{b}{2})^2 + 2(\frac{3b}{4})^2\right] = \frac{b}{3}\left[\frac{b^2}{8}-\frac{b^2}{4}+\frac{9}{8}b^2\right]    =\frac{b^3}{3} = \int_0^b x^2\ dx\\
+f(x) = x^3: && \frac{b}{3}\left[2(\frac{b}{4})^3 - (\frac{b}{2})^3 + 2(\frac{3b}{4})^3\right] = \frac{b}{3}\left[\frac{b^3}{32}-\frac{b^3}{8}+\frac{27}{32}b^3\right] = \frac{b^4}{4} = \int_0^b x^3\ dx\\
+\end{eqnarray*}
+<p>
+Checking degree 4,
+\[f(x) = x^4: \  \frac{b}{3}\left[2(\frac{b}{4})^4 - (\frac{b}{2})^4 + 2(\frac{3b}{4})^4\right] = \frac{b}{3}\left[\frac{b^4}{128}-\frac{b^4}{16}+\frac{81}{128}b^4\right] = \frac{37b^5}{192} \neq \int_0^b x^4\ dx
+\]
+
+<hr><hr>
+<b>2</b> Use the Composite Trapezoid Method error formula to find the number of panels required to estimate \( \int_0^1 e^{-x^2} \ dx \) to 6 correct decimal places, 
+and carry out the estimate.<p>
+<a href="mp4/sauer_na3e_ve5_2.mp4"> <img width=100 async src="figs/videoicon.png" align=left> </a> <br clear="all" /><p>
+<hr>
+According to (5.24), the error is \( \frac{(1-0)h^2}{12}f''(c), \) where \(h=1/m\) and \( 0\lt c\lt 1.\) 
+The second derivative is \(f''(x) = e^{-x^2}(4x^2-2),\) and so an upper bound is 
+\(|f''(c)| < 2\) for \( 0\lt c\lt 1.\)  Setting \(\frac{h^2}{12}2 < 0.5\times 10^{-6}\) yields \(h < \sqrt{3}\times 10^{-3}\) or \(m>\frac{1}{\sqrt{3}}\times 10^3\approx 577.4.\) 
+<p>
+Using \(m=578\) in (5.24) results in the approximation 
+\[\frac{1}{2m} [y_0+y_m+2\sum_{i=1}^{m-1} y_i] = \frac{1}{2m} [1+e^{-1}+2\sum_{i=1}^{m-1} e^{-(i/m)^2}] \approx 0.746824.  \]
+
+
+</html>

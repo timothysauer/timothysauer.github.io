@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis  Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h2>Additional Examples 5.3 </h1>
+
+<b>1</b> Apply Romberg integration to hand-calculate \( R_{33} \) for the integral \( \int_0^{\pi/2} \sin x\ dx \).
+<a href="mp4/sauer_na3e_ve5_3.mp4"> <img width=100 async src="figs/videoicon.png" align=left> </a> <br clear="all" /><p>
+<p>
+<hr>
+
+Define \(h_1 = \pi/2, h_2 = \pi/4, h_3 = \pi/8. \) The formulas for Romberg integration are:<p>
+\begin{eqnarray*}
+R_{11} &=& \frac{h_1}{2}(f(a)+f(b)) = \frac{\pi}{4}(0+1) = \frac{\pi}{4} = 0.785398\\
+R_{21} &=& \frac{1}{2}R_{11}+h_2f((a+b)/2) = \frac{1}{2}\frac{\pi}{4}+\frac{\pi}{4}f(\frac{\pi}{4}) = \frac{\pi}{8}+\frac{\pi}{4}\frac{\sqrt{2}}{2} = 0.948059\\
+R_{31} &=& \frac{1}{2}R_{21}+h_3[f(\frac{\pi}{8})+f(\frac{3\pi}{8})]  = 0.987116\\
+R_{22} &=& \frac{4R_{21}-R_{11}}{4-1} = 1.002279\\
+R_{32} &=& \frac{4R_{31}-R_{21}}{4-1} = 1.000134\\
+R_{33} &=& \frac{4^2R_{32}-R_{22}}{4^2-1} = 0.999991
+\end{eqnarray*}
+The best estimate of the integral is \( R_{33} = 0.999991 \), approximating the exact value \( -\cos \pi/2+\cos 0  = 1\).
+
+<hr><hr>
+<b>2</b> Use <tt>romberg.py</tt> to compute \( R_{55} \) for the integral \( \int_0^{\pi/4} \tan x\ dx \). How many decimal places of the approximation are correct?.
+<p>
+<hr>
+Executing the code:<p>
+<pre>
+import numpy as np
+from romberg import romberg
+out=romberg(np.tan,0.,np.pi/4,5)
+
+out =
+
+   0.392699081698724                   0                   0                   0                   0
+   0.359010826420434   0.347781407994337                   0                   0                   0
+   0.349758333975279   0.346674169826894   0.346600353949064                   0                   0
+   0.347374988866686   0.346580540497155   0.346574298541839   0.346573884963946                   0
+   0.346774275228954   0.346574037349711   0.346573603806548   0.346573592779003   0.346573591633180
+</pre>
+
+The approximation \( R_{55} = 0.3465735916 \) agrees to  8  decimal places with the exact integral \( -\ln \cos \pi/4 = 0.3465735903. \)
+</html>

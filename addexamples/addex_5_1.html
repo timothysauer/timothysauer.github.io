@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h2>Additional Examples 5.1 </h1>
+
+<b>1</b> Use the three point centered-difference formula to approximate the derivative \( f'(\pi/2) \) 
+where \( f(x) = e^{\cos x}, \) where (a) \( h = 0.1\) (b) \( h = 0.01\).
+
+<p>
+<hr>
+The exact derivative is \(f'(\pi/2)=e^{\cos \pi/2}(-\sin \pi/2) = -1.\)
+
+<p>
+
+(a) \[ \frac{f(x+h)-f(x-h)}{2h} = \frac{e^{\cos ( \pi/2+0.1)} - e^{\cos ( \pi/2-0.1)} }{2(0.1)} = -0.999993344446.\]
+
+<p>
+
+(b) \[ \frac{f(x+h)-f(x-h)}{2h} = \frac{e^{\cos ( \pi/2+0.01)} - e^{\cos ( \pi/2-0.01)} }{2(0.01)} = -0.999999999333.\]
+
+<hr><hr>
+<b>2</b> Develop a first-order formula for estimating \( f''(x) \) that uses the data \( f(x-2h), f(x) \) and \( f(x+h) \) only.
+<p>
+<hr>
+
+\begin{eqnarray*}
+f(x-2h) &=& f(x)-2hf'(x)+\frac{4h^2}{2}f''(x)-\frac{8h^3}{6}f'''(x)+O(h^4)\\
+2f(x+h) &=& 2f(x) + 2hf'(x)+\frac{2h^2}{2}f''(x)+\frac{2h^3}{6}f'''(x)+O(h^4)\\
+\frac{f(x-2h)+2f(x+h)-3f(x)}{h^2} &=& 3f''(x)-hf'''(x)+O(h^2)\\
+f''(x) &=& \frac{f(x-2h)-3f(x)+2f(x+h)}{3h^2}+\frac{h}{3}f'''(x)+O(h^2)
+\end{eqnarray*}
+
+Therefore \(f''(x) = \frac{f(x-2h)-3f(x)+2f(x+h)}{3h^2}\) is a first-order approximation for the second derivative \(f''(x).\)
+
+</html>
