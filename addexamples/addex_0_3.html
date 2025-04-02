@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h2>Additional Examples 0.3 </h1>
+
+<b>1</b> Determine the double-precision floating point number fl\((20.1)\) and find its machine number representation.<p>
+<a href="https://mediaplayer.pearsoncmg.com/assets/sauer_na3e_ve0_3"> <img width=100 async src="figs/videoicon.png" align=left> </a> <br clear="all" /><p>
+<hr>
+We will proceed in three steps:  (1) Convert \(20.1\) to binary, (2) Justify and round the number to floating point, (3) Store the number as a 64-bit machine number. 
+<p>
+First, convert 20 to binary by successive division by 2. 
+\begin{eqnarray*}
+20 \div 2 &=& \,10 \mbox{ R } 0 \\ 
+10 \div 2 &=& \ \ 5 \mbox{ R } 0 \\ 
+5 \div 2 &=& \ \ 2 \mbox{ R } 1 \\ 
+2 \div 2 &=& \ \ 1 \mbox{ R } 0 \\ 
+1 \div 2 &=& \ \ 0 \mbox{ R } 1 
+\end{eqnarray*}
+Therefore \((20)_{10} = (10100.)_2\)
+<p>
+Second, convert \(0.1\) to binary by successive multiplication by 2.  
+\begin{eqnarray*}
+0.1 \times 2 &=& 0.2 + 0 \\ 
+0.2 \times 2 &=& 0.4 + 0 \\ 
+0.4 \times 2 &=& 0.8 + 0 \\ 
+0.8 \times 2 &=& 0.6 + 1 \\ 
+0.6 \times 2 &=& 0.2 + 1 \\ 
+0.2 \times 2 &=& 0.4 + 0 \\ 
+&\vdots
+\end{eqnarray*}
+Therefore \((0.1)_{10} = (0.0001100110011\ldots)_2 = (0.0\overline{0011})_2\). Putting the integer part and fractional part together yields
+\((20.1)_{10} = (+10100.0\overline{0011})_2.\)
+<p>
+To convert this infinitely repeating binary number to a floating point number, we must justify and round.
+<p>
+Justify: \(+10100.0\overline{0011} \rightarrow +1.01000\overline{0011}\times 2^4\)
+<p>
+Here we have moved the decimal point four places to the left, and corrected for it by multiplying by \(2^4.\) Therefore 
+\(e=4\) is the exponent for this number.
+<p>
+Round: Write out the justified number and examine bit 53.
+<p>
+\(1.\fbox{01000 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 0011 001}10011..\times 2^{4}\) or rearranging,
+
+<p>
+
+\(1.\fbox{0100 0001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1001}10011..\times 2^{4}.\)
+
+<p>
+There are 52 bits inside the box. Bit 53 is 1, thus we round up according to the Rounding to Nearest Rule to
+<p>
+\(+1.\fbox{0100 0001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1010}\times 2^{4}\)
+<p>
+Now we convert to a double-precision machine number. 
+ The biased
+exponent is \(4+1023 = 1027,\) which is \(2^{10}+2+1 = 2^{10}+2^1+2^0 = 100\ 0000\ 0011.\) 
+<p>
+The sign is 0 (positive), so the
+sign/exponent is represented by the binary string \(0100\ 0000\ 0011.\)
+<p>
+The mantissa is given by the 52 bits above after the decimal point. 
+Therefore, the machine representation is the 64 bit string 
+
+\[\fbox{0100 0000 0011 0100 0001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1010}\]
+
+In hex format, the machine number is <tt>403419999999999A</tt>.
+
+<hr><hr>
+
+<b>2</b> Calculate \((2+(2^{-51}+2^{-52})) - 2\) in double precision floating point.
+
+<hr>
+The exponents of the numbers 2 and \(2^{-51}+2^{-52}\) must be aligned in order to add the numbers in floating point.
+Since \(2^{-51}+2^{-52} = (2^{-52}+2^{-53})2^1,\) the numbers are added as 
+\[1.\fbox{0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000} \  \times 2^{1}\]
+\[+ .\fbox{0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0001} 1 \times 2^{1}\]
+\[= 1.\fbox{0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0001} 1 \times 2^{1}\]
+where we have boxed the 52-bit mantissa. According to the default rounding to nearest rule, we need to round to even, which means rounding up 
+in this case. Therefore the result of rounding is
+\[ 1.\fbox{0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0010}  \times 2^{1}.\]
+Finally, subtracting \(2^1\) leaves
+\[ 0.\fbox{0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0010}  \times 2^{1} = 2^{-51}2^1 = 2^{-50}.\]
+
+
+</html>
