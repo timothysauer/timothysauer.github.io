@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h1>Additional Examples 3.5 </h1>
+
+<b>1</b> Assume that a one-piece Bezier spline has endpoints \( (0,2)\) and \( (0, -1)\), and horizontal tangents at both endpoints.
+Find all possible points \( (x(1/3),y(1/3)) \) on such a curve.
+<hr>
+Horizontal tangents means that the control points are \((A,2), (A,-1)\) for some \(A.\) Then the coefficients of the Bezier cubic polynomials can be directly calculated:
+\(b_x = 3A, c_x = -3A, d_x = 0, b_y = 0, c_y = -9,\) and \(d_y = 6.\) The Bezier curve is
+\begin{eqnarray*}
+x(t) &=& 3At-3At^2\\
+y(t) &=& 2-9t^2+6t^3
+\end{eqnarray*}
+and substituting \(t=1/3,\)
+\begin{eqnarray*}
+x(1/3) &=& \frac{2}{3}A\\
+y(1/3) &=& \frac{11}{9}
+\end{eqnarray*}
+Therefore the set of all possible points \((x(1/3), y(1/3))\) is the line \(y=11/9.\)
+
+<hr><hr>
+
+<b>2</b> Assume that a one-piece Bezier spline has endpoints \( (0,-1)\) and \( (0, 1)\), and control points  \( (A,-1)\) and \( (A, 1)\)
+ for some real number \(A\). Find the maximum \( x\)-coordinate on the curve in terms of \(A\).
+<hr>
+Note that if \(A\le 0,\) the Bezier curve lies in the left half-plane, and the maximum \(x\)-coordinate is \(0\) occurring at the endpoints.
+
+<p>
+
+If \(A\ge 0,\) the curve lies in the right half-plane.  The coefficients of the Bezier cubic polynomials can be directly calculated:
+\(b_x = 3A, c_x = -3A, d_x = 0, b_y = 0, c_y = 6,\) and \(d_y = -4.\) The Bezier curve is
+\begin{eqnarray*}
+x(t) &=& 3At-3At^2 = 3At(1-t)\\
+y(t) &=& -1+6t^2-4t^3.
+\end{eqnarray*}
+The maximum \(x\)-coordinate occurs at \(t=1/2,\) with value \(3A\frac{1}{2}(1-\frac{1}{2}) = \frac{3}{4}A.\)
+
+
+
+
+
+
+
+</html>
