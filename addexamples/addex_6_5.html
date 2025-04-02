@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h1>Additional Examples 6.5 </h1>
+
+<b>1</b> Consider the differential equation \(y' = \lambda y\). Find the one-step results \(w_1\) and \(z_1\) for the RK23 Method in terms of \(w_0\) and \(z_0\), respectively. Calculate the local truncation errors \(|y_1-w_1|\) and  \(|y_1-z_1|\), and show that they are \(O(h^3)\) and \(O(h^4)\), respectively.
+<p>
+<a href="mp4/sauer_na3e_ve6_5.mp4"> <img width=100 async src="figs/videoicon.png" align=left> </a> <br clear="all" /><p>
+<hr>
+RK23 requires the stages
+\begin{eqnarray*}
+s_1 &=& \lambda w_0\\
+s_2 &=& \lambda (w_0 + h\lambda w_0)\\
+s_3 &=& \lambda [w_0 + \frac{1}{2}\frac{h}{2}[\lambda w_0+ \lambda (w_0 + h\lambda w_0)]].
+\end{eqnarray*}
+<p>
+Then \(w_1\) and \(z_1\) can be written
+\begin{eqnarray*}
+w_1 &=& w_0+\frac{h}{2}(s_1+s_2) \\
+&=&  w_0[1+\frac{h}{2}(\lambda+\lambda+h\lambda^2)]\\
+&=& w_0\left[1+h\lambda +\frac{h^2\lambda^2}{2}\right]\\
+z_1 &=& w_0+\frac{h}{6}(s_1+4s_3+s_2) \\
+&=& w_0+\frac{h}{6}\left[\lambda w_0+\lambda w_0(1+\lambda h)+4\lambda w_0\left(1+\frac{\lambda h}{2}+\frac{\lambda^2 h^2}{4}\right)\right]\\
+&=& w_0+\frac{\lambda h}{6} w_0 \left[1+1+\lambda h+4+4\frac{\lambda h}{2}+4\frac{\lambda^2 h^2}{4}\right]\\
+&=& w_0\left[1+\lambda h+\frac{\lambda^2 h^2}{2}+\frac{\lambda^3 h^3}{6}\right].
+\end{eqnarray*}
+Therefore
+\[ |y_1-w_1| = \left|w_0e^{\lambda h} -w_0\left[1+\lambda h+\frac{\lambda^2 h^2}{2}\right]\right| = |w_0| O(h^3)
+\]
+and
+\[ |y_1-z_1| = \left|w_0e^{\lambda h} -w_0\left[1+\lambda h+\frac{\lambda^2 h^2}{2}+\frac{\lambda^3 h^3}{6}\right]\right| = |w_0| O(h^4)
+\]
+<hr><hr>
+<b>2</b> The initial value problem
+ \[ \left\{
+\begin{array}{l}
+y'=(1+y^2)/2\\
+y(0)=\sqrt{3}
+\end{array} \right. \]
+has solution \(y(t) = \sec (t+\pi/6) + \tan (t+\pi/6)\)  on the interval \([0,1].\) Plot the approximate solution of the variable step-size Matlab solvers <tt>ode23</tt> and <tt>ode45</tt>, with <tt>RelTol = 1e-8</tt>, along with the exact solution, and compare both solvers  in terms of accuracy at \(t=1\) and the number of steps needed.
+
+<p>
+<hr> <p>
+
+The following Python NEEDS FIXING XXXX commands call the <tt>ode23</tt> and <tt>ode45</tt> solvers: 
+<pre>
+opts=odeset('RelTol',1e-8);
+[t23,y23]=ode23(@(t,y) (1+y^2)/2,[0 1],sqrt(3),opts);
+[t45,y45]=ode45(@(t,y) (1+y^2)/2,[0 1],sqrt(3),opts);
+</pre>
+The exact solution at \(t=1\) is \(y(1) = 42.367213.\) <tt>ode23</tt> uses 419 steps and has error \(0.000292\) at \(t=1\), and <tt>ode45</tt> uses 137 steps and has error \(0.000051.\) The approximate solutions are indistinguishable from the exact solution at the scale shown below.
+<p>
+<img width=400 async src="figs/AddEx6_5_2.png" align=left>
+
+
+</html>

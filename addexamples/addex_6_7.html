@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h1>Additional Examples 6.7 </h1>
+
+<b>1</b> Use the matrix formulation for implicit methods to derive the Adams-Moulton Four-Step Method.
+<p>
+<hr>
+
+The matrix formulation for implicit methods is
+\[\left[\begin{array}{ccccc}
+1&-1&-2&\cdots&-(s-1)\\
+1&(-1)^2&(-2)^2&\cdots&(-(s-1))^2\\
+\vdots&\vdots&\vdots&\vdots&\vdots\\
+1&(-1)^{s}&(-2)^{s}&\cdots&(-(s-1))^{s}
+\end{array}\right]
+\left[\begin{array}{c}
+b_0\\b_2\\\vdots\\b_s
+\end{array}\right]
+=
+\left[\begin{array}{c}
+1/2\\
+1/3\\
+\vdots\\
+1/(s+1)
+\end{array}\right]\]
+where \(b_1=1-b_0-b_2-\ldots-b_s\). In this case \(s=4,\) and the equations are
+\[\left[\begin{array}{rrrr}
+1&-1&-2&-3\\
+1&1&4&9\\
+1&-1&-8&-27\\
+1&1&16&81
+\end{array}\right]
+\left[\begin{array}{c}
+b_0\\b_2\\b_3\\b_4
+\end{array}\right]
+=
+\left[\begin{array}{c}
+1/2\\
+1/3\\
+1/4\\
+1/5
+\end{array}\right]\]
+Solving in augmented matrix form:
+\[\left[\begin{array}{rrrrcr}
+1&-1&-2&-3&|&1/2\\
+0&2&6&12&|&-1/6\\
+0&0&-6&-24&|&-1/4\\
+0&2&18&84&|&-3/10
+\end{array}\right]  \rightarrow
+\left[\begin{array}{rrrrcr}
+1&-1&-2&-3&|&1/2\\
+0&2&6&12&|&-1/6\\
+0&0&-6&-24&|&-1/4\\
+0&0&12&72&|&-2/15
+\end{array}\right]  \rightarrow
+\left[\begin{array}{rrrrcr}
+1&-1&-2&-3&|&1/2\\
+0&1&3&6&|&-1/12\\
+0&0&1&4&|&1/24\\
+0&0&0&24&|&-19/30
+\end{array}\right] 
+\]
+which yields under back-substitution:
+\begin{eqnarray*}
+b_4 &=& -\frac{19}{720}\\
+b_3 &=& \frac{1}{24}-4(-\frac{19}{720}) = \frac{106}{720}\\
+b_2 &=& -\frac{1}{12}-3\left(\frac{106}{720}\right)-6\left(-\frac{19}{720}\right) = -\frac{264}{720}\\
+b_0 &=& \frac{1}{2} + \left(-\frac{264}{720}\right) + 2\left(\frac{106}{720}\right) + 3\left(-\frac{19}{720}\right) = \frac{251}{720},
+\end{eqnarray*}
+and \( b_1 = 1-(-19+106-264+251)/720 =  646/720.\) This is in agreement with (6.96).
+<p>
+<hr> <hr>
+<b>2</b> The initial value problem
+ \[ \left\{
+\begin{array}{l}
+y'=(1+y^2)/2\\
+y(0)=\sqrt{3}
+\end{array} \right. \]
+has solution \(y(t) = \sec (t+\pi/6) + \tan (t+\pi/6)\)  on the interval \([0,1].\) Use the Adams-Bashforth Four-Step Method to construct the solution. How many steps are needed so that \(y(1)\) is approximated within 4 correct decimal places?
+
+
+<p>
+<hr>
+Program 6.7 can be adapted by adding functions <tt>ab4step</tt> and <tt>rk4step</tt> corresponding to Adams-Bashforth Four-Step and Runge-Kutta Order 4, respectively. The latter is necessary so that the start-up phase uses fourth-order approximations. The Adams-Bashforth code can be written:
+<pre>
+function z=ab4step(t,i,y,f,h)
+%one step of the Adams-Bashforth 4-step method
+z=y(i,:)+h*(55*f(i,:)-59*f(i-1,:)+37*f(i-2,:)-9*f(i-3,:))/24;
+</pre>
+Using 1206 steps, the Adams-Bashforth approximation error at \(t=1\) is \(0.0000499,\) so there is agreement to 4 correct decimal places with \(y(1) = 42.3672.\)
+<p>
+<img width=400 async src="figs/AddEx6_5_2.png" align=left>
+
+
+</html>
