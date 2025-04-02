@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h2>Additional Examples 1.1 </h1>
+
+<b>1</b> Apply two steps of the Bisection Method on the interval \([1,2]\) to find the approximate root of \(f(x) = 2x^3-x-7.\)
+<hr>
+Start with \(f(x)=2x^3-x-7\) on \([1,2]\), where \(f(1)<0\) and
+\(f(2)>0.\) The first step is to evaluate
+\(f(\frac{3}{2})=-\frac{7}{4}<0,\) which implies the new interval is
+\([\frac{3}{2},2].\) The second step is to evaluate
+\(f(\frac{7}{4})=\frac{63}{32}>0,\) giving the interval
+\([\frac{3}{2},\frac{7}{4}].\) The best estimate is the midpoint
+\(x_c=\frac{13}{8}.\)
+<hr><hr>
+<b>2</b> Use the <tt>bisect.py</tt> code to find the solution of \(e^x = 3\) correct to six decimal places.
+<hr>
+The commands
+<pre>
+f=lambda x: np.exp(x)-3;
+x=bisect(f,1,2,0.5e-6)
+</pre>
+result in the approximate root \(1.098612,\) which agrees with \(\ln 3\) to six decimal places.
+
+
+</html>
