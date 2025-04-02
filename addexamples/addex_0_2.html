@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h2>Additional Examples 0.2 </h1>
+
+<b>1</b> Convert the decimal number \(98.6\) to binary. <p>
+<a href="https://mediaplayer.pearsoncmg.com/assets/sauer_na3e_ve0_2"> <img width=100 async src="figs/videoicon.png" align=left> </a> <br clear="all" /><p>
+<hr>
+
+\(98.6 = 98 + 0.6.\) Convert the integer part and the fractional part separately. First, convert 98 to binary by successive division by 2.
+\begin{eqnarray*}
+98 \div 2 &=& \,49 \mbox{ R } 0 \nonumber\\ 
+49 \div 2 &=& \,24 \mbox{ R } 1 \nonumber\\ 
+24 \div 2 &=& \,12 \mbox{ R } 0 \nonumber\\ 
+12 \div 2 &=& \ \ 6 \mbox{ R } 0 \nonumber\\ 
+6 \div 2 &=& \ \ 3 \mbox{ R } 0 \nonumber\\ 
+3 \div 2 &=& \ \ 1 \mbox{ R } 1 \nonumber\\ 
+1 \div 2 &=& \ \ 0 \mbox{ R } 1 \nonumber
+\end{eqnarray*}
+Therefore \((98)_{10} = (1100010.)_2\)  Second, convert \(0.6\) to binary by successive multiplication by 2.
+\begin{eqnarray*}
+0.6 \times 2 &=& 0.2 + 1 \\ 
+0.2 \times 2 &=& 0.4 + 0 \\ 
+0.4 \times 2 &=& 0.8 + 0 \\ 
+0.8 \times 2 &=& 0.6 + 1\\
+0.6 \times 2 &=& 0.2 + 1 \\ 
+0.2 \times 2 &=& 0.4 + 0 \\ 
+&\vdots
+\end{eqnarray*}
+Therefore \((0.6)_{10} = (0.100110011001\ldots)_2 = (0.\overline{1001})_2.\)
+
+We have found \((98)_{10} = (1100010.)_2\) and \((0.6)_{10} = (0.\overline{1001})_2.\) Putting the integer part and fractional part together yields
+\((98.6)_{10} = (1100010.\overline{1001})_2.\)
+<hr><hr>
+
+<b>2</b> Convert the repeating binary number \(0.1\overline{000111}\) to a base 10 fraction.
+
+<hr>
+Set \(x = 0.1\overline{000111}.\) Then
+\[ 2x = 1.\overline{000111} = 1 + .\overline{000111}\] 
+and we will convert \(y = (.\overline{000111})_2\) to base 10. 
+\begin{eqnarray*}
+2^6y &=& (000111.\overline{000111})_2\\
+y &=& (000000.\overline{000111})_2 
+\end{eqnarray*}
+Subtracting yields \(63y = (000111.)_2 = (7)_{10},\) so \(y = 7/63 = 1/9.\) We conclude that \(2x = 1+1/9 = 10/9,\) implying that \(x=5/9.\)
+
+
+</html>
