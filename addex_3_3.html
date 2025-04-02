@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h1>Additional Examples 3.3 </h1>
+
+<b>1</b> Let \(P_5(x)\) be the degree 5 polynomial that interpolates \(f(x) = 2^x\) at the six Chebyshev nodes on the interval \( [0,1]\). Find the best possible upper bound for the interpolation error \( |2^x - P_5(x)| \) for \( x\) on the entire interval \( [0,1]\).<p>
+<a href="mp4/sauer_na3e_ve3_3.mp4"> <img width=100 async src="figs/videoicon.png" align=left> </a> <br clear="all" /><p>
+<hr>
+The polynomial interpolation error theorem yields
+\begin{eqnarray*}
+|f(x)-P_5(x)| &=& \frac{|(x-x_1)(x-x_2)(x-x_3)(x-x_4)(x-x_5)(x-x_6)|}{6!} |f^{(6)}(c)|
+\end{eqnarray*}
+where \(f^{(6)}(x) = 2^x(\ln 2)^6.\) Since \(0 \lt c \lt 1, |f^{(6)}|\lt 2^1(\ln 2)^6.\) Because the \(x_i\) are Chebyshev points on the interval \([0,1],\)
+\(|(x-x_1)(x-x_2)(x-x_3)(x-x_4)(x-x_5)(x-x_6)| \le \frac{\left(\frac{1-0}{2}\right)^6}{2^5} .\) Therefore
+\[ |f(x)-P_5(x)| \le \frac{\left(\frac{1-0}{2}\right)^6}{2^56!}|f^{(6)}(c)| \le \frac{2(\ln 2)^6}{2^{11}6!}\approx 1.504\times 10^{-7}   \]
+holds for \(0 \le x \le 1.\)
+
+<hr><hr>
+
+<b>2</b> Use the <tt>newtdd.py</tt> and <tt>nest.py</tt> codes to plot the interpolating polynomial of \(f(x)=e^{\sin x}\) at the 11 Chebyshev interpolation points in the interval \([0,4]\). Find the (empirical) maximum interpolation error on the interval.
+<hr>
+
+
+The Python code 
+<pre>
+import numpy as np
+import matplotlib.pyplot as plt
+from nest import nest
+from newtdd import newtdd
+f=lambda x: np.exp(np.sin(x))
+t0=2.+2.*np.cos(np.linspace(1.,21.,11)*np.pi/(2*11))
+y0=f(t0)
+c=newtdd(t0,y0)
+t=np.linspace(0.,4.,400)
+y=nest(c,t,t0)
+plt.plot(t,y,t0,y0,'ro');
+plt.grid()
+print(max(np.abs(y-f(t))))
+</pre>
+samples the interpolation error at \(0.01\) intervals on \([0,4]\). The code outputs the maximum interpolation error \(0.000793\) and the plot below.
+
+ <p>
+
+<img width=400 async src="figs/AddEx3_3_2.png" align=left>
+
+</html>
