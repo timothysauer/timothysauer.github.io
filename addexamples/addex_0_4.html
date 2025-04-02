@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h2>Additional Examples 0.4 </h1>
+
+<b>1</b> Define \(f(x) = x^2-x\sqrt{x^2+9}.\) Calculate \(f(8^{12})\) correct to 3 significant digits.
+
+<hr>
+When \(x=8^{12},\) the expression subtracts nearly equal numbers. An improved version of the expression is
+\begin{eqnarray*} f(x) &=& (x^2-x\sqrt{x^2+9}) \frac{x^2+x\sqrt{x^2+9}}{x^2+x\sqrt{x^2+9}} = \frac{x^4-x^2(x^2+9)}{x^2+x\sqrt{x^2+9}}\\
+&=& -\frac{9x^2}{x^2+x\sqrt{x^2+9}} = -\frac{9}{1+\sqrt{1+9/x^2}}\approx -4.50.
+\end{eqnarray*}
+<hr><hr>
+
+<b>2</b> Calculate both roots of \(3x^2-9^{14}x+100 = 0\) correct to 3 significant digits.
+
+<hr>
+The quadratic formula gives the two roots \[x_1 = \frac{-b+\sqrt{b^2-4ac}}{2a}, \ \ \ \ \  x_2 = \frac{-b-\sqrt{b^2-4ac}}{2a}\] where \(a=3, b= -9^{14},\) and \(c=100.\)
+The second root \(x_2\) suffers from subtraction of nearly equal numbers, and should be computed in alternative form. The roots are
+\begin{eqnarray*}
+x_1 &=& \frac{-b+\sqrt{b^2-4ac}}{2a} \approx 7.63\times 10^{12}\\
+x_2 &=& \frac{2c}{-b+\sqrt{b^2-4ac}}\approx 4.37\times 10^{-12}
+\end{eqnarray*}
+
+
+</html>
