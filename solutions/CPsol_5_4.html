@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>COMPUTER PROBLEMS 5.4</h3>
+\(\def\ds{\displaystyle} \)
+<b>1</b> The Matlab program <tt>adapquad</tt> can be used with error
+tolerance set to be \(0.5\times 10^{-8}\). The number of intervals
+needed in the adaptive procedure are given in the table.
+\[\begin{array}{ccr}
+&\text{approximation}&\text{intervals}\\ \\
+\text{(a)}&2.00000000&12606\ \ \\
+\text{(b)}&0.15342641&6204\ \ \\
+\text{(c)}&1.00000000&12424\ \ \\
+\text{(d)}&6.99862171&32768\ \ \\
+\text{(e)}&5.86960440&73322\ \ \\
+\text{(f)}&2.53564428&1568\ \ \\
+\text{(g)}&1.31695790&7146\ \ \\
+\text{(h)}&0.44068679&5308\ \ \\
+\end{array}\]
+<hr>
+
+<b>3</b> Adaptive Simpson's Rule Quadrature should be used with
+error tolerance set to be \(0.5\times 10^{-8}\). The results are
+shown in the table.
+\[\begin{array}{ccr}
+&\text{approximation}&\text{intervals}\\ \\
+\text{(a)}&2.00000000&56\ \ \ \ \\
+\text{(b)}&0.15342641&46\ \ \ \ \\
+\text{(c)}&1.00000000&40\ \ \ \ \\
+\text{(d)}&6.99862171&56\ \ \ \ \\
+\text{(e)}&5.86960440&206\ \ \ \ \\
+\text{(f)}&2.53564428&22\ \ \ \ \\
+\text{(g)}&1.31695790&54\ \ \ \ \\
+\text{(h)}&0.44068679&52\ \ \ \ \\
+\end{array}\]
+<hr>
+
+<b>5</b> Adaptive quadrature with the open Newton-Cotes rule
+from (5.28) was developed in Exercise 4. When used with error
+tolerance \(0.5\times 10^{-8}\), the results are as shown in the
+table.
+\[\begin{array}{ccr}
+&\text{approximation}&\text{intervals}\\ \\
+\text{(a)}&2.00000000&50\ \ \ \\
+\text{(b)}&0.15342641&44\ \ \ \\
+\text{(c)}&1.00000000&36\ \ \ \\
+\text{(d)}&6.99862171&54\ \ \ \\
+\text{(e)}&5.86960440&198\ \ \ \\
+\text{(f)}&2.53564428&22\ \ \ \\
+\text{(g)}&1.31695790&50\ \ \ \\
+\text{(h)}&0.44068679&52\ \ \ \\
+\end{array}\]
+<hr>
+
+<b>7</b> Adaptive Simpson's Rule Quadrature, used with error
+tolerance \(0.5\times 10^{-8}\), yields the results in the table.
+\[\begin{array}{cr}
+\text{(a)}& 1.46265175\\
+\text{(b)}& 0.89483147\\
+\text{(c)}& 3.97746326\\
+\text{(d)}& 0.26394351\\
+\text{(e)}& 0.16101990\\
+\text{(f)}& -0.37594047\\
+\text{(g)}& 0.78343051\\
+\text{(h)}& 0.37156907\\
+\end{array}\]
+<hr>
+
+<b>9</b> Assuming you have written a Matlab program <tt>adapsimp.m</tt>, similar to
+<tt>adapquad.m</tt>, but using Simpson's Rule, the <tt>myerf</tt> function can be
+written in two lines:
+<pre>
+function y=myerf(x)
+y=2*adapsimp(@(x) exp(-x^2),0,x,0.5e-8)/sqrt(pi);
+</pre>
+Then <tt>myerf(1)</tt> returns \(0.84270079\) and <tt>myerf(3)</tt> returns \(0.99997791\) rounded
+to 8 decimal places, in agreement with the Matlab ``error function'' <tt>erf</tt>.
+
+
+</html>
