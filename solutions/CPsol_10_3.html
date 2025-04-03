@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>COMPUTER PROBLEMS 10.3</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> The DFT of \([3,0, -3,0]^T\) is \([0,3,0,3]^T\). Therefore
+\(a_0=a_2=b_1=0\) and \(a_1=3\). The trigonometric interpolating function
+is \(F_4(t)=3\cos 2\pi t\), and the least squares function of order 2
+is \(F_2(t)=3\cos 2\pi t\) by Corollary 10.12. The plot is shown below.<p>
+<img width=300 async src="figs/cp10o3o1a.png" align=left>
+<br clear="all" />
+<p>
+<b>1 (b)</b> The DFT of \([2,0,5,1]\) is \([4, -3/2+i/2, 3,-3/2-i/2]\), so
+\(a_0=4, a_1=3/2, a_2=3, b_1=1/2\). Therefore the trigonometric interpolating
+function is \(F_4(t)=2-\frac{3}{2}\cos 2\pi t-\frac{1}{2}\sin 2\pi t+\frac{3}{2}
+\cos 4\pi t\), and the least squares approximating function of order 2
+takes the first two terms: \(F_2(t)=2-\frac{3}{2}\cos 2\pi t\). The plot below
+shows \(F_4(t)\) as the dashed curve and \(F_2(t)\) as the solid curve. <p>
+<img width=300 async src="figs/cp10o3o1b.png" align=left>
+<br clear="all" />
+<p>
+<b>1 (c)</b> The DFT of \([5,2,6,1]\) is \([7, -\frac{1}{2}-\frac{1}{2}i,4,
+-\frac{1}{2}+\frac{1}{2}i]\), and \(a_0=7,a_1=-1/2,a_2=4, b_1=-1/2\). Therefore
+\(F_4(t)=\frac{7}{2}-\frac{1}{2}\cos \frac{\pi}{2} t+\frac{1}{2}\sin \frac{\pi}{2} t+2\cos\pi t\),
+and \(F_2(t) = \frac{7}{2}-\frac{1}{2}\cos\frac{\pi}{2}t\). The plot below
+shows \(F_4(t)\) as the dashed curve and \(F_2(t)\) as the solid curve.
+<img width=300 async src="figs/cp10o3o1c.png" align=left>
+<br clear="all" />
+<p>
+<b>1 (d)</b> The least squares functions are
+\(F_4(t)=2-2\cos \frac{\pi}{3}(t-1)-\cos \frac{2\pi}{3} (t-1)\),
+and \(F_2(t) = 2-2\cos\frac{\pi}{3}(t-1)\). The plot is below. <p>
+<img width=300 async src="figs/cp10o3o1d.png" align=left>
+<br clear="all" />
+<p>
+<hr>
+
+<b>3</b> Set \(n=2^{14}\). The order \(m\) least squares approximations are shown below
+for (a) \(m=n/2\) (b) \(m=n/4\) (c) \(m=n/8\) (d) original signal, repsectively.
+<img width=300 async src="figs/cp10o3o3a.png" align=left>
+<img width=300 async src="figs/cp10o3o3b.png" align=left>
+<img width=300 async src="figs/cp10o3o3c.png" align=left>
+<img width=300 async src="figs/cp10o3o3d.png" align=left>
+<br clear="all" />
+<p>
+<hr>
+
+
+
+</html>
