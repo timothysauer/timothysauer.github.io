@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>COMPUTER PROBLEMS 6.3</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> The Matlab code <tt>euler2</tt> in Program 6.2  can be used to calculate the
+two approximations, for step sizes \(h=0.1\) and \(h=0.01\). For \(h=0.1\), the global
+truncation errors are \([0.1973, 0.1592]\) for \(w_{n1}\) and \(w_{n2}\), \(n=10\).
+ For \(h=0.01\), the global
+truncation errors are \([0.0226, 0.0149]\) for \(w_{n1}\) and \(w_{n2}\), \(n=100\). The errors
+decrease by roughly a factor of 10 for the smaller step size, as expected for a first
+order method. The plots of the two approximations and the correct solution (dashed)
+are below. <p>
+<img width=300 async src="figs/cp6o3o1a.png" align=left>
+<br clear="all" />
+<p>
+<b>1 (b)</b> Similar to (a). The global truncation errors are \([0.0328, 0.0219]\) for
+step size \(h=0.1\), and \([0.0031, 0.0020]\) for \(h=0.01\). <p>
+<img width=300 async src="figs/cp6o3o1b.png" align=left>
+<br clear="all" />
+<p>
+<b>1 (c)</b> Similar to (a). The global truncation errors are \([0.0305, 0.0410]\) for
+step size \(h=0.1\), and \([0.0027, 0.0042]\) for \(h=0.01\). <p>
+<img width=300 async src="figs/cp6o3o1c.png" align=left>
+<br clear="all" />
+<p>
+<b>1 (d)</b> Similar to (a). The global truncation errors are \([51.4030, 51.3070]\) for
+step size \(h=0.1\), and \([8.1919, 8.1827]\) for \(h=0.01\). <p>
+<img width=300 async src="figs/cp6o3o1d.png" align=left>
+<br clear="all" />
+<p>
+<hr>
+
+<b>3</b> To modify <tt>pend</tt> to exhibit damping, add the term \(-dy_2\) to the \(y_2'\)
+equation in the <tt>ydot</tt> function, where \(d=0.1\). All initial conditions lead toward
+the straight-down position of the pendulum, except for the straight-up position
+\(y_1(0)=\pi, y_2(0)=0\). In theory, this position is an unstable steady-state, meaning
+that it will never move unless there is a small outside perturbation.
+For a physical pendulum, small perturbations will occur, and the pendulum will fall from
+the up position. The outcome of the simulation with <tt>pend</tt> depends on the step size
+and the fact that in current versions of Matlab, \(\sin \pi\) is not exactly zero. It differs
+on the order of machine epsilon, providing the perturbation needed, at least when
+step size \(h=0.05\) is used,
+to cause the pendulum to fall and eventually move to the straight-down position as a
+physical pendulum would.
+<hr>
+
+<b>5</b> To modify <tt>pend</tt> to exhibit periodic forcing and damping,
+add the term \(-dy_2+A\sin t\) to the \(y_2'\)
+equation in the <tt>ydot</tt> function, where \(d=1\) and \(A=12\). After waiting for
+transient effects to die down, the pendulum will settle into one of
+two stable trajectories. One of them makes three and one-half clockwise revolutions
+followed by two and one-half counterclockwise revolutions, and repeats. The other
+does the same, replacing clockwise with counterclockwise. For example, the initial
+condition \((y_1, y_2)=(0.2, 0)\) settles into the first motion, and the initial
+condition \((y_1, y_2)=(0.15, 0)\) converges to the second.
+<hr>
+
+<b>7</b> The <tt>ydot</tt> function in <tt>pend.m</tt> must be modified to solve the system
+\begin{eqnarray*}
+y_1'&=&y_2\\
+y_2'&=& \left(-\frac{g}{l}+A\cos 2\pi t \right)\sin y_1-dy_2
+\end{eqnarray*}
+where \(g=9.81, l=2.5\). Starting with an initial position that is close to, but not
+exactly, zero (for example, \((y_1,y_2)=(0.01,0)\)), one finds that for \(A\) above \(13.2\),
+the downward position is unstable as defined in the Computer Problem, in that the pendulum
+travels through the upward position.
+<hr>
+
+<b>9</b> To adjust <tt>orbit.m</tt> to solve the two-body problem, 
+the stationary sun must be changed into a moving body. Eliminate the lines
+<pre>
+sun=animatedline('color','y','Marker','.','markersize',50);
+addpoints(sun,0,0)
+</pre>
+and replace with
+<pre>
+head2=animatedline('color','r','Marker','.','markersize',35);
+tail2=animatedline('color','b','LineStyle','-');
+</pre>
+New <tt>clearpoints</tt> and <tt>addpoints</tt> commands must
+be added for <tt>head2</tt> and <tt>tail2</tt>. Notice that <tt>y</tt> is now an
+eight-dimensional vector, requiring additions to the initial conditions and
+to the differential equation. The formulas of type (6.45) should be added
+to <tt>ydot</tt>:
+<pre>
+function z = ydot(t,x)
+m2=0.3;g=1;mg2=m2*g;m1=0.03;mg1=m1*g;
+px1=x(1);py1=x(3);vx1=x(2);vy1=x(4);
+px2=x(5);py2=x(7);vx2=x(6);vy2=x(8);
+dist=sqrt((px2-px1)^2+(py2-py1)^2);
+z=zeros(1,8);
+z(1)=vx1;
+z(2)=(mg2*(px2-px1))/(dist^3);
+z(3)=vy1;
+z(4)=(mg2*(py2-py1))/(dist^3);
+z(5)=vx2;
+z(6)=(mg1*(px1-px2))/(dist^3);
+z(7)=vy2;
+z(8)=(mg1*(py1-py2))/(dist^3);
+</pre>
+
+
+
+</html>

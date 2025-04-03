@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>COMPUTER PROBLEMS 6.6</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> The differential equation has equilibrium solutions,
+corresponding to \(0=f(t,y)=y^2-y^3\), at \(y=0\) and \(1\).
+The Backward Euler method applied to the equation is
+\[ w_{i+1}=w_i+h(w_{i+1}^2-w_{i+1}^3).\]
+To solve for \(w_{i+1}\) at each step, we use the Newton's Method
+iteration
+\begin{eqnarray*}
+z_0&=&w_i\\
+z_{j+1}&=&z_j-\frac{z_j-w_i-hz_j^2+hz_j^3}{1-2hz_j+3hz_j^2},
+\end{eqnarray*}
+setting \(w_{i+1}\) to be the last \(z_j\). The Euler method roughly
+approaches the equilibrium at \(y=1\) for step sizes \(h\leq 1.8\). For \(h=2.5\),
+the results of Backward Euler (solid curve) and Euler (dashed curve)
+are directly compared in the plot below. <p>
+<img width=300 async src="figs/cp6o6o1a.png" align=left>
+<br clear="all" />
+<p>
+<b>1 (b)</b> Similar to (a). The equilibrium solutions are \(y=0\) and \(1\).
+The Backward Euler method gives
+\[ w_{i+1}=w_i+6h(w_{i+1}-w_{i+1}^2).\]
+The Newton iteration is
+\begin{eqnarray*}
+z_0&=&w_i\\
+z_{j+1}&=&z_j-\frac{z_j-w_i-6hz_j+6hz_j^2}{1-6h+12hz_j}.
+\end{eqnarray*}
+The Euler method roughly
+approaches the equilibrium at \(y=1\) for step sizes \(h\leq 1/3\). For \(h=1/2\),
+the results of Backward Euler (solid curve) and Euler (dashed curve)
+are directly compared in the plot.<p>
+<img width=300 async src="figs/cp6o6o1b.png" align=left>
+<br clear="all" />
+<p>
+
+
+</html>

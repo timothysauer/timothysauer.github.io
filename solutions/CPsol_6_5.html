@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>COMPUTER PROBLEMS 6.5</h3>
+\(\def\ds{\displaystyle} \)
+<b>1</b> The Matlab program  should compute at each step the
+estimated error \(e_i\) (from \(s_1, s_2, s_3\)) and check the relative
+tolerance \(e_i < \text{TOL}|w_i|\). If satisfied, update \(t_{i+1}=t_i+h\)
+and \(w_{i+1}=w_i+z\), update the step size from (6.57), and start the
+next step. If not satisfied, revise the step size using (6.57), and repeat the
+current step. To stop the approximation exactly at the end of the
+time interval \([0,1]\), after computing the step size \(h\), replace it
+ with \(\min\{h,1-t_i\}\). The number of steps and maximum step size is
+ as follows:
+\[\begin{array}{crc}
+&\text{steps}\ \ &\text{max step size}\\
+\text{ (a)}&1\ \ \ \ \ &1.000000\\
+\text{ (b)}&280\ \ \ \ \ &0.011245\\
+\text{ (c)}&1116\ \ \ \ \ &0.001057\\
+\text{ (d)}&751\ \ \ \ \ &0.001978\\
+\text{ (e)}&144\ \ \ \ \ &0.012470\\
+\text{ (f)}&416\ \ \ \ \ &0.002711\\
+\end{array}\]
+<hr>
+
+<b>3</b> The logic of the program is identical to Computer Problem 1,
+but using the Runge Kutta Fehlberg formulas. The number of steps and
+the maximum step size \(h\) needed are given below.
+\[\begin{array}{crc}
+&\text{steps}\ \ &\text{max step size}\\
+\text{ (a)}&1\ \ \ \ \ &1.000000\\
+\text{ (b)}&11\ \ \ \ \ &0.111363\\
+\text{ (c)}&39\ \ \ \ \ &0.033592\\
+\text{ (d)}&36\ \ \ \ \ &0.036331\\
+\text{ (e)}&9\ \ \ \ \ &0.183837\\
+\text{ (f)}&13\ \ \ \ \ &0.113143\\
+\end{array}\]
+<hr>
+
+<b>5</b> Similar to Computer Problem 3, except that the solution is
+a two-dimensional vector function of time. Using the Runge Kutta
+Fehlberg formulas, the number of steps and
+the maximum step size \(h\) needed are given below.
+\[\begin{array}{crc}
+&\text{steps}\ \ &\text{max step size}\\
+\text{ (a)}&7\ \ \ \ \ &0.149366\\
+\text{ (b)}&8\ \ \ \ \ &0.135138\\
+\text{ (c)}&6\ \ \ \ \ &0.191209\\
+\text{ (d)}&19\ \ \ \ \ &0.068005\\
+\end{array}\]
+
+
+
+</html>
