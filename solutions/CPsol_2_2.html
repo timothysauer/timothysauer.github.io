@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>COMPUTER PROBLEMS 2.2</h3>
+<b>1</b> The elimination part of the code must be supplemented by
+filling in the entries of \(L\) and \(U\). The diagonal entries of \(L\)
+are ones, and the remaining entries are the multipliers from <tt>mult</tt>. 
+It is also necessary to change the <tt>k</tt> loop to go from
+<tt>j</tt> to <tt>n</tt>, in order to place a zero in the eliminated
+location of \(U\). Matlab code follows:
+
+<pre>
+l=diag(ones(n,1));
+for j = 1:n-1
+  for i = j+1:n
+    if abs(a(j,j))&lt eps; error('zero pivot encountered'); end
+    mult = a(i,j)/a(j,j);l(i,j)=mult;
+    for k = j:n
+      a(i,k) = a(i,k) - mult*a(j,k);
+    end
+  end
+end
+l
+u=a
+</pre>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>COMPUTER PROBLEMS 1.5</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> Applying the Secant Method formula shows
+convergence to the root  \(1.76929235\) <p>
+<b>1 (b)</b>  \(1.67282170\) <p>
+<b>1 (c)</b>  \(1.12998050\)
+<hr>
+
+<b>3 (a)</b>  Applying formula (1.37) for Inverse Quadratic
+Interpolation shows convergence to \(1.76929235\) <p>
+<b>3 (b)</b>  Similar to part (a). Converges to \(1.67282170\) <p>
+<b>3 (c)</b>  Similar to part (a). Converges to \(1.12998050\)
+<hr>
+
+<b>5</b>  The <tt>scipy.optimize</tt> command 
+<pre>
+>> brentq(lambda x: 1/x,-1.5, 2)
+</pre>
+converges to near zero, although there is no root there.
+
+</html>

@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>COMPUTER PROBLEMS 2.1</h3>
+<b>1 (a)</b> Putting together the code fragments from the text gives the program
+<pre>
+for j=1:n-1
+  for i=j+1:n
+    if abs(a(j,j))&lt eps; error('zero pivot encountered'); end
+    mult = a(i,j)/a(j,j);
+    for k = j+1:n
+      a(i,k) = a(i,k) - mult*a(j,k);
+    end
+    b(i) = b(i) - mult*b(j);
+  end
+end
+for i = n:-1:1
+  for j = i+1:n
+    b(i) = b(i) - a(i,j)*x(j);
+  end
+  x(i) = b(i)/a(i,i);
+end
+</pre>
+Define the coefficient matrix <tt>a=[2 -2 -1;4 1 -2;-2 1 -1]</tt>,
+<tt>b=[-2;1;-3]</tt> and apply the preceding Matlab program. The result
+is \(x=[1, 1, 2]\). <p>
+<b>1 (b)</b> Proceed as in (a); the result of the Matlab program
+is \(x=[1, 1, 1]\). <p>
+<b>1 (c)</b> Proceed as in (a); the result is \(x=[-1, 3, 2]\).
+
+</html>

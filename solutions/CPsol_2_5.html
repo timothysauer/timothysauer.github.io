@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>COMPUTER PROBLEMS 2.5</h3>
+<b>1</b> The Matlab program <tt>jacobi.m</tt> can be used to solve
+the system after defining \(A\) and \(b\) with an altered version of
+<tt>sparsesetup.m</tt>. The initial vector is set to \([0,\ldots,0]\).
+By checking the infinity norm error of the solution \(x\), say by
+the command <tt>norm(x-1,inf)</tt>, the Jacobi method can be iterated
+until the error is less than \(0.5\times 10^{-6}\).  For \(n=100\), 36
+Jacobi steps are required. For \(n=100000\), 36 steps are required.
+In both cases, the backward error is approximately \(4.6\times
+10^{-7}\).
+<hr>
+
+<b>3</b> The Gauss-Seidel method can be coded in \Matlab as
+follows:
+
+<pre>
+% Gauss-Seidel
+% Inputs: sparse matrix a, r.h.s b,
+%         d = diagonal of a, r = rest of a,
+%         numsteps = number of Jacobi iterations
+% Output: solution x
+function x = gaussseidel(a,b,k)
+n=length(b);         % find n
+d=diag(diag(a)); u=triu(a,1);l=tril(a,-1);
+x=zeros(n,1);        % Initialize vector x
+for j=1:k            % loop for GS iteration
+  b1=b-u*x;
+  for i=1:n
+      x(i)=(b1(i)-l(i,:)*x)/d(i,i);
+  end
+end
+</pre>
+<hr>
+
+<b>5</b> Using the code from Computer Problem 3, 21 steps of
+Gauss-Seidel iteration, starting from \(x=[0,\ldots,0]\),  are
+needed to converge to the correct solution within 6 decimal
+places. Using the code from Computer Problem 4, 16 steps of SOR
+with \(\omega=1.2\), starting from \(x=[0,\ldots,0]\),  are needed to
+converge to the correct solution within 6 decimal places.
+<hr>
+
+<b>7</b> The results will depend on the computer. Using the sparse
+matrix capability of Matlab and the Gauss-Seidel code from
+Computer Problem 3, typical results for one second of computation
+are given in the table.<p>
+<table cellpadding="8">
+  <tr>
+    <th>\(n\)</th>
+    <th>steps</th>
+    <th>forward error</th>
+  </tr><tr>
+<td>\(400\)</td><td>\(50\)</td><td>\(1.1\times 10^{-8}\) </td> </tr><tr>
+<td>\(800\)</td><td>\(15\)</td><td>\(1.7\times 10^{-3}\)</td> </tr><tr>
+<td>\(1200\)</td><td>\(7\)</td><td>\(2.5\times 10^{-2}\)</td> </tr>
+</table>
+
+
+
+
+
+</html>

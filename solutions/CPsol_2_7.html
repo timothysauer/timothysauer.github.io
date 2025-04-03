@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>COMPUTER PROBLEMS 2.7</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> For the function
+\(\ds F\left(\begin{array}{c}
+u\\v\\ \end{array}\right)
+= \left[\begin{array}{c}
+u^2+v^2-1\\
+(u-1)^2+v^2-1\\
+\end{array}
+\right],\) <p>
+ the Jacobian is
+\(\ds DF(u,v)
+= \left[\begin{array}{cc}
+2u&2v\\
+2(u-1)&2v\\
+\end{array}
+\right].\) <p>
+Multivariate Newton's Method 
+with appropriate initial vectors converges to the roots shown in
+the Exercise 3(a) solution above. <p>
+<b>1 (b)</b> Similar to (a); check solutions with Exercise 3(b). <p>
+<b>1 (c)</b> Similar to (a); check solutions with Exercise 3(c).
+<hr>
+
+<b>3</b> Given the multivariate function
+\(\ds F\left(\begin{array}{c}
+u\\v\\ \end{array}\right)
+= \left[\begin{array}{c}
+u^3-v^3+u\\
+u^2+v^2-1\\
+\end{array}
+\right],\)
+ the Jacobian is
+\(\ds DF(u,v)
+= \left[\begin{array}{cc}
+3u^2+1&-3v^2\\
+2u&2v\\
+\end{array}
+\right].\) <p>
+Using the initial vector \([1,1]\), Newton's Method converges to
+\([0.50799200, 0.86136179]\). Using the initial vector
+\([-1,-1]\), Newton's Method converges to  root
+\([-0.50799200, -0.86136179]\).
+<hr>
+
+<b>5 (a)</b> Points that lie on all three spheres satisfy
+\begin{eqnarray*}
+(u-1)^2+(v-1)^2+w^2 -1 &=&0\\
+(u-1)^2+v^2+(w-1)^2 -1 &=&0\\
+u^2+(v-1)^2+(w-1)^2 -1 &=&0.
+\end{eqnarray*}
+The Jacobian is
+\({\ds DF = 
+\left[\begin{array}{ccc}
+2(u-1)&2(v-1)&2w\\
+2(u-1)&2v&2(w-1)\\
+2u&2(v-1)&2(w-1)
+\end{array}
+\right].
+}\)
+Under the Newton iteration (2.51), initial guesses near each of the roots \([1, 1, 1]\) and \([1/3, 1/3, 1/3]\) converge to them. <p>
+<b>5 (b)</b> Points that lie on all three spheres satisfy
+\begin{eqnarray*}
+(u-1)^2+(v+2)^2+w^2 -25 &=&0\\
+(u+2)^2+(v-2)^2+(w+1)^2 -25 &=&0\\
+(u-4)^2+(v+2)^2+(w-3)^2 -25 &=&0.
+\end{eqnarray*}
+The Jacobian is
+\({\ds DF = 
+\left[\begin{array}{ccc}
+2(u-1)&2(v+2)&2w\\
+2(u+2)&2(v-2)&2(w+1)\\
+2(u-4)&2(v+2)&2(w-3)
+\end{array}
+\right].
+}\)
+Under the Newton iteration (2.51), initial guesses near each of the roots \([17/9, 22/9, 19/9]\) and \([1, 2, 3]\) converge to them. 
+<hr>
+
+<b>7 (a)</b> Broyden I can be used to compute the
+root with initial vector \([1,1]\). Convergence occurs
+within 15 decimal places to the root \((1/2,\sqrt{3}/2)\) after about
+11 steps. <p>
+<b>7 (b)</b> Similar to (a). Broyden I converges
+within 15 decimal places to the root \((2/\sqrt{5},2/\sqrt{5})\) after about
+13 steps. <p>
+<b>7 (c)</b> Similar to (a). Broyden I converges
+ to the root \((4(1+\sqrt{6})/5, -\sqrt{3+8\sqrt{6}}/5)\) within 15 decimal places
+after about 40 steps.
+<hr>
+
+<b>9 (a)</b> Applying Broyden I with initial matrix \(A_0=I\) and initial guesses near each of the roots \([1, 1, 1]\) and \([1/3, 1/3, 1/3]\) converge to them. <p>
+<b>9 (b)</b> Applying Broyden I with initial matrix \(A_0=I\) and initial guesses near each of the roots \([17/9, 22/9, 19/9]\) and \([1, 2, 3]\) converge to them. 
+<hr>
+
+<b>11 (a)</b> Applying Broyden II with initial matrix \(B_0=I\) and initial guesses near each of the roots \([1, 1, 1]\) and \([1/3, 1/3, 1/3]\) converge to them. <p>
+<b>11 (b)</b> Applying Broyden II with initial matrix \(B_0=I\) and initial guesses near each of the roots \([17/9, 22/9, 19/9]\) and \([1, 2, 3]\) converge to them. 
+
+
+</html>
