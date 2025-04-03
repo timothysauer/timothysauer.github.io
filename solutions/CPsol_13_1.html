@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>COMPUTER PROBLEMS 13.1</h3>
+\(\def\ds{\displaystyle} \def\l{\lambda} \)
+<b>1 (a)</b> The plot shows that the interval \([0,1]\) contains a
+relative minimum. According to Theorem 13.2, the number \(k\) of
+Golden Section Search steps needed satisfies
+\[\frac{g^k(1-0)}{2}&lt 0.5\times 10^{-5},\]
+where \(g=(\sqrt{5}-1)/2\). The inequality holds for \(k\geq 24\).
+Program 13.1 is an implementation of Golden
+Section Search that can be used to find the minimum. The command
+<pre>
+>> x=gss(@(x) 2*x^4+3*x^2-4*x+5,0,1,24)
+</pre>
+results in convergence to the minimum \(x=1/2\).<p>
+<img width=300 async src="figs/cp13o1o1a.png" align=left>
+<br clear="all" />
+<p>
+<b>1 (b)</b> From the plot below, there are two relative minima.
+The intervals \([-2.5, -1.5]\) and \([0.5,1.5]\) each contain a minimum.
+The number of steps needed for each interval is 24, as in (a). The
+minima \(x=-2\) and \(x=1\) are found by <tt>gss</tt>.<p>
+<img width=300 async src="figs/cp13o1o1b.png" align=left>
+<br clear="all" />
+<p>
+<b>1 (c)</b> Similar to (a). The interval \([0,1]\) contains a relative
+minimum. Applying 24 steps of <tt>gss</tt> gives the approximation
+\(x=0.47033\). <p>
+<img width=300 async src="figs/cp13o1o1c.png" align=left>
+<br clear="all" />
+<p>
+<b>1 (d)</b> Similar to (a). The interval \([1,2]\) contains a relative
+minimum. Applying 24 steps of <tt>gss</tt> provides the approximation
+\(x=1.43791\). <p>
+<img width=300 async src="figs/cp13o1o1d.png" align=left>
+<br clear="all" />
+<p>
+<hr>
+
+<b>3 (a)</b> The squared distance from the point \((x,1/x)\) to \((2,3)\) is
+\(D(x)=(x-2)^2+(1/x-3)^2\).  The derivative is
+\[D'(x)=2x-4-\frac{2}{x^3}+\frac{6}{x^2}.\]
+Newton's Method applied to find a root of \(D'(x)\) converges to
+\(r=0.358555\), corresponding to a squared distance of \(2.738874\).<p>
+<b>3 (b)</b> Applying Golden Section Search on the interval \([0,1]\)
+<pre>
+>> x=gss(@(x) (x-2)^2+(1/x-3)^2,0,1,30)
+</pre>
+produces \(x=0.358555\) as in part (a). The nearest point is therefore \((0.358555, 2.788972).\)
+<hr>
+
+<b>5</b> Program 13.3 can be applied as
+<pre>
+x=neldermead(@(x) exp(-x(1)^2*x(2)^2)+(x(1)-1)^2+(x(2)-1)^2,[1;1],1,60)
+</pre>
+to converge to \((1.20881759,1.20881759)\) within \(8\) decimal places.
+<hr>
+
+<b>7</b>  Program 13.3 can be applied as
+<pre>
+x=neldermead(@(x) 100*(x(2)-x(1)^2)^2+(x(1)-1)^2,[0;0],1,100)
+</pre> 
+to converge to \((1,1)\).
+
+
+
+</html>

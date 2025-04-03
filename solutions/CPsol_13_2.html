@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>COMPUTER PROBLEMS 13.2</h3>
+\(\def\ds{\displaystyle} \def\l{\lambda} \)
+<b>1</b> Minimum is \((1.2088176, 1.2088176)\).
+Different initial conditions will yield answers that differ by
+about \(\epsilon^{1/2}\).
+<hr>
+
+<b>3 (a)</b> Newton's Method when applied to the gradient of the
+Rosenbrock function \(F(x_1,x_2)=100(x_2-x_1^2)^2+(x_1-1)^2\)
+converges to the minimum \((x_1,x_2)=(1,1)\). Newton's
+method will be accurate to machine precision since it is finding a
+simple root. <p>
+<b>3 (b)</b> Steepest Descent also converges to \((1,1)\), but about 8 digits
+of accuracy in double precision, since error is of size
+\(\approx \epsilon^{1/2}\).
+<hr>
+
+<b>5 (a)</b> Implement Conjugate Gradient Search,
+using Successive Parabolic Interpolation as the one-dimensional
+minimizer. Using initial guess \((1, -1)\), the method converges to
+the minimum \((1.132638, -0.465972)\). Using initial guess \((-1, 1)\),
+the method converges to the minimum \((-0.465972, 1.132638)\). <p>
+<b>5 (b)</b> Similar to (a). Conjugate Gradient Search with SPI
+converges, depending on initial guess, to the two minima
+\((0.6763,0.6763)\) and \((-0.6763,-0.6763)\).
+
+
+</html>
