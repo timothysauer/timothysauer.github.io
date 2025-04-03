@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>COMPUTER PROBLEMS 4.1</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> Computing the normal equations \(A^TAx=A^Tb\) gives
+\[\left[\begin{array}{rrr}
+ 39 &   -4 &    2\\
+    -4  &   7  &   5\\
+     2  &   5  &  39\\
+\end{array}\right]
+\left[\begin{array}{c}
+x_1\\x_2\\x_3\\
+\end{array}\right]=
+\left[\begin{array}{c}
+100\\5\\90\\
+\end{array}\right]
+\]
+which has solution \(\overline{x} =[
+   2.5246,
+   0.6616,
+   2.0934]\).
+The 2-norm error is \(||A\overline{x}-b||_2\approx   2.4135\).<p>
+<b>1 (b)</b> The calculation is similar to (a). The normal equations are
+\[\left[\begin{array}{rrrr}
+   31&     8  &  20 &   -7\\
+     8&    23 &   -6 &    7\\
+    20 &   -6  &  36 &  -16\\
+    -7  &   7 &  -16 &   10\\
+\end{array}\right]
+\left[\begin{array}{c}
+x_1\\x_2\\x_3\\x_4\\
+\end{array}\right]=
+\left[\begin{array}{r}
+57\\31\\37\\-6\\
+\end{array}\right]
+\]
+The least squares solution is \(\overline{x}=[1.2379, 0.6885, 1.2124, 1.7497]\)
+and the 2-norm error is \(||e||_2 = 0.8256\).
+<hr>
+
+<b>3 (a)</b> We choose the model \(y=a+b(t-1960)\). Putting the data into this
+model yields the inconsistent system
+\[\left[\begin{array}{rr}
+1&0\\
+1&10\\
+1&30\\
+1&40\\
+\end{array}\right]
+\left[\begin{array}{c}
+a\\b\\
+\end{array}\right]=
+\left[\begin{array}{r}
+3039585530\\
+3707475887\\
+5281653820\\
+6079603571\\
+\end{array}\right]
+\]
+Solving the normal equations gives the best least squares line
+\(2996236899+76542140(t-1960)\),  with RMSE \( =
+36751088\). The 1980 population estimate from this model is
+\(4527079702\).<p>
+<b>3 (b)</b> Choosing a second-degree model
+\(y=a+b(t-1960)+c(t-1960)^2\), and inserting the data
+yields the inconsistent system
+\[\left[\begin{array}{rrr}
+1&0&0\\
+1&10&100\\
+1&30& 900\\
+1&40&1600\\
+\end{array}\right]
+\left[\begin{array}{c}
+a\\b\\c\\
+\end{array}\right]=
+\left[\begin{array}{r}
+3039585530\\
+3707475887\\
+5281653820\\
+6079603571\\
+\end{array}\right]
+\]
+Solving the normal equations gives the best least squares parabola
+\(3028751748+67871514(t-1960)
++216766(t-1960)^2\) and RMSE \( = 17129714\). The lower RMSE shows the parabola
+is a superior fit at the four data points. In addition, the parabola'a estimate
+of the 1980 population is \(4472888288\), closer to the actual 1980 population
+than the linear approximation.
+<hr>
+
+<b>5 (a)</b> The normal equations are \(A^TAx=A^Tb\), where \(A\) is the \(22\times 2\) matrix
+whose first column consists of ones and second column consists of the 22 prices, and
+where \(b\) is the list of sales/week. Calculating the \(2\times 2\) normal equations
+results in
+\[\left[\begin{array}{rr}
+  22.0000&  16.9300\\
+   16.9300&   13.7127\\
+\end{array}\right]
+\left[\begin{array}{c}
+c_1\\c_2\\
+\end{array}\right]=
+\left[\begin{array}{cc}
+68460\\46994\\
+\end{array}\right],
+\]
+with solution \(c_1=9510, c_2= -8314\). The best line is \(S=9510-8314P\), plotted below.
+The RMSE is \(518.3\).<p>
+
+<img width=300 async src="figs/cp4o1o5.png" align=left>
+<br clear="all" />
+<p>
+
+<b>5 (b)</b> The profit is given by \(F(P)=S(P-0.23) = (c_1+c_2P)(P-0.23)\), when the model
+is substituted for the sales. To find the maximum of the second-degree polynomial \(F(P)\),
+differentiate and set to zero: \(0 =F'(P) = c_2(P-0.23)+c_1+c_2P = 2c_2P+c_1-0.23c_2\)
+implies \(P=(0.23c_2-c_1)/(2c_2) = ((0.23)(-8314)-9510)/((2)(-8314))\approx 68.7\). The
+company's profit will be maximized for a selling price near \(69\) cents.
+<hr>
+
+<b>7 (a)</b> Fitting the model \(y=c_1+c_2t\) leads to minimizing \(||Ac-b||_2\) where
+\[A=
+\left[\begin{array}{rr}
+1&-3.0\\1&-2.5\\1&-2.0\\1&-1.5\\1&-1.0\\1&-0.5\\1&0.0\\
+1&0.5\\1&1.0\\1&1.5\\1&2.0\\1&2.5\\1&3.0\\
+\end{array}\right] \ \ \ \ \ \text{and} \ \ \ \ \
+b=\left[\begin{array}{c}
+0\\0\\0\\0\\0\\0\\1\\0\\0\\0\\0\\0\\0\\
+\end{array}\right]
+\]
+The normal equations are
+\[
+\left[\begin{array}{cc}
+13&0\\0&45.5\\
+\end{array}\right]
+\left[\begin{array}{c}
+c_1\\c_2\\
+\end{array}\right]
+=
+\left[\begin{array}{c}
+1\\0\\
+\end{array}\right]
+\]
+which have solution \(c_1=1/13, c_2 = 0\), with RMSE \(\approx 0.2665\).
+The best line is \(y=1/13\). <p>
+<b>7 (b)</b> Similar to (a), but the model is \(y=c_1+c_2t+c_3t^2\), leading to
+\[A=
+\left[\begin{array}{rrr}
+1&-3.0&9.00\\1&-2.5&6.25\\1&-2.0&4.00\\1&-1.5&2.25\\1&-1.0&1.00\\1&-0.5&0.25\\1&0.0&0.00\\
+1&0.5&0.25\\1&1.0&1.00\\1&1.5&2.25\\1&2.0&4.00\\1&2.5&6.25\\1&3.0&9.00\\
+\end{array}\right] \ \ \ \ \ \text{and} \ \ \ \ \
+b=\left[\begin{array}{c}
+0\\0\\0\\0\\0\\0\\1\\0\\0\\0\\0\\0\\0\\
+\end{array}\right]
+\]
+The normal equations are
+\[
+\left[\begin{array}{ccc}
+13&0&45.5\\0&45.5&0\\45.5&0&284.375\\
+\end{array}\right]
+\left[\begin{array}{c}
+c_1\\c_2\\c_3
+\end{array}\right]
+=
+\left[\begin{array}{c}
+1\\0\\0\\
+\end{array}\right]
+\]
+which have solution \(c_1=0.1748, c_2 = 0, c_3 = -0.02797\), with RMSE \(\approx 0.2519\).
+The best parabola is \(y=0.1748-0.02797t^2\).
+<hr>
+
+<b>9 (a)</b> The Matlab code in Example 4.5 can be adapted to solve for the
+coefficients. For \(d=5\), the commands are
+<pre>
+>> x = (2+(0:10)/5)';
+>> y = 1+x+x.^2+x.^3+x.^4+x.^5;
+>> A = [x.^0 x x.^2 x.^3 x.^4 x.^5];
+>> c = (A'*A)\(A'*y)
+</pre>
+The best degree \(5\) polynomial is \(y = 1.000039+0.999930x+1.000048x^2+0.999983x^3
++1.000003x^4+1.000000x^5\). The coefficients have at least 3 correct places.
+The condition number of \(A^TA\) is approximately \(2.72\times 10^{13}\). <p>
+<b>9 (b)</b> Similar to (a), but with \(d=6\). The best degree \(6\) polynomial
+is \(y = 0.99+1.02x+0.98x^2+1.01x^3+0.998x^4+1.00029x^5+0.99998x^6\). The coefficients
+have one decimal place accuracy, and the condition number of \(A^TA\) is approximately
+\(2.55\times 10^{16}\). <p>
+<b>9 (c)</b> Similar to (a), but with \(d=8\). The resulting coefficients have no
+decimal places of accuracy, due to the condition number \(\approx 1.41\times 10^{19}\).
+
+
+</html>
