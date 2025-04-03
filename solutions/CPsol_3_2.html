@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+<h3>COMPUTER PROBLEMS 3.2</h3>
+\(\def\ds{\displaystyle} \)
+<b>1 (a)</b> Using the Matlab program <tt>newtdd</tt> to generate the coefficients
+of the interpolating polynomial results in
+\begin{align*}
+P_4(x)&= 1.433329+1.989870(x-0.6)+3.258900(x-0.6)(x-0.7)\\
+&\quad + 3.680667(x-0.6)(x-0.7)(x-0.8)\\
+&\quad + 4.000417(x-0.6)(x-0.7)(x-0.8)(x-0.9),
+\end{align*}
+or in nested form, <p>
+\(
+P_4(x)= 1.433329+(x-0.6)(1.989870+(x-0.7)(3.258900
++(x-0.8)(3.680667 +(x-0.9)4.000417))).
+\) <p>
+<b>1 (b)</b> Substitute into \(P_4(x)\) to get \(P_4(0.82)=1.958910\) and
+\(P_4(0.98) = 2.612848\). <p>
+<b>1 (c)</b> According to Theorem 3.3, the interpolation error satisfies
+\[|e^{x^2}-P_4(x)| = \frac{|(x-0.6)(x-0.7)(x-0.8)(x-0.9)(x-1)|}{5!}|f^{(v)}(c)|
+\]
+where
+\[f^{(v)}(x) = (32x^5+160x^3+120x)e^{x^2}.\]
+For \(c\leq 1\), an upper bound for \(f^{(v)}(c)\) is
+\[|f^{(v)}(c)|\leq (32+160+120)e^1 = 312e\approx 848.1.\]
+Substituting into the error formula gives the error bounds
+\[|e^{(0.82)^2}-P_4(0.82)|\leq 0.0000537\] and
+\[|e^{(0.98)^2}-P_4(0.98)|\leq 0.000217.\]
+The actual errors, using the results of part (b), are
+\[|e^{(0.82)^2}-P_4(0.82)|\approx 0.0000234\] and
+\[|e^{(0.98)^2}-P_4(0.98)|\approx 0.000107.\] <p>
+
+<b>1 (d)</b> The actual interpolation error is plotted below for the intervals \([0.5, 1]\) (left) and \([0,2]\) (right). <p>
+
+<img width=300 async src="figs/cp3o2o1a.png" align=left>
+<img width=300 async src="figs/cp3o2o1b.png" align=left>
+
+<br clear="all" />
+<p>
+<hr>
+<b>3</b> The degree 9 interpolating polynomial from Newton's divided differences,
+written in nested form, is
+\begin{align*}
+P_9(x)&= 67.052+ (x-1994)(0.9556+(x-1995)(0.4195\\
+& +(x-1996)(-0.6883+(x-1997)(-0.03575+ (x-1998)(0.002175\\
+ & + (x-1999)(0.0123056+ (x-2000)(-0.007915\\
+ &\quad +(x-2001)(0.0028646+(x-2002)(-0.0007352)))))))))
+\end{align*}
+and is plotted below. <p>
+<img width=300 async src="figs/cp3o2o3.png" align=left>
+
+<br clear="all" />
+<p>
+
+Substituting \(x=2010\)  gives \(P_9(2010)\approx -1.952\times 10^{12}\) barrels, which is
+mathematically correct but nonsensical, and not consistent with the data shown.
+This is a typical example of the Runge phenomenon, which prevents the degree-9
+interpolating polynomial from being a usable model for extrapolating this data.
+
+
+
+</html>
