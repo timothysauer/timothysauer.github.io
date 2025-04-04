@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h2>Additional Examples 10.1 </h2>
+
+<b>1</b> (a) Compute  the Discrete Fourier Transform of the vector \(x = [1\ 2\ 3\ 2]\), and (b) apply the Inverse Discrete Fourier Transform to the result.
+
+<hr>
+(a) Setting \(\omega = -i,\) the DFT is 
+\[\frac{1}{2}\left[\begin{array}{rrrr}
+1&1&1&1\\
+1&\omega&\omega^2&\omega^3\\
+1&\omega^2&\omega^4&\omega^6\\
+1&\omega^3&\omega^6&\omega^9
+\end{array}\right]
+\left[\begin{array}{r}
+1\\2\\3\\2
+\end{array}\right]
+=
+\frac{1}{2}\left[\begin{array}{rrrr}
+1&1&1&1\\
+1&-i&-1&i\\
+1&-1&1&-1\\
+1&i&-1&-i
+\end{array}\right]
+\left[\begin{array}{r}
+1\\2\\3\\2
+\end{array}\right] =
+\frac{1}{2}\left[\begin{array}{r}
+8\\-2\\0\\-2
+\end{array}\right]=
+\left[\begin{array}{r}
+4\\-1\\0\\-1
+\end{array}\right].
+
+\]
+<p>
+(b) To invert the DFT, multiply by the conjugated matrix:
+\[\frac{1}{2}\left[\begin{array}{rrrr}
+1&1&1&1\\
+1&i&-1&-i\\
+1&-1&1&-1\\
+1&-i&-1&i
+\end{array}\right]
+\left[\begin{array}{r}
+4\\-1\\0\\-1
+\end{array}\right] =
+\frac{1}{2}\left[\begin{array}{r}
+2\\4\\6\\4
+\end{array}\right]=
+\left[\begin{array}{r}
+1\\2\\3\\2
+\end{array}\right].\]
+
+<hr><hr>
+
+<b>2</b> (a) Compute the Fast Fourier Transform of \(x = [5\ 10\ 5\ 0]\), and (b) apply the Inverse Fast Fourier Transform to the result.
+<p>
+<a href="https://mediaplayer.pearsoncmg.com/assets/sauer_na3e_ve10_1"> <img width=100 async src="figs/videoicon.png" align=left> </a> <br clear="all" /><p>
+<hr>
+(a) The product \(M_4 x\) is 
+\[\frac{1}{\sqrt{4}} 
+\left[\begin{array}{c}
+u+\left[\begin{array}{c}
+\omega^0v_0\\
+\omega^1v_1
+\end{array}\right] \\
+u+\left[\begin{array}{c}
+\omega^2v_0\\
+\omega^3v_1
+\end{array}\right]
+\end{array}\right] \]
+where \(u=M_2\left[\begin{array}{c}
+x_0\\x_2
+\end{array}\right]=
+\left[\begin{array}{rr}
+1&1\\1&-1
+\end{array}\right]
+\left[\begin{array}{c}
+5\\5
+\end{array}\right]=
+\left[\begin{array}{c}
+10\\0
+\end{array}\right]
+\),
+\(v=M_2\left[\begin{array}{c}
+x_1\\x_3
+\end{array}\right]=
+\left[\begin{array}{rr}
+1&1\\1&-1
+\end{array}\right]
+\left[\begin{array}{c}
+10\\0
+\end{array}\right]=
+\left[\begin{array}{c}
+10\\10
+\end{array}\right],
+\) and \(\omega=-i.\)
+
+<p>
+Therefore 
+\[M_4 x= \frac{1}{2} 
+\left[\begin{array}{c}
+\left[\begin{array}{c}
+10\\0
+\end{array}\right]+\left[\begin{array}{c}
+10\\-10i
+\end{array}\right] \\
+\left[\begin{array}{c}
+10\\0
+\end{array}\right]+\left[\begin{array}{c}
+-10\\10i
+\end{array}\right]
+\end{array}\right] =
+\frac{1}{2}\left[\begin{array}{c}
+20\\-10i\\0\\10i
+\end{array}\right] = 
+\left[\begin{array}{c}
+10\\-5i\\0\\5i
+\end{array}\right] 
+\]
+
+<p>
+
+(b) To invert the transform, conjugate, apply the FFT, and conjugate the result. Thus 
+\(\left[\begin{array}{c}
+10\\-5i\\0\\5i
+\end{array}\right] \rightarrow
+\left[\begin{array}{c}
+10\\5i\\0\\-5i
+\end{array}\right] 
+\) and 
+\(u=M_2\left[\begin{array}{c}
+10\\0
+\end{array}\right]=
+\left[\begin{array}{rr}
+1&1\\1&-1
+\end{array}\right]
+\left[\begin{array}{c}
+10\\0
+\end{array}\right]=
+\left[\begin{array}{c}
+10\\10
+\end{array}\right],
+v=M_2\left[\begin{array}{r}
+5i\\-5i
+\end{array}\right]=
+\left[\begin{array}{rr}
+1&1\\1&-1
+\end{array}\right]
+\left[\begin{array}{r}
+5i\\-5i
+\end{array}\right]=
+\left[\begin{array}{c}
+0\\10i
+\end{array}\right].
+\)
+
+Therefore 
+\[M_4 x= 
+\frac{1}{2} 
+\left[\begin{array}{c}
+u+\left[\begin{array}{c}
+\omega^0v_0\\
+\omega^1v_1
+\end{array}\right] \\
+u+\left[\begin{array}{c}
+\omega^2v_0\\
+\omega^3v_1
+\end{array}\right]
+\end{array}\right]=
+\frac{1}{2} 
+\left[\begin{array}{c}
+\left[\begin{array}{c}
+10\\10
+\end{array}\right]+\left[\begin{array}{c}
+0\\10
+\end{array}\right] \\
+\left[\begin{array}{c}
+10\\10
+\end{array}\right]+\left[\begin{array}{c}
+0\\-10
+\end{array}\right]
+\end{array}\right] =
+\frac{1}{2}\left[\begin{array}{c}
+10\\20\\10\\0
+\end{array}\right] = 
+\left[\begin{array}{c}
+5\\10\\5\\0
+\end{array}\right] 
+\]
+Conjugating the result leaves it unchanged, so the original input vector \(\left[\begin{array}{c}
+5\\10\\5\\0
+\end{array}\right] \) is recovered.
+
+</html>

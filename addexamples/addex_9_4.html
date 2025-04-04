@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h2>Additional Examples 9.4 </h2>
+
+<b>1</b> Show that the stochastic differential equation \[ dy = (y/2+e^{B_t})\ dt + (y+e^{B_t})\ dB_t\] 
+with initial condition \(y(0) = 0\) has solution \(y(t) = B_te^{B_t}.\)<p>
+<a href="https://mediaplayer.pearsoncmg.com/assets/sauer_na3e_ve9_4"> <img width=100 async src="figs/videoicon.png" align=left> </a> <br clear="all" /><p>
+<hr>
+
+Apply the Ito formula to the random process \(y(t) = B_te^{B_t} = f(t,B_t)\) where  \(f(t,x) = xe^x\). The Ito formula yields
+\begin{eqnarray*}
+dy &=& (B_t+1)e^{B_t}\ dB_t + \frac{1}{2}(B_t+2)e^{B_t}\ dB_t\ dB_t\\
+&=& (y/2+e^{B_t})\ dt + (y+e^{B_t})\ dB_t
+\end{eqnarray*}
+where \(dB_t\ dB_t = dt\).
+<br clear="all" />
+<p>
+
+<hr><hr>
+
+<b>2</b> Use the Euler-Maruyama Method to find an approximate solution to the initial value problem of Additional Example 1. 
+Plot the approximate solution along with the exact solution using the same Brownian motion.
+<p>
+<hr>
+Two realizations are shown below. The first uses step size \(h=0.01\) and the second uses step size \(h=0.002.\) 
+The Euler-Maruyama approximation is shown in blue, and the exact solution with the same Brownian increments is in red.
+<p>
+<img width=400 async src="figs/AddEx9_4_2a.png" align=left>
+<img width=400 async src="figs/AddEx9_4_2b.png" align=left>
+
+
+</html>

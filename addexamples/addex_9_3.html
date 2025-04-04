@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h2>Additional Examples 9.3 </h2>
+
+<b>1</b> 
+Carry out a Monte Carlo estimate of the probability of a random walk on the interval \([-7,6]\) escaping through the top of the interval. 
+<hr>
+The probability of escaping through the top of the interval \([-b,a]\) is \(b/(a+b) = 7/13\approx 0.5385.\) The results of a Monte Carlo simulation are shown below.
+
+<table cellpadding="8">
+  <tr>
+    <th>\(n\)</th>
+    <th>top exits</th>
+    <th>prob</th>
+     <th>error</th>
+  </tr>
+  <tr>
+    <td align='right'>100   </td>
+    <td align='right'>53 </td>
+    <td>0.5300</td>
+    <td>0.0085</td>
+  </tr>
+   <tr>
+    <td align='right'>200   </td>
+    <td align='right'>99 </td>
+    <td>0.4950</td>
+    <td>0.0435</td>
+  </tr>
+  <tr>
+    <td align='right'>400 </td>
+    <td align='right'>208 </td>
+    <td>0.5200 </td>
+    <td>0.0185 </td>
+ </tr>
+   <tr>
+    <td align='right'>800 </td>
+    <td align='right'>459 </td>
+    <td>0.5738 </td>
+    <td>0.0353 </td>
+ </tr>
+   <tr>
+    <td align='right'>1600 </td>
+    <td align='right'>872 </td>
+    <td>0.5450 </td>
+    <td>0.0065 </td>
+ </tr>
+   <tr>
+    <td align='right'>3200 </td>
+    <td align='right'>1748 </td>
+    <td> 0.5463</td>
+    <td>0.0078 </td>
+ </tr>
+   <tr>
+    <td align='right'>6400 </td>
+    <td align='right'>3473 </td>
+    <td> 0.5427</td>
+    <td>0.0042 </td>
+ </tr>
+</table>
+
+<br clear="all" />
+<p>
+
+<hr><hr>
+
+<b>2</b> Carry out a Monte Carlo estimate of the mean escape time of Brownian motion on the interval \([-7, 6]\).
+
+<p>
+<hr>
+The expected value of the escape time from the interval \([-b,a]\) is \(ab=42.\)  The results of a Monte Carlo simulation are shown below.
+
+<p>
+
+<table cellpadding="8">
+  <tr>
+    <th>\(n\)</th>
+    <th>avg esc time</th>
+     <th>error</th>
+  </tr>
+  <tr>
+    <td align='right'>100 </td>
+    <td align='right'>46.80 </td>
+    <td> 4.80</td>
+  </tr>
+    <tr>
+    <td align='right'> 200</td>
+    <td align='right'> 40.16</td>
+    <td>1.84 </td>
+  </tr>
+    <tr>
+    <td align='right'>400 </td>
+    <td align='right'> 41.81</td>
+    <td> 0.19</td>
+  </tr>
+    <tr>
+    <td align='right'> 800</td>
+    <td align='right'>43.48 </td>
+    <td>1.48 </td>
+  </tr>
+    <tr>
+    <td align='right'> 1600</td>
+    <td align='right'> 39.95</td>
+    <td> 2.05</td>
+  </tr>
+    <tr>
+    <td align='right'>3200 </td>
+    <td align='right'> 42.03</td>
+    <td> 0.03</td>
+  </tr>
+    <tr>
+    <td align='right'>6400 </td>
+    <td align='right'>42.12 </td>
+    <td> 0.12</td>
+  </tr>
+</table>
+
+
+
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h2>Additional Examples 8.4 </h2>
+
+<b>1</b> Find all constant solutions of Fisher's equation \(u_t =u_{xx}+5u^2-u^3-6u\) and check their stability. <p>
+<a href="https://mediaplayer.pearsoncmg.com/assets/sauer_na3e_ve8_4"> <img width=100 async src="figs/videoicon.png" align=left> </a> <br clear="all" /><p>
+<hr>
+ For constant solutions \(u_t = u_{xx}=0\), so that \(0 = 5u^2-u^3-6u = -u(u-2)(u-3)\) implies \(u=0, 2\) or \(3\). To check stability, 
+ evaluate \(f'(u) = 10u-3u^2-6\) at the constant solutions. Because \(f'(0) = -6\) and \(f'(3) = -3\) are negative, the solutions \(u\equiv 0\) 
+ and \(u\equiv 3\) are stable. The solution \(u\equiv 2\) is unstable because \(f'(2) = 2>0.\)
+<hr><hr>
+
+<b>2</b> <p> (a) Adapt the <tt.burgers.m</tt> code to solve the Fisher's equation with Neumann boundary conditions
+ \[ \left\{
+\begin{array}{l}
+u_t = u_{xx}+5u^2-u^3-6u\\
+u_x(0,t) = u_x(1,t)=0\\
+u(x,0)=1+3\cos \pi x
+\end{array} \right. \]
+using step sizes \(h=k=0.05\) on \(0\leq x\leq 1, 0\leq t\leq 2.\) (b) How does the solution change for the initial condition
+\(u(x,0)=5+3\cos \pi x\)?
+<hr>
+The discretization is 
+\[\frac{w_{ij}-w_{i,j-1}}{k} = \frac{1}{h^2}\left(w_{i+1,j}-2w_{ij}+w_{i-1,j}\right) +5w_{ij}^2-w_{ij}^3-6w_{ij}\]
+or 
+\[w_{ij}(1+2\sigma-k(5w_{ij}-w_{ij}^2-6))-\sigma(w_{i+1,j}+w_{i-1,j})-w_{i,j-1}=0.\]
+The nonlinear equation to be solved is
+\[
+F_i(z_1,\ldots, z_m)=(1+2\sigma-k(5z_i-z_i^2-6))z_i-\sigma(z_{i+1}+z_{i-1})-w_{i,j-1}=0.
+\]
+The Neumann boundary conditions imply the first and last equations
+\begin{eqnarray*}
+F_1(z_1,\ldots,z_m) &=& (-3z_0+4z_1-z_2)/(2h) = 0\\
+F_m(z_1,\ldots,z_m) &=& (-z_{m-2}+4z_{m-1}-3z_m)/(-2h) = 0
+\end{eqnarray*}
+The Jacobian DF has form
+\[
+\left[\begin{array}{ccccccc}
+-3&4&-1\\
+-\sigma&1+2\sigma+6k-10kz_2+3kz_2^2&-\sigma\\
+&\ddots&\ddots&\ddots\\ \\
+\\
+&&&-\sigma&1+2\sigma+6k-10kz_2+3kz_2^2&-\sigma\\
+&&&&-1&4&-3
+\end{array}\right].
+\]
+The following code fragment can be put into <tt>burgers.m</tt> to adapt the code to solve the equation.
+
+<pre>
+    DF1=zeros(m,m);DF2=zeros(m,m); 
+    DF1=diag(1+2*sigma*ones(m,1)+6*k)+diag(-sigma*ones(m-1,1),1); 
+    DF1=DF1+diag(-sigma*ones(m-1,1),-1); 
+    DF2=diag(-10*k*w1); 
+    DF3=diag(3*k*w1.^2); 
+    DF=DF1+DF2+DF3; 
+    F=-w(:,j)+(DF1+DF2/2+DF3/3)*w1; % Using Lemma 8.11 
+    DF(1,:)=[-3 4 -1 zeros(1,m-3)]; F(1)=DF(1,:)*w1;
+    DF(m,:)=[zeros(1,m-3) -1 4 -3]; F(m)=DF(m,:)*w1;
+</pre>
+
+The plot on the left is the solution of part (a). Note that the solution is approaching the constant solution 
+\(u\equiv 0\) for increasing time. Changing the initial condition for part (b) yields the plot on the right, which is 
+converging to the other stable solution at \(u\equiv 3.\)
+<p>
+
+<img width=400 async src="figs/AddEx8_4_2a.png" align=left>
+<img width=400 async src="figs/AddEx8_4_2b.png" align=left>
+
+</html>
