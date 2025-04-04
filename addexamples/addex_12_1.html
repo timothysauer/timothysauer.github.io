@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h2>Additional Examples 12.1 </h2>
+
+<b>1</b> Let \(A=\left[\begin{array}{rr}
+-5&4\\-8&7
+\end{array}\right].\) (a) Find all eigenvalues and eigenvectors of \(A\) using the characteristic equation. (b) Apply three steps of Power iteration with initial vector \([1,0].\) At each step, approximate the eigenvalue by the Rayleigh quotient. <p>
+<a href="https://mediaplayer.pearsoncmg.com/assets/sauer_na3e_ve12_1"> <img width=100 async src="figs/videoicon.png" align=left> </a> <br clear="all" /><p>
+<hr>
+
+The matrix \(A\) has an eigenvalue of 3 with eigenvector \([1,2]\) and an eigenvalue of \(-1\) with eigenvector \([1,1].\) At each step of the Power Method,
+the previous guess is multiplied by \(A\) and then normalized by dividing by its 2-norm. The Rayleigh quotient gives an estimate of the eigenvalue. The first step is 
+\[  \left[\begin{array}{rr}
+-5 &4\\-8&7
+\end{array}\right]
+\left[\begin{array}{r}
+1\\0
+\end{array}\right]=
+\left[\begin{array}{r}
+-5\\-8
+\end{array}\right] \rightarrow
+\left[\begin{array}{r}
+-0.5300\\-0.8480
+\end{array}\right]
+ \]
+ with approximate eigenvalue \(-5.\)
+<p>
+The next two eigenvector, eigenvalue approximations are
+\[
+\left[\begin{array}{r}
+-0.4008\\-0.9162
+\end{array}\right],\ \ \ \ \ 1.8315
+\] and
+\[
+\left[\begin{array}{r}
+-0.4599\\-0.8880
+\end{array}\right],\ \ \ \ \ 3.6033
+\] 
+<br clear="all" />
+<p>
+
+<hr><hr>
+
+<b>2</b> Let \(A=\left[\begin{array}{rrr}
+5&2&-2\\-12&-19&12\\-12&-22&15
+\end{array}\right].\)  (a) Apply the Power Method with initial vector \([1,\ 2,\ 3]\) to estimate the dominant eigenvalue of \(A\). Report estimates after 10, 20, and 30 steps.
+(b) Apply the Inverse Power Method with shift 0 and initial vector \([1,\ 2,\ 3]\) to estimate the eigenvalue closest to zero.
+
+<p>
+<hr>
+
+(a) The <tt>powerit.m</tt> code from the text can be used to estimate the dominant eigenvalue. The command
+<tt>lam=powerit(A,[1;2;3],k)</tt> returns the estimates \(-7.001219110186, -7.000000254906\) and \(-7.000000000053\) for \(k=10, 20\), and 30 steps, respectively.
+<p>
+(b) The <tt>invpowerit.m</tt> code  estimates the eigenvalue closest to zero. The command
+<tt>lam=invpowerit(A,[1;2;3],0,k)</tt> returns the estimates \(2.997913082747, 2.999999563017\) and \(2.999999999909\) for 10, 20, and 30 steps, respectively.
+
+
+
+<p>
+
+
+</html>

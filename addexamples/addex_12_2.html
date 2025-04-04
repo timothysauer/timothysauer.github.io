@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h2>Additional Examples 12.2 </h2>
+
+<b>1</b> Put the matrix
+\(A=\left[\begin{array}{rrr}
+4&0&2\\8&5&10\\6&10&-5
+\end{array}\right]\) 
+into upper Hessenberg form.
+
+<hr>
+
+A Householder reflector for \(x = [8,6]\) is 
+\(H_1=\left[\begin{array}{rr}
+-0.8&-0.6\\
+-0.6&0.8
+\end{array}\right].\) Then
+\begin{eqnarray*}
+A' &=& H_1AH_1 = 
+\left[\begin{array}{rrr}
+1&0&0 \\0&-0.8&-0.6\\0&-0.6&0.8
+\end{array}\right]
+\left[\begin{array}{rrr}
+4&0&2\\8&5&10\\6&10&-5
+\end{array}\right]
+\left[\begin{array}{rrr}
+1&0&0 \\0&-0.8&-0.6\\0&-0.6&0.8
+\end{array}\right]\\
+&=& 
+\left[\begin{array}{rrr}
+4&0&2\\-10&-10&-5\\0&5&-10
+\end{array}\right]
+\left[\begin{array}{rrr}
+1&0&0 \\0&-0.8&-0.6\\0&-0.6&0.8
+\end{array}\right] = 
+\left[\begin{array}{rrr}
+4&-1.2&1.6\\-10&11&2\\0&2&-11
+\end{array}\right]
+\end{eqnarray*}
+is a matrix similar to \(A\) in Hessenberg form.
+
+<br clear="all" />
+<p>
+
+<hr><hr>
+
+<b>2</b> Use Matlab code to put the matrix 
+\(A=\left[\begin{array}{rrr}
+5&2&-2\\-12&-19&12\\-12&-22&15
+\end{array}\right]\) 
+into upper Hessenberg form and use the Shifted QR Algorithm to solve for all eigenvalues.
+
+<p>
+<hr>
+
+The <tt> hessen.m </tt> code from the text returns the Hessenberg form
+\(A_1 = 
+\left[\begin{array}{rrr}
+    5.0000  &  0.0000&   -2.8284\\
+   16.9706 &  -7.0000&  -34.0000\\
+         0.0000 &  0.0000&   3.0000
+\end{array}\right].\)
+
+<p>
+
+Using <tt>shiftedqr.m</tt> with input \(A_1\) returns the three eigenvalues
+\(-7, 3\) and \(5.\)
+
+<p>
+
+
+</html>

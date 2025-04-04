@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h2>Additional Examples 13.2 </h2>
+
+<b>1</b> Use Newton's Method to find the minimum of \(f(x,y)  = x^2+y^2+\sin (x+3y).\)<p>
+<a href="https://mediaplayer.pearsoncmg.com/assets/sauer_na3e_ve13_2"> <img width=100 async src="figs/videoicon.png" align=left> </a> <br clear="all" /><p>
+<hr>
+
+The gradient of \(f \) is \(\nabla f (x,y) = 
+\left[\begin{array}{c}
+2x+\cos (x+3y)\\2y+3\cos (x+3y)
+\end{array}\right] \)
+and the Hessian is
+\( H_f(x,y) = 
+\left[\begin{array}{cc}
+2-\sin (x+3y)&-3\sin (x+3y)\\-3\sin (x+3y)&2-9\sin (x+3y)
+\end{array}\right]. \)
+<p>
+The Newton Method iteration is \(w_{k+1} = w_k+v\) where \(H_f(w_k)v = -\nabla f (w).\)
+Using the initial guess \(w_0 = [0,0]\), the iteration converges to \((x,y)= (-0.130644, -0.391932)\) after 11 steps. The minimum value of \(f\) is \(-0.794582.\)
+
+<br clear="all" />
+<p>
+
+<hr><hr>
+
+<b>2</b> Apply Conjugate Gradient Search to find the minimum of \(f(x,y,z) = x^2+x+y^2+2y+z^2+3z-e^{-x^2-y^2-z^2}.\)
+
+<p>
+<hr>
+
+The gradient is \(\nabla f = 
+\left[\begin{array}{c}
+2x+1+2xe^{-x^2-y^2-z^2}\\2y+2+2ye^{-x^2-y^2-z^2}\\2z+3+2ze^{-x^2-y^2-z^2}
+\end{array}\right].\)
+Apply Conjugate Gradient with Successive Parabolic Interpolation as the one-dimensional optimizer. The solution after 4 steps is
+\((x,y,z) = (-0.4812,-0.9624,-1.4436)\) at which \(f\) has the minimum value \(-3.5341.\)
+
+
+<p>
+
+
+</html>

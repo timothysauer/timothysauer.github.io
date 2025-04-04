@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h2>Additional Examples 12.3 </h2>
+
+<b>1</b> Find the singular values and singular vectors of the matrix
+\(A=\left[\begin{array}{rr}
+0&1\\0&-1
+\end{array}\right].\) <p>
+<a href="https://mediaplayer.pearsoncmg.com/assets/sauer_na3e_ve12_3"> <img width=100 async src="figs/videoicon.png" align=left> </a> <br clear="all" /><p>
+<hr>
+
+The eigenvalues of 
+\( A^TA = \left[ \begin{array}{r}
+0&0\\0&2
+\end{array}\right] \)
+are  \(s_1^2=2, v_1=[0,1]\) and \(s_2^2 = 0,
+v_2 = [1,0]\). The singular values are \(\sqrt{2}\) and \(0\). <p>
+
+The left singular vectors are defined by
+\begin{eqnarray*}
+\sqrt{2}u_1 &=& Av_1 = 
+\left[ \begin{array}{r}
+1\\-1
+\end{array}\right]\\
+u_1 &=& 
+\left[ \begin{array}{r}
+1/\sqrt{2}\\-1/\sqrt{2}
+\end{array}\right],
+\end{eqnarray*}
+and \(u_2 = \left[ \begin{array}{r}
+1/\sqrt{2}\\1/\sqrt{2}
+\end{array}\right]\) is chosen to be orthogonal to \(u_1\). The SVD is
+\[ A=USV^T = \left[ \begin{array}{rr}
+0&1\\
+0&-1\\
+\end{array}\right]=
+\left[ \begin{array}{rr}
+\sqrt{2}/2&\sqrt{2}/2\\
+-\sqrt{2}/2&\sqrt{2}/2
+\end{array}\right]
+\left[ \begin{array}{rr}
+\sqrt{2}&0\\
+0&0\\
+\end{array}\right]
+\left[ \begin{array}{rr}
+0&1\\1&0
+\end{array}\right].\]
+
+<p>
+
+Another perfectly good SVD for this matrix is
+\[ A=USV^T = \left[ \begin{array}{rr}
+0&1\\
+0&-1\\
+\end{array}\right]=
+\left[ \begin{array}{rr}
+-\sqrt{2}/2&\sqrt{2}/2\\
+\sqrt{2}/2&\sqrt{2}/2
+\end{array}\right]
+\left[ \begin{array}{rr}
+\sqrt{2}&0\\
+0&0\\
+\end{array}\right]
+\left[ \begin{array}{rr}
+0&-1\\1&0
+\end{array}\right],\]
+illustrating the nonuniqueness comment following Theorem 12.11.
+
+
+
+<br clear="all" />
+<p>
+
+<hr><hr>
+
+<b>2</b> Find the reduced singular value decomposition of the matrix \(A = 
+\left[ \begin{array}{rrrrrr}
+6&2&10&-4&6&4\\
+8&11&5&3&8&-3
+\end{array}\right] .\)
+
+<p>
+<hr>
+Set \(B=A^T = \left[ \begin{array}{rr}
+6&8\\2&11\\10&5\\-4&3\\6&8\\4&-3
+\end{array}\right]. \)
+
+The characteristic equation of the matrix  
+\( B^TB = \left[ \begin{array}{rr}
+208&144\\144&292
+\end{array}\right] \)
+is \(\lambda^2-500\lambda + 40000 = (\lambda-400)(\lambda-100),\)
+showing the eigenvalues 
+are  \(s_1^2=400 \) and \(s_2^2 = 100.\) The normalized eigenvectors are
+\(v_1 = \left[ \begin{array}{r}
+0.6\\0.8
+\end{array}\right] \) and 
+\(v_2 = \left[ \begin{array}{r}
+-0.8\\0.6
+\end{array}\right], \) respectively.
+ The singular values are \(20\) and \(10\). <p>
+
+The left singular vectors are defined by
+\(
+20u_1 = Bv_1 = 
+\left[ \begin{array}{r}
+10\\10\\10\\0\\10\\0
+\end{array}\right],\ \ \ \ \ 
+u_1 =
+\left[ \begin{array}{r}
+1/2\\1/2\\1/2\\0\\1/2\\0
+\end{array}\right],\)
+and 
+\(
+10u_2 = Bv_2 = 
+\left[ \begin{array}{r}
+0\\5\\-5\\5\\0\\-5
+\end{array}\right], \ \ \ \ \ 
+u_2 = 
+\left[ \begin{array}{r}
+0\\1/2\\-1/2\\1/2\\0\\-1/2
+\end{array}\right].
+\)
+
+The reduced SVD of \(B\) is
+\[ B=USV^T = \left[ \begin{array}{rr}
+1/2&0\\
+1/2&1/2\\
+1/2&-1/2\\
+0&1/2\\
+1/2&0\\
+0&-1/2
+\end{array}\right]
+\left[ \begin{array}{cc}
+20&0\\0&10
+\end{array}\right]
+\left[ \begin{array}{rr}
+0.6&0.8\\-0.8&0.6
+\end{array}\right], \]
+and the reduced SVD of \(A\) is found by transposing the SVD of \(B\):
+\[ A=VSU^T = 
+\left[ \begin{array}{rr}
+0.6&-0.8\\0.8&0.6
+\end{array}\right]
+\left[ \begin{array}{cc}
+20&0\\0&10
+\end{array}\right]
+\left[ \begin{array}{rrrrrr}
+1/2&1/2&1/2&0&1/2&0\\
+0&1/2&-1/2&1/2&0&-1/2
+\end{array}\right].
+\]
+
+
+
+
+<p>
+
+
+</html>

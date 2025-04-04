@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numerical Analysis 3rd Edition Sauer </title>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
+
+<h2>Additional Examples 13.1 </h2>
+
+<b>1</b> Compare the Golden Section Search and Successive Parabolic Interpolation methods for locating the minimum of the function \(f(x) = x^2+\sin x\) accurate to 8 decimal places. <p>
+<hr>
+
+The minimum appears to lie in the interval \([-1,0],\) so we use that as the initial interval for Golden Section Search.
+ The code in the text can be applied to the function defined as <tt>f=@(x) x^2+sin(x)</tt>, using the command
+ <tt>
+ y=gss(f,-1,0,k)
+ </tt>
+ After \(k=35\) steps of GSS, the minimum \(x=-0.45018361\) is found.
+ 
+ <p>
+ Successive Parabolic Interpolation is applied with the command
+  <tt>
+ y=spi(f,-1,-0.5,0,k)
+ </tt>.
+ After \(k=7\) steps, SPI converges to the minimum \(x=-0.45018361\) correct to 8 decimal digits.
+ 
+
+<hr><hr>
+
+<b>2</b> Use the Nelder-Mead method to find the distance between the ellipsoids \((x-3)^2+2(y-1)^2+(z-6)^2 = 9\) and \(x^2+2y^2+z^2=9.\)<p>
+<a href="https://mediaplayer.pearsoncmg.com/assets/sauer_na3e_ve13_1"> <img width=100 async src="figs/videoicon.png" align=left> </a> <br clear="all" /><p>
+<hr>
+
+Notice that the first ellipsoid lies above the second ellipsoid, in the sense of the \(z\) variable. The squared distance between the points \((x,y,z)\) and \((u,v,w)\) on the two respective ellipsoids is \(d(u,v,x,y) = (u-x)^2+(v-y)^2+(6-\sqrt{9-(x-3)^2-2(y-1)^2}-\sqrt{9-u^2-2v^2})^2\) where we have constrained the points to lie on the bottom of the higher ellipsoid and the top of the lower ellipsoid. To find the minimum distance between all such pairs of points, we use <tt>neldermead.m</tt>.
+
+<p>
+
+Setting initial guess \((u,v,x,y)=(1,1,2,2)\) and initial radius \(0.1\), the method converges to \(u=1.3185, v=0.3921, x=1.6815, y=0.6079\) in 140 steps. The minimum squared distance is \(0.7052.\) The two points on the ellipsoids that are closest are \((1.6815,0.6079,3.3629)\) and \((1.3185,0.3921,2.6371)\) and their distance is \(\sqrt{0.7052} \approx 0.8398.\) 
+
+
+<p>
+
+
+</html>
