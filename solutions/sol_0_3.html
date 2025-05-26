@@ -48,7 +48,7 @@ fl\(((1+(2^{-51}+2^{-52}+2^{-53}))-1) = \) <p>
 <b>7 (a)</b> \((8)_{10} = (1000.)_2 = 1.0\times 2^3\). The hex representation is 0x1.0000000000000p+3.
 <p>
 <b>7 (b)</b> \((21)_{10} = (10101.)_2 = 1.0101\times 2^4\). The hex representation is 0x1.5000000000000p+4. <p>
-<b>7 (c)</b> \((1/8)_{10} = 1.0\times 2^{-3}\). The hex representation is 0x1.0000000000000p-3.><p>
+<b>7 (c)</b> \((1/8)_{10} = 1.0\times 2^{-3}\). The hex representation is 0x1.0000000000000p-3.<p>
 <b>7 (d)</b> \((1/3)_{10} = 1.\overline{01}\times 2^{-2}\), and after rounding down,
 fl\((1/3)=1.0101\ldots 0101\times 2^{-2}\).  The hex representation is 0x1.5555555555555p-2.<p>
 <b>7 (e)</b> \((2/3)_{10} = 1.\overline{01}\times 2^{-1}\), and after rounding down,
@@ -72,7 +72,6 @@ fl\((4/3)=1.01\ldots 0101\ 0101\times 2^{0}\). Subtracting gives
 &-& 0.\fbox{1010101010101010101010101010101010101010101010101010}1
 \times 2^1
 \nonumber\\
-
 &=& 0.\fbox{1000000000000000000000000000000000000000000000000000}1
 \times 2^1
 \end{eqnarray*}
@@ -121,9 +120,7 @@ for example, because \(1+(\epsilon_\text{mach}/2+\epsilon_\text{mach}/2) =
 \epsilon_\text{mach}/2 =1\), because \(1+\epsilon_\text{mach}/2=1\).
 <hr>
 
-<b>13(a) </b> (a) \(2\), represented by \(010\ldots 0\) <p>
-<b> 13(b) </b> (b) \(2^{-511}\), represented by \(0010\ldots 0\) <p>
-<b> 13(c) </b> \(0\), represented by \(10\ldots 0\). When bit \(4\) through \(12\) is the nonzero bit, the floating point number is positive but less than \(2^{-511}\). When bit \(13\) through \(64\) is the nonzero bit, the number is positive and subnormal, so less than \(2^{-511}\).
+<b>13.</b> (c) In double precision floating point, $1 - (2^{-54}+2^{-106}) < 1$.)
 <hr>
 
 <b>15(a)</b> \((8.3)_{10} = 1.0000\overline{1001}\times 2^{3}\), and rounded,
