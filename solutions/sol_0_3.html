@@ -45,52 +45,21 @@ fl\(((1+(2^{-51}+2^{-52}+2^{-53}))-1) = \) <p>
 \( = 1.\ \fbox{0000000000000000000000000000000000000000000000000000}\times 2^{-50}=2^{-50}\).
 <hr>
 
-<b>7 (a)</b> \((8)_{10} = (1000.)_2 = 1.0\times 2^3\). The biased
-exponent is \(3+1023 = 1026\), which is \(2^{10}+2\). The sign is \(0\) (positive), so the
-sign/exponent is represented by the binary string \(0100\)&nbsp;\(0000\)&nbsp;\(0010\). The mantissa is
-\(52\) zeros, so the machine representation is the 64 bits <p>
-\(0100\)&nbsp;\(0000\)&nbsp;\(0010\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)
-<p> or <tt>4020000000000000</tt> in hex format.<p>
-<b>7 (b)</b> \((21)_{10} = (10101.)_2 = 1.0101\times 2^4\). The biased
-exponent is \(4+1023=1027=2^{10}+3\), represented by \(100\)&nbsp;\(0000\)&nbsp;\(0011\).
-The machine representation is <p>
-\(0100\)&nbsp;\(0000\)&nbsp;\(0011\)&nbsp;\(0101\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)
-<p> or <tt>4035000000000000</tt> in hex format.<p>
-<b>7 (c)</b> \((1/8)_{10} = 1.0\times 2^{-3}\). The biased
-exponent is \(-3+1023=1020=2^{10}-4\), represented by \(011\)&nbsp;\(1111\)&nbsp;\(1100\).
-The machine representation is <p>
-\(0011\)&nbsp;\(1111\)&nbsp;\(1100\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)&nbsp;\(0000\)
-<p> or <tt>3fc0000000000000</tt> in hex format.<p>
+<b>7 (a)</b> \((8)_{10} = (1000.)_2 = 1.0\times 2^3\). The hex representation is 0x1.0000000000000p+3.
+<p>
+<b>7 (b)</b> \((21)_{10} = (10101.)_2 = 1.0101\times 2^4\). The hex representation is 0x1.5000000000000p+4. <p>
+<b>7 (c)</b> \((1/8)_{10} = 1.0\times 2^{-3}\). The hex representation is 0x1.0000000000000p-3.><p>
 <b>7 (d)</b> \((1/3)_{10} = 1.\overline{01}\times 2^{-2}\), and after rounding down,
-fl\((1/3)=1.0101\ldots 0101\times 2^{-2}\). The biased
-exponent is \(-2+1023=1021=2^{10}-3\), represented by \(011\)&nbsp;\(1111\)&nbsp;\(1101\).
-The machine representation is <p>
-\(0011\)&nbsp;\(1111\)&nbsp;\(1101\)&nbsp;\(0101\)&nbsp;\(0101\)&nbsp;\(0101\)&nbsp;\(0101\)&nbsp;\(0101\)&nbsp;\(0101\)&nbsp;\(0101\)&nbsp;\(0101\)&nbsp;\(0101\)&nbsp;\(0101\)&nbsp;\(0101\)&nbsp;\(0101\)&nbsp;\(0101\)
-<p> or <tt>3fd5555555555555</tt> in hex format.<p>
+fl\((1/3)=1.0101\ldots 0101\times 2^{-2}\).  The hex representation is 0x1.5555555555555p-2.<p>
 <b>7 (e)</b> \((2/3)_{10} = 1.\overline{01}\times 2^{-1}\), and after rounding down,
-fl\((2/3)=1.0101\ldots 0101\times 2^{-1}\). The biased
-exponent is \(-1+1023=1022=2^{10}-2\), represented by \(011\)&nbsp;\(1111\)&nbsp;\(1110\).
-The machine representation is <p>
-\(0011\)&nbsp;\(1111\)&nbsp;\(1110\)&nbsp;\(0101\)&nbsp;\(0101\)&nbsp;\(0101\)&nbsp;\(0101\)&nbsp;\(0101\)&nbsp;\(0101\)&nbsp;\(0101\)&nbsp;\(0101\)&nbsp;\(0101\)&nbsp;\(0101\)&nbsp;\(0101\)&nbsp;\(0101\)&nbsp;\(0101\)
-<p> or <tt>3fe5555555555555</tt> in hex format.<p>
+fl\((2/3)=1.0101\ldots 0101\times 2^{-1}\). The hex representation is 0x1.5555555555555p-1.<p>
 <b>7 (f)</b> \((0.1)_{10} = 1.\overline{1001}\times 2^{-4}\), and after rounding up,
-fl\((0.1)=1.1001\ldots 1001\)&nbsp;\(1010\times 2^{-4}\). The biased
-exponent is \(-4+1023=1019=2^{10}-5\), represented by \(011\)&nbsp;\(1111\)&nbsp;\(1011\).
-The machine representation is <p>
-\(0011\)&nbsp;\(1111\)&nbsp;\(1011\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1010\)
-<p> or <tt>3fb999999999999a</tt> in hex format.<p>
+fl\((0.1)=1.1001\ldots 1001\)&nbsp;\(1010\times 2^{-4}\). The hex representation is 0x1.999999999999Ap-4.<p>
 <b>7 (g)</b> \((-0.1)_{10} = -1.\overline{1001}\times 2^{-4}\), and after rounding,
-fl\((-0.1)=-1.1001\ldots 1001\)&nbsp;\(1010\times 2^{-4}\). The biased
-exponent is \(-4+1023=1019=2^{10}-5\), represented by \(011\)&nbsp;\(1111\)&nbsp;\(1011\).
-The machine representation is <p>
-\(1011\)&nbsp;\(1111\)&nbsp;\(1011\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1010\)
-<p> or <tt>bfb999999999999a</tt> in hex format.<p>
+fl\((-0.1)=-1.1001\ldots 1001\)&nbsp;\(1010\times 2^{-4}\). 
+The hex representation is -0x1.999999999999Ap-4.<p>
 <b>7 (h)</b> \((-0.2)_{10} = -1.\overline{1001}\times 2^{-3}\), and after rounding,
-fl\((-0.2)=-1.1001\ldots 1001\)&nbsp;\(1010\times 2^{-3}\). The biased
-exponent is \(-3+1023=1020=2^{10}-4\), represented by \(011\)&nbsp;\(1111\)&nbsp;\(1100\).
-The machine representation is <p>
-\(1011\)&nbsp;\(1111\)&nbsp;\(1100\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1001\)&nbsp;\(1010\)
-<p> or <tt>bfc999999999999a</tt> in hex format.
+fl\((-0.2)=-1.1001\ldots 1001\)&nbsp;\(1010\times 2^{-3}\). The hex representation is -0x1.999999999999Ap-3.
 <hr>
 
 <b>9 (a)</b> \((7/3)_{10} = 1.00\overline{10}\times 2^{1}\), and after rounding,
