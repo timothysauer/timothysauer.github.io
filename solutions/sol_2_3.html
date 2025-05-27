@@ -20,8 +20,8 @@ absolute row sums, in this case the maximum of \(3\) and \(7\). So
 1.0001&1\\
 \end{array}\right]
 \left[\begin{array}{r}
+x_0\\
 x_1\\
-x_2\\
 \end{array}\right]=
 \left[\begin{array}{rr}
 2\\
@@ -87,8 +87,8 @@ is \((3.0001/1)/(0.0002/2.0001)=30002.5\).
 3&-4\\
 \end{array}\right]
 \left[\begin{array}{r}
+x_0\\
 x_1\\
-x_2\\
 \end{array}\right]=
 \left[\begin{array}{rr}
 3\\
@@ -180,7 +180,7 @@ A^{-1}=\left[\begin{array}{ccc}
 0&1&0
 \end{array}\right].\]
 The condition number is \(||A||_\infty\cdot||A^{-1}||_\infty = 1\cdot 1 = 1.\) <p>
-<b>9 (b)</b> The inverse \(D^{-1}\) is a diagonal matrix with entries \(d_1^{-1},\ldots,d_n^{-1}.\)
+<b>9 (b)</b> The inverse \(D^{-1}\) is a diagonal matrix with entries \(d_0^{-1},\ldots,d_{n-1}^{-1}.\)
 The condition number is \(||D||_\infty\cdot||D^{-1}||_\infty = \max |d_i| \cdot \max 1/|d_i| = \max |d_i| / \min |d_i|.\)
 <hr>
 
@@ -204,18 +204,18 @@ and if \(||x||_\infty=0\), then all components \(x_i\) must be zero.<p>
 \end{align*}
 <b>11 (b)</b> The three properties: <p>
 (i) \(||x||_1\geq 0\) is guaranteed by the
-definition \(||x||_1=|x_1|+\ldots+|x_n|\), and if \(||x||_1=0\), all components
+definition \(||x||_1=|x_0|+\ldots+|x_{n-1}|\), and if \(||x||_1=0\), all components
 \(x_i\) must be zero. <p>
 (ii) For a scalar \(\alpha\),
 \begin{align*}
-||\alpha x||_1 &=  |\alpha x_1|+\ldots+|\alpha x_n|\\
-&=   |\alpha|(|x_1|+\ldots+|x_n|)\\
+||\alpha x||_1 &=  |\alpha x_0|+\ldots+|\alpha x_{n-1}|\\
+&=   |\alpha|(|x_0|+\ldots+|x_{n-1}|)\\
 &=   |\alpha|\cdot||x||_1
 \end{align*}
 (iii) The triangle inequality is
 \begin{align*}
-||x+y||_1&=  |x_1+y_1|+\ldots+|x_n+y_n|\\
-&\leq |x_1|+|y_1|+\ldots+|x_n|+|y_n|\\
+||x+y||_1&=  |x_0+y_0|+\ldots+|x_{n-1}+y_{n-1}|\\
+&\leq |x_0|+|y_0|+\ldots+|x_{n-1}|+|y_{n-1}|\\
 &=   ||x||_1+||y||_1
 \end{align*}
 <hr>
@@ -225,10 +225,10 @@ definition \(||x||_1=|x_1|+\ldots+|x_n|\), and if \(||x||_1=0\), all components
 where the maximum is taken over all vectors \(x\). By property (ii) of vector norms,
 this is equal to the maximum \(||Ax||_\infty\), where the maximum is taken over all
 unit vectors \(x\) in the infinity norm, or
-\[\max ||Ax||_\infty = \max \{a_{11}x_1+\ldots+a_{1n}x_n,\ldots,a_{n1}x_1+\ldots
-+a_{nn}x_n\}\]
-where \(|x_1|,\ldots,|x_n|\leq 1\). In fact, the maximum is reached when all \(x_i\)
-are \(+1\) or \(-1\), where the sign of \(x_i\) is chosen to match the sign of \(a_{i1}\).
+\[\max ||Ax||_\infty = \max \{a_{00}x_0+\ldots+a_{0,n-1}x_{n-1},\ldots,a_{n-1,0}x_0+\ldots
++a_{n-1,n-1}x_{n-1}\}\]
+where \(|x_0|,\ldots,|x_{n-1}|\leq 1\). In fact, the maximum is reached when all \(x_i\)
+are \(+1\) or \(-1\), where the sign of \(x_i\) is chosen to match the sign of \(a_{i0}\).
 Here \(i\) denotes the largest row in the sense of the infinity vector norm. Therefore
 \[||A||_\infty=
 \max_{||x||=1} ||Ax||=\max_{x} \frac{||Ax||_\infty}{||x||_\infty}. \]
@@ -288,7 +288,7 @@ of \(x\) will also work.
 0&-0.01&5.9\\
 0&0&29501\\
 \end{array}\right]\]
-where the last multiplier is \(l_{32}=-5000\). The LU-factorization is
+where the last multiplier is \(l_{21}=-5000\). The LU-factorization is
 \[LU=
 \left[\begin{array}{ccc}
 1&0&0\\
