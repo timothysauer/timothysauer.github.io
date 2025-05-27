@@ -14,7 +14,7 @@ multiplicity \(3\). <p>
 <b>1 (b)</b> <tt> brentq</tt> returns \(x_c=-1.7531084141128772\times 10^{-8}\). The
 forward error is \(1.7531084141128772\times 10^{-8}\) and  the
 backward error is reported as \(|f(x_c)|=0\). This means the true backward
-error is likely less than machine epsilon.
+error is less than machine epsilon.
 <hr>
 
 <b>3 (a)</b> The Python command
@@ -34,7 +34,7 @@ correct decimal places.
 \(\epsilon=-10^{-6}\) and \(g(x)=x^6\). Then near the root \(r=4\),
 \(\Delta r\approx-\epsilon g(r)/f'(r)=4^6\times 10^{-6}/6\approx0.00068267\).
 According to (1.22), the error magnification factor is
-\(|g(r)|/|rf'(r)|=4^6/24\approx170.7\). <tt>brentq</tt> on the interval \(3.9, 4.1\) returns the
+\(|g(r)|/|rf'(r)|=4^6/24\approx170.7\). <tt>brentq</tt> on the interval \([3.9, 4.1]\) returns the
 approximate root \(4.000682511531738\), close to the approximation \(4.00068267\)
 given by (1.21).
 
