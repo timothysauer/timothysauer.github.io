@@ -19,10 +19,20 @@ Interpolation shows convergence to \(1.76929235\) <p>
 <b>3 (c)</b>  Similar to part (a). Converges to \(1.12998050\)
 <hr>
 
-<b>5</b>  The <tt>scipy.optimize</tt> command 
+<b>5</b> In both (a) and (b), <tt>scipy.optimize.brentq</tt> fails because there is no bracketing 
+interval surrounding the root. 
+
+<b>7</b>  The <tt>scipy.optimize</tt> command 
 <pre>
->> brentq(lambda x: 1/x,-1.5, 2)
+>> brentq(lambda x: 1/x,-1., 2.)
 </pre>
 converges to near zero, although there is no root there.
+<hr>
+
+<b>9</b>Secant method with appropriate starting points finds all five roots
+ \(-1.381298, -2/3, 0.205183, 1/2\), and \(1.176116\). Secant Method convergence to
+  \(-2/3\) is linear, and convergence is superlinear to the other four roots. 
+  Brent's Method cannot find the \(-2/3\) root since there is no bracketing interval.
+  <hr>
 
 </html>
