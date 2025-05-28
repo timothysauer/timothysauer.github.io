@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Numerical Analysis 3rd Edition Sauer </title>
+<title>Numerical Analysis 4th Edition Sauer </title>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 </head>
 
 
 <h3>EXERCISES 2.6</h3>
 \(\def\ds{\displaystyle} \)
-<b>1 (a)</b> For \(x=[x_1,x_2]\neq 0\),
+<b>1 (a)</b> For \(x=[x_0,x_1]\neq 0\),
 \[x^TAx =
 \left[\begin{array}{cc}
-x_1 &x_2
+x_0 &x_1
 \end{array}\right]
 \left[\begin{array}{cc}
 1&0\\0&3
 \end{array}\right]
 \left[\begin{array}{c}
-x_1 \\x_2\\
+x_0 \\x_1\\
 \end{array}\right] =
-x_1^2+3x_2^2>0.
+x_0^2+3x_1^2>0.
 \]
-<b>1 (b)</b> For \(x=[x_1,x_2]\neq 0\),
+<b>1 (b)</b> For \(x=[x_0,x_1]\neq 0\),
 \[x^TAx =
 \left[\begin{array}{cc}
-x_1 &x_2
+x_0 &x_1
 \end{array}\right]
 \left[\begin{array}{cc}
 1&3\\3&10
 \end{array}\right]
 \left[\begin{array}{c}
-x_1 \\x_2\\
+x_0 \\x_1\\
 \end{array}\right] =
-x_1^2+6x_1x_2+10x_2^2 =(x_1+3x_2)^2+x_2^2>0.
+x_0^2+6x_0x_1+10x_1^2 =(x_0+3x_1)^2+x_1^2>0.
 \]
-<b>1 (c)</b> For \(x=[x_1,x_2,x_3]\neq 0\),
+<b>1 (c)</b> For \(x=[x_0,x_1,x_2]\neq 0\),
 \[x^TAx =
 \left[\begin{array}{ccc}
-x_1 &x_2&x_3
+x_0 &x_1&x_2
 \end{array}\right]
 \left[\begin{array}{ccc}
 1&0&0\\0&2&0\\0&0&3\\
 \end{array}\right]
 \left[\begin{array}{c}
-x_1 \\x_2\\x_3\\
+x_0 \\x_1\\x_2\\
 \end{array}\right] =
-x_1^2+2x_2^2+3x_3^2 >0.
+x_0^2+2x_1^2+3x_2^2 >0.
 \]
 <hr>
 
@@ -59,7 +59,7 @@ x_1^2+2x_2^2+3x_3^2 >0.
 0&\sqrt{3}
 \end{array}\right]}\)
 is a Cholesky factorization; alternatively, \(R\) can be chosen to be the negative of this matrix. <p>
-<b>3 (b)</b> The top row of \(R\) is \(R_{11}=\sqrt{a_{11}}=1\), followed by \({\ds R_{12}=u=\frac{[3]}{\sqrt{a_{11}}}=3}\). Subtracting the outer product \(uu^T\) from the lower principal submatrix \([10]\) leaves \(10-9=1\). Repeating the factorization step for the remaining \(1\times 1\) matrix yields \(R_{22} = \sqrt{1}=1.\) Therefore
+<b>3 (b)</b> The top row of \(R\) is \(R_{00}=\sqrt{a_{00}}=1\), followed by \({\ds R_{01}=u=\frac{[3]}{\sqrt{a_{00}}}=3}\). Subtracting the outer product \(uu^T\) from the lower principal submatrix \([10]\) leaves \(10-9=1\). Repeating the factorization step for the remaining \(1\times 1\) matrix yields \(R_{11} = \sqrt{1}=1.\) Therefore
 \({\ds 
 R  = 
 \left[\begin{array}{cc}
@@ -96,7 +96,7 @@ R  =
 is a Cholesky factorization; alternatively, \(R\) can be chosen to be the negative of this matrix.
 <hr>
 
-<b>5 (a)</b> The top row of \(R\) is \(R_{11}=\sqrt{a_{11}}=1\), followed by \({\ds R_{12}=u=\frac{[2]}{\sqrt{a_{11}}}=2}\). Subtracting the outer product \(uu^T\) from the lower principal submatrix \([8]\) leaves \(8-4=4\). Repeating the factorization step for the remaining \(1\times 1\) matrix yields \(R_{22} = \sqrt{4}=2.\) Therefore
+<b>5 (a)</b> The top row of \(R\) is \(R_{00}=\sqrt{a_{00}}=1\), followed by \({\ds R_{01}=u=\frac{[2]}{\sqrt{a_{00}}}=2}\). Subtracting the outer product \(uu^T\) from the lower principal submatrix \([8]\) leaves \(8-4=4\). Repeating the factorization step for the remaining \(1\times 1\) matrix yields \(R_{11} = \sqrt{4}=2.\) Therefore
 \({\ds 
 R  = 
 \left[\begin{array}{cc}
@@ -119,7 +119,7 @@ R  =
 2&8
 \end{array}\right].
 }\) <p>
-<b>5 (b)</b> The top row of \(R\) is \(R_{11}=\sqrt{a_{11}}=2\), followed by \({\ds R_{12}=u=\frac{[-2]}{\sqrt{a_{11}}}= -1}\). Subtracting the outer product \(uu^T\) from the lower principal submatrix \([5/4]\) leaves \(5/4-1=1/4\). Repeating the factorization step for the remaining \(1\times 1\) matrix yields \(R_{22} = \sqrt{1/4}=1/2.\) Therefore
+<b>5 (b)</b> The top row of \(R\) is \(R_{00}=\sqrt{a_{00}}=2\), followed by \({\ds R_{01}=u=\frac{[-2]}{\sqrt{a_{00}}}= -1}\). Subtracting the outer product \(uu^T\) from the lower principal submatrix \([5/4]\) leaves \(5/4-1=1/4\). Repeating the factorization step for the remaining \(1\times 1\) matrix yields \(R_{11} = \sqrt{1/4}=1/2.\) Therefore
 \({\ds 
 R  = 
 \left[\begin{array}{rr}
@@ -142,7 +142,7 @@ R  =
 -2&5/4
 \end{array}\right].
 }\) <p>
-<b>5 (c)</b> The top row of \(R\) is \(R_{11}=\sqrt{a_{11}}=5\), followed by \({\ds R_{12}=u=\frac{[5]}{\sqrt{a_{11}}}=1}\). Subtracting the outer product \(uu^T\) from the lower principal submatrix \([26]\) leaves \(26-1=25\). Repeating the factorization step for the remaining \(1\times 1\) matrix yields \(R_{22} = \sqrt{25}=5.\) Therefore
+<b>5 (c)</b> The top row of \(R\) is \(R_{00}=\sqrt{a_{00}}=5\), followed by \({\ds R_{01}=u=\frac{[5]}{\sqrt{a_{00}}}=1}\). Subtracting the outer product \(uu^T\) from the lower principal submatrix \([26]\) leaves \(26-1=25\). Repeating the factorization step for the remaining \(1\times 1\) matrix yields \(R_{11} = \sqrt{25}=5.\) Therefore
 \({\ds 
 R  = 
 \left[\begin{array}{cc}
@@ -165,7 +165,7 @@ R  =
 5&26
 \end{array}\right].
 }\) <p>
-<b>5 (d)</b> The top row of \(R\) is \(R_{11}=\sqrt{a_{11}}=1\), followed by \({\ds R_{12}=u=\frac{[-2]}{\sqrt{a_{11}}}= -2}\). Subtracting the outer product \(uu^T\) from the lower principal submatrix \([5]\) leaves \(5-(-2)(-2)=1\). Repeating the factorization step for the remaining \(1\times 1\) matrix yields \(R_{22} = \sqrt{1}=1.\) Therefore
+<b>5 (d)</b> The top row of \(R\) is \(R_{00}=\sqrt{a_{00}}=1\), followed by \({\ds R_{01}=u=\frac{[-2]}{\sqrt{a_{00}}}= -2}\). Subtracting the outer product \(uu^T\) from the lower principal submatrix \([5]\) leaves \(5-(-2)(-2)=1\). Repeating the factorization step for the remaining \(1\times 1\) matrix yields \(R_{11} = \sqrt{1}=1.\) Therefore
 \({\ds 
 R  = 
 \left[\begin{array}{rr}
@@ -207,8 +207,8 @@ The solution of
 -1&2
 \end{array}\right]
 \left[\begin{array}{r}
-c_1\\
-c_2
+c_0\\
+c_1
 \end{array}\right]=
 \left[\begin{array}{r}
 3\\
@@ -225,8 +225,8 @@ c_2
 0&2
 \end{array}\right]
 \left[\begin{array}{r}
-x_1\\
-x_2
+x_0\\
+x_1
 \end{array}\right]=
 \left[\begin{array}{r}
 3\\
@@ -254,8 +254,8 @@ The solution of
 -1&3
 \end{array}\right]
 \left[\begin{array}{r}
-c_1\\
-c_2
+c_0\\
+c_1
 \end{array}\right]=
 \left[\begin{array}{c}
 10\\
@@ -272,8 +272,8 @@ c_2
 0&3
 \end{array}\right]
 \left[\begin{array}{r}
-x_1\\
-x_2
+x_0\\
+x_1
 \end{array}\right]=
 \left[\begin{array}{r}
 5\\
@@ -289,21 +289,21 @@ x_2
 <b>9</b> Multiply out
 \(\ds x^TAx =
 \left[\begin{array}{cc}
-x_1 &x_2
+x_0 &x_1
 \end{array}\right]
 \left[\begin{array}{cc}
 1&2\\2&d
 \end{array}\right]
 \left[\begin{array}{c}
-x_1 \\x_2\\
+x_0 \\x_1\\
 \end{array}\right] =
-x_1^2+4x_1x_2+dx_2^2>0
+x_0^2+4x_0x_1+dx_1^2>0
 \)
-and complete the square as \((x_1+2x_2)^2+(d-4)x_2^2\). If \(d>4\), then \(x^TAx\) is expressed as
+and complete the square as \((x_0+2x_1)^2+(d-4)x_1^2\). If \(d>4\), then \(x^TAx\) is expressed as
 a sum of squares and is positive for all \(x\neq 0\).
 <hr>
 
-<b>11</b> We attempt to find the Cholesky factorization.  The matrix \(A\) is positive-definite exactly when the diagonal entries of \(R\) are positive. The top row of \(R\) is \(R_{11}=\sqrt{a_{11}}=1\), followed by \({\ds [R_{12}\ R_{13}]=u^T=\frac{[-1\ 0]}{\sqrt{a_{11}}}= [-1\ 0]}\). Subtracting the outer product \({\ds uu^T=
+<b>11</b> We attempt to find the Cholesky factorization.  The matrix \(A\) is positive-definite exactly when the diagonal entries of \(R\) are positive. The top row of \(R\) is \(R_{00}=\sqrt{a_{00}}=1\), followed by \({\ds [R_{01}\ R_{13}]=u^T=\frac{[-1\ 0]}{\sqrt{a_{00}}}= [-1\ 0]}\). Subtracting the outer product \({\ds uu^T=
 \left[\begin{array}{rr}
 1&0\\0&0
 \end{array}\right]
@@ -318,8 +318,8 @@ a sum of squares and is positive for all \(x\neq 0\).
 \left[\begin{array}{rr}
 1&1\\1&d
 \end{array}\right]
-}\). Repeating the factorization step for the remaining \(2\times 2\) matrix yields \(R_{22} = \sqrt{1}=1\), followed by  
-\({\ds R_{23}=u=\frac{[1]}{\sqrt{a_{22}}}=1}\). Subtracting the outer product \(uu^T\) from the lower principal submatrix \([d]\) leaves \(d-1\). The \(R_{33}\) entry will be the square root of \(d-1\). The matrix is positive-definite if and only if \(d>1\).
+}\). Repeating the factorization step for the remaining \(2\times 2\) matrix yields \(R_{11} = \sqrt{1}=1\), followed by  
+\({\ds R_{12}=u=\frac{[1]}{\sqrt{a_{22}}}=1}\). Subtracting the outer product \(uu^T\) from the lower principal submatrix \([d]\) leaves \(d-1\). The \(R_{22}\) entry will be the square root of \(d-1\). The matrix is positive-definite if and only if \(d>1\).
 <hr>
 
 <b>13 (a)</b> Following the Conjugate Gradient Method pseudocode:
@@ -355,7 +355,7 @@ x_0 &=  \left[\begin{array}{c}
 \frac{2}{10}=\frac{1}{5}
 \end{align*}
 \begin{align*}
-x_1&=  \left[\begin{array}{c}
+x_0&=  \left[\begin{array}{c}
 0\\
 0\\
 \end{array}\right]+
@@ -419,7 +419,7 @@ d_1&=  \left[\begin{array}{r}
 \end{array}\right]}=5
 \end{align*}
 \begin{align*}
-x_2&=  \left[\begin{array}{r}
+x_1&=  \left[\begin{array}{r}
 1/5\\
 1/5\\
 \end{array}\right]+
@@ -485,7 +485,7 @@ x_0 &=  \left[\begin{array}{c}
 \frac{10}{58}=\frac{5}{29}
 \end{align*}
 \begin{align*}
-x_1&=  \left[\begin{array}{c}
+x_0&=  \left[\begin{array}{c}
 0\\
 0\\
 \end{array}\right]+
@@ -551,7 +551,7 @@ d_1&=  \left[\begin{array}{r}
 70\\
 \end{array}\right]}=5.8
 \\
-x_2&=  \left[\begin{array}{r}
+x_1&=  \left[\begin{array}{r}
 5/29\\
 15/29\\
 \end{array}\right]+
@@ -582,7 +582,7 @@ r_2&=  \left[\begin{array}{r}
 \end{align*}
 <hr>
 
-<b>15</b> \(\alpha_0=1/A, x_1=b/A, r_1=b-Ab/A=0\)
+<b>15</b> \(\alpha_0=1/A, x_0=b/A, r_1=b-Ab/A=0\)
 
  
 
