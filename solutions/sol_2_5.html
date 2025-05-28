@@ -165,11 +165,11 @@ and  \([u_2,v_2,w_2]=[1,\frac{1}{2},\frac{5}{4}]\)
 by its largest magnitude entry, we can find an eigenvector whose
 largest magnitude entry \(v_m\) is exactly \(1\). The \(m\)th row of the
 eigenvalue equation \(Av=\lambda v\) is therefore
-\[A_{m1}v_1+\ldots+A_{m,m-1}v_{m-1}+A_{mm}+A_{m,m+1}v_{m+1}+\ldots+A_{mn}v_n=\lambda.
+\[A_{m0}v_0+\ldots+A_{m,m-1}v_{m-1}+A_{mm}+A_{m,m+1}v_{m+1}+\ldots+A_{m,n-1}v_{n-1}=\lambda.
 \]
-Since \(|v_i|\leq 1\) for all \(1\leq i\leq n\), it follows that
+Since \(|v_i|\leq 1\) for all \(i\), it follows that
 \begin{align*}
-|A_{mm}-\lambda|&=  | A_{m1}v_1+\ldots+A_{m,m-1}v_{m-1}+A_{m,m+1}v_{m+1}+\ldots+A_{mn}v_n|\\
+|A_{mm}-\lambda|&=  | A_{m0}v_0+\ldots+A_{m,m-1}v_{m-1}+A_{m,m+1}v_{m+1}+\ldots+A_{m,n-1}v_{n-1}|\\
 &\leq \sum_{j\neq m} |A_{mj}|.
 \end{align*}
 <b>5 (b)</b> If \(\lambda=0\) is an eigenvalue of \(A\), then by the
