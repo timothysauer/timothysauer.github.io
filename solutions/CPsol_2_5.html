@@ -6,9 +6,9 @@
 </head>
 
 <h3>COMPUTER PROBLEMS 2.5</h3>
-<b>1</b> The Matlab program <tt>jacobi.m</tt> can be used to solve
+<b>1</b> The Python program <tt>jacobi.py</tt> can be used to solve
 the system after defining \(A\) and \(b\) with an altered version of
-<tt>sparsesetup.m</tt>. The initial vector is set to \([0,\ldots,0]\).
+<tt>sparsesetup.py</tt>. The initial vector is set to \([0,\ldots,0]\).
 By checking the infinity norm error of the solution \(x\), say by
 the command <tt>norm(x-1,inf)</tt>, the Jacobi method can be iterated
 until the error is less than \(0.5\times 10^{-6}\).  For \(n=100\), 36
@@ -17,8 +17,14 @@ In both cases, the backward error is approximately \(4.6\times
 10^{-7}\).
 <hr>
 
-<b>3</b> The Gauss-Seidel method can be coded in \Matlab as
+<b>3</b> The Gauss-Seidel method can be coded in Python as
 follows:
+
+<pre>
+def gauss_seidel(a,b,k):
+
+
+</pre>
 
 <pre>
 % Gauss-Seidel
