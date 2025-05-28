@@ -10,10 +10,10 @@
 <b>1 (a)</b> The Conjugate Gradient loop written in pseudocode in the textbook can be
 coded as follows.
 <pre>
-function x=cg(a,b,n)
-% Inputs: symm. pos. def. matrix a, right-hand side b, number of steps n
-% Output: solution x
+
 def cg(a,b,k):
+    """Inputs: symm. pos. def. matrix a, right-hand side b, number of steps k
+    Output: solution x"""
     n = b.shape[0]
     x = np.zeros((n))
     r = b - a@x
