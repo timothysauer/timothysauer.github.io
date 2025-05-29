@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Numerical Analysis 3rd Edition Sauer </title>
+<title>Numerical Analysis 4th Edition Sauer </title>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 </head>
 
 <h3>EXERCISES 3.3</h3>
 \(\def\ds{\displaystyle} \)
-<b>1 (a)</b> Using the formula \(x_i=\cos(2i-1)\pi/(2n)\) for \(i=1,\ldots,
-n\), the interpolation nodes are \[\cos\frac{\pi}{12},
+<b>1 (a)</b> Using the formula \(x_i=\cos((2i+1)\pi/(2n))\) for \(i=0,\ldots,
+n-1\), the interpolation nodes are \[\cos\frac{\pi}{12},
 \cos\frac{3\pi}{12}, \cos\frac{5\pi}{12}, \cos\frac{7\pi}{12},
 \cos\frac{9\pi}{12}, \cos\frac{11\pi}{12}.\]
 <b>1 (b)</b> The general formula for Chebyshev nodes on \([a,b]\) is
-\((a+b)/2+((b-a)/2)\cos(2i-1)\pi/(2n)\) for \(i=1, \ldots, n\). The 4 nodes on
-\([-2,2]\) are therefore \(2\cos(2i-1)\pi/8\) for \(i=1,\ldots, 4\) or
+\((a+b)/2+((b-a)/2)\cos(2i+1)\pi/(2n)\) for \(i=0, \ldots, n-1\). The 4 nodes on
+\([-2,2]\) are therefore \(2\cos(2i+1)\pi/8\) for \(i=0,\ldots, 3\) or
 \[2\cos\frac{\pi}{8}, 2\cos\frac{3\pi}{8}, 2\cos\frac{5\pi}{8},
 2\cos\frac{7\pi}{8}.\]
 <b>1 (c)</b> Using the general formula from (b), the \(6\) nodes in \([4,12]\) are
@@ -28,7 +28,7 @@ n\), the interpolation nodes are \[\cos\frac{\pi}{12},
 
 <b>3</b> To find a degree \(5\) interpolating polynomial, we need \(n=6\)
 nodes. By Theorem 3.3, the interpolation error is
-\[e^x-Q_5(x)=\frac{(x-x_1)\cdots(x-x_6)}{6!}f^{(vi)}(c)\]
+\[e^x-Q_5(x)=\frac{(x-x_0)\cdots(x-x_5)}{6!}f^{(vi)}(c)\]
 where \(-1\leq c\leq1\). Using (3160),
 \[|e^x-Q_5(x)|\leq \frac{|f^{(vi)}(c)|}{2^5 6!}=\frac{e^c}{2^5
 6!}\leq\frac{e}{2^5 6!}\approx1.1798\times10^{-4}.\] Since
@@ -38,7 +38,7 @@ places for \(-1\leq x\leq1\).
 
 <b>5</b> To find a degree \(3\) interpolating polynomial \(P_3(x)\),
 \(n=4\) nodes are needed. By Theorem 3.3 and (3.16),
-\[|\sin x-P_3(x)|=\frac{(x-x_1)(x-x_2)(x-x_3)(x-x_4)}{4!}|f^{(iv)}(c)|\leq\frac{1}{2^3
+\[|\sin x-P_3(x)|=\frac{(x-x_0)(x-x_1)(x-x_2)(x-x_3)}{4!}|f^{(iv)}(c)|\leq\frac{1}{2^3
 4!}\approx0.0052.\]
 <hr>
 
@@ -46,7 +46,7 @@ places for \(-1\leq x\leq1\).
 interpolation error to less than \(0.5\times10^{-6}\). Using Theorem
 3.3 and (3.16), the error for the degree \(d\) interpolation
 polynomial is
-\[|\ln x-P_d(x)|=\frac{|(x-x_1)\cdots(x-x_{d+1})|}{(d+1)!}|f^{(d+1)}(c)|\leq
+\[|\ln x-P_d(x)|=\frac{|(x-x_0)\cdots(x-x_{d})|}{(d+1)!}|f^{(d+1)}(c)|\leq
 \frac{{(\frac{e-1}{2})}^{d+1}}{2^d(d+1)!}d!c^{-d-1}\leq
 \frac{{(e-1)}^{d+1}}{2^{2d+1}(d+1)}\] where \(1\leq c\leq e\).
 This expression is less than
