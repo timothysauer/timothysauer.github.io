@@ -73,11 +73,8 @@ S_3(x) = 4-1.1786(x-3)-4.6429(x-3)^2+3.8214(x-3)^3 &\mbox{ on \([3,4]\)}\\
 <p>
 <hr>
 
-<b>7</b> Program 3.5 can be used to find the cubic spline, using input vectors
-<pre>
->> x=pi*(0:4)/8;
->> y=cos(x);
-</pre>
+<b>7</b> Program 3.5 can be used to find the cubic spline.
+
 The clamps <tt>v1</tt> and <tt>vn</tt> should be chosen to match the derivatives at
 the endpoints, namely \(S'(0)= -\sin 0 = 0\) and \(S'(\pi/2) = -\sin \pi/2 = -1\),
 respectively. The cubic spline is plotted below along with the cosine curve,
