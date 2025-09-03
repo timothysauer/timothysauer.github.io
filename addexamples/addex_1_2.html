@@ -28,11 +28,12 @@ g'(2) &=& -\frac{1}{2}
 \end{eqnarray*}
 According to Theorem 1.6, Fixed Point Iteration will converge locally to the fixed points \(-1\) and \(2\).
 <hr><hr>
-<b>2</b> Use the <tt>fpi.m</tt> code to find the three real roots of the equation \(x^5+4x^2 = \sin x + 4x^4+1\) correct to six decimal places.
+<b>2</b> Use the <tt>fpi.py</tt> code to find the three real roots of the equation \(x^5+4x^2 = \sin x + 4x^4+1\) correct to six decimal places.
 <hr>
 One way to rearrange the equation is \[x = \frac{\sin x+4x^4+1}{x^4+4x}.\] Using this \(g(x)\) and the initial guess \(1,\) the Matlab code
 <pre>
-g=@(x) (sin(x)+4*x^4+1)/(x^4+4*x)
+def g(x):
+    return(sin(x)+4*x^4+1)/(x^4+4*x)
 x=fpi(g,1,20)
 </pre>
 returns the approximate root \(3.712147\) after 20 steps of Fixed Point Iteration.
