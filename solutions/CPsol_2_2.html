@@ -11,21 +11,23 @@ filling in the entries of \(L\) and \(U\). The diagonal entries of \(L\)
 are ones, and the remaining entries are the multipliers from <tt>mult</tt>. 
 It is also necessary to change the <tt>k</tt> loop to go from
 <tt>j</tt> to <tt>n</tt>, in order to place a zero in the eliminated
-location of \(U\). Matlab code follows:
+location of \(U\). Python code follows:
 
 <pre>
-l=diag(ones(n,1));
-for j = 1:n-1
-  for i = j+1:n
-    if abs(a(j,j))&lt eps; error('zero pivot encountered'); end
-    mult = a(i,j)/a(j,j);l(i,j)=mult;
-    for k = j:n
-      a(i,k) = a(i,k) - mult*a(j,k);
-    end
-  end
-end
-l
-u=a
-</pre>
+import numpy as np
+def my_lu(a):
+    n,_ = a.shape
+    l = np.identity(n)
+    for j in range(n-1):
+        if np.abs(a[j,j]) &lt np.finfo(np.float64).eps:
+            raise ValueError('zero pivot encountered')
+        for i in range(j+1,n):
+            mult = a[i,j]/a[j,j]
+            l[i,j] = mult
+            for k in range(j+1,n):
+                a[i,k] = a[i,k] - mult*a[j,k]
+    u = np.triu(a)
+    return l,u
+</pre>      
 
 </html>

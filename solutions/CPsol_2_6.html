@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Numerical Analysis 3rd Edition Sauer </title>
+<title>Numerical Analysis 4th Edition Sauer </title>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 </head>
 
@@ -10,34 +10,39 @@
 <b>1 (a)</b> The Conjugate Gradient loop written in pseudocode in the textbook can be
 coded as follows.
 <pre>
-function x=cg(a,b,n)
-% Inputs: symm. pos. def. matrix a, right-hand side b, number of steps n
-% Output: solution x
-x=zeros(length(b),1);
-r=b-a*x;
-d=r;d1(:,1)=d;r1(:,1)=r;
-for i=1:n
-    if max(abs(r))&lt eps break; end
-    alf=d'*r/(d'*a*d);
-    x=x+alf*d;
-    rold=r;
-    r=rold-alf*a*d;
-    beta=r'*r/(rold'*rold);
-    d=r+beta*d;d1(:,i+1)=d;r1(:,i+1)=r;
-end
+
+def cg(a,b,k):
+    """Inputs: symm. pos. def. matrix a, right-hand side b, number of steps k
+    Output: solution x"""
+    n = b.shape[0]
+    x = np.zeros((n))
+    r = b - a@x
+    d = r
+    mach_eps = np.finfo(float).eps
+    for i in range(k):
+        if np.max(np.abs(r)) < mach_eps: break
+        alf = np.dot(d,r)/np.dot(d,a@d)
+        x = x+alf*d
+        rold = r
+        r = rold - alf*a@d
+        beta = np.dot(r,r)/np.dot(rold,rold)
+        d = r+beta*d
+    return x
 </pre>
 
-The test for  \(r\) equal to zero uses <tt>eps</tt>, the machine epsilon.
-The Matlab command
+The test for  \(r\) equal to zero uses <tt>np.finfo(float).eps</tt>, the <tt>numpy</tt> machine epsilon.
+The commands
 <pre>
->> x=cg([1 0;0 2],[2;4],2)
+>> a = np.array([1,0],[0,2]])
+>> b = np.array([2,4])   
+>> x=cg(a,b,2)
 </pre>
 returns the solution \(x=[2, 2]\).<p>
 <b>1 (b)</b> Applying the code from part (a) returns the solution \(x=[3, -1]\).
 <hr>
 
 <b>3 (a)</b> The Conjugate Gradient code from Computer Problem 1 can be used with
-<tt>a = hilb(4)</tt> and <tt>b = ones(4,1)</tt> to yield the solution \(x=[-4, 60, -180, 140]\)
+<tt>a = scipy.linalg.hilbert(4)</tt> and <tt>b = np.ones((4))</tt> to yield the solution \(x=[-4, 60, -180, 140]\)
 after 4 steps. <p>
 <b>3 (b)</b> The exact solution
 \(\ds x=[     -8,
@@ -52,7 +57,7 @@ after 4 steps. <p>
 is approached after more than 20 steps of Conjugate Gradient.
 <hr>
 
-<b>5</b> Use Program 2.1, <tt>sparsesetup.m</tt> to define the matrix \(a\) and right-hand
+<b>5</b> Use Program 2.1, <tt>sparsesetup.py</tt> to define the matrix \(a\) and right-hand
 side (b). For \(n=100\), Conjugate Gradient runs 34 steps before the residual \(r\) is
 smaller than machine epsilon in the infinity norm. The final residual is
 \(r\approx 9.76\times 10^{-17}\). For \(n=1000\), only 35 steps are needed to make the residual
@@ -60,7 +65,12 @@ smaller than machine epsilon in the infinity norm. The final residual is
 \(r\approx 7.17\times 10^{-17}\).
 <hr>
 
-<b>7</b> Part (a) shows the output of Matlab <tt>spy></tt> command on the matrix \(A\). The code shown in the answer to Computer Problem 1(a) above can be slightly modified to carry out  the Preconditioned Conjugate Gradient Method outlined in pseudocode in the textbook. Applying this code to the \(A\) and \(b\) defined in the problem result in Part (b), showing the error as a function of step number for no preconditioner (circles), Jacobi preconditioner (squares), and Gauss-Seidel preconditioner (diamonds).
+<b>7</b> Part (a) shows the output of the <tt>matplotlib.pyplot.spy</tt> command on the matrix \(A\). 
+The code shown in the answer to Computer Problem 1(a) above can be slightly modified to carry out  
+the Preconditioned Conjugate Gradient Method outlined in pseudocode in the textbook. Applying this
+ code to the \(A\) and \(b\) defined in the problem result in Part (b), showing the error as a 
+ function of step number for no preconditioner (circles), Jacobi preconditioner (squares), 
+ and Gauss-Seidel preconditioner (diamonds).
 
 <p>
 <img width=300 async src="figs/cp2o6o7a.png" align=left>
@@ -70,7 +80,7 @@ smaller than machine epsilon in the infinity norm. The final residual is
 <br clear="all" />
 <hr>
 
-<b>9</b> Part (a) shows the output of Matlab <tt>spy</tt> command on the matrix \(A\). Applying the code as described in the answer to Computer Problem 7 to the \(A\) and \(b\) defined in the problem result in Part (b), showing the error as a function of step number for no preconditioner (circles), Jacobi preconditioner (squares), and Gauss-Seidel preconditioner (diamonds).
+<b>9</b> Part (a) shows the output of the <tt>spy</tt> command on the matrix \(A\). Applying the code as described in the answer to Computer Problem 7 to the \(A\) and \(b\) defined in the problem result in Part (b), showing the error as a function of step number for no preconditioner (circles), Jacobi preconditioner (squares), and Gauss-Seidel preconditioner (diamonds).
 
 <p>
 <img width=300 async src="figs/cp2o6o8a.png" align=left>

@@ -8,9 +8,9 @@
 <h3>COMPUTER PROBLEMS 3.3</h3>
 \(\def\ds{\displaystyle} \)
 <b>1</b> The base points in Program 3.3 must be changed to be the Chebyshev
-nodes, using for example the Matlab code
+nodes, using for example the code
 <pre>
->> b=pi/4+(pi/4)*cos((1:2:7)*pi/8);
+>> b=np.pi/4+(np.pi/4)*np.cos(np.array(list(range(1,9,2)))*np.pi/8);
 </pre>
 Then evaluating the output of the revised Program 3.3
 on the interval \([-2,2]\) gives the following plot. Note that 
@@ -37,30 +37,29 @@ polynomial at 26 Chebyshev nodes in \([1,e].\) <p>
 The part of Program 3.4 that moves any input between \(10^{-4}\) and \(10^4\)
 into the fundamental domain must also be changed. Since \(e^{10}>10^4\),
 the exponent \(k\) satisfying \(e^k\leq x\lt e^{k+1}\) can be found using
-Matlab code
+Python code
 <pre>
-k = 10;
-while exp(k)&gt x
-  k = k-1;
-end
+k = 10
+while exp(k) > x:
+    k = k-1
 </pre>
 Now that \(xe^{-k}\) is in \([1,e]\), it can be substituted into the interpolation
 polynomial, and the result is added to \(k\) to get the approximate natural
 logarithm.
 <hr>
 
-<b>5</b> The Matlab commands
+<b>5</b> The Python commands
 <pre>
->> b=2*(0:(n-1))/(n-1)-1;
+>> b=2*np.array(list(range(n)))/(n-1)-1
 </pre>
 or
 <pre>
->> b=cos((1:2:2*n-1)*pi/(2*n));
+>> b=np.cos(np.array(list(range(1,2*n+1,2)))*np.pi/(2*n))
 </pre>
 together with
 <pre>
->> yb=exp(-b.^2);
->> c=newtdd(b,yb,n);
+>> yb=np.exp(-b**2)
+>> c=newtdd(b,yb)
 </pre>
 define the coefficients of the degree \(n-1\) interpolating polynomial for evenly-spaced
 or Chebyshev nodes, respectively. Setting  \(n=10\) (left) or  \(n=20\) (right) gives the interpolation
@@ -78,6 +77,7 @@ The reason the curves are indistinguishable is clear when the empirical interpol
 are plotted,  \(n=10\) (left) and \(n=20\) (right). The dashed curve is the interpolation error for
 evenly-spaced interpolation, and the solid curve is the Chebyshev interpolation error. There
 is a small hint of Runge phenomenon at the ends of the interval.
+
 <img width=300 async src="figs/cp3o3o5c.png" align=left>
 <img width=300 async src="figs/cp3o3o5d.png" align=left>
 

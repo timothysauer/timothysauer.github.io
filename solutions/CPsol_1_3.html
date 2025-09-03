@@ -11,19 +11,19 @@
 <b>1 (a)</b> Check the derivatives of \(f(x)=\sin x-x\) to see that
 \(f(0)=f'(0)=f''(0)=0\) and \(f'''(0)=-\cos 0=-1\), giving
 multiplicity \(3\). <p>
-<b>1 (b)</b> <tt> fzero</tt> returns \(x_c=-2.0735\times 10^{-8}\). The
-forward error is \(2.0735\times 10^{-8}\) and  the
+<b>1 (b)</b> <tt> brentq</tt> returns \(x_c=-1.7531084141128772\times 10^{-8}\). The
+forward error is \(1.7531084141128772\times 10^{-8}\) and  the
 backward error is reported as \(|f(x_c)|=0\). This means the true backward
-error is likely less than machine epsilon.
+error is less than machine epsilon.
 <hr>
 
-<b>3 (a)</b> The Matlab command
+<b>3 (a)</b> The Python command
 <pre>
->> xc=fzero(@(x) 2*x*cos(x)-2*x+sin(x^3),[-0.1,0.2])
+>> xc = brentq(lambda x:2.*x*np.cos(x)-2.*x+np.sin(x**3),-0.1,0.2)
 </pre>
-returns \(x_c=0.00016881\). The forward error is
-\(|x_c-r|=0.00016881\) and the backward error is reported by \Matlab as
-\(|f(x_c)|=0\). <p>
+returns \(x_c=0.00018135027239607221\). The forward error is
+\(|x_c-r|=0.00018135027239607221\) and the backward error is reported as
+\(|f(x_c)|=-1.565121604046725e-20\). <p>
 <b>3 (b)</b> The bisection method with starting interval
 \([-0.1,0.2]\) stops after 13 steps, giving \(x_c=-0.00006103\).
 Neither method can determine the root \(r=0\) to more than about 3
@@ -34,8 +34,8 @@ correct decimal places.
 \(\epsilon=-10^{-6}\) and \(g(x)=x^6\). Then near the root \(r=4\),
 \(\Delta r\approx-\epsilon g(r)/f'(r)=4^6\times 10^{-6}/6\approx0.00068267\).
 According to (1.22), the error magnification factor is
-\(|g(r)|/|rf'(r)|=4^6/24\approx170.7\). <tt>fzero</tt> returns the
-approximate root \(4.00068251\), close to the guess \(4.00068267\)
+\(|g(r)|/|rf'(r)|=4^6/24\approx170.7\). <tt>brentq</tt> on the interval \([3.9, 4.1]\) returns the
+approximate root \(4.000682511531738\), close to the approximation \(4.00068267\)
 given by (1.21).
 
 

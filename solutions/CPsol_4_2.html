@@ -9,7 +9,7 @@
 <h3>COMPUTER PROBLEMS 4.2</h3>
 \(\def\ds{\displaystyle} \)
 <b>1</b> Each of the 12 data points \((t_i,y_i)\) leads to an equation
-\[c_1+c_2\cos 2\pi t_i+c_3\sin 2\pi t_i+c_4\cos 4\pi t_i=y_i\]
+\[c_0+c_1\cos 2\pi t_i+c_2\sin 2\pi t_i+c_3\cos 4\pi t_i=y_i\]
 in the coefficients \(c_j\). The \(t_i\) are evenly-spaced from \(0\) to
 \(11/12\), using years as the time unit. The matrix form of the
 equations is
@@ -19,7 +19,7 @@ equations is
 \vdots&\vdots&\vdots&\vdots\\
 1&\cos 2\pi(\frac{11}{12})&\sin 2\pi(\frac{11}{12})&\cos 4\pi(\frac{11}{12})\\
 \end{array}\right]
-\left[\begin{array}{c} c_1\\c_2\\c_3\\c_4\\
+\left[\begin{array}{c} c_0\\c_1\\c_2\\c_3\\
 \end{array}\right]
 = \left[\begin{array}{c} 6.224\\6.665\\\vdots\\6.372\\
 \end{array}\right].\]
@@ -27,7 +27,7 @@ Computing the normal equations yields
 \[\left[\begin{array}{cccc}
 12&0&0&0\\0&6&0&0\\0&0&6&0\\0&0&0&6\\
 \end{array}\right]
-\left[\begin{array}{c} c_1\\c_2\\c_3\\c_4\\
+\left[\begin{array}{c} c_0\\c_1\\c_2\\c_3\\
 \end{array}\right]
 = \left[\begin{array}{c}   67.0050\\
     4.5247\\
@@ -45,7 +45,7 @@ The best least squares periodic model of form (4.9) is
 The RMSE of the fit is \(||b-Ax||_2/\sqrt{12}\approx 0.1836\).
 <hr>
 
-<b>3</b> Substituting the data into the linearized model \(\ln y=k+c_2t\)
+<b>3</b> Substituting the data into the linearized model \(\ln y=k+c_1t\)
 results in
 \[\left[\begin{array}{cccc}
 1&0\\
@@ -53,7 +53,7 @@ results in
 1&30\\
 1&40\\
 \end{array}\right]
-\left[\begin{array}{c} k\\c_2\\
+\left[\begin{array}{c} k\\c_1\\
 \end{array}\right]
 = \left[\begin{array}{c} \ln 3039585530\\
 \ln 3707475887\\ \ln 5281653820\\ \ln 6079603571\\
@@ -64,22 +64,22 @@ The normal equations are
            4  &        80\\
           80  &     2600\\
 \end{array}\right]
-\left[\begin{array}{c} k\\c_2\\
+\left[\begin{array}{c} k\\c_1\\
 \end{array}\right]
 = \left[\begin{array}{c}
 88.784\\1793.1\\
 \end{array}\right].\]
 Solving for the coefficients yields
-\(k\approx  21.848, c_2\approx 0.0174\), and \(c_1 =
+\(k\approx  21.848, c_1\approx 0.0174\), and \(c_0 =
 e^k  \approx 3079440361\). The best model through linearization is
-\[y=c_1e^{c_2t} = 3079440361e^{0.0174(t-1960)}.\] Substituting
+\[y=c_0e^{c_1t} = 3079440361e^{0.0174(t-1960)}.\] Substituting
 \(t=1980\) yields the estimate \(4361486000\), which differs from
 the actual 1980 population by 91 million.
 <hr>
 
-<b>5 (a)</b> Differentiating the model \(y=c_1te^{c_2t}\) and setting
-the result to zero gives the equation \(0=c_1e^{c_2t}(1+c_2t)\),
-whose solution is \(t=-1/c_2\), the maximum.<p>
+<b>5 (a)</b> Differentiating the model \(y=c_0te^{c_1t}\) and setting
+the result to zero gives the equation \(0=c_0e^{c_1t}(1+c_1t)\),
+whose solution is \(t=-1/c_1\), the maximum.<p>
 <b>5 (b)</b> Starting with the model \(y=9.77te^{-0.215t}\), the maximum
 occurs at \(t_\text{max} \approx 4.65\) hours, according to (a). The
 maximum value is \(y_\text{max}=16.72\). To find the half-life, we must
@@ -91,7 +91,7 @@ the maximum concentration is
 \(t_\text{half}-t_\text{max} = 7.81\) hours.
 <hr>
 
-<b>7 (a)</b> The coefficients \(c_1, c_2, c_3, c_4\) are obtained by solving the normal equations for the system \(Ac=b\):
+<b>7 (a)</b> The coefficients \(c_0, c_1, c_2, c_3\) are obtained by solving the normal equations for the system \(Ac=b\):
 \[\left[\begin{array}{cccc}
 1 & \cos 2\pi t_1 & \sin 2\pi t_1 & \cos 4\pi t_1 \\
 \\
@@ -100,7 +100,7 @@ the maximum concentration is
 1 & \cos 2\pi t_n & \sin 2\pi t_n & \cos 4\pi t_n 
 \end{array}\right]
 \left[\begin{array}{c}
-c_1\\c_2\\c_3\\c_4
+c_0\\c_1\\c_2\\c_3
 \end{array}\right] = 
 \left[\begin{array}{c}
 x_1\\ \\ \vdots \\  \\ x_n
@@ -115,7 +115,7 @@ The solution of the normal equations give the least squares trigonometric polyno
 <p>
 <hr>
 
-<b>9 (a)</b> The coefficients \(c_1, c_2, c_3, c_4\) are obtained by solving the normal equations for the system \(Ac=b\):
+<b>9 (a)</b> The coefficients \(c_0, c_1, c_2, c_3\) are obtained by solving the normal equations for the system \(Ac=b\):
 \[\left[\begin{array}{cccc}
 1 &t_1 & \cos 2\pi t_1 & \sin 2\pi t_1 \\
 \\
@@ -124,7 +124,7 @@ The solution of the normal equations give the least squares trigonometric polyno
 1 &t_n & \cos 2\pi t_n & \sin 2\pi t_n 
 \end{array}\right]
 \left[\begin{array}{c}
-c_1\\c_2\\c_3\\c_4
+c_0\\c_1\\c_2\\c_3
 \end{array}\right] = 
 \left[\begin{array}{c}
 x_1\\ \\ \vdots \\  \\ x_n

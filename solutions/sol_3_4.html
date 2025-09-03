@@ -7,44 +7,44 @@
 
 <h3>EXERCISES 3.4</h3>
 \(\def\ds{\displaystyle} \)
-<b>1 (a)</b> Calculating \(S_1'(x)=3x^2+1\) and
-\(S_2'(x)=-3(x-1)^2+6(x-1)+3\), note that \(S_1'(1)=4\) and \(S_2'(1)=3\),
+<b>1 (a)</b> Calculating \(S_0'(x)=3x^2+1\) and
+\(S_1'(x)=-3(x-1)^2+6(x-1)+3\), note that \(S_0'(1)=4\) and \(S_1'(1)=3\),
 so that \(S(x)\) is not a cubic spline. <p>
 <b>1 (b)</b> The derivatives are
 \begin{align*}
-S_1'(x)&=6x^2+2x+4\\
-S_1''(x)&=12x+2\\
-S_2'(x)&=3(x-1)^2+14(x-1)+12\\
-S_2''(x)&=6(x-1)+14
+S_0'(x)&=6x^2+2x+4\\
+S_0''(x)&=12x+2\\
+S_1'(x)&=3(x-1)^2+14(x-1)+12\\
+S_1''(x)&=6(x-1)+14
 \end{align*}
-Calculating \(S_1(1)=12\), \(S_1'(1)=12\), \(S_1''(1)=14\), and \(S_2(1)=12\),
-\(S_2'(1)=12\), \(S_2''(1)=14\), we conclude that \(S(x)\) is a cubic
+Calculating \(S_0(1)=12\), \(S_0'(1)=12\), \(S_0''(1)=14\), and \(S_1(1)=12\),
+\(S_1'(1)=12\), \(S_1''(1)=14\), we conclude that \(S(x)\) is a cubic
 spline.
 <hr>
 
-<b>3 (a)</b> The second derivatives \(S_1''(x)=\frac{9}{2}x\) and
-\(S_2''(x)=-\frac{9}{2}(x-1)+2c\) must agree at \(x=1\), implying that
-\(\frac{9}{2}=2c\), or \(c=\frac{9}{4}\). Since \(S_1''(0)=0\) and
-\(S_2''(2)=-\frac{9}{2}+\frac{9}{2}=0\), the spline is natural. The
+<b>3 (a)</b> The second derivatives \(S_0''(x)=\frac{9}{2}x\) and
+\(S_1''(x)=-\frac{9}{2}(x-1)+2c\) must agree at \(x=1\), implying that
+\(\frac{9}{2}=2c\), or \(c=\frac{9}{4}\). Since \(S_0''(0)=0\) and
+\(S_1''(2)=-\frac{9}{2}+\frac{9}{2}=0\), the spline is natural. The
 spline fails the not-a-knot condition because
-\(S_1'''(1)=\frac{9}{2}\neq -\frac{9}{2}=S_2'''(1)\), and is not
+\(S_0'''(1)=\frac{9}{2}\neq -\frac{9}{2}=S_1'''(1)\), and is not
 parabolically terminated because of the degree \(3\) terms. <p>
-<b>3 (b)</b> The second derivatives \(S_1''(x)=8\) and \(S_2''(x)=2c\)
+<b>3 (b)</b> The second derivatives \(S_0''(x)=8\) and \(S_1''(x)=2c\)
 must agree at \(x=1\), thus \(c=4\). The spline is parabolically
 terminated because of the absence of degree \(3\) terms, and is
-not-a-knot because \(S_1'''(1)=0=S_2'''(1)\). It fails to be natural
-because \(S_1''(0)=8\neq 0\). <p>
-<b>3 (c)</b> The first derivatives \(S_1'(x)=-\frac{3}{2}+7x-3x^2\) and
-\(S_2'(x)=c+(x-1)-3(x-1)^2\) must agree at \(x=1\), so \(c=\frac{5}{2}\).
-Since \(S_1''(0)=7-6(0)=7\neq 0\), the spline is not natural. It is
+not-a-knot because \(S_0'''(1)=0=S_1'''(1)\). It fails to be natural
+because \(S_0''(0)=8\neq 0\). <p>
+<b>3 (c)</b> The first derivatives \(S_0'(x)=-\frac{3}{2}+7x-3x^2\) and
+\(S_1'(x)=c+(x-1)-3(x-1)^2\) must agree at \(x=1\), so \(c=\frac{5}{2}\).
+Since \(S_0''(0)=7-6(0)=7\neq 0\), the spline is not natural. It is
 not parabolically terminated because of the nonzero degree \(3\)
-terms. The spline is not-a-knot because \(S_1'''(1)=S_2'''(1)=-6\) and
-\(S_2'''(2)=S_3'''(2)=-6\).
+terms. The spline is not-a-knot because \(S_0'''(1)=S_1'''(1)=-6\) and
+\(S_1'''(2)=S_2'''(2)=-6\).
 <hr>
 
 <b>5</b> By Theorem 3.6, there is exactly one natural cubic spline
 through any three points with distinct \(x\) coordinates. The cubic
-spline \(S_1(x)=S_2(x)=x\) on \([0,1]\) and \([1,2]\), respectively, satisfies
+spline \(S_0(x)=S_1(x)=x\) on \([0,1]\) and \([1,2]\), respectively, satisfies
 the conditions.
 <hr>
 
@@ -56,51 +56,51 @@ the conditions.
 1&4&1\\0&0&1\\
 \end{array}\right]
 \left[\begin{array}{c}
-c_1\\c_2\\c_3\\
+c_0\\c_1\\c_2\\
 \end{array}\right]=
 \left[\begin{array}{c}
 0\\6\\0\\
 \end{array}\right]\]
-with solutions \(c_1=0\), \(c_2=\frac{3}{2}\), \(c_3=0\). Equation (3.24)
+with solutions \(c_0=0\), \(c_1=\frac{3}{2}\), \(c_2=0\). Equation (3.24)
 yields
-\[d_1=\frac{c_2-c_1}{3\delta_1}=\frac{\frac{3}{2}-0}{3(1)}=\frac{1}{2}\]
-\[d_2=\frac{c_3-c_2}{3\delta_2}=\frac{0-\frac{3}{2}}{3(1)}=-\frac{1}{2}\]
+\[d_0=\frac{c_1-c_0}{3\delta_0}=\frac{\frac{3}{2}-0}{3(1)}=\frac{1}{2}\]
+\[d_1=\frac{c_2-c_1}{3\delta_1}=\frac{0-\frac{3}{2}}{3(1)}=-\frac{1}{2}\]
 and equation (3.25) gives
-\[b_1=\frac{\Delta_1}{\delta_1}-\frac{\delta_1}{3}(2c_1+c_2)=\frac{1}{2}\]
-\[b_2=\frac{\Delta_2}{\delta_2}-\frac{\delta_2}{3}(2c_2+c_3)=2\]
+\[b_0=\frac{\Delta_0}{\delta_0}-\frac{\delta_0}{3}(2c_0+c_1)=\frac{1}{2}\]
+\[b_1=\frac{\Delta_1}{\delta_1}-\frac{\delta_1}{3}(2c_1+c_2)=2\]
 The cubic spline is therefore
 \begin{align*}
-S_1(x)&=0+\frac{1}{2}x+0x^2+\frac{1}{2}x^3\hspace{1.4in}\text{on}\ \ \ \ \
+S_0(x)&=0+\frac{1}{2}x+0x^2+\frac{1}{2}x^3\hspace{1.4in}\text{on}\ \ \ \ \
 [0,1]\\
-S_2(x)&=1+2(x-1)+\frac{3}{2}(x-1)^2-\frac{1}{2}(x-1)^3\ \ \ \ \ \text{on}
+S_1(x)&=1+2(x-1)+\frac{3}{2}(x-1)^2-\frac{1}{2}(x-1)^3\ \ \ \ \ \text{on}
 \ \ \ \ \ [1,2].
 \end{align*}
-<b>7 (b)</b> There are \(n=3\) data points. Calculate \(\delta_1=2\),
-\(\delta_2=1\), \(\Delta_1=0\), \(\Delta_2=3\). System (3.26) is
+<b>7 (b)</b> There are \(n=3\) data points. Calculate \(\delta_0=2\),
+\(\delta_1=1\), \(\Delta_0=0\), \(\Delta_1=3\). System (3.26) is
 \[\left[\begin{array}{ccc}
 1&0&0\\
 2&6&1\\0&0&1\\
 \end{array}\right]
 \left[\begin{array}{c}
-c_1\\c_2\\c_3\\
+c_0\\c_1\\c_2\\
 \end{array}\right]=
 \left[\begin{array}{c}
 0\\9\\0\\
 \end{array}\right]\]
-with solutions \(c_1=0\), \(c_2=\frac{3}{2}\), \(c_3=0\). Equation (3.24)
-implies \(d_1=\frac{1}{4}\), \(d_2=-\frac{1}{2}\) and equation (3.25)
-implies \(b_1=-1\), \(b_2=2\). The cubic spline is therefore
+with solutions \(c_100\), \(c_1=\frac{3}{2}\), \(c_2=0\). Equation (3.24)
+implies \(d_0=\frac{1}{4}\), \(d_1=-\frac{1}{2}\) and equation (3.25)
+implies \(b_0=-1\), \(b_1=2\). The cubic spline is therefore
 \begin{align*}
-S_1(x)&=1-(x+1)\hspace{1in}+\frac{1}{4}(x+1)^3\hspace{.2in}\text{on}\ \ \ \ \
+S_0(x)&=1-(x+1)\hspace{1in}+\frac{1}{4}(x+1)^3\hspace{.2in}\text{on}\ \ \ \ \
 [-1,1]\\
-S_2(x)&=1+2(x-1)+\frac{3}{2}(x-1)^2-\frac{1}{2}(x-1)^3\ \ \ \ \ \text{on}
+S_1(x)&=1+2(x-1)+\frac{3}{2}(x-1)^2-\frac{1}{2}(x-1)^3\ \ \ \ \ \text{on}
 \ \ \ \ \ [1,2].
 \end{align*}
 <hr>
 
-<b>9</b> Setting \(S_1(1)=S_2(1)\) implies \(4+b_1=1\), or \(b_1=-3\).
-Setting \(S_1'(1)=S_2'(1)\) implies \(b_1+3=b_2\), or \(b_2=0\). Therefore
-\(S_1'(0)=b_1+3(0)^2=-3\), and \(S_2'(3)=b_2+6(3-1)-6(3-1)^2=-12\).
+<b>9</b> Setting \(S_0(1)=S_1(1)\) implies \(4+b_1=1\), or \(b_1=-3\).
+Setting \(S_0'(1)=S_1'(1)\) implies \(b_0+3=b_1\), or \(b_1=0\). Therefore
+\(S_0'(0)=b_0+3(0)^2=-3\), and \(S_1'(3)=b_1+6(3-1)-6(3-1)^2=-12\).
 <hr>
 
 <b>11 (a)</b> By Theorem 3.7, there is exactly one parabolically
@@ -130,24 +130,25 @@ a not-a-knot spline. The cubic polynomials are
 for arbitrary \(c\neq 0\).
 <hr>
 
-<b>13 (a)</b> The coefficient \(b_1\) can be found from the spline property \(S'_1(1) = S'_2(1)\), or \(b_1-\frac{10}{9}1+\frac{5}{3}1^2 = \frac{14}{9}\), which implies \(b_1=1\). Similarly, \(c_3\) is found from \(S''_2(2)=S''_3(2)\), or \(\frac{20}{9}-4=2c_3\), which implies \(c_3=-8/9\). <p>
+<b>13 (a)</b> The coefficient \(b_0) can be found from the spline property \(S'_0(1) = S'_1(1)\), or \(b_0-\frac{10}{9}1+\frac{5}{3}1^2 = \frac{14}{9}\), 
+which implies \(b_0=1\). Similarly, \(c_1\) is found from \(S''_0(2)=S''_1(2)\), or \(\frac{20}{9}-4=2c_2\), which implies \(c_2=-8/9\). <p>
 <b>13 (b)</b> A spline is natural if \(0=S''(0)=S''(3)\). Neither is true, since \(S''(0) = -10/9\) and \(S''(3)=-\frac{16}{9}-\frac{2}{3}=-22/9\). <p>
-<b>13 (c)</b> The clamps are \(S'_1(0) = b_1=1\) and \(S'_3(3)=\frac{16}{9}+2(-\frac{8}{9})-\frac{1}{3}=-1/3\).
+<b>13 (c)</b> The clamps are \(S'_0(0) = b_1=1\) and \(S'_2(3)=\frac{16}{9}+2(-\frac{8}{9})-\frac{1}{3}=-1/3\).
 <hr>
 
 <b>15</b> If a cubic spline is natural and parabolically terminated,
-then \(S_1(x)=a_1+b_1(x-x_1)+c_1(x-x_1)^2\) and \(S_1''(x_1)=0\).
-Differentiating gives \(S_1''(x)=2c_1\), implying \(c_1=0\), and
-\(S_1(x)\) is linear. The same argument applies to show that
-\(S_{n-1}(x)\) is linear.
+then \(S_0(x)=a_1+b_1(x-x_1)+c_1(x-x_1)^2\) and \(S_0''(x_1)=0\).
+Differentiating gives \(S_0''(x)=2c_0\), implying \(c_0=0\), and
+\(S_2(x)\) is linear. The same argument applies to show that
+\(S_{n-2}(x)\) is linear.
 <hr>
 
-<b>17</b> We have \(S_1(x)=1\), \(S_2(x)=1+b_2x+c_2x^2+d_2x^3\).
-Differentiating, \(S_2'(x)=b_2+2c_2x+3d_2x^2\) and
-\(S_2''(x)=2c_2+6d_2x\). The spline conditions imply
-\(0=S_1'(0)=S_2'(0)=b_2\) and \(0=S_1''(0)=S_2''(0)=2c_2\); in other
-words, the conditions are satisfied provided that \(0=b_2=c_2\), for
-arbitrary \(d_2\). Thus \(S_2(x)=1+d_2x^3\) works for any \(d_2\).
+<b>17</b> We have \(S_0(x)=1\), \(S_1(x)=1+b_1+c_1x^2+d_1x^3\).
+Differentiating, \(S_1'(x)=b_1+2c_1x+3d_1x^2\) and
+\(S_1''(x)=2c_1+6d_1x\). The spline conditions imply
+\(0=S_0'(0)=S_1'(0)=b_2\) and \(0=S_0''(0)=S_1''(0)=2c_1\); in other
+words, the conditions are satisfied provided that \(0=b_1=c_1\), for
+arbitrary \(d_1\). Thus \(S_1(x)=1+d_1x^3\) works for any \(d_1\).
 <hr>
 
 <b>19</b> Since there are infinitely many parabolas through \(n=2\)
@@ -156,8 +157,10 @@ parabolically terminated cubic splines. Thus existence holds but
 uniqueness fails.
 <hr>
 
-<b>21 (a)</b> Infinitely many. For a three point spline, not-a-knot implies \(S_1(x)=S_2(x)\). We know from Section 3.1 that there are infinitely many degree 3 polynomials \(S(x)\) through the three points. <p>
-<b>21 (b)</b> Choose \(S_1(x)=S_2(x)\) to be any degree three polynomial through \((0,0), (1,1)\), and \((2,4)\), for example \(S(x)=x^2+cx(x-1)(x-2)\) for any nonzero \(c\). 
+<b>21 (a)</b> Infinitely many. For a three point spline, not-a-knot implies \(S_0(x)=S_1(x)\). 
+We know from Section 3.1 that there are infinitely many degree 3 polynomials \(S(x)\) through the three points. <p>
+<b>21 (b)</b> Choose \(S_0(x)=S_1(x)\) to be any degree three polynomial through \((0,0), (1,1)\), and \((2,4)\), 
+for example \(S(x)=x^2+cx(x-1)(x-2)\) for any nonzero \(c\). 
 
 
 

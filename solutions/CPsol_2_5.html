@@ -6,9 +6,9 @@
 </head>
 
 <h3>COMPUTER PROBLEMS 2.5</h3>
-<b>1</b> The Matlab program <tt>jacobi.m</tt> can be used to solve
+<b>1</b> The Python program <tt>jacobi.py</tt> can be used to solve
 the system after defining \(A\) and \(b\) with an altered version of
-<tt>sparsesetup.m</tt>. The initial vector is set to \([0,\ldots,0]\).
+<tt>sparsesetup.py</tt>. The initial vector is set to \([0,\ldots,0]\).
 By checking the infinity norm error of the solution \(x\), say by
 the command <tt>norm(x-1,inf)</tt>, the Jacobi method can be iterated
 until the error is less than \(0.5\times 10^{-6}\).  For \(n=100\), 36
@@ -17,26 +17,23 @@ In both cases, the backward error is approximately \(4.6\times
 10^{-7}\).
 <hr>
 
-<b>3</b> The Gauss-Seidel method can be coded in \Matlab as
+<b>3</b> The Gauss-Seidel method can be coded in Python as
 follows:
 
 <pre>
-% Gauss-Seidel
-% Inputs: sparse matrix a, r.h.s b,
-%         d = diagonal of a, r = rest of a,
-%         numsteps = number of Jacobi iterations
-% Output: solution x
-function x = gaussseidel(a,b,k)
-n=length(b);         % find n
-d=diag(diag(a)); u=triu(a,1);l=tril(a,-1);
-x=zeros(n,1);        % Initialize vector x
-for j=1:k            % loop for GS iteration
-  b1=b-u*x;
-  for i=1:n
-      x(i)=(b1(i)-l(i,:)*x)/d(i,i);
-  end
-end
+def gauss_seidel(a,b,k):
+    n = b.shape[0]
+    d = np.diag(np.diag(a))
+    u = np.triu(a,1)
+    l = np.tril(a,-1)
+    x = np.zeros((n))
+    for j in range(k):
+        b1 = b - u@x
+        for i in range(n):
+            x[i] = (b1[i]-l[i,:]@x)/d[i,i]
+    return x
 </pre>
+
 <hr>
 
 <b>5</b> Using the code from Computer Problem 3, 21 steps of

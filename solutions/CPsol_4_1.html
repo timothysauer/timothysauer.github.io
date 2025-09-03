@@ -14,7 +14,7 @@
      2  &   5  &  39\\
 \end{array}\right]
 \left[\begin{array}{c}
-x_1\\x_2\\x_3\\
+x_0\\x_1\\x_2\\
 \end{array}\right]=
 \left[\begin{array}{c}
 100\\5\\90\\
@@ -33,7 +33,7 @@ The 2-norm error is \(||A\overline{x}-b||_2\approx   2.4135\).<p>
     -7  &   7 &  -16 &   10\\
 \end{array}\right]
 \left[\begin{array}{c}
-x_1\\x_2\\x_3\\x_4\\
+x_0\\x_1\\x_2\\x_3\\
 \end{array}\right]=
 \left[\begin{array}{r}
 57\\31\\37\\-6\\
@@ -101,27 +101,27 @@ results in
    16.9300&   13.7127\\
 \end{array}\right]
 \left[\begin{array}{c}
-c_1\\c_2\\
+c_0\\c_1\\
 \end{array}\right]=
 \left[\begin{array}{cc}
 68460\\46994\\
 \end{array}\right],
 \]
-with solution \(c_1=9510, c_2= -8314\). The best line is \(S=9510-8314P\), plotted below.
+with solution \(c_0=9510, c_1= -8314\). The best line is \(S=9510-8314P\), plotted below.
 The RMSE is \(518.3\).<p>
 
 <img width=300 async src="figs/cp4o1o5.png" align=left>
 <br clear="all" />
 <p>
 
-<b>5 (b)</b> The profit is given by \(F(P)=S(P-0.23) = (c_1+c_2P)(P-0.23)\), when the model
+<b>5 (b)</b> The profit is given by \(F(P)=S(P-0.23) = (c_0+c_1P)(P-0.23)\), when the model
 is substituted for the sales. To find the maximum of the second-degree polynomial \(F(P)\),
-differentiate and set to zero: \(0 =F'(P) = c_2(P-0.23)+c_1+c_2P = 2c_2P+c_1-0.23c_2\)
-implies \(P=(0.23c_2-c_1)/(2c_2) = ((0.23)(-8314)-9510)/((2)(-8314))\approx 68.7\). The
+differentiate and set to zero: \(0 =F'(P) = c_1(P-0.23)+c_0+c_1P = 2c_1P+c_0-0.23c_1\)
+implies \(P=(0.23c_1-c_0)/(2c_1) = ((0.23)(-8314)-9510)/((2)(-8314))\approx 68.7\). The
 company's profit will be maximized for a selling price near \(69\) cents.
 <hr>
 
-<b>7 (a)</b> Fitting the model \(y=c_1+c_2t\) leads to minimizing \(||Ac-b||_2\) where
+<b>7 (a)</b> Fitting the model \(y=c_0+c_1t\) leads to minimizing \(||Ac-b||_2\) where
 \[A=
 \left[\begin{array}{rr}
 1&-3.0\\1&-2.5\\1&-2.0\\1&-1.5\\1&-1.0\\1&-0.5\\1&0.0\\
@@ -137,16 +137,16 @@ The normal equations are
 13&0\\0&45.5\\
 \end{array}\right]
 \left[\begin{array}{c}
-c_1\\c_2\\
+c_0\\c_1\\
 \end{array}\right]
 =
 \left[\begin{array}{c}
 1\\0\\
 \end{array}\right]
 \]
-which have solution \(c_1=1/13, c_2 = 0\), with RMSE \(\approx 0.2665\).
+which have solution \(c_0=1/13, c_1 = 0\), with RMSE \(\approx 0.2665\).
 The best line is \(y=1/13\). <p>
-<b>7 (b)</b> Similar to (a), but the model is \(y=c_1+c_2t+c_3t^2\), leading to
+<b>7 (b)</b> Similar to (a), but the model is \(y=c_0+c_1t+c_2t^2\), leading to
 \[A=
 \left[\begin{array}{rrr}
 1&-3.0&9.00\\1&-2.5&6.25\\1&-2.0&4.00\\1&-1.5&2.25\\1&-1.0&1.00\\1&-0.5&0.25\\1&0.0&0.00\\
@@ -162,33 +162,37 @@ The normal equations are
 13&0&45.5\\0&45.5&0\\45.5&0&284.375\\
 \end{array}\right]
 \left[\begin{array}{c}
-c_1\\c_2\\c_3
+c_0\\c_1\\c_2
 \end{array}\right]
 =
 \left[\begin{array}{c}
 1\\0\\0\\
 \end{array}\right]
 \]
-which have solution \(c_1=0.1748, c_2 = 0, c_3 = -0.02797\), with RMSE \(\approx 0.2519\).
+which have solution \(c_0=0.1748, c_1 = 0, c_2 = -0.02797\), with RMSE \(\approx 0.2519\).
 The best parabola is \(y=0.1748-0.02797t^2\).
 <hr>
 
-<b>9 (a)</b> The Matlab code in Example 4.5 can be adapted to solve for the
+<b>9 (a)</b> The Python code in Example 4.5 can be adapted to solve for the
 coefficients. For \(d=5\), the commands are
 <pre>
->> x = (2+(0:10)/5)';
->> y = 1+x+x.^2+x.^3+x.^4+x.^5;
->> A = [x.^0 x x.^2 x.^3 x.^4 x.^5];
->> c = (A'*A)\(A'*y)
+import numpy as np
+from scipy import linalg
+x = np.linspace(2., 4., 11)
+y = 1+x+x**2+x**3+x**4+x**5
+A = np.array([x**0,x**1,x**2,x**3,x**4,x**5]).T
+c = linalg.solve(A.T@A,A.T@y)
 </pre>
-The best degree \(5\) polynomial is \(y = 1.000039+0.999930x+1.000048x^2+0.999983x^3
-+1.000003x^4+1.000000x^5\). The coefficients have at least 3 correct places.
+The best degree \(5\) polynomial is \(y = 1.00001185+0.99997909x+1.00001453x^2+0.99999503x^3
++1.00000084x^4+0.99999994x^5\). The coefficients have at least 4 correct places.
 The condition number of \(A^TA\) is approximately \(2.72\times 10^{13}\). <p>
 <b>9 (b)</b> Similar to (a), but with \(d=6\). The best degree \(6\) polynomial
-is \(y = 0.99+1.02x+0.98x^2+1.01x^3+0.998x^4+1.00029x^5+0.99998x^6\). The coefficients
-have one decimal place accuracy, and the condition number of \(A^TA\) is approximately
-\(2.55\times 10^{16}\). <p>
-<b>9 (c)</b> Similar to (a), but with \(d=8\). The resulting coefficients have no
+is \(y = 1.00387283+0.9917941x+1.00715503x^2+0.99671312x^3+1.00083925x^4+0.99988703x^5+1.00000627x^6\). The coefficients
+have two decimal place accuracy, and the condition number of \(A^TA\) is approximately
+\(2.55\times 10^{16}\). <p> 
+<b>9 (c)</b> Similar to (a), but with \(d=8\). The best degree 8 polynomial is
+ \( -2.10814682+  8.36991145x  -6.29594636x^2  +4.86242309x^3 -0.14742971x^4  +1.17431499x^5
++  0.99369095x^6 + 0.99841877x^7 + 1.00015504x^8. \) The coefficients have no
 decimal places of accuracy, due to the condition number \(\approx 1.41\times 10^{19}\).
 
 

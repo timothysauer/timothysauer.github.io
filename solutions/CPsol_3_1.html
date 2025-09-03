@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Numerical Analysis 3rd Edition Sauer </title>
+<title>Numerical Analysis 4th Edition Sauer </title>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 </head>
 
 <h3>COMPUTER PROBLEMS 3.1</h3>
 \(\def\ds{\displaystyle} \)
-<b>1 (a)</b> The <tt>newtdd</tt> Matlab code can be used to construct
+<b>1 (a)</b> The <tt>newtdd.py</tt> and <tt>nest.py</tt> codes can be used to construct
 the coefficients of the degree one interpolating polynomial. The
 commands <p>
 <pre>
->> x=[1970 1990];y=[3707475887 5281653820];
->> c=newtdd(x,y,2);
->> nest(1,c,1980,x)
+x=[1970 1990]
+y=[3707475887 5281653820]
+c=newtdd(x,y)
+nest(c,1980,x)
 </pre>
 return \(4494564853.5\) as the 1980 population linear estimate,
 compared to the actual \(4452584592\), a difference of only 400
@@ -28,19 +29,19 @@ of \(4472888287.8\), about 20 million more than the actual
 population.
 <hr>
 
-<b>3</b> The Matlab function could have the form: <p>
+<b>3</b> The Python function could have the form: <p>
 <pre>
-function y0=polyinterp(x,y,x0)
-len=length(x);
-c=newtdd(x,y,len);
-y0=nest(len-1,c,x0,x);
+def polyinterp(x,y,x0):
+    len = x.shape[0]
+    c=newtdd(x,y)
+    return nest(c,x0,x)
 </pre>
 <hr>
 
 <b>5 (a)</b>
 \({\ds\tan(\frac{\pi}{2}-x) =\frac{\sin(\frac{\pi}{2}-x)}{\cos(\frac{\pi}{2}-x)}
- = \frac{\sin\frac{\pi}{2}\cos x-\cos\frac{\pi}{2}\sin x}
-{\cos\frac{\pi}{2}\cos x+\sin\frac{\pi}{2}\sin x} = \frac{\cos x}{\sin x}.}\) <p>
+ = \frac{\sin\frac{\pi}{2}\ \cos x-\cos\frac{\pi}{2}\ \sin x}
+{\cos\frac{\pi}{2}\ \cos x+\sin\frac{\pi}{2}\ \sin x} = \frac{\cos x}{\sin x}.}\) <p>
 <b>5 (b)</b> The \(\tan x\) function is periodic with period \(\pi\), or in other
 words, \(\tan(x+\pi)=\tan x\). Therefore if we can compute \(\tan x\) on the domain
 \((-\frac{\pi}{2}, \frac{\pi}{2})\), all other \(x\) can be referred to this interval by
@@ -61,18 +62,21 @@ set \(\tan x = 1/\tan(\frac{\pi}{2}-x)\). <p>
 domain \([0,\pi/4]\) and carries out the evaluation of the interpolating
 polynomial.
 <pre>
-function y=tan1(x)
-b=pi*(0:3)/12;yb=tan(b);
-c=newtdd(b,yb,4);
-s=1;d=1;
-x=mod(x+pi/2,pi)-pi/2;
-if x < 0
-    s=-1;x=abs(x);
-end
-if x > pi/4
-    d=-1; x=pi/2-x;
-end
-y=s*nest(3,c,x,b)^d;
+import numpy as np
+def tan1(x):
+    b=np.pi*np.array(list(range(0,4)))/12.
+    yb=np.tan(b)
+    c=newtdd(b,yb)
+    s=1
+    d=1
+    x=(x+np.pi/2) % np.pi - np.pi/2
+    if x < 0:
+         s=-1
+         x=np.abs(x)
+    if x > np.pi/4:
+        d=-1;
+        x=np.pi/2-x
+    return s*nest(c,x,b)**d
 </pre>
 <b>5 (d)</b> The maximum error in the interval \([0,\pi/4]\) is approximately \(0.003\).
 
