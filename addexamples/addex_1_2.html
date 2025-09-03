@@ -30,7 +30,7 @@ According to Theorem 1.6, Fixed Point Iteration will converge locally to the fix
 <hr><hr>
 <b>2</b> Use the <tt>fpi.py</tt> code to find the three real roots of the equation \(x^5+4x^2 = \sin x + 4x^4+1\) correct to six decimal places.
 <hr>
-One way to rearrange the equation is \[x = \frac{\sin x+4x^4+1}{x^4+4x}.\] Using this \(g(x)\) and the initial guess \(1,\) the Matlab code
+One way to rearrange the equation is \[x = \frac{\sin x+4x^4+1}{x^4+4x}.\] Using this \(g(x)\) and the initial guess \(1,\) the python code
 <pre>
 def g(x):
     return(sin(x)+4*x^4+1)/(x^4+4*x)
