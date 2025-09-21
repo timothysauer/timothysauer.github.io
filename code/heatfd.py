@@ -6,7 +6,7 @@ def heatfd(xl, xr, yb, yt, M, N):
     l = lambda t: 0*t  # Left boundary condition
     r = lambda t: 0*t  # Right boundary condition
     D = 1  # Diffusion coefficient
-
+    print('hi')
     h = (xr - xl)/M  # Space step size
     k = (yt - yb)/N  # Time step size
     m = M - 1  # Number of spatial steps
