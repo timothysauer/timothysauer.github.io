@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def fisher1D(xl, xr, tb, te, M, N):
+def fisher1d(xl, xr, tb, te, M, N):
     alf = 5
     bet = 4
     D = 0.05
@@ -49,4 +49,4 @@ def fisher1D(xl, xr, tb, te, M, N):
     return w
 
 # Example usage
-w = fisher1D(0, 1, 0, 3, 10, 30)
+w = fisher1d(0, 1, 0, 3, 10, 30)
