@@ -49,7 +49,6 @@ def poisson(xl, xr, yb, yt, M, N):
 
     # Solve for the solution vector v
     v = np.linalg.solve(A, b)  # Solve Ax = b
-    print(v)
     w = v.reshape(m, n)  # Translate from v to w
 
     # Plotting the solution
