@@ -1,12 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def burgers(xl, xr, tb, te, M, N):
+def fisher1D(xl, xr, tb, te, M, N):
     alf = 5
     bet = 4
     D = 0.05
     # Define the functions for initial conditions and boundary conditions
-    f = lambda x: 2*D*bet*np.pi*np.sin(np.pi*x)/(alf+bet*np.cos(np.pi*x))
+    f = lambda x: 1.5+0.5*np.cos(np.pi*x)
     l = lambda t: 0*t  # Left boundary condition
     r = lambda t: 0*t  # Right boundary condition
     h = (xr - xl) / M
@@ -19,20 +19,15 @@ def burgers(xl, xr, tb, te, M, N):
     w1 = w[:, 0].copy()
     for j in range(n):
         for it in range(3):  # Newton iteration, 3 steps
-            DF1 = np.diag(1+2*sigma*np.ones(m))+np.diag(-sigma*np.ones(m-1),1) 
+            DF1 = np.diag(1-k +2*sigma*np.ones(m))+np.diag(-sigma*np.ones(m-1),1) 
             DF1 += np.diag(-sigma * np.ones(m - 1), -1)
-            DF2 = np.zeros((m, m))
-            DF2[1:m-1,1:m-1]=np.diag(k*w1[2:m]/(2*h))-np.diag(k*w1[0:m-2]/(2*h))
-            DF2[1:m,1:m] += np.diag(k * w1[1:m - 1] / (2 * h), 1) 
-            DF2[0:m-1,0:m-1] -= np.diag(k * w1[1:m - 1] / (2 * h), -1)
+            DF2 = np.diag(2*k*w1)
             DF = DF1 + DF2
             F = -w[:,j] + (DF1 + DF2 / 2) @ w1  # Using Lemma 8.11
-            DF[0, :] = np.zeros(m)  # Dirichlet conditions for DF
-            DF[0, 0] = 1
-            DF[m-1, :] = np.zeros(m)
-            DF[m-1, m-1] = 1
-            F[0] = w1[0] - l(j)  # Dirichlet conditions for F
-            F[m-1] = w1[m-1] - r(j)
+            DF[0, :] = np.concatenate(([-3, 4, -1],np.zeros(m-3)))  
+            DF[m-1, :] = np.concatenate((np.zeros(m-3),[ -1, 4, -3]))
+            F[0] = DF[0,:]@w1  
+            F[m-1] = DF[m-1,:]@w1
             w1 = w1 - np.linalg.solve(DF, F)
         w[:, j + 1] = w1  # Update the solution for the next time step
 
@@ -45,13 +40,13 @@ def burgers(xl, xr, tb, te, M, N):
     ax.plot_surface(X, T, w.T, cmap='viridis', vmin=-1.,vmax=1.)
     plt.xlabel('x')
     plt.ylabel('t')
-    plt.title('Solution of Burgers Equation')
+    plt.title('Solution of Fisher Equation')
     plt.xlim(xl, xr)
     plt.ylim(tb, te)
-    ax.set_zlim(0.,0.4)
+    ax.set_zlim(0.,2)
     ax.view_init(elev=20, azim=-30)  # Set the view angle
     plt.show()
     return w
 
 # Example usage
-w = burgers(0, 1, 0, 2, 20, 40)
+w = fisher1D(0, 1, 0, 3, 10, 30)
