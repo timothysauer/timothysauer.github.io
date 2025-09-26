@@ -6,7 +6,9 @@ def brusselator(xl, xr, yb, yt, tb, te, M, N, tsteps):
     Dp = 1
     Dq = 8
     C = 4.5
-    K = 12
+    
+    K = 7
+    #K = 10
     delt = (te - tb) / tsteps
     m = M + 1
     n = N + 1
@@ -22,8 +24,9 @@ def brusselator(xl, xr, yb, yt, tb, te, M, N, tsteps):
     q = np.zeros((m, n))
     for i in range(m):          # Define initial conditions
         for j in range(n):
-            p[i, j] = C + 0.5
-            q[i, j] = K / C + 0.7
+            p[i, j] = C + 3.5 
+            q[i, j] = K / C - 0.7
+    p += .2*np.random.normal(size=np.shape(p))
     for tstep in range(tsteps):
         v = np.concatenate((p.flatten(), q.flatten()))
         pold = p.copy()
@@ -97,7 +100,7 @@ def brusselator(xl, xr, yb, yt, tb, te, M, N, tsteps):
             # Compute F
             F = (DF1 + DF3/3).dot(v) + b
             #print(F)
-            print(np.diag(DF3))
+            #print(np.diag(DF3))
             print('cond=',np.linalg.cond(DF))
             # Newton step
             delta_v = linalg.solve(DF, F)
@@ -105,21 +108,25 @@ def brusselator(xl, xr, yb, yt, tb, te, M, N, tsteps):
             v -= delta_v
             p = v[:mn].reshape(m, n)
             q = v[mn:].reshape(m, n)
-        #print(p)
+            print(np.diag(p))
             # Plot current solution
         X, Y = np.meshgrid(x, y, indexing='ij')
-        print(v)
-    ax.contour(X, Y, p, cmap='Blues')
-    #plt.xlabel('x')
-    #plt.ylabel('y')
-    plt.title('Solution of Brusselator')
-    plt.xlim(xl, xr)
-    plt.ylim(yb, yt)
-    #ax.set_zlim(0.,3)
-    #ax.view_init(elev=20, azim=-120)  # Set the view angle
-    plt.draw()
-    plt.pause(.1)
+        #ax.contour(X, Y, p*0, cmap='Blues', levels = 1)
+        #plt.draw()
+        fig = plt.figure(1) 
+        fig.clf()
+        ax = fig.add_subplot(111)
+        ax.contour(X, Y, p, cmap='Blues',levels = 25)
+        #plt.xlabel('x')
+        #plt.ylabel('y')
+        plt.title('Solution of Brusselator')
+        plt.xlim(xl, xr)
+        plt.ylim(yb, yt)
+        #ax.set_zlim(0.,3)
+        #ax.view_init(elev=20, azim=-120)  # Set the view angle
+        plt.draw()
+        plt.pause(.1)
     plt.show()
-    return x,y,p,q
+    return p,q,x,y
 
-brusselator(0,40,0,40,0,5,10,10,50)
+p=brusselator(0,40,0,40,0,20,20,60,300)
