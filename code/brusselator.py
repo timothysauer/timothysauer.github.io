@@ -24,7 +24,7 @@ def brusselator(xl, xr, yb, yt, tb, te, M, N, tsteps):
     q = np.zeros((m, n))
     for i in range(m):          # Define initial conditions
         for j in range(n):
-            p[i, j] = C + 3.5 
+            p[i, j] = C 
             q[i, j] = K / C - 0.7
     p += .2*np.random.normal(size=np.shape(p))
     for tstep in range(tsteps):
@@ -101,15 +101,17 @@ def brusselator(xl, xr, yb, yt, tb, te, M, N, tsteps):
             F = (DF1 + DF3/3).dot(v) + b
             #print(F)
             #print(np.diag(DF3))
-            print('cond=',np.linalg.cond(DF))
+ 
             # Newton step
             delta_v = linalg.solve(DF, F)
             
             v -= delta_v
             p = v[:mn].reshape(m, n)
             q = v[mn:].reshape(m, n)
-            print(np.diag(p))
+
             # Plot current solution
+        print('cond=',np.linalg.cond(DF))
+        print(np.diag(p))
         X, Y = np.meshgrid(x, y, indexing='ij')
         #ax.contour(X, Y, p*0, cmap='Blues', levels = 1)
         #plt.draw()
