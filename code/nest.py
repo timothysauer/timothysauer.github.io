@@ -1,9 +1,10 @@
 import numpy as np
 def nest(c, x, b=None):
-    """ Evaluate polynomial in nested form
+    """ Program 0.1 Nested Multiplication
+    Evaluate polynomial in nested form
     Input: c list of coefficients (constant term first)
-       x argument at which to evaluate
-       b list of base points, if needed
+           x argument at which to evaluate
+           b list of base points, if needed
     Output: value of polynomial
     """
     d = len(c)-1

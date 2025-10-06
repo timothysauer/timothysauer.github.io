@@ -2,6 +2,11 @@ import numpy as np
 from scipy.sparse import diags
 
 def sparsesetup(n):
+    """Program 2.1 Sparse matrix setup
+    Define A and b as sparse arrays
+    Input:  n number of equations
+    Output: a sparse matrix, b vector
+    """
     e = np.ones(n)
     n2 = n // 2
     diagonals = [-e, 3*e, -e] # Create the sparse matrix a using diagonals
@@ -17,6 +22,5 @@ def sparsesetup(n):
     b[n-1] = 2.5
     b[1:n-1] = 1.5
     b[n2-1:n2+1] = 1.
-
     return a, b
 

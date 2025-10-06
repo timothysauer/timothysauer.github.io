@@ -1,5 +1,11 @@
-# Program 1.1 Bisection Method
 def bisect(f, a, b, tol):
+    """ Program 1.1 Bisection Method
+    Compute approximate solution of f(x)=0
+    Input:  f function
+            a,b endpoints of interval
+            tol error tolerance
+    Output: xc approximate solution
+    """
     # Check if the conditions for bisection method are met
     if f(a) * f(b) >= 0:
         raise ValueError('f(a) * f(b) must be less than 0!')

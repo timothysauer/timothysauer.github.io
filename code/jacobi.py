@@ -2,6 +2,12 @@ import numpy as np
 from scipy.sparse import diags,issparse
 
 def jacobi(a, b, k):
+    """Program 2.2 Jacobi Method
+    Solve Ax = b by iteration
+    Input:  a full or sparse matrix
+            b vector
+    Output: x solution
+    """
     d = a.diagonal()  # Extract diagonal of a
     r = a - diags(d)  # r is the remainder
     if not issparse(a):
