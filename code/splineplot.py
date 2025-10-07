@@ -34,4 +34,4 @@ def splineplot(x, y, k):
     return np.array(x1), np.array(y1)
 
 # Example usage:
-x1, y1 = splineplot([1,2,3,4],[3,2,6,1],10)
+# x1, y1 = splineplot([1,2,3,4],[3,2,6,1],10)
