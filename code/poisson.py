@@ -2,56 +2,48 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def poisson(xl, xr, yb, yt, M, N):
-    f = lambda x, y: 0  # Input function data
-    g1 = lambda x: np.log(x**2 + 1)  # Boundary values at y = yb
-    g2 = lambda x: np.log(x**2 + 4)  # Boundary values at y = yt
-    g3 = lambda y: 2 * np.log(y)      # Boundary values at x = xl
-    g4 = lambda y: np.log(y**2 + 1)   # Boundary values at x = xr
-    m = M + 1
-    n = N + 1
-    mn = m * n
-    h = (xr - xl) / M  # Step size in x
-    k = (yt - yb) / N  # Step size in y
-    h2 = h ** 2
-    k2 = k ** 2
+    """ Program 8.5 Finite Difference Solver for 2d Poisson
+        Input:  xl, xr, yb, yt rectangle domain
+                M, N space steps
+        Output: w solution """
+    def f(x,y): return 0  # Input function data
+    def g1(x): return np.log(x**2 + 1)  # Boundary values at y = yb
+    def g2(x): return np.log(x**2 + 4)  # Boundary values at y = yt
+    def g3(y): return  2 * np.log(y)      # Boundary values at x = xl
+    def g4(y): return np.log(y**2 + 1)   # Boundary values at x = xr
+    m, n = M + 1, N +1
+    mn = m*n
+    h = (xr - xl)/M  # Step size in x
+    k = (yt - yb)/N  # Step size in y
+    h2, k2 = h**2, k**2
     x = xl + np.arange(0, M + 1) * h  # Mesh values in x
     y = yb + np.arange(0, N + 1) * k  # Mesh values in y
-    # Initialize matrix A and vector b
     A = np.zeros((mn, mn))
     b = np.zeros(mn)
-    # Fill in the coefficients for interior points
-    for i in range(1, m - 1):
+    for i in range(1, m - 1):   # Fill in coefficients for interior points
         for j in range(1, n - 1):
-            A[i + j * m, i - 1 + j * m] = 1 / h2
-            A[i + j * m, i + 1 + j * m] = 1 / h2
-            A[i + j * m, i + j * m] = -2 / h2 - 2 / k2
-            A[i + j * m, i + (j - 1) * m] = 1 / k2
-            A[i + j * m, i + (j + 1) * m] = 1 / k2
-            b[i + j * m] = f(x[i], y[j])
-    # Fill in the coefficients for bottom and top boundary points
+            A[i + j*m, i - 1 + j*m] = 1/h2
+            A[i + j*m, i + 1 + j*m] = 1/h2
+            A[i + j*m, i + j*m] = -2/h2 - 2/k2
+            A[i + j*m, i + (j - 1)*m] = 1/k2
+            A[i + j*m, i + (j + 1)*m] = 1/k2
+            b[i + j*m] = f(x[i], y[j])
     for i in range(m):
         j = 0  # Bottom boundary
-        A[i + j * m, i + j * m] = 1
-        b[i + j * m] = g1(x[i])
+        A[i + j*m, i + j*m] = 1
+        b[i + j*m] = g1(x[i])
         j = N  # Top boundary
-        A[i + j * m, i + j * m] = 1
-        b[i + j * m] = g2(x[i])
-
-    # Fill in the coefficients for left and right boundary points
+        A[i + j*m, i + j*m] = 1
+        b[i + j*m] = g2(x[i])
     for j in range(1, n - 1):
         i = 0  # Left boundary
-        A[i + j * m, i + j * m] = 1
-        b[i + j * m] = g3(y[j])
-        
+        A[i + j*m, i + j*m] = 1
+        b[i + j*m] = g3(y[j])
         i = M  # Right boundary
-        A[i + j * m, i + j * m] = 1
-        b[i + j * m] = g4(y[j])
-
-    # Solve for the solution vector v
+        A[i + j*m, i + j*m] = 1
+        b[i + j*m] = g4(y[j])
     v = np.linalg.solve(A, b)  # Solve Ax = b
     w = v.reshape(m, n)  # Translate from v to w
-
-    # Plotting the solution
     X, Y = np.meshgrid(x, y)
     fig = plt.figure()   # Create a mesh plot
     ax = fig.add_subplot(111, projection='3d')
@@ -62,7 +54,6 @@ def poisson(xl, xr, yb, yt, M, N):
     plt.title('2D Poisson Equation Solution')
     ax.view_init(elev=20, azim=-135)  # Set the view angle
     plt.show()
-
     return w
 
 # Example usage

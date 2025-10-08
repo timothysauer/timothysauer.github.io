@@ -2,18 +2,21 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def burgers(xl, xr, tb, te, M, N):
+    """ Program 8.7 Implicit Newton Solver for BUrgers equation
+        Input:  xl, xr, yb, yt rectangle domain
+                M, N space steps
+        Output: w solution """
     alf = 5
     bet = 4
     D = 0.05
     # Define the functions for initial conditions and boundary conditions
-    f = lambda x: 2*D*bet*np.pi*np.sin(np.pi*x)/(alf+bet*np.cos(np.pi*x))
-    l = lambda t: 0*t  # Left boundary condition
-    r = lambda t: 0*t  # Right boundary condition
-    h = (xr - xl) / M
-    k = (te - tb) / N
-    m = M + 1
-    n = N
-    sigma = D * k / (h**2)
+    def f(x): return 2*D*bet*np.pi*np.sin(np.pi*x)/(alf+bet*np.cos(np.pi*x)) 
+    def l(t): return 0.*t  # Left boundary condition
+    def r(t): return 0.*t  # Right boundary condition
+    h = (xr - xl)/M
+    k = (te - tb)/N
+    m, n = M + 1, N
+    sigma = D*k/(h**2)
     w = np.zeros((m, n + 1))  # Initialize solution array
     w[:, 0] = f(np.linspace(xl, xr, m))  # Set initial conditions
     w1 = w[:, 0].copy()
@@ -26,17 +29,15 @@ def burgers(xl, xr, tb, te, M, N):
             DF2[1:m,1:m] += np.diag(k * w1[1:m - 1] / (2 * h), 1) 
             DF2[0:m-1,0:m-1] -= np.diag(k * w1[1:m - 1] / (2 * h), -1)
             DF = DF1 + DF2
-            F = -w[:,j] + (DF1 + DF2 / 2) @ w1  # Using Lemma 8.11
+            F = -w[:,j] + (DF1 + DF2/2)@w1  # Using Lemma 8.11
             DF[0, :] = np.zeros(m)  # Dirichlet conditions for DF
             DF[0, 0] = 1
             DF[m-1, :] = np.zeros(m)
             DF[m-1, m-1] = 1
-            F[0] = w1[0] - l(j)  # Dirichlet conditions for F
-            F[m-1] = w1[m-1] - r(j)
+            F[0] = w1[0] - l(j*k)  # Dirichlet conditions for F
+            F[m-1] = w1[m-1] - r(j*k)
             w1 = w1 - np.linalg.solve(DF, F)
         w[:, j + 1] = w1  # Update the solution for the next time step
-
-    # Prepare data for visualization
     x = np.linspace(xl, xr, m)
     t = np.linspace(tb, te, n + 1)
     X, T = np.meshgrid(x, t)
