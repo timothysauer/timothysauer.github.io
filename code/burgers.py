@@ -3,8 +3,9 @@ import matplotlib.pyplot as plt
 
 def burgers(xl, xr, tb, te, M, N):
     """ Program 8.7 Implicit Newton Solver for BUrgers equation
-        Input:  xl, xr, yb, yt rectangle domain
-                M, N space steps
+        Input:  xl, xr space interval
+                tb, te time domain
+                M, N space steps, time steps
         Output: w solution """
     alf = 5
     bet = 4
