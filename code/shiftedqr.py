@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.linalg import qr
 
-def shifted_qr(A):
+def shiftedqr(A):
     """ Program 12.7 Shifted QR Algorithm
         Input:  A matrix
         Output: lam array of eigenvalues """
@@ -35,5 +35,5 @@ def shifted_qr(A):
 A = np.array([[3.,4.,6.],
               [5.,-1.,-1.],
               [-15.,22.,16.]])
-lam = shifted_qr(A)
+lam = shiftedqr(A)
 print("Eigenvalues:", lam)
