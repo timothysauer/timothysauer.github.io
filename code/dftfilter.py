@@ -4,11 +4,11 @@ import matplotlib.pyplot as plt
 def dftfilter(inter, x, m, p):
     """ Program 10.2 Fourier Filtering
         Least squares fit of n data points on interval using    
-           m >= 2 number of frequencies
+           m >= 2 even number of frequencies
         Input:  inter interval [c,d]
-                x data values
+                x data values of length an even number
                 m >= 2 number of frequencies to fit
-                p number of points to plot
+                p even number of points to plot
         Output: xp filtered points """
     c, d = inter
     n = x.shape[0]
