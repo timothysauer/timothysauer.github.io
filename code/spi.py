@@ -1,6 +1,10 @@
 def spi(f, r, s, t, k):
-    # Initialize points
-    x = [r, s, t]
+    """ Program 13.2 Successive Parabolic Interpolation
+        Input:  f function
+                r,s,t initial guesses
+                k number of steps
+        Output: x approximate minimum """
+    x = [r, s, t] # Initialize points
     fr = f(r)
     fs = f(s)
     ft = f(t)
@@ -13,13 +17,10 @@ def spi(f, r, s, t, k):
         ft = fs
         fs = fr
         fr = f(r)  # Single function evaluation
-    return x
+    return x[-1]
 
 # Example usage
-def example_function(x):
-    return (x - 2)**4 + 1  # Parabola with vertex at (2, 1)
-initial_guesses = (1, 1.2, 1.5)  # Initial guesses r, s, t
-steps = 20  # Number of iterations
-result = spi(example_function, *initial_guesses, steps)
-print("Approximated minima (x):", result)
+def f(x): return (x - 3)**4 + 1
+minimum = spi(f, 1, 1.2, 1.5, 30)
+print("Approximate minimum:", minimum)
       

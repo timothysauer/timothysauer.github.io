@@ -1,8 +1,14 @@
 import numpy as np
 
 def nelder_mead(f, xbar, rad, k):
+    """ Program 13.3 Nelder-Mead Search
+        Input:  f function to minimize
+                xbar initial guess vector
+                rad initial search radius
+                k number of steps
+        Output: x matrix whose columns are simplex vertices
+                y function values at those vertices """
     n = len(xbar)
-    # Initialize the simplex vertices
     x = np.zeros((n, n + 1))
     x[:, 0] = xbar
     x[:, 1:n + 1] = xbar[:, np.newaxis] + rad * np.eye(n)
@@ -52,7 +58,6 @@ def nelder_mead(f, xbar, rad, k):
                     for j in range(1, n + 1):
                         x[:, j] = 0.5 * x[:, 0] + 0.5 * x[:, j]
                         y[j] = f(x[:, j])
-        
         # Resort the function values and rank the vertices
         y, r = zip(*sorted(zip(y, range(n + 1))))
         y = np.array(y)
@@ -60,11 +65,7 @@ def nelder_mead(f, xbar, rad, k):
     return x, y
 
 # Example usage
-# Define a simple test function, for example:
-f = lambda x:5*x[0]**4+4*x[0]**2*x[1]-x[0]*x[1]**3+4*x[1]**4-x[0]
-x_init = np.array([0, 0])  # Initial guess
-radius = 1  # Initial search radius
-steps = 30  # Number of iterations
-x_final, y_final = nelder_mead(f, x_init, radius, steps)
+def f(x): return 5*x[0]**4+4*x[0]**2*x[1]-x[0]*x[1]**3+4*x[1]**4-x[0]
+x_final, y_final = nelder_mead(f, np.array([0, 0]), 1, 30)
 print("Final vertices of the simplex:\n", x_final)
 print("Function values:\n", y_final)
