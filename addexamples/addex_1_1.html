@@ -22,7 +22,7 @@ Start with \(f(x)=2x^3-x-7\) on \([1,2]\), where \(f(1)<0\) and
 <hr>
 The commands
 <pre>
-f=lambda x: np.exp(x)-3;
+def f(x): return np.exp(x)-3;
 x=bisect(f,1,2,0.5e-6)
 </pre>
 result in the approximate root \(1.098612,\) which agrees with \(\ln 3\) to six decimal places.
