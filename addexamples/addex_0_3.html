@@ -57,19 +57,8 @@ There are 52 bits inside the box. Bit 53 is 1, thus we round up according to the
 <p>
 \(+1.\fbox{0100 0001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1010}\times 2^{4}\)
 <p>
-Now we convert to a double-precision machine number. 
- The biased
-exponent is \(4+1023 = 1027,\) which is \(2^{10}+2+1 = 2^{10}+2^1+2^0 = 100\ 0000\ 0011.\) 
-<p>
-The sign is 0 (positive), so the
-sign/exponent is represented by the binary string \(0100\ 0000\ 0011.\)
-<p>
-The mantissa is given by the 52 bits above after the decimal point. 
-Therefore, the machine representation is the 64 bit string 
-
-\[\fbox{0100 0000 0011 0100 0001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1010}\]
-
-In hex format, the machine number is <tt>403419999999999A</tt>.
+As a double-precision machine number, 20.1 is therefore
+ <tt>0x1.419999999999Ap+4</tt>.
 
 <hr><hr>
 
