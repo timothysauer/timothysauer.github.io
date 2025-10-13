@@ -31,14 +31,15 @@ f'''(x) &=& 6+6x^{-4} \ \ \ \ \ \ \ \ \rightarrow f'''(1) = 12 \neq 0
 
 Therefore \(r=1\) is a root of multiplicity 3. It follows that Newton's method converges locally and linearly to the root \(r=1\) with error  \(e_{i+1} \approx \frac{m-1}{m}e_i =  \frac{2}{3} e_i.\)
 <hr><hr>
-<b>2</b> Adapt the <tt> fpi.m</tt> code from Section 1.2 to calculate all three roots of the equation \(x^5+4x^2 = \sin x + 4x^4+1\) by Newton's Method.
+<b>2</b> Adapt the <tt> fpi.py</tt> code from Section 1.2 to calculate all three roots of the equation \(x^5+4x^2 = \sin x + 4x^4+1\) by Newton's Method.
 <hr>
-The Matlab code
+The Python code
 <pre>
-f=@(x) x^5+4*x^2-sin(x)-4*x^4-1;
-df=@(x) 5*x^4+8*x-cos(x)-16*x^3;
-g=@(x) x-f(x)/df(x);
-x=fpi(g,-1,4)
+from fpi import fpi
+def f(x): return x**5+4*x**2-np.sin(x)-4*x**4-1
+def df(x): return 5*x**4+8*x-np.cos(x)-16*x**3
+def g(x): return x-f(x)/df(x)
+x = fpi(g, -1, 4)
 </pre>
 applies 4 steps of Newton's Method with initial guess \(-1,\) converging to \(-0.870330\) to six decimal places. The same code with initial guess \(-0.5\) converges to \(-0.428275.\) The third root is found with initial guess \(4,\) converging to root \(3.712147\) in 4 Newton's Method steps.
 
