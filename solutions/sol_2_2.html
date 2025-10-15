@@ -207,12 +207,12 @@ x_0\\x_1\\x_2\\x_3\\
 yields \(x_3= -1, x_2=1, x_1= -1\), and \(x_0= 1\). Thus \(x=[1, -1,1, -1]\).
 <hr>
 
-<b>7</b> To solve 1000 upper-triangular \(500\times 500\) systems requires
-1000 back substitutions, or approximately \(1000(500)^2\) operations.
+<b>7</b> To solve 10000 upper-triangular \(500\times 500\) systems requires
+10000 back substitutions, or \(10000(500)^2\) operations.
 To solve one full \(5000\times 5000\) system requires approximately \(2(5000)^3/3+2(5000)^2\approx 2(5000)^3/3\)
 operations. The number of seconds to solve the latter is the ratio
-\[ \frac{2(5000)^3/3}{1000(500)^2} = \frac{1000}{3}\approx 333 \text{ seconds},
-\] or 5 minutes, 33 seconds (or 5 minutes, 34 seconds if the \(2(5000)^2\) term is not neglected).
+\[ \frac{2(5000)^3/3}{10000(500)^2} = \frac{100}{3}\approx 33.33 \text{ seconds},
+\] (or 33.38 seconds if the \(2(5000)^2\) term is not neglected).
 <hr>
 
 <b>9</b> The first problem \(Ax=b_0\) requires approximately \(2n^3/3\)
