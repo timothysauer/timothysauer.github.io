@@ -14,11 +14,11 @@ def sin1(x):
     c = newtdd(b, yb)  # Get coefficients 
     # Adjust x to the fundamental domain
     s = 1  # Correct the sign of sin
-    x1 = x % (2 * np.pi)  # Normalize x to [0, 2*pi]
+    x1 = x % (2*np.pi)  # Normalize x to [0, 2*pi]
     if x1 > np.pi:
-        x1 = 2 * np.pi - x1
+        x1 = 2*np.pi - x1
         s = -1
-    if x1 > np.pi / 2:
+    if x1 > np.pi/2:
         x1 = np.pi - x1
     y = s * nest(c, x1, b) # Evaluate polynomial
     return y

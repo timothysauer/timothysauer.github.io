@@ -42,10 +42,13 @@ Therefore, the lowest degree polynomial passing through the points is \(P_3(x) =
 2005 & 13.81\\
 2010 & 13.91\\
 2015 & 13.75\\
+2020 & 13.70\\
+2025 & 13.20
 \end{array}
-Use <tt> newtdd.m</tt> and <tt>nest.m</tt> to plot the degree 7 interpolating polynomial through the 8 data points. Use the polynomial to estimate the ice extent in 2002 and 2012 and compare with the exact values (\(14.57\) and \(13.86\), respectively).
+Use <tt> newtdd.m</tt> and <tt>nest.m</tt> to plot the degree 9 interpolating polynomial through the 8 data points. Use the polynomial to estimate the ice extent in 2002, 2012 and 2022.  Compare with the exact values (\(14.57\) and \(13.86\), respectively).
 <hr>
-The plot below shows the interpolating polynomial. Evaluated at 2002, the polynomial value is 14.30. Evaluated at 2012, the polynomial value is 14.43.
+The plot below shows the interpolating polynomial. Evaluated at 2002, the polynomial value is 14.23. Evaluated at 2012, the polynomial value is 14.01. Evaluated at 2022, the polynomial value is 14.79. Note the failure of the polynomial to follow the data closely
+at the ends of the interval. We will explore this problem, called the Runge phenomenon, in Section 3.2.3.
  <p>
 
 <img width=400 async src="figs/AddEx3_1_2.png" align=left>
