@@ -7,15 +7,30 @@
 
 <h3>COMPUTER PROBLEMS 3.3</h3>
 \(\def\ds{\displaystyle} \)
-<b>1</b> The base points in Program 3.3 must be changed to be the Chebyshev
-nodes, using for example the code
+<b>1</b> Example Python code is
 <pre>
->> b=np.pi/4+(np.pi/4)*np.cos(np.array(list(range(1,9,2)))*np.pi/8);
+import numpy as np
+import matplotlib.pyplot as plt
+from nest import nest
+from newtdd import newtdd
+
+ch = np.cos((np.linspace(0.,3.,4)*2.+1)*np.pi/(2*4.))
+b = np.pi/4.+np.pi/4.*np.array(ch) # Base points
+yb = np.cos(b)  # Corresponding cos values
+c = newtdd(b, yb)  # Get coefficients 
+x = np.linspace(-2.,2.,100)
+y0 = np.cos(x)
+y = nest(c,x,b)
+plt.plot(x,y,'b',b,yb,'ro',x,y0,'k')
+plt.grid(True)
+plt.xlabel('x')
+plt.ylabel('y')
+plt.show()
 </pre>
-Then evaluating the output of the revised Program 3.3
-on the interval \([-2,2]\) gives the following plot. Note that 
+which gives the following plot. Note that 
 the interpolating
-polynomial lies on top of the curve  \(y=\sin x\) at this resolution. <p>
+polynomial lies on top of the curve  \(y=\cos x\) on the fundamental interval 
+at this resolution. <p>
 
 <img width=300 async src="figs/cp3o3o1.png" align=left>
 
