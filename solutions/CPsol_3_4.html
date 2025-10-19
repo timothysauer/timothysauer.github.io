@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Numerical Analysis 3rd Edition Sauer </title>
+<title>Numerical Analysis 4th Edition Sauer </title>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 </head>
 
@@ -121,24 +121,24 @@ Substituting \(x=1990\) gives the estimate \(5295163776\). <p>
  at the
 left and right endpoints as \((3694683794-3015470894)/10 = 67921290\) and
 \((7021732148-6171702993)/10 = 85002915.5\), respectively. The clamped cubic
-spline through the six points is
-\[
-\left\{ \begin{array}{ll}
-S_0(x) = 3039585530+66789036(x-1960)-362212(x-1960)^2+36221(x-1960)^3 \\
-S_1(x) = 3707475887+70411154(x-1970)+724424(x-1970)^2-15477(x-1970)^3 \\
-S_2(x) = 5281653820+80815906(x-1990)-204186(x-1990)^2+10209(x-1990)^3 \\
-\end{array}\right. \]
-on \([1960, 1970], [1970, 1990]\) and \([1990, 2000]\) respectively.
-Substituting \(x=1980\) gives the estimate \(4468552974\). The natural cubic spline estimate
-misses the actual 1990 population by 17.6 million, while the clamped spline misses
-by 16 million, and is slightly closer.
+spline through the six points
+gives the estimate \(5296137727\). The natural cubic spline estimate
+misses the actual 1990 population by about 33 million, while the clamped spline misses
+by about 32 million, and is slightly closer.
 <hr>
 
-<b>13</b> Program 3.6 can be adapted to plot the three different cubic splines. They
+
+<b>13</b> Program 3.6 can be adapted to plot the two cubic splines. They
 are barely distinguishable in the following plot; the solid curve is natural, the
-dashed curve is not-a-knot, and the dotted curve is parabolically-terminated. <p>
+dashed curve is parabolically-terminated. <p>
 
 <img width=300 async src="figs/cp3o4o13.png" align=left>
+<p>
+<b>13</b> Program 3.6 can be adapted to plot the two cubic splines. The
+ solid curve is natural, the
+dashed curve is not-a-knot. <p>
+
+<img width=300 async src="figs/cp3o4o15.png" align=left>
 
 <br clear="all" />
 <p>
