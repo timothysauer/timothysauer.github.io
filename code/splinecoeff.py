@@ -21,12 +21,12 @@ def splinecoeff(x, y):
         A[i, i + 1] = dx[i]
         r[i] = 3 * (dy[i] / dx[i] - dy[i - 1] / dx[i - 1])    
     # Set endpoint conditions (use only one of the following 5 pairs)
-    A[0, 0] = 1.  # Natural spline conditions at the first endpoint
-    A[-1, -1] = 1.  # Natural spline conditions at the last endpoint
+    #A[0, 0] = 1.  # Natural spline conditions at the first endpoint
+    #A[-1, -1] = 1.  # Natural spline conditions at the last endpoint
     #A[0,0]=2;r[0]=vl;  # curvature-adj conditions (specify vl and vr)
     #A[n-1,n-1]=2;r[n-1]=vr
-    #A[0,:2]=[2*dx[0],dx[0]];r[0]=3*(dy[0]/dx[0]-vl);# clamped (specify vl and vr)
-    #A[n-1,n-2:]=[dx[n-2],2*dx[n-2]];r[n-1]=3*(vr-dy[n-2]/dx[n-2])
+    A[0,:2]=[2*dx[0],dx[0]];r[0]=3*(dy[0]/dx[0]-vl);# clamped (specify vl and vr)
+    A[n-1,n-2:]=[dx[n-2],2*dx[n-2]];r[n-1]=3*(vr-dy[n-2]/dx[n-2])
     #A[0,:2]=[1, -1]        # parabol-term conditions, for n>=3
     #A[n-1,n-2:]=[1, -1]
     #A[0,:3]=[dx[1], -(dx[0]+dx[1]), dx[0]]; # not-a-knot for n>=4

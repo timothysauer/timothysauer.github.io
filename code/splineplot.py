@@ -10,6 +10,7 @@ def splineplot(x, y, k):
     Output: x1, y1 spline values at plotted points"""
     n = len(x)
     coeff = splinecoeff(x, y)
+    print(coeff)
     x1 = []
     y1 = []
     for i in range(n - 1):
