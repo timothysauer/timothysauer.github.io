@@ -84,7 +84,7 @@ For the model \(y = c_1+c_2t+c_3\sin 2\pi t+c_4\cos 2\pi t \), the data matrix h
 1& t_2& \sin 2\pi t_2 & \cos 2\pi t_2\\
 \vdots&\vdots&\vdots&\vdots\\
 1& t_n& \sin 2\pi t_n & \cos 2\pi t_{n}
- \end{array}\right]\) where <tt> t = (1:24)/12 </tt> in Matlab. Then the normal equations are \(A^TAc = A^Ty \), and the solution is
+ \end{array}\right]\) where <tt> t = np.linspace(1,24)/12. </tt> Then the normal equations are \(A^TAc = A^Ty \), and the solution is
  \begin{eqnarray*}
  c_1&=&10.8041\\
  c_2&=& -0.1744\\

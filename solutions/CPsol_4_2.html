@@ -50,31 +50,26 @@ results in
 \[\left[\begin{array}{cccc}
 1&0\\
 1&10\\
-1&30\\
+1&20\\
 1&40\\
-\end{array}\right]
-\left[\begin{array}{c} k\\c_1\\
-\end{array}\right]
-= \left[\begin{array}{c} \ln 3039585530\\
-\ln 3707475887\\ \ln 5281653820\\ \ln 6079603571\\
-\end{array}\right]\]
-where we are using years after 1960 as the time variable.
-The normal equations are
-\[\left[\begin{array}{rr}
-           4  &        80\\
-          80  &     2600\\
+1&50\\
+1&60
 \end{array}\right]
 \left[\begin{array}{c} k\\c_1\\
 \end{array}\right]
 = \left[\begin{array}{c}
-88.784\\1793.1\\
-\end{array}\right].\]
+\ln 3015470894\\ \ln 3694683794\\ \ln4447606236\\ \ln 6171702993\\ \ln 7021732148 \\ \ln 7887001292
+\end{array}\right]\]
+where we are using years after 1960 as the time variable.
 Solving for the coefficients yields
-\(k\approx  21.848, c_1\approx 0.0174\), and \(c_0 =
-e^k  \approx 3079440361\). The best model through linearization is
-\[y=c_0e^{c_1t} = 3079440361e^{0.0174(t-1960)}.\] Substituting
-\(t=1980\) yields the estimate \(4361486000\), which differs from
-the actual 1980 population by 91 million.
+\(k\approx  21.864, c_1\approx 0.0160579\), and \(c_0 =
+e^k  \approx 3129064766\). The best model through linearization is
+\[y=c_0e^{c_1t} = 3129064766e^{0.0160579(t-1960)}.\] Substituting
+\(t=1990\) yields the estimate \(5 658 686 279\), which overestimates
+the actual 1990 population by about 230 million. The plot of the model is below.
+<p>
+<img width=300 async src="figs/CP4o2o3.png" align=left>
+<br clear="all" />
 <hr>
 
 <b>5 (a)</b> Differentiating the model \(y=c_0te^{c_1t}\) and setting
