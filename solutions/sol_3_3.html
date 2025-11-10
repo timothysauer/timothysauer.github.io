@@ -7,23 +7,24 @@
 
 <h3>EXERCISES 3.3</h3>
 \(\def\ds{\displaystyle} \)
-<b>1 (a)</b> Using the formula \(x_i=\cos((2i+1)\pi/(2n))\) for \(i=0,\ldots,
-n-1\), the interpolation nodes are \[\cos\frac{\pi}{12},
-\cos\frac{3\pi}{12}, \cos\frac{5\pi}{12}, \cos\frac{7\pi}{12},
-\cos\frac{9\pi}{12}, \cos\frac{11\pi}{12}.\]
+<b>1 (a)</b> Use the formula \(x_i=\cos((2i+1)\pi/(2n))\) for \(i=0,\ldots,
+n-1\). Recall that this formula gives the interpolation nodes from right to left. 
+The interpolation nodes are \[\cos\frac{11\pi}{12},
+\cos\frac{9\pi}{12}, \cos\frac{7\pi}{12}, \cos\frac{5\pi}{12},
+\cos\frac{3\pi}{12}, \cos\frac{\pi}{12}.\]
 <b>1 (b)</b> The general formula for Chebyshev nodes on \([a,b]\) is
 \((a+b)/2+((b-a)/2)\cos(2i+1)\pi/(2n)\) for \(i=0, \ldots, n-1\). The 4 nodes on
-\([-2,2]\) are therefore \(2\cos(2i+1)\pi/8\) for \(i=0,\ldots, 3\) or
-\[2\cos\frac{\pi}{8}, 2\cos\frac{3\pi}{8}, 2\cos\frac{5\pi}{8},
-2\cos\frac{7\pi}{8}.\]
+\([-2,2]\) are therefore \(2\cos(2i+1)\pi/8\) for \(i=0,\ldots, 3\) or in increasing order,
+\[2\cos\frac{7\pi}{8}, 2\cos\frac{5\pi}{8}, 2\cos\frac{3\pi}{8},
+2\cos\frac{\pi}{8}.\]
 <b>1 (c)</b> Using the general formula from (b), the \(6\) nodes in \([4,12]\) are
-\[8+4\cos\frac{\pi}{12},\ 8+4\cos\frac{3\pi}{12},\
-8+4\cos\frac{5\pi}{12},\ 8+4\cos\frac{7\pi}{12},\
-8+4\cos\frac{9\pi}{12},\ 8+4\cos\frac{11\pi}{12}.\]
+\[8+4\cos\frac{11\pi}{12},\ 8+4\cos\frac{9\pi}{12},\
+8+4\cos\frac{7\pi}{12},\ 8+4\cos\frac{5\pi}{12},\
+8+4\cos\frac{3\pi}{12},\ 8+4\cos\frac{\pi}{12}.\]
 <b>1 (d)</b> Using the general formula from (b), the \(5\) nodes in \([-0.3,0.7]\) are
-\[0.2+0.5\cos\frac{\pi}{10},\ 0.2+0.5\cos\frac{3\pi}{10},\
-0.2+0.5\cos\frac{5\pi}{10},\ 0.2+0.5\cos\frac{7\pi}{10},\
-0.2+0.5\cos\frac{9\pi}{10}.\]
+\[0.2+0.5\cos\frac{9\pi}{10},\ 0.2+0.5\cos\frac{7\pi}{10},\
+0.2+0.5\cos\frac{5\pi}{10},\ 0.2+0.5\cos\frac{3\pi}{10},\
+0.2+0.5\cos\frac{\pi}{10}.\]
 <hr>
 
 <b>3</b> To find a degree \(5\) interpolating polynomial, we need \(n=6\)
@@ -42,7 +43,12 @@ places for \(-1\leq x\leq1\).
 4!}\approx0.0052.\]
 <hr>
 
-<b>7</b> To get \(6\) correct digits we want to control the
+<b>7</b>
+\(|e^{1/2} - P_5(1)| \leq \left\frac{(1-0)(1-0.4)(1-0.8)(1-1.2)(1-1.6)(1-2)2^{-6}e^{c/2}}{6!}\right|  \),
+which is bounded above by \( \frac{(1)(.6)(.2)(.2)(.6)(1)e^1}{2^66!} \approx 8.49\times 10^{-7}. \)
+<hr>
+
+<b>9</b> To get \(6\) correct digits we want to control the
 interpolation error to less than \(0.5\times10^{-6}\). Using Theorem
 3.3 and (3.16), the error for the degree \(d\) interpolation
 polynomial is
@@ -53,17 +59,17 @@ This expression is less than
 \(0.5\times10^{-6}\) when \(d=14\).
 <hr>
 
-<b>9 (a)</b> Using the recursion relation (3.15) with \(x=-1\), we find
+<b>11 (a)</b> Using the recursion relation (3.15) with \(x=-1\), we find
 \(T_{n+1}(-1)=-2T_n(-1)-T_{n-1}(-1)\). Since \(T_0(-1)=1\) and
 \(T_1(-1)=-1\), this implies \(T_2(-1)=1\), \(T_3(-1)=-1\), \(T_4(-1)=1\),
 and in general \(T_n(-1)=(-1)^n\). Therefore \(T_{999}(-1)=-1\). <p>
-<b>9 (b)</b> \(T_{1000}(-1)=1\), from the discussion in (a). <p>
-<b>9 (c)</b> Using (3.15), \(T_{n+1}(0)=-T_{n-1}(0)\). We know
+<b>11 (b)</b> \(T_{1000}(-1)=1\), from the discussion in (a). <p>
+<b>11 (c)</b> Using (3.15), \(T_{n+1}(0)=-T_{n-1}(0)\). We know
 \(T_0(0)=1\) and \(T_1(0)=0\), so \(T_n(0)=0\) for \(n\) odd, \(T_n(0)=1\) if
 \(4\) divides evenly into \(n\), and \(T_n(0)=-1\) if \(n\) is even and not
 a multiple of \(4\). Therefore \(T_{999}(0)=0\). <p>
-<b>9 (d)</b> \(T_{1000}(0)=1\), from the discussion in (c). <p>
-<b>9 (e)</b> Using (3.15),
+<b>11 (d)</b> \(T_{1000}(0)=1\), from the discussion in (c). <p>
+<b>11 (e)</b> Using (3.15),
 \(T_{n+1}(-\frac{1}{2})=-T_n(-\frac{1}{2})-T_{n-1}(-\frac{1}{2})\),
 and \(T_0(-\frac{1}{2})=1\), \(T_1(-\frac{1}{2})=-\frac{1}{2}\). Note
 that \(T_2(-\frac{1}{2})=-\frac{1}{2}\), \(T_3(-\frac{1}{2})=1\),
@@ -71,7 +77,7 @@ that \(T_2(-\frac{1}{2})=-\frac{1}{2}\), \(T_3(-\frac{1}{2})=1\),
 establishes the pattern: \(T_n(-\frac{1}{2})=1\) if \(3\) divides \(n\) evenly
 and \(T_n(-\frac{1}{2})=-\frac{1}{2}\) otherwise. Thus
 \(T_{999}(-\frac{1}{2})=1\). <p>
-<b>9 (f)</b> \(T_{1000}(-\frac{1}{2})=-\frac{1}{2}\), from the
+<b>11 (f)</b> \(T_{1000}(-\frac{1}{2})=-\frac{1}{2}\), from the
 discussion in (e).
 
 
