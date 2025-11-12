@@ -17,7 +17,7 @@ def euler(ydot,inter, y0, n):
     h = (inter[1] - inter[0])/n  # Step size
     for i in range(n):
         t[i + 1] = t[i] + h
-        y[i + 1] = eulerstep(t[i], y[i], h)
+        y[i + 1] = eulerstep(ydot, t[i], y[i], h)
     plt.plot(t, y)
     plt.xlabel('Time')
     plt.ylabel('Solution')
@@ -25,7 +25,7 @@ def euler(ydot,inter, y0, n):
     plt.show()
     return t, y
 
-def eulerstep(t, y, h): return y + h*ydot(t, y)
+def eulerstep(ydot, t, y, h): return y + h*ydot(t, y)
 
 # Example usage
 #def ydot(t, y): return t*y + t**3
