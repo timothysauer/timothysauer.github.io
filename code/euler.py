@@ -18,11 +18,11 @@ def euler(ydot,inter, y0, n):
     for i in range(n):
         t[i + 1] = t[i] + h
         y[i + 1] = eulerstep(ydot, t[i], y[i], h)
-    plt.plot(t, y)
-    plt.xlabel('Time')
-    plt.ylabel('Solution')
-    plt.title('Euler Method')  
-    plt.show()
+    #plt.plot(t, y)
+    #plt.xlabel('Time')
+    #plt.ylabel('Solution')
+    #plt.title('Euler Method')  
+    #plt.show()
     return t, y
 
 def eulerstep(ydot, t, y, h): return y + h*ydot(t, y)
