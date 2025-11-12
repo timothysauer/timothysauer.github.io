@@ -22,7 +22,7 @@ inter = [0,4]
 y0 = 100. 
 h = []
 y4=[]
-for i in range(6):  
+for i in range(1):  
     n = 40*2**i
     h = h+[4./n]
     t,y = trap(ydot,inter,y0,n)
@@ -30,11 +30,10 @@ for i in range(6):
 ytrue = yexact(t,y0)
 y4 = np.array(y4)
 h = np.array(h)
-plt.loglog(h,np.abs(ytrue[-1]-y4),'ks')
+plt.plot(t,ytrue,t,y)
+#plt.loglog(h,np.abs(ytrue[-1]-y4),'ks')
 plt.grid(True)
-plt.xlabel('h')
-plt.ylabel('error at t = 4')
-plt.xlim(1e-3,1e-1)
-plt.ylim(1e-7,1e-3)
-plt.savefig('cp6o2o7d.png')
+plt.xlabel('t')
+plt.ylabel('y')
+plt.savefig('cp6o2o7b.png')
 plt.show()
