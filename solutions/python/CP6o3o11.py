@@ -11,10 +11,10 @@ def orbit(inter, ic, n, p):
             traj orbital trajectory
     """
     h = (inter[1] - inter[0]) / n  # Step size
-    x00, vx00, y00, vy00,x10,vx10,y10,vy10 = ic  # Initial conditions
+    x10, vx10, y10, vy10,x20,vx20,y20,vy20 = ic  # Initial conditions
     traj = np.zeros((n+1, 8))  # Initialize position and velocity array
     y = np.zeros((p+1, 8))
-    y[0, :] = [x00, vx00, y00, vy00,x10, vx10, y10, vy10]
+    y[0, :] = [x10, vx10, y10, vy10,x20, vx20, y20, vy20]
     t = np.zeros((n+1))  # Time array
     t[0] = inter[0]
     plt.figure()
@@ -50,21 +50,21 @@ def trapstep(ydot, t, y, h): return y + h/2.*(ydot(t, y)+ydot(t+h,y+h*ydot(t,y))
 
 
 def ydot(t, x):
-    m0 = 0.03
-    m1 = 0.3  # Mass of the second object
+    m1 = 2.
+    m2 = 2.  # Mass of the second object
     g = 1   # Gravitational acceleration
-    mg0,mg1 = m0*g,m1*g
-    px0,vx0,py0,vy0,px1,vx1,py1,vy1 = x[0],x[1],x[2],x[3],x[4],x[5],x[6],x[7]  # Unpack values
-    dist = np.sqrt((px1 - px0)**2 + (py1 - py0)**2)
+    mg1,mg2 = m1*g,m2*g
+    px1,vx1,py1,vy1,px2,vx2,py2,vy2 = x[0],x[1],x[2],x[3],x[4],x[5],x[6],x[7]  # Unpack values
+    dist = np.sqrt((px2 - px1)**2 + (py2 - py1)**2)
     z = np.zeros(8)
-    z[0] = vx0
-    z[1] = (mg1*(px1 - px0))/(dist**3)  # Acceleration in x
-    z[2] = vy0
-    z[3] = (mg1*(py1 - py0))/(dist**3)  # Acceleration in y
-    z[4] = vx1
-    z[5] = (mg0*(px0 - px1))/(dist**3)  # Acceleration in x
-    z[6] = vy1
-    z[7] = (mg0*(py0 - py1))/(dist**3)  # Acceleration in y
+    z[0] = vx1
+    z[1] = (mg2*(px2 - px1))/(dist**3)  # Acceleration in x
+    z[2] = vy1
+    z[3] = (mg2*(py2 - py1))/(dist**3)  # Acceleration in y
+    z[4] = vx2
+    z[5] = (mg1*(px1 - px2))/(dist**3)  # Acceleration in x
+    z[6] = vy2
+    z[7] = (mg1*(py1 - py2))/(dist**3)  # Acceleration in y
     return z
 
 
@@ -72,4 +72,4 @@ def set_position(line, xdata, ydata):
     line.set_data(xdata, ydata)  # Function to set the position of plot points
 
 # Example usage
-orbit([0, 100], [2,0.2,2,-0.2,0,-0.02,0,0.02], 10000, 5)
+orbit([0, 100], [0,0.2,1,-0.2,-2,-0.2,-1,0.2], 10000, 5)

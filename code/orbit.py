@@ -28,7 +28,7 @@ def orbit(inter, ic, n, p):
     for k in range(n // p):
         for i in range(p):
             t[k*p+i+1] = t[k*p+i] + h
-            y[i + 1, :] = eulerstep(t[i], y[i, :], h)
+            y[i + 1, :] = eulerstep(ydot, t[i], y[i, :], h)
         traj[k*p+1:(k+1)*p+1,:] = y[1:,:]
         # Update the position for the next frame
         set_position(head, y[p, 0], y[p, 2])  # Update head position
@@ -40,21 +40,20 @@ def orbit(inter, ic, n, p):
     plt.show()  # Show the plot window
     return t, traj
 
-def eulerstep(t, x, h):
-    return x + h * ydot(t, x)
+def eulerstep(ydot, t, x, h): return x + h*ydot(t, x)
 
 def ydot(t, x):
     m2 = 3  # Mass of the second object
     g = 1   # Gravitational acceleration
     mg2 = m2*g
-    px1, py1, vx1, vy1 = x[0], x[2], x[1], x[3]  # Unpack values
-    px2, py2 = 0, 0  # Position of the sun located at the origin
-    dist = np.sqrt((px2 - px1)**2 + (py2 - py1)**2)
+    px0, py0, vx0, vy0 = x[0], x[2], x[1], x[3]  # Unpack values
+    px1, py1 = 0, 0  # Position of the sun located at the origin
+    dist = np.sqrt((px1 - px0)**2 + (py1 - py0)**2)
     z = np.zeros(4)
-    z[0] = vx1
-    z[1] = (mg2*(px2 - px1))/(dist**3)  # Acceleration in x
-    z[2] = vy1
-    z[3] = (mg2*(py2 - py1))/(dist**3)  # Acceleration in y
+    z[0] = vx0
+    z[1] = (mg1*(px1 - px0))/(dist**3)  # Acceleration in x
+    z[2] = vy0
+    z[3] = (mg1*(py1 - py0))/(dist**3)  # Acceleration in y
     return z
 
 def set_position(line, xdata, ydata):

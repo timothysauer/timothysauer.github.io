@@ -87,10 +87,10 @@ def orbit(inter, ic, n, p):
             traj orbital trajectory
     """
     h = (inter[1] - inter[0]) / n  # Step size
-    x10, vx10, y10, vy10,x20,vx20,y20,vy20 = ic  # Initial conditions
+    x00, vx00, y00, vy00,x10,vx10,y10,vy10 = ic  # Initial conditions
     traj = np.zeros((n+1, 8))  # Initialize position and velocity array
     y = np.zeros((p+1, 8))
-    y[0, :] = [x10, vx10, y10, vy10,x20, vx20, y20, vy20]
+    y[0, :] = [x00, vx00, y00, vy00,x10, vx10, y10, vy10]
     t = np.zeros((n+1))  # Time array
     t[0] = inter[0]
     plt.figure()
@@ -106,7 +106,7 @@ def orbit(inter, ic, n, p):
     for k in range(n // p):
         for i in range(p):
             t[k*p+i+1] = t[k*p+i] + h
-            y[i + 1, :] = eulerstep(t[i], y[i, :], h)
+            y[i + 1, :] = trapstep(ydot, t[i], y[i, :], h)
         traj[k*p+1:(k+1)*p+1,:] = y[1:,:]
         # Update the position for the next frame
         set_position(head1, y[p, 0], y[p, 2])  # Update head position
@@ -120,25 +120,27 @@ def orbit(inter, ic, n, p):
     plt.show()  # Show the plot window
     return t, traj
 
-def eulerstep(t, x, h):
-    return x + h * ydot(t, x)
+def eulerstep(ydot, t, x, h): return x + h*ydot(t, x)
+
+def trapstep(ydot, t, y, h): return y + h/2.*(ydot(t, y)+ydot(t+h,y+h*ydot(t,y)))
+
 
 def ydot(t, x):
-    m1 = 0.03
-    m2 = 0.3  # Mass of the second object
+    m0 = 0.03
+    m1 = 0.3  # Mass of the second object
     g = 1   # Gravitational acceleration
-    mg1,mg2 = m1*g,m2*g
-    px1,vx1,py1,vy1,px2,vx2,py2,vy2 = x[0],x[1],x[2],x[3],x[4],x[5],x[6],x[7]  # Unpack values
-    dist = np.sqrt((px2 - px1)**2 + (py2 - py1)**2)
+    mg0,mg1 = m0*g,m1*g
+    px0,vx0,py0,vy0,px1,vx1,py1,vy1 = x[0],x[1],x[2],x[3],x[4],x[5],x[6],x[7]  # Unpack values
+    dist = np.sqrt((px1 - px0)**2 + (py1 - py0)**2)
     z = np.zeros(8)
-    z[0] = vx1
-    z[1] = (mg2*(px2 - px1))/(dist**3)  # Acceleration in x
-    z[2] = vy1
-    z[3] = (mg2*(py2 - py1))/(dist**3)  # Acceleration in y
-    z[4] = vx2
-    z[5] = (mg1*(px1 - px2))/(dist**3)  # Acceleration in x
-    z[6] = vy2
-    z[7] = (mg1*(py1 - py2))/(dist**3)  # Acceleration in y
+    z[0] = vx0
+    z[1] = (mg1*(px1 - px0))/(dist**3)  # Acceleration in x
+    z[2] = vy0
+    z[3] = (mg1*(py1 - py0))/(dist**3)  # Acceleration in y
+    z[4] = vx1
+    z[5] = (mg0*(px0 - px1))/(dist**3)  # Acceleration in x
+    z[6] = vy1
+    z[7] = (mg0*(py0 - py1))/(dist**3)  # Acceleration in y
     return z
 
 
@@ -147,10 +149,17 @@ def set_position(line, xdata, ydata):
 
 # Example usage
 orbit([0, 100], [2,0.2,2,-0.2,0,-0.02,0,0.02], 10000, 5)
-
 </pre>
 <hr>
 
-<b>11</b> 
+<b>11</b> Using the code from Computer Problem 9, one can run <p>
+    <pre>
+    orbit([0, 100], [0,0.2,1,-0.2,-2,-0.2,-1,0.2], 10000, 5) 
+    </pre> <p>
+along with the given masses. The orbits have some near passes, at which extra precision 
+is needed to preserve accuracy. 
+<hr>
+<b>13</b> 
+
 
 </html>
