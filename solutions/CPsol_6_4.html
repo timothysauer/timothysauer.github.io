@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Numerical Analysis 3rd Edition Sauer </title>
+<title>Numerical Analysis 4th Edition Sauer </title>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 </head>
 
@@ -148,6 +148,23 @@ eliminating the sun, and changing the axis limits. Plotting the \(x\) and
  condition \((5.00001,5,5)\).  They agree on the symbol sequence
  \(100000000110111001010\) during the first 15 time units, and then
  disagree.
+<hr>
 
+<b>15</b> Replace the <tt>trapstep</tt> call in Computer Problem 6.3.11 with the folwing
+RK4 code:
+<pre>
+def rk4step(ydot,t, w, h):
+    s1 = ydot(t, w)
+    s2 = ydot(t + h/2, w + h*s1/2)
+    s3 = ydot(t + h/2, w + h*s2/2)
+    s4 = ydot(t + h, w + h*s3)
+    return w + h*(s1 + 2*s2 + 2*s3 + s4)/6    
+</pre> 
+Compared with the <tt>trapstep</tt> version, the oribts stay closed for a much longer
+time period. <p>
+<hr>
+
+<b>17</b> Similar to 15. Replace <tt>trapstep</tt> with <tt>rk4step</tt> in the 
+code developed for COmputer Problem 6.3.15. 
 
 </html>
