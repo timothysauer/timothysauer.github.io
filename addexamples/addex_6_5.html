@@ -47,13 +47,13 @@ has solution \(y(t) = \sec (t+\pi/6) + \tan (t+\pi/6)\)  on the interval \([0,1]
 <p>
 <hr> <p>
 
-The following Python NEEDS FIXING XXXX commands call the <tt>ode23</tt> and <tt>ode45</tt> solvers: 
+The following Python commands call the <tt>BDF</tt> and <tt>RK45</tt> solvers: 
 <pre>
-opts=odeset('RelTol',1e-8);
-[t23,y23]=ode23(@(t,y) (1+y^2)/2,[0 1],sqrt(3),opts);
-[t45,y45]=ode45(@(t,y) (1+y^2)/2,[0 1],sqrt(3),opts);
+y = solve_ivp(ydot,[0,1],[y0],method='BDF',rtol=1e-8)
+y = solve_ivp(ydot,[0,1],[y0],method='RK45',rtol=1e-8)
 </pre>
-The exact solution at \(t=1\) is \(y(1) = 42.367213.\) <tt>ode23</tt> uses 419 steps and has error \(0.000292\) at \(t=1\), and <tt>ode45</tt> uses 137 steps and has error \(0.000051.\) The approximate solutions are indistinguishable from the exact solution at the scale shown below.
+The exact solution at \(t=1\) is \(y(1) = 42.367213.\) <tt>BDF</tt> uses 128 steps and has
+ error \(0.0042\) at \(t=1\), and <tt>RK45</tt> uses 33 steps and has error \(0.000076.\) The approximate solutions are indistinguishable from the exact solution at the scale shown below.
 <p>
 <img width=400 async src="figs/AddEx6_5_2.png" align=left>
 
