@@ -63,6 +63,38 @@ y(t) = 1 +t^2(3-2t)
 <p>
 <hr>
 
+<b>7(a)</b> The letter p:\begin{tikzpicture}[scale=2]
+\draw[->] (-0.5,0) -- (2,0);
+\draw[->] (0,-1) -- (0,2);
+\draw[ultra thick] 
+  (0,-1) 
+    .. controls (0,-1) and (0,1) .. 
+  (0,1) ;
+\draw[ultra thick] 
+  (0,0.8) 
+    .. controls (1.5,1.8) and (1.5,-0.8) .. 
+  (0,0) ;
+\draw[dashed] (0,0.8) -- (1.5,1.8);
+\draw[dashed] (1.5,-0.8) -- (0,0);
+\filldraw (1.5-.04,1.8-.04) rectangle ++(0.08,0.08);
+\filldraw (1.5-.04,-0.8-.04) rectangle ++(0.08,0.08);
+\filldraw (0,-1) circle (1pt);
+\filldraw (0,1) circle (1pt);
+\filldraw (0,0.8) circle (1pt);
+\filldraw (0,0) circle (1pt);
+\node at (0-.4,-1) {(0,\(-1\))};
+\node at (0-.4,1) {(0,1)};
+\node at (0-.4,0.8) {(0,0.8)};
+\node at (0-.4,0) {(0,0)};
+\node at (1.5+.4,1.8) {(1.5,1.8)};
+\node at (1.5+.4,-0.8) {(1.5,\(-0.8\))};
+\end{tikzpicture}
+<script type="text/tikz">
+
+</script>
+
+<hr>
+
 <b>7</b> There are infinitely many Bezier curves satisfying the
 requirements. The data points are
 \((-1,0), (-1,y_1), (1,y_2), (1,0)\)
@@ -131,33 +163,5 @@ the second control point to the second endpoint. Therefore the Bezier
 equations are designed to allow the control points to control the tangent
 directions at the endpoints.
 
- <script type="text/tikz">
-\begin{tikzpicture}[scale=1]
-\draw[->] (-0.5,0) -- (2,0);
-\draw[->] (0,-0.5) -- (0,4);
-\draw[ultra thick] 
-  (0,3) 
-    .. controls (2,3) and (2,2) .. 
-  (0,2) ;
-\draw[ultra thick] 
-  (0,2) 
-    .. controls (2,2) and (2,1) .. 
-  (0,1) ;
-\draw[dashed] ((0,3) -- (2,3);
-\draw[dashed] ((0,2) -- (2,2);
-\draw[dashed] ((0,1) -- (2,1);
-\filldraw (2-.07,3-.07) rectangle ++(0.14,0.14);
-\filldraw (2-.07,2-.07) rectangle ++(0.14,0.14);
-\filldraw (2-.07,1-.07) rectangle ++(0.14,0.14);
-\filldraw (0,3) circle (2pt);
-\filldraw (0,2) circle (2pt);
-\filldraw (0,1) circle (2pt);
-\node at (2.6,3) {(2,3)};
-\node at (2.6,2) {(2,2)};
-\node at (2.6,1) {(2,1)};
-\node at (-0.6,3) {(0,3)};
-\node at (-0.6,2) {(0,2)};
-\node at (-0.6,1) {(0,1)};
-\end{tikzpicture}
-</script>
+ 
 </html>
