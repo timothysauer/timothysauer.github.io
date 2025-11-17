@@ -87,15 +87,50 @@ y(t) = 1 +t^2(3-2t)
 \node at (0-.4,-1) {(0,\(-1\))};
 \node at (0-.4,1) {(0,1)};
 \node at (0-.4,0.8) {(0,0.8)};
-\node at (0-.4,0) {(0,0)};
-\node at (1.5+.4,1.8) {(1.5,1.8)};
-\node at (1.5+.4,-0.8) {(1.5,\(-0.8\))};
+\node at (0-.4,0.3) {(0,0)};
+\node at (1.5+.5,1.8) {(1.5,1.8)};
+\node at (1.5+.5,-0.8) {(1.5,-0.8)};
+\end{tikzpicture}
+</script>
+
+<hr>
+<b>7 (b)</b> The letter s:
+<script type="text/tikz">
+\begin{tikzpicture}[scale=2]
+\draw[->] (-0.5,0) -- (2,0);
+\draw[->] (0,-0.5) -- (0,2);
+\draw[ultra thick] 
+  (1,1) 
+    .. controls (0,1.2) and (0,0.7) .. 
+  (0.5,0.5) ;
+\draw[ultra thick] 
+  (0.5,0.5) 
+    .. controls (1,0.3) and (1,-0.2) .. 
+  (0,0) ;
+\draw[dashed] (1,1) -- (0,1.2);
+\draw[dashed] (0,0.7) -- (0.5,0.5);
+\draw[dashed] (0.5,0.5) -- (1,0.3);
+\draw[dashed] (1,-0.2) -- (0,0);
+\filldraw (0-.04,1.2-.04) rectangle ++(0.08,0.08);
+\filldraw (0-.04,0.7-.04) rectangle ++(0.08,0.08);
+\filldraw (1-.04,0.3-.04) rectangle ++(0.08,0.08);
+\filldraw (1-.04,-0.2-.04) rectangle ++(0.08,0.08);
+\filldraw (1,1) circle (1pt);
+\filldraw (0.5,0.5) circle (1pt);
+\filldraw (0,0) circle (1pt);
+\node at (1-.4,1) {(1,1)};
+\node at (0-.4,1.2) {(0,1.2)};
+\node at (0-.4,0.7) {(0,0.7)};
+\node at (0.5-.4,0.5) {(0.5,0.5)};
+\node at (1+.4,0.3) {(1,0.3)};
+\node at (1+.4,-0.2) {(1,-0.2)};
+\node at (0+.4,0) {(0,0)};
 \end{tikzpicture}
 </script>
 
 <hr>
 
-<b>7</b> There are infinitely many Bezier curves satisfying the
+<b>9</b> There are infinitely many Bezier curves satisfying the
 requirements. The data points are
 \((-1,0), (-1,y_1), (1,y_2), (1,0)\)
 which generate the Bezier curve
@@ -116,7 +151,7 @@ for arbitrary \(y_1\). A particularly symmetric Bezier curve is given
 by setting \(y_1=y_2=\frac{4}{3}\), or \(y(t)=4t-4t^2\).
 <hr>
 
-<b>9 (a)</b> For a space curve, the Bezier equations are applied
+<b>11 (a)</b> For a space curve, the Bezier equations are applied
 to the \(x, y\) and \(z\) coordinates. Therefore \(b_x=3, c_x= -9, d_x = 5,
 b_y=0, c_y=6, d_y= -5\), and \(b_z=0, c_z=3, d_z = -3\). The Bezier
 space curve is
@@ -126,7 +161,7 @@ x(t) = 1 +3t-9t^2 +5t^3\\
 y(t) = 6t^2-5t^3\\
 z(t) = 3t^2-3t^3
 \end{array}\right. .\]
-<b>9 (b)</b> Similar to (a). Calculate \(b_x=0, c_x=-6, d_x=6,
+<b>11 (b)</b> Similar to (a). Calculate \(b_x=0, c_x=-6, d_x=6,
 b_y=3, c_y=-9, d_y=6\), and \(b_z=3, c_z= -12, d_z = 8\). The
 Bezier space curve is
 \[
@@ -146,7 +181,7 @@ z(t) = 1+6t^2-4t^3
 \end{array}\right. .\]
 <hr>
 
-<b>11</b> Differentiating the Bezier formula \(x(t)=x_0+b_xt+c_xt^2+d_xt^3\)
+<b>13</b> Differentiating the Bezier formula \(x(t)=x_0+b_xt+c_xt^2+d_xt^3\)
 gives \(x'(t)=b_x+2c_xt+3d_xt^2\). Substituting yields \(x'(0)=b_x=3(x_1-x_0)\)
 and
 \begin{align*}
