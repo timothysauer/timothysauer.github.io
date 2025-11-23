@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Numerical Analysis Sauer </title>
+<title>Numerical Analysis 4th Edition Sauer </title>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 </head>
 
@@ -31,22 +31,21 @@ y'=10y^5-10y^{10}\\
 y(0)=1/2
 \end{array} \right. \]
 on the interval \([0,10]\).
-Compare the variable step-size NEED TO FIX XXXX solvers <tt>ode23s</tt> and <tt>ode45</tt>, with <tt>RelTol = 1e-6</tt>. Do both methods approach the stable equilibrium \(y=1\)  at \(t=1\)?
+Compare the variable step-size solvers <tt>BDF</tt> and <tt>RK45</tt>, with <tt>RelTol = 1e-6</tt>. Do both methods approach the stable equilibrium \(y=1\)  at \(t=1\)?
 Report the number of steps needed for each method. What happens for  <tt>RelTol = 1e-8</tt>?
 
 <p>
 <hr>
 The IVP is stiff, which causes problems for conventional methods such as Runge-Kutta. The Matlab commands
 <pre>
-opts=odeset('RelTol',1e-6);
-[t,y]=ode23s(@(t,y) 10*y^5-10*y^(10),[0 10],0.5,opts);
-length(t)
-plot(t,y,'LineWidth',2)
+def f(t,y): return 10*y**5*(1-y**5)
+    sol = solve_ivp(f,[0,10],[0.5],method='BDF',rtol=1e-6)
+    print(len(sol.t))
 </pre>
-give the plot shown below, and the number of steps equals 122. Replacing <tt>ode23s</tt> with <tt>ode45</tt> yields a similar plot, but 657 steps are required. For both methods, the approximate solution approaches \(y=1\).
+give the plot shown below, and the number of steps equals 99. Replacing <tt>BDF</tt> with <tt>RK45</tt> yields a similar plot, but 162 steps are required. For both methods, the approximate solution approaches \(y=1\).
 <p>
-Changing to <tt>RelTol = 1e-8</tt> yields similar results for <tt>ode23s</tt>, but <tt>ode45</tt> fails to converge.
-
+Changing to <tt>RelTol = 1e-8</tt> yields similar results: 
+101 steps are required for <tt>BDF</tt>, and 164 steps for <tt>RK45</tt>
 
 <p>
 <img width=400 async src="figs/AddEx6_6_2.png" align=left>
