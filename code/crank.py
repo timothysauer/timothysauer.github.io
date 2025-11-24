@@ -37,18 +37,16 @@ def crank(xl, xr, yb, yt, M, N):
     x = xl + np.arange(0, M + 3) * h    # grids for plotting
     t = yb + np.arange(0, N + 1) * k
     X, T = np.meshgrid(x, t)
-    fig = plt.figure()   # Create a mesh plot
-    ax = fig.add_subplot(111, projection='3d')
-    ax.plot_surface(X, T, w.T, cmap='viridis', vmin=-1.,vmax=1.)
-    plt.xlabel('x')
-    plt.ylabel('t')
-    plt.title('Crank-Nicolson Method for heat equation')
-    plt.xlim(xl, xr)
-    plt.ylim(yb, yt)
-    ax.set_zlim(-1.,1.)
-    ax.view_init(elev=20, azim=-30)  # Set the view angle
-    plt.show()
-    return w
+    return X, T, w
 
 # Example usage
-w = crank(0, 1, 0, 1, 10, 10)
+X, T, w = crank(0, 1, 0, 1, 10, 10)
+fig = plt.figure()   # Create a mesh plot
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(X, T, w.T, cmap='viridis', vmin=-1.,vmax=1.)
+plt.xlabel('x')
+plt.ylabel('t')
+plt.title('Crank-Nicolson Method for heat equation')
+ax.set_zlim(-1.,1.)
+ax.view_init(elev=20, azim=-30)  # Set the view angle
+plt.show()
