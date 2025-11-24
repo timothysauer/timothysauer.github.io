@@ -16,7 +16,7 @@ def exm(ydot, inter, ic, n, s):
         f[i+1, :] = ydot(t[i+1], y[i+1, :])
     for i in range(s - 1, n):  # multistep method loop
         t[i+1] = t[i] + h
-        y[i+1, :] = ab2step(t[i],y[:i+1,:],f[:i+1,:],h)
+        y[i+1, :] = ab3step(t[i],y[:i+1,:],f[:i+1,:],h)
         f[i+1, :] = ydot(t[i+1], y[i+1, :])
     return t, y
 

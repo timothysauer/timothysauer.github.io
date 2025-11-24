@@ -31,7 +31,7 @@ def predcorr(ydot, inter, ic, n, s):
         f[i + 1, :] = ydot(t[i+1], y[i+1, :])
     return t, y
 
-def trapstep(t, x, h):  # One step of the Trapezoid Method
+def trapstep(ydot, t, x, h):  # One step of the Trapezoid Method
     z1 = ydot(t, x)
     g = x + h*z1
     z2 = ydot(t + h, g)
