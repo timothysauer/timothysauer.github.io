@@ -27,20 +27,17 @@ def heatbdn(xl, xr, yb, yt, M, N):
     x = np.linspace(xl, xr, m)
     t = np.linspace(yb, yt, n+1)
     X, T = np.meshgrid(x, t)  # 3-D Plot of the solution
-    fig = plt.figure()
-    ax = fig.add_subplot(111, projection='3d')
-    ax.plot_surface(X, T, w.T, cmap='viridis', vmin=-1.,vmax=1.)
-    ax.set_xlabel('x')
-    ax.set_ylabel('t')
-    ax.set_zlabel('w')
-    ax.set_title('Heat Equation Solution (Neumann B.C.)')
-    plt.xlim(xl, xr)
-    plt.ylim(yb, yt)
-    ax.set_zlim(-1.,1.)
-    ax.view_init(elev=30, azim=-30)  # Set the view angle
-    plt.show()
-    return w
+    return X, T, w
 
 # Example usage
-w = heatbdn(0, 1, 0, 1, 20, 20)
-
+X, T, w = heatbdn(0, 1, 0, 1, 20, 20)
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(X, T, w.T, cmap='viridis', vmin=-1.,vmax=1.)
+ax.set_xlabel('x')
+ax.set_ylabel('t')
+ax.set_zlabel('w')
+ax.set_title('Heat Equation Solution (Neumann B.C.)')
+ax.set_zlim(-1.,1.)
+ax.view_init(elev=30, azim=-30)  # Set the view angle
+plt.show()

@@ -41,6 +41,8 @@ ax.set_xlabel('x')
 ax.set_ylabel('t')
 ax.set_zlabel('w')
 ax.set_title('Heat Equation Solution (Forward Difference Method)')
+#plt.xlim(xl, xr)
+#plt.ylim(yb, yt)
 ax.set_zlim(-1.,1.)
 ax.view_init(elev=30, azim=-30)  # Set the view angle
 plt.show()
