@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Numerical Analysis 3rd Edition Sauer </title>
+<title>Numerical Analysis 4th Edition Sauer </title>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 </head>
 
@@ -73,7 +73,7 @@ for \(n=9, 19\) and \(39\) in (b).
 <hr>
 
 
-<b>3 (a)</b> The Matlab program <tt>nlbvpfd</tt> can be adapted to apply to the
+<b>3 (a)</b> The program <tt>nlbvpfd.py</tt> can be adapted to apply to the
 equation. The function that the \(w_i\) must satisfy is \(F(w)=0\), where the \(i\)th
 component of \(F\) is \(w_{i-1}-2w_i-18h^2w_i^2+w_{i+1}\). The Jacobian is
 \[DF=\left[\begin{array}{cccccc}
@@ -89,7 +89,7 @@ plotted below along with the errors for \(n=9, 19\), and \(39\).<p>
 <img width=300 async src="figs/cp7o2o3a1.png" align=left>
 <br clear="all" />
 <p>
-<b>3 (b)</b> The Matlab program <tt>nlbvpfd</tt> can be adapted to apply to the
+<b>3 (b)</b> The Python program <tt>nlbvpfd.py</tt> can be adapted to apply to the
 equation. The solution function is \(F(w)=0\), where the \(i\)th
 component of \(F\) is \(w_{i-1}-2w_i-2h^2e^{-2w_i}(1-t_i^2)+w_{i+1}\). The Jacobian is
 \[DF=\left[\begin{array}{cccccc}
@@ -212,7 +212,7 @@ y(1)=1\\
 \end{array}\right.
 \]
 at \(t=1/2\), minus \(1/4\). Newton's Method can be used to approximate the
-solution \(w\) of the nonlinear BVP. Check that \(G(10)G(15)<0\), implying
+solution \(w\) of the nonlinear BVP. Check that \(G(10)G(15)\lt 0\), implying
 a root between \(c=10\) and \(c=15\). Using the Bisection Method, for example,
 the root can be refined to approximately \(11.7856\). The number \(n\) used
 in the BVP approximation needs to be fairly large to get this accuracy,
