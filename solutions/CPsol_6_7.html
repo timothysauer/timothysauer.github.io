@@ -142,11 +142,12 @@ t_i&w_i&\text{error}\\
     1.0&    0.0394&    1.0959\\
 \end{array}\]
 <hr>
-<b>5</b> To plot the solutions, the <tt>exmultistep</tt> program can be altered as follows:
-Replace the Adams-Bashforth Two-Step
-Method with the Three-Step Method. In addition, order-four Runge-Kutta
+<b>5</b> To plot the solutions, the <tt>exmultistep</tt> program can be altered by
+replacing the Adams-Bashforth Two-Step
+Method with the Adams-Bashforth Three-Step Method. In addition, order-four Runge-Kutta
 should be used as a startup method. The plots are shown below for (a) \(y_0 = 0\) and 
-(b) \(y_0 = 1/2\).
+(b) \(y_0 = 1/2\). The highest curve is the exact solution \(y(t) = \tan(t + \arctan y_0)\), the middle curve is the
+result with \(h = 0.05\), and the lowest curve uses \(h = 0.1\).
 
 <p>
 <img width=300 async src="figs/cp6o7o5a.png" align=left>
