@@ -25,13 +25,14 @@ def bvpfem(inter, bv, n):
     d[0] = -ya*beta
     d[-1] = -yb*beta
     w = spsolve(M, d)  # Solve the linear system M * c = d
-    plt.plot([a] + list(a+(1+np.arange(n))*h)+[b],[ya]+list(w)+[yb])
-    plt.xlabel('x')
-    plt.ylabel('w')
-    plt.title(' BVP Finite Element Method Solution')
-    plt.grid(True)
-    plt.show()
-    return w
+    t = [a] + list(a+(1+np.arange(n))*h)+[b]
+    w = [ya]+list(w)+[yb]
+    return t, w
 
 # Example usage
-w = bvpfem([0, 1], [1, 3], 39)
+t, y = bvpfem([0, 1], [1, 3], 39)
+plt.xlabel('t')
+plt.ylabel('y')
+plt.title(' BVP Finite Element Method Solution')
+plt.grid(True)
+plt.show()
