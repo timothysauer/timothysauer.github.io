@@ -23,7 +23,7 @@ def F(s):
     return sol.y[0,-1]-yb
 </pre>
 By trial and error, we find that \(F(0.2) = -0.1567\) and \(F(0.4) = 0.0783\). The interval \(0.2&lt s&lt 0.4\)
-is a bracketing interval, and we can apply the Bisection Method to find a
+is a bracketing interval, and we can apply <tt>brentq</tt> (or the Bisection Method) to find a
 root of \(F\). The commands
 <pre>
 from scipy.optimize import brentq
@@ -55,15 +55,14 @@ The solution is plotted below.
 <p>
 <hr>
 
-<b>3 (a)</b> Proceed as in Computer Problem 1, replacing the Bisection Method with
-the Secant Method from Chapter 1. Note that \(F(-1)F(0)&lt 0\). Applying the Secant
-Method, we calculate \(s = -0.666667\) to six correct places. The solution
+<b>3 (a)</b> Proceed as in Computer Problem 1. Note that \(F(-1)F(0)&lt 0\). Applying <tt>brentq</tt>,
+we calculate \(s = -2/3\). The solution
 is plotted below. <p>
 <img width=300 async src="figs/cp7o1o3a.png" align=left>
 <br clear="all" />
 <p>
-<b>3 (b)</b> Proceed as in Computer Problem 1. Note that \(F(-1)F(1)&lt 0\). The Secant
-Method converges to \(s=0\). The solution
+<b>3 (b)</b> Proceed as in Computer Problem 1. Note that \(F(-1)F(1)&lt 0\). Solving
+for \(s\) converges to \(s=0\). The solution
 is plotted below.<p>
 <img width=300 async src="figs/cp7o1o3b.png" align=left>
 <br clear="all" />
@@ -71,27 +70,28 @@ is plotted below.<p>
 <hr>
 
 <b>5 (a)</b>
-Write a Matlab function file <tt>de.m</tt> for the differential equation:
+Write a function file to solve for the initial condition of \(y_1\):
 <pre>
-function ydot=de(t,y)
-ydot=[0;0];
-ydot(1)=1/y(2);
-ydot(2)=t+tan(y(1));
+def ydot(t,y): return [-1./y[1], 2/y[0]]
+def F(s):
+    a, b, yb = 1., 2., 4.
+    sol = solve_ivp(ydot,[a,b],[1.,s],method='RK45',rtol=1e-12)
+    return sol.y[1,-1]-yb
 </pre>
 and a function file <tt>F.m</tt> to represent the shooting method problem, as in (7.5).
-<pre>
-function z=F(s);
-a=0;b=1;yb=2;
-[t,y]=ode45('de',[a,b],[0,s]);
-z=y(end,2)-yb;
-</pre>
-By trial and error, we find that \(F(3/4) = -0.0622\) and \(F(2) = 0.7452\). The interval \(3/4&lt s&lt 2\)
+
+By trial and error, we find that \(F(1)F(3)\neq 0\). The interval \((1,3)\)
 is a bracketing interval, and
- either the Bisection Method or Secant Method can be applied to converge to the root \(s=y_2(0)=1\).
-The Matlab command <tt>ode45</tt> can be used to plot the solution:
+ either the Bisection Method or <tt>brentq</tt>>can be applied to converge to the root \(s=y_2(0)=1\).
+Then <tt>RK45</tt> can be used to plot the solution:
 <pre>
->> [t,y]=ode45('de',[0,1],[0,s]);
->> plot(t,y)
+sstar=brentq(F,1,3)
+sol = solve_ivp(ydot,[1.,2.],[1.,sstar],method='RK45',t_eval=np.linspace(1, 2, 20))
+plt.plot(sol.t,sol.y[0],sol.t,sol.y[1])
+plt.grid(True)
+plt.xlabel('t')
+plt.ylabel('y')
+plt.show()
 </pre>
 The solutions \(y_1(t)\) and \(y_2(t)\) are plotted below. <p>
 <img width=300 async src="figs/cp7o1o5a.png" align=left>
