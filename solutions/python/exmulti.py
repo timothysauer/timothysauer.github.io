@@ -1,14 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def exmultistep(ydot, inter, ic, n, s):
-    """ Program 6.7 Multistep Method
-        Input:  inter time interval
-                ic initial conditions
-                n number of steps
-                s number of multisteps, e.g. 2 for 2-step method
-        Output: t time points
-                y solution of IVP """
+
+def exm(ydot, inter, ic, n, s):
     h = (inter[1] - inter[0]) / n
     y = np.zeros((n + 1, len(ic)))  # Initialize solution array
     f = np.zeros((n + 1, len(ic)))  # Store derivative evaluations
@@ -18,11 +12,11 @@ def exmultistep(ydot, inter, ic, n, s):
     f[0,:] = ydot(t[0],y[0,:])
     for i in range(s - 1):  # Start-up phase, using one-step method
         t[i+1] = t[i] + h
-        y[i+1, :] = trapstep(ydot, t[i], y[i, :], h)
+        y[i+1, :] = rk4step(ydot, t[i], y[i, :], h)
         f[i+1, :] = ydot(t[i+1], y[i+1, :])
     for i in range(s - 1, n):  # multistep method loop
         t[i+1] = t[i] + h
-        y[i+1, :] = unstable2step(t[i],y[:i+1,:],f[:i+1,:],h)
+        y[i+1, :] = ab2step(t[i],y[:i+1,:],f[:i+1,:],h)
         f[i+1, :] = ydot(t[i+1], y[i+1, :])
     return t, y
 
@@ -32,20 +26,20 @@ def trapstep(ydot, t,x,h):
     z2 = ydot(t + h, g)
     return x + h*(z1 + z2)/2
 
+def rk4step(ydot, t, w, h):
+    """ One step of the Runge-Kutta order 4 method """
+    s1 = ydot(t, w)
+    s2 = ydot(t + h / 2., w + h * s1 / 2.)
+    s3 = ydot(t + h / 2., w + h * s2 / 2.)
+    s4 = ydot(t + h, w + h * s3)
+    return w + h * (s1 + 2. * s2 + 2. * s3 + s4) / 6.
+
 def ab2step(t,w,f,h):  # One step of Adams-Bashforth 2-step method 
     return w[-1,:] + h*(3*f[-1,:]/2 - f[-2,:]/2)
 
-def unstable2step(t,w,f,h):  # One step of an unstable 2-step method
-    return -w[-1, :] + 2*w[-2,:] + h*(5*f[-1, :]/2 +f[-2, :]/2)
+def ab3step(t,w,f,h):  # One step of Adams-Bashforth 2-step method 
+    return w[-1,:] + h*(23*f[-1,:] - 16*f[-2,:]+5*f[-3,:])/12
 
-def weaklystable2step(t,w,f,h): # One step of weakly-stable 2-step method
-    return w[-2, :] + h*2*f[-1, :]
 
 # Example usage
-#def ydot(t, y):  return t*y + t**3
-#t, y = exmultistep(ydot, [0, 1], [1], 20, 2)
-#plt.plot(t, y)
-#plt.xlabel('Time')
-#plt.ylabel('Solution')
-#plt.title('Multistep Method Solution')
-#plt.show()
+#t, y = exmultistep([0, 1], [1], 20, 2)
