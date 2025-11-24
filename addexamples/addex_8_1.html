@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Numerical Analysis 3rd Edition Sauer </title>
+<title>Numerical Analysis 4th Edition Sauer </title>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 </head>
 
@@ -39,8 +39,10 @@ on \(0\leq x\leq 1\) and \(0\leq t\leq 4.\)
 Plot the solution for step sizes \(h = k = 0.05.\) Compare the approximate solution to the exact solution \(u(x,t)=e^{-t}\sin 3\pi x\) by plotting the error at \((x,t)=(1/2,2)\) for \(h=k = 0.05\times 2^{-i}\) for \(i=0,\ldots,6.\)
 <hr>
 
-The <tt>crank.m</tt> code can be used with the initial conditions given and diffusion coefficient \(D=1/(9\pi^2).\)  The solution for \(h=k=0.05, M=20, N=80\) is plotted in the first figure below. The same code can be run with six more halvings of the step size, and the error at \((x,t)=(1/2,2)\) is shown in the second figure. Note the slope of 2 in the log-log plot, which corresponds to the fact that the truncation error for Crank-Nicolson is \(O(h^2)+O(k^2).\) 
-
+The <tt>crank.py</tt> code can be used with the initial conditions given and diffusion coefficient \(D=1/(9\pi^2).\)  The solution for \(h=k=0.05, M=20, N=80\) is plotted in the first figure below. 
+The same code can be run with six more halvings of the step size, and the error at \((x,t)=(1/2,2)\) is shown in the second figure. Note the slope of 2 in the log-log plot, which corresponds to the fact that the truncation error for Crank-Nicolson is \(O(h^2)+O(k^2).\) 
+<p>
+    
 <img width=400 async src="figs/AddEx8_1_2a.png" align=left>
 <img width=400 async src="figs/AddEx8_1_2b.png" align=left>
 
