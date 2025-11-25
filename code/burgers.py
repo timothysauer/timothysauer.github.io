@@ -42,18 +42,18 @@ def burgers(xl, xr, tb, te, M, N):
     x = np.linspace(xl, xr, m)
     t = np.linspace(tb, te, n + 1)
     X, T = np.meshgrid(x, t)
-    fig = plt.figure()   # Create a mesh plot
-    ax = fig.add_subplot(111, projection='3d')
-    ax.plot_surface(X, T, w.T, cmap='viridis', vmin=-1.,vmax=1.)
-    plt.xlabel('x')
-    plt.ylabel('t')
-    plt.title('Solution of Burgers Equation')
-    plt.xlim(xl, xr)
-    plt.ylim(tb, te)
-    ax.set_zlim(0.,0.4)
-    ax.view_init(elev=20, azim=-30)  # Set the view angle
-    plt.show()
     return w
 
 # Example usage
-w = burgers(0, 1, 0, 2, 20, 40)
+X, T, w = burgers(0, 1, 0, 2, 20, 40)
+fig = plt.figure()   # Create a mesh plot
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(X, T, w.T, cmap='viridis', vmin=-1.,vmax=1.)
+plt.xlabel('x')
+plt.ylabel('t')
+plt.title('Solution of Burgers Equation')
+plt.xlim(xl, xr)
+plt.ylim(tb, te)
+ax.set_zlim(0.,0.4)
+ax.view_init(elev=20, azim=-30)  # Set the view angle
+plt.show()

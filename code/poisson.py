@@ -45,16 +45,16 @@ def poisson(xl, xr, yb, yt, M, N):
     v = np.linalg.solve(A, b)  # Solve Ax = b
     w = v.reshape(m, n)  # Translate from v to w
     X, Y = np.meshgrid(x, y)
-    fig = plt.figure()   # Create a mesh plot
-    ax = fig.add_subplot(111, projection='3d')
-    ax.plot_surface(X, Y, w, cmap='viridis', vmin=-1.,vmax=1.)
-    plt.xlabel('X')
-    plt.ylabel('Y')
-    ax.set_zlim(0.,2.)
-    plt.title('2D Poisson Equation Solution')
-    ax.view_init(elev=20, azim=-135)  # Set the view angle
-    plt.show()
-    return w
+    return X, Y, w
 
 # Example usage
-w = poisson(0, 1, 1, 2, 4, 4)
+X, Y, w = poisson(0, 1, 1, 2, 4, 4)
+fig = plt.figure()   # Create a mesh plot
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(X, Y, w, cmap='viridis', vmin=-1.,vmax=1.)
+plt.xlabel('X')
+plt.ylabel('Y')
+ax.set_zlim(0.,2.)
+plt.title('2D Poisson Equation Solution')
+ax.view_init(elev=20, azim=-135)  # Set the view angle
+plt.show()
