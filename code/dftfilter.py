@@ -22,15 +22,15 @@ def dftfilter(inter, x, m, p):
         yp[p - m//2] = yp[m//2]  # Add complex conjugate to upper tier
     yp[p - m//2 + 1:p] = y[n - m//2 + 1:n]  # More conjugates for upper tier
     xp = np.real(np.fft.ifft(yp))*(p/n)  # Invert FFT to recover data
-    plt.plot(t, x, 'o', label='Original Data')
-    plt.plot(tp, xp, label='Least Squares Approximation')
-    plt.xlabel('Time')
-    plt.ylabel('Value')
-    plt.legend()
-    plt.title('Least Squares Trigonometric Fit')
-    plt.show()
-    return xp
+    return tp, xp
 
 # Example usage
 x = np.sin(np.arange(64)*2*np.pi/64) + 0.1*np.random.normal(0,1,64) 
-xp = dftfilter([0,2*np.pi],x, 6, 128)
+tp, xp = dftfilter([0,2*np.pi],x, 6, 128)
+plt.plot(t, x, 'o', label='Original Data')
+plt.plot(tp, xp, label='Least Squares Approximation')
+plt.xlabel('Time')
+plt.ylabel('Value')
+plt.legend()
+plt.title('Least Squares Trigonometric Fit')
+plt.show()
