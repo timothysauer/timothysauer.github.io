@@ -35,16 +35,18 @@ def fisher1d(xl, xr, tb, te, M, N):
     x = np.linspace(xl, xr, m)
     t = np.linspace(tb, te, n + 1)
     X, T = np.meshgrid(x, t)
-    return X, T, w
+    fig = plt.figure()   # Create a mesh plot
+    ax = fig.add_subplot(111, projection='3d')
+    ax.plot_surface(X, T, w.T, cmap='viridis', vmin=-1.,vmax=1.)
+    plt.xlabel('x')
+    plt.ylabel('t')
+    plt.title('Solution of Fisher Equation')
+    plt.xlim(xl, xr)
+    plt.ylim(tb, te)
+    ax.set_zlim(0.,2)
+    ax.view_init(elev=20, azim=-30)  # Set the view angle
+    plt.show()
+    return w
 
 # Example usage
-X, T, w = fisher1d(0, 1, 0, 3, 10, 30)
-fig = plt.figure()   # Create a mesh plot
-ax = fig.add_subplot(111, projection='3d')
-ax.plot_surface(X, T, w.T, cmap='viridis', vmin=-1.,vmax=1.)
-plt.xlabel('x')
-plt.ylabel('t')
-plt.title('Solution of Fisher Equation')
-ax.set_zlim(0.,2)
-ax.view_init(elev=20, azim=-30)  # Set the view angle
-plt.show()
+w = fisher1d(0, 1, 0, 3, 10, 30)
