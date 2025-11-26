@@ -204,9 +204,24 @@ between 5 and 4.
  <b>19(a)</b> \( (10/3)_{10} = (11.\overline{01})_2\). Justify: \(1.\overline{10}\times 2^1\).
  In E4M3, the rounding is \(1.\fbox{101}0101\ldots \times 2^1 \to 1.101\times 2^1\),
  which corresponds to \(3.25\) in base 10. The rounding error is \(1/12\). In E5M2,
- the rounding is \(1.\fbox{10}1010\ldots \times 2^1 \to 1.11\times 2^1\) after rounding up.
- 
+ the rounding is \(1.\fbox{10}1010\ldots \times 2^1 \to 1.11\times 2^1\) after rounding up,
+ which corresponds to \(3.5\) in base 10.
+The rounding error is \(1/6\).
 <p>
 <b>19(b)</b> \( (14.75)_{10} = (1110.11)_2\). Justify: \(1.11011\times 2^3\).
-In E4M3,
+In E4M3, the rounding is \(1.\fbox{110}11 \times 2^3 \to 1.111\times 2^3\),
+ which corresponds to \(15\) in base 10. The rounding error is \(0.25\). In E5M2,
+ the rounding is \(1.\fbox{11}011\times 2^3 \to 1.11\times 2^3\) after rounding down, 
+ which corresponds to 14 in base 10.
+ The rounding error is \(0.75\).
+
+ <p>
+
+<b>19(c)</b> \( (1.9)_{10} = (1.1\overline{1100})_2\). Justify: 
+\(1.1\overline{1100}\times 2^0\).
+In E4M3, the rounding is \(1.\fbox{111}\overline{0011} \times 2^0\to 1.111\times 2^0\),
+ which corresponds to \(1.875\) in base 10. The rounding error is \(0.25\). In E5M2,
+ the rounding is \(1.\fbox{11}011\times 2^3 \to 1.11\times 2^3\) after rounding down, 
+ which corresponds to 14 in base 10.
+ The rounding error is \(0.75\).
 </html>
