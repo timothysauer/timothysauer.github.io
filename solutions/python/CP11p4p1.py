@@ -1,17 +1,3 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-<title>Numerical Analysis 4th Edition Sauer </title>
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
-</head>
-
-<h3>COMPUTER PROBLEMS 11.4</h3>
-\(\def\ds{\displaystyle} \)
-
-<b>1</b> A Python program that carries out the computations of Example 11.9 is
-the following:
-<pre>
 import numpy as np
 
 def mdctexample(x,n):
@@ -32,14 +18,6 @@ def mdctexample(x,n):
         u1 = (w1+w2)/2
         xout = np.concatenate((xout,u1),axis = 0)
     return xout
-</pre>
-Applying the code to part (a), for example, would use 
-<pre>
+
 x = np.arange(1,13)
 print(mdctexample(x,4))
-
-[5. 6. 7. 8.]
-
-</pre>
-
-</html>
