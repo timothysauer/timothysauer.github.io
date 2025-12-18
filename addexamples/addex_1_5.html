@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Numerical Analysis 3rd Edition Sauer </title>
+<title>Numerical Analysis 4th Edition Sauer </title>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 </head>
 
@@ -15,12 +15,12 @@
 <hr><hr>
 <b>2</b> Write a Python program that uses the Secant Method to find both roots of \(f(x) = 8x^6-12x^5+6x^4-17x^3+24x^2-12x+2.\) Is the Secant Method superlinearly convergent to both roots?
 <hr>
-The Python program below implements the Secant Method.
+The code below implements the Secant Method.
 <pre>
-n=40
-f=lambda x: 8*x**6-12*x**5+6*x**4-17*x**3+24*x**2-12*x+2;
-x[0]=0
-x[1]=1
+n = 40
+def f(x): return 8*x**6 - 12*x**5 + 6*x**4 - 17*x**3 + 24*x**2 - 12*x + 2
+x[0] = 0
+x[1] = 1
 for i in range(1,n):
     x[i+1] = x[i]-f(x[i])*(x[i]-x[i-1])/(f(x[i])-f(x[i-1]));
 </pre>

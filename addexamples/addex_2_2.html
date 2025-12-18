@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Numerical Analysis 3rd Edition Sauer </title>
+<title>Numerical Analysis 4th Edition Sauer </title>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 </head>
 
@@ -16,7 +16,7 @@
 4&-4&8
 \end{array}\right] 
 \left[\begin{array}{rrr}
-x_1\\x_2\\x_3
+x_0\\x_1\\x_2
 \end{array}\right]  = 
 \left[\begin{array}{rrr}
 6\\3\\0
@@ -35,7 +35,7 @@ Strategy: (1) Factor A into A=LU, and  (2) carry out the two back-substitutions 
 \end{array}\right] 
 &  
 \longrightarrow \stackrel{\textstyle{\mbox{subtract \(\frac{1}{2}\) x row
-1}}}{\mbox{from row 2}}
+0}}}{\mbox{from row 1}}
 \longrightarrow \left[\begin{array}{rrr}
 2&4&-2\\
 0&-4&2\\
@@ -44,7 +44,7 @@ Strategy: (1) Factor A into A=LU, and  (2) carry out the two back-substitutions 
 \end{align*}   
 \begin{align*} &
 \longrightarrow \stackrel{\textstyle{\mbox{subtract \(2\) x row
-1}}}{\mbox{from row 3}} \longrightarrow \left[\begin{array}{rrr}
+0}}}{\mbox{from row 2}} \longrightarrow \left[\begin{array}{rrr}
 2&4&-2\\
 0&-4&2\\
 0&-12&12
@@ -54,7 +54,7 @@ Strategy: (1) Factor A into A=LU, and  (2) carry out the two back-substitutions 
 \begin{align*} 
 &  
 \longrightarrow \stackrel{\textstyle{\mbox{subtract \(3\) x row
-2}}}{\mbox{from row 3}}
+1}}}{\mbox{from row 2}}
 \longrightarrow \left[\begin{array}{rrr}
 2&4&-2\\
 0&-4&2\\
@@ -86,9 +86,9 @@ Next, carry out the two back-substitutions. Solve Lc=b:
 2&{3}&1
 \end{array}\right]
 \left[\begin{array}{r}
+c_0\\
 c_1\\
 c_2\\
-c_3\\
 \end{array}\right]
 = \left[\begin{array}{r}
 6\\
@@ -97,9 +97,9 @@ c_3\\
 \end{array}\right] \]
 Starting at the top,
 \begin{align*}
-c_1&=  6\\
-\frac{1}{2}(6)+c_2&=  3 \ \ \ \Rightarrow \ \ \ c_2 = 0\\
-2(6)+3(0)+c_3&=  0 \ \ \ \Rightarrow \ \ \ c_3 = -12
+c_0&=  6\\
+\frac{1}{2}(6)+c_1&=  3 \ \ \ \Rightarrow \ \ \ c_1 = 0\\
+2(6)+3(0)+c_2&=  0 \ \ \ \Rightarrow \ \ \ c_2 = -12
 \end{align*}    
 Solve Ux=c:
 \[
@@ -109,9 +109,9 @@ Solve Ux=c:
 0&0&6
 \end{array}\right]
 \left[\begin{array}{r}
+x_0\\
 x_1\\
 x_2\\
-x_3\\
 \end{array}\right]
 = \left[\begin{array}{r}
 6\\
@@ -121,9 +121,9 @@ x_3\\
 
 Starting at the bottom,
 \begin{align*}
-6x_3&=  -12 \quad \Rightarrow\quad x_3= -2 \\
--4x_2+2(-2)&= \quad 0\quad\Rightarrow\quad x_2 = -1\\
-2x_1+4(-1)-2(-2)&=  6 \quad\Rightarrow\quad x_1 = 3
+6x_2&=  -12 \quad \Rightarrow\quad x_2= -2 \\
+-4x_1+2(-2)&= \quad 0\quad\Rightarrow\quad x_1 = -1\\
+2x_0+4(-1)-2(-2)&=  6 \quad\Rightarrow\quad x_0 = 3
 \end{align*}
 Therefore the solution is  \(x=[3,-1,-2].\) 
 

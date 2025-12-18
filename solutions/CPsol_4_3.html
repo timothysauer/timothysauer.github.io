@@ -7,19 +7,26 @@
 
 <h3>COMPUTER PROBLEMS 4.3</h3>
 \(\def\ds{\displaystyle} \)
-<b>1</b> The Matlab code  for Modified Gram-Schmidt orthogonalization differs from Classical by a few keystrokes: <p>
+<b>1</b> Python code  for Modified Gram-Schmidt orthogonalization differs from Classical by a few keystrokes: <p>
 <pre>
-function [q,r]=mymgs(A) 
-[m,n]=size(A);
-for j=1:n
-  y=A(:,j);
-  for i=1:j-1
-    r(i,j)=q(:,i)'*y;
-    y=y-r(i,j)*q(:,i);
-  end
-  r(j,j)=norm(y);
-  q(:,j)=y/r(j,j);
-end
+import numpy as np
+
+def clgs(A):
+    """ Modified Gram-Schmidt orthogonalization
+    Input:  A mxn matrix with linearly independent columns
+    Output: Q orthogonal matrix
+            R upper triangular matrix """
+    m, n = A.shape
+    Q = np.zeros((m,n))
+    R = np.zeros((n,n))
+    for j in range(n):
+        y = A[:,j].copy()
+        for i in range(j):
+            R[i,j] = np.dot(Q[:,i], y)  # Inner product
+            y -= R[i,j]*Q[:,i]   # Subtract the projection
+        R[j,j] = np.linalg.norm(y)  # Norm of y
+        Q[:,j] = y/R[j,j]  # Normalize y to form the j-th column of Q
+    return Q, R
 </pre>
 <hr>
 
@@ -260,17 +267,15 @@ x_1\\x_2\\x_3
 \end{array}\right].   }\)
 <hr>
 
-<b>7 (a)</b> The matrix can be formed in Matlab by the commands
+<b>7 (a)</b> The matrix can be formed by the command
 <pre>
->> a=hilb(10);a=a(:,1:n);
+a = scipy.linalg.hilbert(10)
+a = a[:,:n]
 </pre>
 The correct solution \(\overline{x}=[1,\ldots,1]\) can be computed
 to about 10 correct decimal places. <p>
 <b>7 (b)</b> Similar to (a), but with \(n=8\). The correct \(\overline{x}=
 [1,\ldots,1]\)
 can be computed to about 6 correct places.
-
-
-
 
 </html>

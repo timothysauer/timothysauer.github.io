@@ -120,7 +120,7 @@ for example, because \(1+(\epsilon_\text{mach}/2+\epsilon_\text{mach}/2) =
 \epsilon_\text{mach}/2 =1\), because \(1+\epsilon_\text{mach}/2=1\).
 <hr>
 
-<b>13.</b> (c) In double precision floating point, $1 - (2^{-54}+2^{-106}) < 1$.)
+<b>13.</b> (c) In double precision floating point, \(1 - (2^{-54}+2^{-106}) < 1\).
 <hr>
 
 <b>15(a)</b> \((8.3)_{10} = 1.0000\overline{1001}\times 2^{3}\), and rounded,
@@ -185,9 +185,43 @@ which is \(1+2^{-50}\). After subtracting \(1\), the result
 is that the double precision floating point version of \((8.8-7.8)-1\) is
 \(2^{-50}\).
 
+<hr>
 
+<b>17(a)</b> \((5)_{10} = (101.)_2\). The representation of an E2M1 floating point number is \(1.b \times 2^e\).
+Justify: \(1.01\times 2^2\). Round: \( 1.\fbox{0}1\times 2^2 \to 1.0\times 2^2\), where
+the Rounding to Nearest Rule is used to round down, since the 1 in the bit following the mantissa
+is followed by all zeros, and the mantissa is already 0. The rounding error is 1, the difference
+between 5 and 4.
+<p>
+<b>17(b)</b> \((2.75)_{10} = (10.11)_2\). Justify: \(1.011\times 2^1\). Round: \(1.\fbox{0}11 \times
+2^1 \to 1.1\times 2^1\), after rounding up. The rounding error is \(0.25\).
+<p>
+  <b>17(c)</b>  \((4/3)_{10} = (1.\overline{01})_2\). Justify: \(1.\overline{01}\times 2^0\).
+  Round: \(1.\fbox{0}101\ldots\times 2^0 \to 1.1\times 2^0\). The rounding error ia \(1/6\).
+  
+  <hr>
 
+ <b>19(a)</b> \( (10/3)_{10} = (11.\overline{01})_2\). Justify: \(1.\overline{10}\times 2^1\).
+ In E4M3, the rounding is \(1.\fbox{101}0101\ldots \times 2^1 \to 1.101\times 2^1\),
+ which corresponds to \(3.25\) in base 10. The rounding error is \(1/12\). In E5M2,
+ the rounding is \(1.\fbox{10}1010\ldots \times 2^1 \to 1.11\times 2^1\) after rounding up,
+ which corresponds to \(3.5\) in base 10.
+The rounding error is \(1/6\).
+<p>
+<b>19(b)</b> \( (14.75)_{10} = (1110.11)_2\). Justify: \(1.11011\times 2^3\).
+In E4M3, the rounding is \(1.\fbox{110}11 \times 2^3 \to 1.111\times 2^3\),
+ which corresponds to \(15\) in base 10. The rounding error is \(0.25\). In E5M2,
+ the rounding is \(1.\fbox{11}011\times 2^3 \to 1.11\times 2^3\) after rounding down, 
+ which corresponds to 14 in base 10.
+ The rounding error is \(0.75\).
 
+ <p>
 
-
+<b>19(c)</b> \( (1.9)_{10} = (1.1\overline{1100})_2\). Justify: 
+\(1.1\overline{1100}\times 2^0\).
+In E4M3, the rounding is \(1.\fbox{111}\overline{0011} \times 2^0\to 1.111\times 2^0\),
+ which corresponds to \(1.875\) in base 10. The rounding error is \(0.025\). In E5M2,
+ the rounding is \(1.\fbox{11}\overline{1001}\times 2^0 \to 10.00\times 2^0 = 1.00\times 2^1\) after rounding up, 
+ which corresponds to 2 in base 10.
+ The rounding error is \(0.1\).
 </html>

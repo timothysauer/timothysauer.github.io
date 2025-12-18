@@ -44,52 +44,20 @@ and the 2-norm error is \(||e||_2 = 0.8256\).
 <hr>
 
 <b>3 (a)</b> We choose the model \(y=a+b(t-1960)\). Putting the data into this
-model yields the inconsistent system
-\[\left[\begin{array}{rr}
-1&0\\
-1&10\\
-1&30\\
-1&40\\
-\end{array}\right]
-\left[\begin{array}{c}
-a\\b\\
-\end{array}\right]=
-\left[\begin{array}{r}
-3039585530\\
-3707475887\\
-5281653820\\
-6079603571\\
-\end{array}\right]
-\]
-Solving the normal equations gives the best least squares line
-\(2996236899+76542140(t-1960)\),  with RMSE \( =
-36751088\). The 1980 population estimate from this model is
-\(4527079702\).<p>
+model yields fit shown below. The RMSE is \( =
+66 437 716\). The 1990 population estimate from this model is
+\(5 373 032 893\).<p>
 <b>3 (b)</b> Choosing a second-degree model
-\(y=a+b(t-1960)+c(t-1960)^2\), and inserting the data
-yields the inconsistent system
-\[\left[\begin{array}{rrr}
-1&0&0\\
-1&10&100\\
-1&30& 900\\
-1&40&1600\\
-\end{array}\right]
-\left[\begin{array}{c}
-a\\b\\c\\
-\end{array}\right]=
-\left[\begin{array}{r}
-3039585530\\
-3707475887\\
-5281653820\\
-6079603571\\
-\end{array}\right]
-\]
-Solving the normal equations gives the best least squares parabola
-\(3028751748+67871514(t-1960)
-+216766(t-1960)^2\) and RMSE \( = 17129714\). The lower RMSE shows the parabola
-is a superior fit at the four data points. In addition, the parabola'a estimate
-of the 1980 population is \(4472888288\), closer to the actual 1980 population
+\(y=a+b(t-1960)+c(t-1960)^2\) results in
+ RMSE \( = 31 107 576\). The lower RMSE shows the parabola
+is a superior fit at the six data points. In addition, the parabola'a estimate
+of the 1990 population is \(5 290 011 346\), closer to the actual 1990 population
 than the linear approximation.
+
+<p>
+<img width=300 async src="figs/CP4o1o3a.png" align=left>
+<img width=300 async src="figs/CP4o1o3b.png" align=left>
+<br clear="all" />
 <hr>
 
 <b>5 (a)</b> The normal equations are \(A^TAx=A^Tb\), where \(A\) is the \(22\times 2\) matrix
@@ -194,6 +162,22 @@ have two decimal place accuracy, and the condition number of \(A^TA\) is approxi
  \( -2.10814682+  8.36991145x  -6.29594636x^2  +4.86242309x^3 -0.14742971x^4  +1.17431499x^5
 +  0.99369095x^6 + 0.99841877x^7 + 1.00015504x^8. \) The coefficients have no
 decimal places of accuracy, due to the condition number \(\approx 1.41\times 10^{19}\).
+<p>
 
+<b>11 (a)</b> The best line is plotted below. The RMSE is approximately 2.60, and the 
+prediction for 2030 is 99.57 M bbl/day.
+<p>
 
+<b>11 (b)</b> The best parabola is plotted below. The RMSE is approximately 2.23, and the 
+prediction for 2030 is 118.21 M bbl/day.
+<p>
+
+<b>11 (c)</b> The best degree 3 curve is plotted below. The RMSE is approximately 2.20, and the 
+prediction for 2030 is 120.46 M bbl/day. This curve has the smallest RMSE, and in that sense,
+best represents the given data. <p>
+
+<img width=300 async src="figs/CP4o1o11a.png" align=left>
+<img width=300 async src="figs/CP4o1o11b.png" align=left>
+<img width=300 async src="figs/CP4o1o11c.png" align=left>
+<br clear="all" />
 </html>

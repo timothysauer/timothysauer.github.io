@@ -11,22 +11,31 @@
 the coefficients of the degree one interpolating polynomial. The
 commands <p>
 <pre>
-x=[1970 1990]
-y=[3707475887 5281653820]
-c=newtdd(x,y)
-nest(c,1980,x)
+import numpy as np
+import matplotlib.pyplot as plt
+from nest import nest
+from newtdd import newtdd
+
+x0 = np.array([0.,10.,20.,40.,50.,60.])+1960.
+y0 = [3015470894.,3694683794.,4447606236.,6171702993.,7021732148.,7887001292.]
+x0 = x0[2:4]
+y0 = y0[2:4]
+x = np.linspace(1960.,2020.,100)
+y = nest(newtdd(x0,y0),x,x0)
+print(nest(newtdd(x0,y0),1990.,x0))
 </pre>
-return \(4494564853.5\) as the 1980 population linear estimate,
-compared to the actual \(4452584592\), a difference of only 400
+return \(5,309,654,615\) as the 1990 population linear estimate,
+compared to the actual \(5,327,803,110\), a difference of about 18 
 million. <p>
 <b>1 (b)</b> Follow the steps in (a), but use the three
 data points and construct a degree two interpolating polynomial.
-The resulting 1980 estimate is \(4454831983.7\), differing by only 2
-million or so from the actual population. <p>
+The resulting 1980 estimate is \(5,273,279,302\). <p>
 <b>1 (c)</b> Following
-the steps in (a) for all four data points results in an estimate
-of \(4472888287.8\), about 20 million more than the actual
-population.
+the steps in (a) for all six data points results in an estimate
+of \(5,294,680,748\).<p>
+<b>1 (d)</b> Using the above code, but replacing 1990 with 2025 gives overly-optimistic 
+estimates of 8,326,823,939, 8,736,046,201, and 8,388,285,131, repsectively. The linear projection
+comes the closest to the actual 2025 estimate.
 <hr>
 
 <b>3</b> The Python function could have the form: <p>

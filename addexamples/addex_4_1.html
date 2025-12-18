@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Numerical Analysis 3rd Edition Sauer </title>
+<title>Numerical Analysis 4th Edition Sauer </title>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 </head>
 
@@ -92,6 +92,19 @@ To find the RMSE, compute \[Ac = \left[\begin{array}{ccc}
 <b>2</b> Use Python code to find the best least squares line through the North Pole ice extent data from Additional Example 3.1.2. Use the line to predict the ice extent in the year 2030.
 
 <p>
+  The data from Additional Example 3.1.2 is
+\begin{array}{cc}
+1980 &15.05\\
+1985 &14.96\\
+1990 & 15.07\\
+1995 & 14.74\\
+2000 & 14.54\\
+2005 & 13.81\\
+2010 & 13.91\\
+2015 & 13.75\\
+2020 & 13.70\\
+2025 & 13.20
+\end{array}
 <hr>
 The model is \(y = c_1+c_2s,\) where we set \(s = t-1980\) for simplicity. The matrix form is
 \[ A=\left[\begin{array}{cc}
@@ -102,7 +115,9 @@ The model is \(y = c_1+c_2s,\) where we set \(s = t-1980\) for simplicity. The m
 1&20\\
 1&25\\
 1&30\\
-1&35
+1&35\\
+1&40\\
+1&45
 \end{array}\right]
  \left[\begin{array}{r}
  c_1\\c_2
@@ -115,21 +130,44 @@ The model is \(y = c_1+c_2s,\) where we set \(s = t-1980\) for simplicity. The m
 14.54\\
 13.81\\
 13.91\\
-13.75
+13.75\\
+13.70\\
+13.20
  \end{array}\right].
 \]
 The normal equations are:
 \[\left[\begin{array}{rr}
-8&140\\140&3500
+10&225\\225&7125
  \end{array}\right]
   \left[\begin{array}{r}
- c_1\\c_2
+ c_0\\c_1
  \end{array}\right] = 
  \left[\begin{array}{r}
- 115.83\\1981.2
+ 142.73\\3123.2
  \end{array}\right].
  \]
- Solving gives \(c_1 = 15.24, c_2 = -0.0436.\) The best line is \(y = 15.24-0.0436s\). The model predicts \(c_1+c_2(50) = 13.06\) for \(s = 50\).
+ Solving gives \(c_1 = 15.235, c_2 = -0.0427.\) The best line is \(y = 15.235-0.0427s\). The model predicts \(c_1+c_2(50) = 13.10\) for \(s = 50\).
+<p>
+The following code plots the best line:
+<pre>
+import numpy as np
+import matplotlib.pyplot as plt
 
-
+t = np.linspace(0,45,10)
+y = np.array([15.05,14.96,15.07,14.74,14.54,13.81,13.91,13.75,13.70,13.20])
+A = np.array([np.ones((10)),t]).T
+ATA = A.T@A
+ATy = A.T@y
+c = np.linalg.solve(ATA,ATy)
+print(ATA)
+print(ATy)
+print(c)
+print(c[0]+c[1]*50.)
+plt.plot(t+1980,y,'ro',t+1980,c[0]+c[1]*t,'b')
+plt.xlabel('Time')
+plt.ylabel('ice extent (M sq km)')
+plt.grid(True)
+plt.show()
+</pre>
+<img width=400 async src="figs/addex4o1o2.png" align=left>
 </html>

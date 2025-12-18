@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Numerical Analysis 3rd Edition Sauer </title>
+<title>Numerical Analysis 4th Edition Sauer </title>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 </head>
 
 <h3>COMPUTER PROBLEMS 6.3</h3>
 \(\def\ds{\displaystyle} \)
-<b>1 (a)</b> The Matlab code <tt>euler2</tt> in Program 6.2  can be used to calculate the
+<b>1 (a)</b> The code <tt>euler2.py</tt> in Program 6.2  can be used to calculate the
 two approximations, for step sizes \(h=0.1\) and \(h=0.01\). For \(h=0.1\), the global
 truncation errors are \([0.1973, 0.1592]\) for \(w_{n1}\) and \(w_{n2}\), \(n=10\).
  For \(h=0.01\), the global
@@ -42,7 +42,7 @@ the straight-down position of the pendulum, except for the straight-up position
 that it will never move unless there is a small outside perturbation.
 For a physical pendulum, small perturbations will occur, and the pendulum will fall from
 the up position. The outcome of the simulation with <tt>pend</tt> depends on the step size
-and the fact that in current versions of Matlab, \(\sin \pi\) is not exactly zero. It differs
+and the fact that \(\sin \pi\) is not exactly zero. It differs
 on the order of machine epsilon, providing the perturbation needed, at least when
 step size \(h=0.05\) is used,
 to cause the pendulum to fall and eventually move to the straight-down position as a
@@ -60,7 +60,7 @@ condition \((y_1, y_2)=(0.2, 0)\) settles into the first motion, and the initial
 condition \((y_1, y_2)=(0.15, 0)\) converges to the second.
 <hr>
 
-<b>7</b> The <tt>ydot</tt> function in <tt>pend.m</tt> must be modified to solve the system
+<b>7</b> The <tt>ydot</tt> function in <tt>pend.py</tt> must be modified to solve the system
 \begin{eqnarray*}
 y_1'&=&y_2\\
 y_2'&=& \left(-\frac{g}{l}+A\cos 2\pi t \right)\sin y_1-dy_2
@@ -71,39 +71,185 @@ the downward position is unstable as defined in the Computer Problem, in that th
 travels through the upward position.
 <hr>
 
-<b>9</b> To adjust <tt>orbit.m</tt> to solve the two-body problem, 
-the stationary sun must be changed into a moving body. Eliminate the lines
+<b>9</b> To adjust <tt>orbit.py</tt> to solve the two-body problem, 
+the stationary sun must be changed into a moving body. Some example code:
 <pre>
-sun=animatedline('color','y','Marker','.','markersize',50);
-addpoints(sun,0,0)
-</pre>
-and replace with
-<pre>
-head2=animatedline('color','r','Marker','.','markersize',35);
-tail2=animatedline('color','b','LineStyle','-');
-</pre>
-New <tt>clearpoints</tt> and <tt>addpoints</tt> commands must
-be added for <tt>head2</tt> and <tt>tail2</tt>. Notice that <tt>y</tt> is now an
-eight-dimensional vector, requiring additions to the initial conditions and
-to the differential equation. The formulas of type (6.45) should be added
-to <tt>ydot</tt>:
-<pre>
-function z = ydot(t,x)
-m2=0.3;g=1;mg2=m2*g;m1=0.03;mg1=m1*g;
-px1=x(1);py1=x(3);vx1=x(2);vy1=x(4);
-px2=x(5);py2=x(7);vx2=x(6);vy2=x(8);
-dist=sqrt((px2-px1)^2+(py2-py1)^2);
-z=zeros(1,8);
-z(1)=vx1;
-z(2)=(mg2*(px2-px1))/(dist^3);
-z(3)=vy1;
-z(4)=(mg2*(py2-py1))/(dist^3);
-z(5)=vx2;
-z(6)=(mg1*(px1-px2))/(dist^3);
-z(7)=vy2;
-z(8)=(mg1*(py1-py2))/(dist^3);
-</pre>
+import numpy as np
+import matplotlib.pyplot as plt
+
+def orbit(inter, ic, n, p):
+    """
+    Input:  inter time interval
+            ic initial conditions [x0,vx0,y0,vy0]
+            n number of steps
+            p step per plotted point
+    Output: t time points
+            traj orbital trajectory
+    """
+    h = (inter[1] - inter[0]) / n  # Step size
+    x00, vx00, y00, vy00,x10,vx10,y10,vy10 = ic  # Initial conditions
+    traj = np.zeros((n+1, 8))  # Initialize position and velocity array
+    y = np.zeros((p+1, 8))
+    y[0, :] = [x00, vx00, y00, vy00,x10, vx10, y10, vy10]
+    t = np.zeros((n+1))  # Time array
+    t[0] = inter[0]
+    plt.figure()
+    plt.xlim(-5, 5)
+    plt.ylim(-5, 5)
+    #plt.plot(0, 0, 'yo', markersize=16) # Draw sun at origin
+    # Prepare line objects for head and tail of the orbit
+    head1, = plt.plot([], [], 'ro', markersize=8)
+    tail1, = plt.plot([], [], 'b-', linestyle='-', markersize=4)
+    head2, = plt.plot([], [], 'yo', markersize=8)
+    tail2, = plt.plot([], [], 'b-', linestyle='-', markersize=4)
+    plt.ion()  # Enable interactive mode for real-time plotting
+    for k in range(n // p):
+        for i in range(p):
+            t[k*p+i+1] = t[k*p+i] + h
+            y[i + 1, :] = trapstep(ydot, t[i], y[i, :], h)
+        traj[k*p+1:(k+1)*p+1,:] = y[1:,:]
+        # Update the position for the next frame
+        set_position(head1, y[p, 0], y[p, 2])  # Update head position
+        set_position(tail1, traj[1:(k+1)*p+1, 0], traj[1:(k+1)*p+1, 2]) 
+        set_position(head2, y[p, 4], y[p, 6])  # Update head position
+        set_position(tail2, traj[1:(k+1)*p+1, 4], traj[1:(k+1)*p+1, 6]) 
+        y[0, :] = y[p, :]  # Update last computed position
+        plt.draw()
+        plt.pause(0.01)  # Pause to visualize updates
+    plt.ioff()  # Disable interactive mode
+    plt.show()  # Show the plot window
+    return t, traj
+
+def eulerstep(ydot, t, x, h): return x + h*ydot(t, x)
+
+def trapstep(ydot, t, y, h): return y + h/2.*(ydot(t, y)+ydot(t+h,y+h*ydot(t,y)))
 
 
+def ydot(t, x):
+    m0 = 0.03
+    m1 = 0.3  # Mass of the second object
+    g = 1   # Gravitational acceleration
+    mg0,mg1 = m0*g,m1*g
+    px0,vx0,py0,vy0,px1,vx1,py1,vy1 = x[0],x[1],x[2],x[3],x[4],x[5],x[6],x[7]  # Unpack values
+    dist = np.sqrt((px1 - px0)**2 + (py1 - py0)**2)
+    z = np.zeros(8)
+    z[0] = vx0
+    z[1] = (mg1*(px1 - px0))/(dist**3)  # Acceleration in x
+    z[2] = vy0
+    z[3] = (mg1*(py1 - py0))/(dist**3)  # Acceleration in y
+    z[4] = vx1
+    z[5] = (mg0*(px0 - px1))/(dist**3)  # Acceleration in x
+    z[6] = vy1
+    z[7] = (mg0*(py0 - py1))/(dist**3)  # Acceleration in y
+    return z
+
+
+def set_position(line, xdata, ydata):
+    line.set_data(xdata, ydata)  # Function to set the position of plot points
+
+# Example usage
+orbit([0, 100], [2,0.2,2,-0.2,0,-0.02,0,0.02], 10000, 5)
+</pre>
+<hr>
+
+<b>11</b> Using the code from Computer Problem 9, one can run <p>
+    <pre>
+    orbit([0, 100], [0,0.2,1,-0.2,-2,-0.2,-1,0.2], 10000, 5) 
+    </pre> <p>
+along with the given masses. The orbits have some near passes, at which extra precision 
+is needed to preserve accuracy. 
+<hr>
+<b>13</b> Code follows:
+<pre>
+import numpy as np
+import matplotlib.pyplot as plt
+
+def orbit(inter, ic, n, p):
+    """
+    Input:  inter time interval
+            ic initial conditions [x0,vx0,y0,vy0]
+            n number of steps
+            p step per plotted point
+    Output: t time points
+            traj orbital trajectory
+    """
+    h = (inter[1] - inter[0]) / n  # Step size
+    x00, vx00, y00, vy00,x10,vx10,y10,vy10,x20,vx20,y20,vy20  = ic  # Initial conditions
+    traj = np.zeros((n+1, 12))  # Initialize position and velocity array
+    y = np.zeros((p+1, 12))
+    y[0, :] = [x00, vx00, y00, vy00, x10, vx10, y10, vy10, x20, vx20, y20, vy20]
+    t = np.zeros((n+1))  # Time array
+    t[0] = inter[0]
+    plt.figure()
+    plt.xlim(-5, 5)
+    plt.ylim(-5, 5)
+    #plt.plot(0, 0, 'yo', markersize=16) # Draw sun at origin
+    # Prepare line objects for head and tail of the orbit
+    head0, = plt.plot([], [], 'ro', markersize=8)
+    tail0, = plt.plot([], [], 'b-', linestyle='-', markersize=4)
+    head1, = plt.plot([], [], 'yo', markersize=8)
+    tail1, = plt.plot([], [], 'b-', linestyle='-', markersize=4)
+    head2, = plt.plot([], [], 'ko', markersize=8)
+    tail2, = plt.plot([], [], 'b-', linestyle='-', markersize=4)
+    plt.ion()  # Enable interactive mode for real-time plotting
+    for k in range(n // p):
+        for i in range(p):
+            t[k*p+i+1] = t[k*p+i] + h
+            y[i+1, :] = trapstep(ydot, t[i], y[i, :], h)
+        traj[k*p+1:(k+1)*p+1,:] = y[1:,:]
+        # Update the position for the next frame
+        set_position(head0, y[p, 0], y[p, 2])  # Update head position
+        set_position(tail0, traj[1:(k+1)*p+1, 0], traj[1:(k+1)*p+1, 2]) 
+        set_position(head1, y[p, 4], y[p, 6])  # Update head position
+        set_position(tail1, traj[1:(k+1)*p+1, 4], traj[1:(k+1)*p+1, 6]) 
+        set_position(head2, y[p, 8], y[p, 10])  # Update head position
+        set_position(tail2, traj[1:(k+1)*p+1, 8], traj[1:(k+1)*p+1, 10]) 
+        y[0, :] = y[p, :]  # Update last computed position
+        plt.draw()
+        plt.pause(0.01)  # Pause to visualize updates
+    plt.ioff()  # Disable interactive mode
+    plt.show()  # Show the plot window
+    return t, traj
+
+def eulerstep(ydot, t, x, h): return x + h*ydot(t, x)
+
+def trapstep(ydot, t, y, h): return y + h/2.*(ydot(t, y)+ydot(t+h,y+h*ydot(t,y)))
+
+
+def ydot(t, x):
+    m0 = 0.05
+    m1 = 0.5
+    m2 = 1e-4
+    g = 1   # Gravitational acceleration
+    mg0,mg1,mg2 = m0*g,m1*g,m2*g
+    px0,vx0,py0,vy0,px1,vx1,py1,vy1,px2,vx2,py2,vy2 = x[0],x[1],x[2],x[3],x[4],x[5],x[6],x[7],x[8],x[9],x[10],x[11]  # Unpack values
+    dist01 = np.sqrt((px1 - px0)**2 + (py1 - py0)**2)
+    dist02 = np.sqrt((px2 - px0)**2 + (py2 - py0)**2)
+    dist12 = np.sqrt((px2 - px1)**2 + (py2 - py1)**2)
+    z = np.zeros(12)
+    z[0] = vx0
+    z[1] = mg1*(px1 - px0)/(dist01**3) + mg2*(px2 - px0)/(dist02**3)
+    z[2] = vy0
+    z[3] = mg1*(py1 - py0)/(dist01**3) + mg2*(py2 - py0)/(dist02**3)
+    z[4] = vx1
+    z[5] = mg0*(px0 - px1)/(dist01**3) + mg2*(px2 - px1)/(dist12**3)
+    z[6] = vy1
+    z[7] = mg0*(py0 - py1)/(dist01**3)  + mg2*(py2 - py1)/(dist12**3)
+    z[8] = vx2
+    z[9] = mg0*(px0 - px2)/(dist02**3) + mg1*(px1 - px2)/(dist12**3)
+    z[10] = vy2
+    z[11] = mg0*(py0 - py2)/(dist02**3) + mg1*(py1 - py2)/(dist12**3)
+    return z
+
+
+def set_position(line, xdata, ydata):
+    line.set_data(xdata, ydata)  # Function to set the position of plot points
+
+# Example usage
+orbit([0, 100], [0,.1,1,-.1,-2,-0.01,-1,.01,4,-.2,3,0], 10000, 5)
+</pre>
+<hr>
+<b>15</b> The code above can be used with adjusted masses and initial conditions
+ to show this three-body orbit.
 
 </html>

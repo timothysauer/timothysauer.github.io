@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Numerical Analysis 3rd Edition Sauer </title>
+<title>Numerical Analysis 4th Edition Sauer </title>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 </head>
 
 <h3>COMPUTER PROBLEMS 5.4</h3>
 \(\def\ds{\displaystyle} \)
-<b>1</b> The Matlab program <tt>adapquad</tt> can be used with error
+<b>1</b> The  program <tt>adapquad.py</tt> can be used with error
 tolerance set to be \(0.5\times 10^{-8}\). The number of intervals
 needed in the adaptive procedure are given in the table.
 \[\begin{array}{ccr}
@@ -71,15 +71,15 @@ tolerance \(0.5\times 10^{-8}\), yields the results in the table.
 \end{array}\]
 <hr>
 
-<b>9</b> Assuming you have written a Matlab program <tt>adapsimp.m</tt>, similar to
-<tt>adapquad.m</tt>, but using Simpson's Rule, the <tt>myerf</tt> function can be
+<b>9</b> Assuming you have written a python program <tt>adapsimp.py</tt>, similar to
+<tt>adapquad.py</tt>, but using Simpson's Rule, the <tt>myerf</tt> function can be
 written in two lines:
 <pre>
-function y=myerf(x)
-y=2*adapsimp(@(x) exp(-x^2),0,x,0.5e-8)/sqrt(pi);
+def myerf(x):
+    return 2*adapsimp(np.exp(-x^2),0,x,0.5e-8)/np.sqrt(pi)
 </pre>
 Then <tt>myerf(1)</tt> returns \(0.84270079\) and <tt>myerf(3)</tt> returns \(0.99997791\) rounded
-to 8 decimal places, in agreement with the Matlab ``error function'' <tt>erf</tt>.
+to 8 decimal places, in agreement with the scipy ``error function'' <tt>scipy.special.erf</tt>.
 
 
 </html>

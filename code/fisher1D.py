@@ -1,0 +1,50 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+def fisher1d(xl, xr, tb, te, M, N):
+    alf = 5
+    bet = 4
+    D = 0.05
+    # Define the functions for initial conditions and boundary conditions
+    f = lambda x: 1.5+0.5*np.cos(np.pi*x)
+    l = lambda t: 0*t  # Left boundary condition
+    r = lambda t: 0*t  # Right boundary condition
+    h = (xr - xl) / M
+    k = (te - tb) / N
+    m = M + 1
+    n = N
+    sigma = D * k / (h**2)
+    w = np.zeros((m, n + 1))  # Initialize solution array
+    w[:, 0] = f(np.linspace(xl, xr, m))  # Set initial conditions
+    w1 = w[:, 0].copy()
+    for j in range(n):
+        for it in range(3):  # Newton iteration, 3 steps
+            DF1 = np.diag(1-k +2*sigma*np.ones(m))+np.diag(-sigma*np.ones(m-1),1) 
+            DF1 += np.diag(-sigma * np.ones(m - 1), -1)
+            DF2 = np.diag(2*k*w1)
+            DF = DF1 + DF2
+            F = -w[:,j] + (DF1 + DF2 / 2) @ w1  # Using Lemma 8.11
+            DF[0, :] = np.concatenate(([-3, 4, -1],np.zeros(m-3)))  
+            DF[m-1, :] = np.concatenate((np.zeros(m-3),[ -1, 4, -3]))
+            F[0] = DF[0,:]@w1  
+            F[m-1] = DF[m-1,:]@w1
+            w1 = w1 - np.linalg.solve(DF, F)
+        w[:, j + 1] = w1  # Update the solution for the next time step
+
+    # Prepare data for visualization
+    x = np.linspace(xl, xr, m)
+    t = np.linspace(tb, te, n + 1)
+    X, T = np.meshgrid(x, t)
+    return X, T, w
+
+# Example usage
+X, T, w = fisher1d(0, 1, 0, 3, 10, 30)
+fig = plt.figure()   # Create a mesh plot
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(X, T, w.T, cmap='viridis', vmin=-1.,vmax=1.)
+plt.xlabel('x')
+plt.ylabel('t')
+plt.title('Solution of Fisher Equation')
+ax.set_zlim(0.,2)
+ax.view_init(elev=20, azim=-30)  # Set the view angle
+plt.show()

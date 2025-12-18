@@ -38,23 +38,33 @@ Since \(S_1'''(x) = S_2'''(x) = S_3'''(x) = 6,\) it is a not-a-knot cubic spline
 <hr><hr>
 
 <b>2</b> Use <tt>splinecoeff.py</tt> and <tt>splineplot.py</tt> to plot the natural cubic spline through the ice extent data points in Additional Example 3.1.2.
-Compare the spline estimates for 2002 and 2012 with the exact values.
+Compare the spline estimates for 2002, 2012 and 2022 with the exact values.
 <hr>
-Matlab code for the spline:
+Python code for the spline:
 <pre>
-y0=np.array([15.05,
-    14.96,
-    15.07,
-    14.74,
-    14.54,
-    13.81,
-    13.91,
-    13.75])
-t0=1975.+5.*np.linspace(1.,8.,8)
-t,y=splineplot(t0,y0,10);
+import numpy as np
+import matplotlib.pyplot as plt
+from splinecoeff import splinecoeff
+from splineplot import splineplot
+
+y0 = [15.05,14.96,15.07,14.74,14.54,13.81,13.91,13.75,13.70,13.20]
+x0 = np.array([0.,5,10,15,20,25,30,35,40,45])+1980.
+x1,y1 = splineplot(x0,y0,10)
+x2,y2 = np.array([2002.,2012.,2022.]), np.array([14.57,13.86,13.95])
+print(x1[44],y1[44])
+print(x1[64],y1[64])
+print(x1[84],y1[84])
+print(x2,y2)
+plt.plot(x1,y1,'b',x0,y0,'ro',x2,y2,'ko')
+plt.grid(True)
+plt.xlabel('year')
+plt.ylabel('arctic ice extent (M sq km)')
+#plt.savefig('AddEx3_4_2.png')
+plt.show()
 </pre>
-The plot below shows the spline. Evaluated at 2002, the spline value is 14.24, compared with the actual value 14.57. Evaluated at 2012, the spline value is 13.90, compared with the actual value 13.86.
- <p>
+The plot below shows the spline. Evaluated at 2002, the spline value is 14.24, compared with the actual value 14.57. Evaluated at 2012, the spline value is 13.88, compared with the actual value 13.86.
+ Evaluated at 2022, the spline value is 13.55, compared with the actual value 13.95.
+<p>
 
 <img width=400 async src="figs/AddEx3_4_2.png" align=left>
 

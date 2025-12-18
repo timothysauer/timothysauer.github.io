@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Numerical Analysis 3rd Edition Sauer </title>
+<title>Numerical Analysis 4th Edition Sauer </title>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 </head>
 
@@ -24,9 +24,9 @@ Compute the Romberg triangle, using for example the Matlab program
 <hr>
 
 <b>3 (a)</b> The errors of the Romberg triangle can be determined from
-the Matlab code <tt>romberg.m</tt> as follows.
+the python code <tt>romberg.py</tt> as follows.
 <pre>
->> (2*log(2)-1)-romberg(@log,1,2,6)
+>> (2*np.log(2)-1)-romberg(np.log,1,2,6)
 
 ans =
 

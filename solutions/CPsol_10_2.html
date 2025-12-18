@@ -2,104 +2,122 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Numerical Analysis 3rd Edition Sauer </title>
+<title>Numerical Analysis 4th Edition Sauer </title>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 </head>
 
-<h3>COMPUTER PROBLEMS 9.4</h3>
+<h3>COMPUTER PROBLEMS 10.2</h3>
 \(\def\ds{\displaystyle} \)
-<b>1 (a)</b> We apply the Euler-Maruyama Method
-to the initial value problem in Exercise 1(a). At time \(t_{i+1}\),
-we use a Brownian motion realization to generate the new
-approximation \(w_{i+1}\)  along with the correct solution
-\(u_{i+1} = t_{i+1}B_{t_{i+1}}\) for that Brownian motion realization.
-Both are plotted below - they are too close to be distinguished at this
-resolution. The other graph shows the
-difference \(|u-w|\), plotted on a semilog scale. <p>
-<img width=300 async src="figs/cp9o4o1a.png" align=left>
-<img width=300 async src="figs/cp9o4o1a1.png" align=left>
+<b>1 (a)</b> Applying the DFT to \([0,1,2,3,4,5,6,7]^T\) gives
+\[F_8
+\left[\begin{array}{r}
+0\\1\\2\\3\\4\\5\\6\\7\\
+\end{array}\right]=
+\frac{1}{\sqrt{8}}
+\left[\begin{array}{c}
+28\\-4+4(1+\sqrt{2})i\\
+-4+4i\\-4+4(\sqrt{2}-1)i\\-4\\-4-4(\sqrt{2}-1)i\\-4-4i\\-4-4(1+\sqrt{2})i\\
+\end{array}\right],
+\]
+so \(a_0=7\sqrt{2}, a_1=a_2=a_3=a_4=-\sqrt{2}, b_1=\sqrt{2}+2, b_2=\sqrt{2}, b_3=2-\sqrt{2}\).
+Corollary 10.8 implies that \[\textstyle P_8(t)=\frac{7}{2}-\cos 2\pi t - (1+\sqrt{2})\sin
+2\pi t-\cos 4\pi t-\sin 4\pi t -\cos 6\pi t+(1-\sqrt{2})\sin 6\pi t
+-\frac{1}{2}\cos 8\pi t.\] The interpolating function can be plotted using
+the Matlab program <tt>dftinterp</tt>. The interpolant and the data points are
+plotted below. <p> 
+<img width=300 async src="figs/cp10o2o1a.png" align=left>
 <br clear="all" />
 <p>
-<b>1 (b)</b> Similar to (a). The Euler-Maruyama Method is applied
-to the initial value problem in Exercise 1(b). At time \(t_{i+1}\),
- the new approximation \(w_{i+1}\) is plotted along with the correct solution
-\(u_{i+1} = B_{t_{i+1}}^2-t_{i+1}\) for the same Brownian motion realization.<p>
-<img width=300 async src="figs/cp9o4o1b.png" align=left>
-<img width=300 async src="figs/cp9o4o1b1.png" align=left>
+<b>1 (b)</b> Applying the DFT to \([2, -1, 0, 1, 1, 3, -1, -1]^T\) gives
+\[F_8
+\left[\begin{array}{r}
+2\\-1\\0\\1\\1\\3\\-1\\-1\\
+\end{array}\right]=
+\frac{1}{\sqrt{8}}
+\left[\begin{array}{c}
+4\\1-3\sqrt{2}+(\sqrt{2}-1)i\\
+4-2i\\1+3\sqrt{2}+(\sqrt{2}+1)i\\0\\1+3\sqrt{2}-(\sqrt{2}+1)i\\4+2i\\1-3\sqrt{2}-(\sqrt{2}-1)i\\
+\end{array}\right],
+\]
+so \(a_0=\sqrt{2}, a_1=(-6+\sqrt{2})/4, a_2=\sqrt{2}, a_3=(6+\sqrt{2})/4, a_4=0,
+ b_1=(2-\sqrt{2})/4, b_2=-\sqrt{2}/2, b_3=(2+\sqrt{2})/4\).
+Corollary 10.8 implies that  \(P_8(t)=\frac{1}{2}+\frac{1-3\sqrt{2}}{4}\cos 2\pi t +
+\frac{1-\sqrt{2}}{4}\sin 2\pi t+
+\cos 4\pi t+\frac{1}{2}\sin 4\pi t +\frac{1+3\sqrt{2}}{4}\cos 6\pi t-
+\frac{1+\sqrt{2}}{4}\sin 6\pi t.\) See below for the plot from <tt>dftinterp</tt>. <p>
+<img width=300 async src="figs/cp10o2o1b.png" align=left>
 <br clear="all" />
 <p>
-<hr>
-
-<b>3 (a)</b> Applying the Euler-Maruyama Method to the stochastic
-differential equation in Exercise 3(a), with initial condition
-\(y(0)=1\), results in the two realizations in the plot.<p>
-<img width=300 async src="figs/cp9o4o3a.png" align=left>
+<b>1 (c)</b> Applying the DFT to \([3,1,4,2,3,1,4,2]^T\) gives
+\[F_8
+\left[\begin{array}{r}
+3\\1\\4\\2\\3\\1\\4\\2\\
+\end{array}\right]=
+\frac{1}{\sqrt{8}}
+\left[\begin{array}{c}
+20\\0\\
+-2+2i\\0\\8\\0\\-2-2i\\0\\
+\end{array}\right],
+\]
+so \(a_0=5\sqrt{2}, a_1=a_3=0, a_2=-\sqrt{2}/2, a_4=2\sqrt{2},
+ b_1=b_3=0, b_2=\sqrt{2}/2\). In Corollary 10.8, \(c=0\) and \(d=8\). Equation (10.19) becomes
+\[P_8(t)=\frac{5}{2}-\frac{1}{2}\cos \frac{\pi}{2}t
+-\frac{1}{2}\sin\frac{\pi}{2}t +\cos\pi t.\] The interpolant is plotted below.<p>
+<img width=300 async src="figs/cp10o2o1c.png" align=left>
 <br clear="all" />
 <p>
-<b>3 (b)</b> Similar to (a), Euler-Maruyama applied to Exercise 3(b).
-Two realizations are shown in the plot. <p>
-<img width=300 async src="figs/cp9o4o3b.png" align=left>
-<br clear="all" />
-<p>
-<hr>
-
-<b>5</b> The Euler-Maruyama Method is applied to the stochastic
-differential equation. The error at \(t=1\) is averaged over 5000
-realizations for each step size \(h=10^{-1}, 10^{-2}\) and
-\(10^{-3}\). Typical results: <p>
- \begin{array}{cc}
-n&\text{avg. error}\\
-10^{-1}&    0.2657\\
-10^{-2}&    0.0925\\
-10^{-3}&    0.0256\\
-\end{array}<p>
-The results show approximate order \(1/2\).
-<hr>
-
-<b>7</b> The Milstein Method applied to the SDE \(dy=B_t\ dt+
-9^{1/3}y^{2/3}\ dB_t\) is
+<b>1 (d)</b> Applying the DFT to \([1,-2,5,3,-2,-3,1,2]^T\) gives
+\[F_8
+\left[\begin{array}{r}
+1\\-2\\5\\3\\-2\\-3\\1\\2\\
+\end{array}\right]=
+\frac{1}{\sqrt{8}}
+\left[\begin{array}{c}
+5\\3-(4+\sqrt{2})i\\
+-7+10i\\3+(4-\sqrt{2})i\\5\\3-(4-\sqrt{2})i\\-7-10i\\3+(4+\sqrt{2})i\\
+\end{array}\right].
+\]
+ In Corollary 10.8, \(c=1\) and \(d=9\). Equation (10.19) becomes
 \begin{eqnarray*}
-w_{i+1}&=&w_i+B_i(\Delta t_i)+9^{1/3}w_i^{2/3}(\Delta B_i)
-+\frac{1}{2}9^{1/3}w_i^{2/3}9^{1/3}\frac{2}{3}w_i^{-1/3}((\Delta B_i)^2-\Delta t_i)\\
-&=&w_i+B_i(\Delta t_i)+9^{1/3}w_i^{2/3}(\Delta B_i)
-+3^{1/3}w_i^{1/3}((\Delta B_i)^2-\Delta t_i).
+P_8(t)&=&\frac{5}{8}+\frac{3}{4}\cos \frac{\pi}{4}(t-1)
++(1+\frac{\sqrt{2}}{4})\sin \frac{\pi}{4}(t-1)-\frac{7}{4}\cos \frac{\pi}{2}(t-1)
+-\frac{5}{2}\sin \frac{\pi}{2}(t-1)\\ &+&\frac{3}{4}\cos \frac{3\pi}{4}(t-1)
+-(1-\frac{\sqrt{2}}{4})\sin \frac{3\pi}{4}(t-1)+\frac{5}{8}\cos \pi(t-1).
 \end{eqnarray*}
-An approximate realization with step size \(h=0.1\) is shown below (thick curve)
-along with the exact realization using the same Brownian
-motion path. Also, the difference between the approximate and exact
-solutions is plotted. <p>
-<img width=300 async src="figs/cp9o4o7a.png" align=left>
-<img width=300 async src="figs/cp9o4o7b.png" align=left>
+The trigonometric interpolant is plotted below. <p>
+<img width=300 async src="figs/cp10o2o1d.png" align=left>
 <br clear="all" />
 <p>
 <hr>
 
-<b>9</b>
- The Runge-Kutta Method applied to the SDE \(dy=B_t\ dt+
-9^{1/3}y^{2/3}\ dB_t\) is 
+<b>3</b> Apply the \(8\times 8\) DFT to the data \((0,e^0), (\frac{1}{8},e^{1/8}), \ldots,
+(\frac{7}{8},e^{7/8})\) and use Corollary 10.8 with \([c,d]=[0,1]\). The trigonometric
+interpolant is
 \begin{eqnarray*}
-w_{i+1}&=&w_i+B_i(\Delta t_i)+9^{1/3}w_i^{2/3}(\Delta B_i)\\
-&+&\frac{1}{2\sqrt{\Delta t_i}}\left[9^{1/3}((w_i+9^{1/3}w_i^{2/3})\sqrt{\Delta t_i})^{2/3}-9^{1/3}w_i^{2/3}\right]
-\left[(\Delta B_i)^2-\Delta t_i\right].
+P_8(t)&=&1.6131-0.1253\cos 2\pi t-0.5050\sin 2\pi t
+-0.1881\cos 4\pi t-0.2131\sin 4\pi t \\&& - 0.1991\cos 6\pi t -0.0886\sin 6\pi t
+-0.1007\cos 8\pi t.
 \end{eqnarray*}
-In the left figure, an approximate realization with step size \(h=0.1\) is shown (thick curve)
-along with the exact realization using the same Brownian
-motion path. The difference between the approximate and exact
-solutions is plotted in the right figure. <p>
-<img width=300 async src="figs/cp9o4o9a.png" align=left>
-<img width=300 async src="figs/cp9o4o9b.png" align=left>
+A plot of \(P_8(t)\) follows.<p>
+<img width=300 async src="figs/cp10o2o3.png" align=left>
 <br clear="all" />
 <p>
 <hr>
 
-<b>11</b> Similar to Computer Problem 5, but using the Milstein
-Method.  Typical results are shown in the table: <p>
- \begin{array}{cc}
-n&\text{avg. error}\\
-10^{-1}&    0.1394\\
-10^{-2}&    0.0202\\
-10^{-3}&    0.0026\\
-\end{array}<p>
-The results show approximate order \(1\).
+<b>5</b> Similar to Computer Problem 3, but interpolating the function \(f(t)=\ln t\) at the
+evenly-spaced points \(1, 9/8, 10/8,\ldots, 15/8\). The trigonometric interpolating function
+is
+\begin{eqnarray*}
+P_8(t)&=&0.3423\\ &&-0.1115\cos 2\pi (t-1)-0.2040\sin 2\pi (t-1)\\ &&
+-0.0943\cos 4\pi (t-1) -0.0859\sin 4\pi (t-1)\\ &&
+- 0.0912\cos 6\pi (t-1) -0.0357\sin 6\pi (t-1)\\ &&
+-0.0453\cos 8\pi (t-1).
+\end{eqnarray*}
+A plot of \(P_8(t)\) follows. <p>
+<img width=300 async src="figs/cp10o2o5.png" align=left>
+<br clear="all" />
+<p>
+
+
 
 </html>

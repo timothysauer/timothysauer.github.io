@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Numerical Analysis 3rd Edition Sauer </title>
+<title>Numerical Analysis 4th Edition Sauer </title>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 </head>
 
@@ -89,9 +89,8 @@ has solution \(y(t) = \sec (t+\pi/6) + \tan (t+\pi/6)\)  on the interval \([0,1]
 <hr>
 Program 6.7 can be adapted by adding functions <tt>ab4step</tt> and <tt>rk4step</tt> corresponding to Adams-Bashforth Four-Step and Runge-Kutta Order 4, respectively. The latter is necessary so that the start-up phase uses fourth-order approximations. The Adams-Bashforth code can be written:
 <pre>
-function z=ab4step(t,i,y,f,h)
-%one step of the Adams-Bashforth 4-step method
-z=y(i,:)+h*(55*f(i,:)-59*f(i-1,:)+37*f(i-2,:)-9*f(i-3,:))/24;
+def ab2step(t,i,y,f,h): # One step of Adams-Bashforth 4-step method
+    return y[i, :] + (h/24)*(55*f[i,:] - 59*f[i-1,:] + 37*f[i-2,:] - 9*f[i-3,:])
 </pre>
 Using 1206 steps, the Adams-Bashforth approximation error at \(t=1\) is \(0.0000499,\) so there is agreement to 4 correct decimal places with \(y(1) = 42.3672.\)
 <p>
