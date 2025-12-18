@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Numerical Analysis 3rd Edition Sauer </title>
+<title>Numerical Analysis 4th Edition Sauer </title>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 </head>
 
@@ -9,10 +9,10 @@
 \(\def\ds{\displaystyle} \)
 <b>1 (a)</b> If \(x\) is a four-dimensional vector, the MDCT is
 \[Mx=E\left[\begin{array}{c}
--Rx_3-x_4\\x_1-Rx_2
+-Rx_2-x_3\\x_0-Rx_1
 \end{array}\right]=
 E\left[\begin{array}{c}
--x_3-x_4\\x_1-x_2
+-x_2-x_3\\x_0-x_1
 \end{array}\right]
 \]
 where \(E\) is the \(2\times 2\) DCT4 matrix
@@ -25,7 +25,7 @@ with entries \(b=\cos \pi/8, c=\cos 3\pi/8\). Therefore
 1\\3\\5\\7\\
 \end{array}\right]=
 E\left[\begin{array}{c}
--x_3-x_4\\x_1-x_2
+-x_2-x_3\\x_0-x_1
 \end{array}\right]=
 \left[\begin{array}{rr}
 b&c\\c&-b
@@ -112,7 +112,7 @@ and the quantization error is \(|160/51-\pi|\approx 0.0043\).
 
 <b>7 (a)</b> To quantize to 4 bits on \((-6,6)\), we divide by
 \(q=2(6)/(2^4-1)=4/5\) and round.
-\[v_1=M\left[\begin{array}{r}
+\[v_0=M\left[\begin{array}{r}
 -3\\-2\\-1\\1\\
 \end{array}\right]=
 \left[\begin{array}{r}
@@ -125,7 +125,7 @@ and the quantization error is \(|160/51-\pi|\approx 0.0043\).
 \left[\begin{array}{r}
 0\\1\\
 \end{array}\right],\]
-\[v_2=M\left[\begin{array}{r}
+\[v_1=M\left[\begin{array}{r}
 -1\\1\\2\\3\\
 \end{array}\right]=
 \left[\begin{array}{r}
@@ -140,21 +140,21 @@ and the quantization error is \(|160/51-\pi|\approx 0.0043\).
 \end{array}\right]
 \]
 Dequantization:
-\[\overline{v}_1=\frac{4}{5}\left[\begin{array}{r}
+\[\overline{v}_0=\frac{4}{5}\left[\begin{array}{r}
 0\\1\\
 \end{array}\right]=
 \left[\begin{array}{r}
 0.0\\0.8\\
 \end{array}\right],\quad
-\overline{v}_2=\frac{4}{5}\left[\begin{array}{r}
+\overline{v}_1=\frac{4}{5}\left[\begin{array}{r}
 -7\\0\\
 \end{array}\right]=
 \left[\begin{array}{r}
 -5.6\\0.0\\
 \end{array}\right]\]
 \[\left[\begin{array}{r}
-w_1\\w_2\\
-\end{array}\right]=N\overline{v}_1=
+w_0\\w_1\\
+\end{array}\right]=N\overline{v}_0=
 \left[\begin{array}{r}
    -0.7391\\
     0.7391\\
@@ -162,8 +162,8 @@ w_1\\w_2\\
    -0.3061\\
 \end{array}\right],\quad
 \left[\begin{array}{r}
-w_3\\w_4\\
-\end{array}\right]=N\overline{v}_2=
+w_2\\w_3\\
+\end{array}\right]=N\overline{v}_1=
 \left[\begin{array}{r}
     -2.1430\\
    2.1430\\
@@ -171,7 +171,7 @@ w_3\\w_4\\
    5.1737\\
 \end{array}\right]\]
 The reconstruction is
-\[u_2=\frac{1}{2}(w_2+w_3)=\frac{1}{2}
+\[u_1=\frac{1}{2}(w_1+w_2)=\frac{1}{2}
 \left(
 \left[\begin{array}{r}
    -0.3061\\
@@ -189,7 +189,7 @@ The reconstruction is
 compared to the original overlapped data \([-1, 1]\).<p>
 
 <b>7 (b)</b> Similar to part (a).
-\[v_1=M\left[\begin{array}{r}
+\[v_0=M\left[\begin{array}{r}
 1\\-2\\2\\-1\\
 \end{array}\right]=
 \left[\begin{array}{r}
@@ -202,7 +202,7 @@ compared to the original overlapped data \([-1, 1]\).<p>
 \left[\begin{array}{r}
 0\\-4\\
 \end{array}\right],\]
-\[v_2=M\left[\begin{array}{r}
+\[v_1=M\left[\begin{array}{r}
 2\\-1\\3\\0\\
 \end{array}\right]=
 \left[\begin{array}{r}
@@ -217,21 +217,21 @@ compared to the original overlapped data \([-1, 1]\).<p>
 \end{array}\right]
 \]
 Dequantization:
-\[\overline{v}_1=\frac{4}{5}\left[\begin{array}{r}
+\[\overline{v}_0=\frac{4}{5}\left[\begin{array}{r}
 0\\-4\\
 \end{array}\right]=
 \left[\begin{array}{r}
 0.0\\-3.2\\
 \end{array}\right],\quad
-\overline{v}_2=\frac{4}{5}\left[\begin{array}{r}
+\overline{v}_1=\frac{4}{5}\left[\begin{array}{r}
 -2\\-5\\
 \end{array}\right]=
 \left[\begin{array}{r}
 -1.6\\-4.0\\
 \end{array}\right]\]
 \[\left[\begin{array}{r}
-w_1\\w_2\\
-\end{array}\right]=N\overline{v}_1=
+w_0\\w_1\\
+\end{array}\right]=N\overline{v}_0=
 \left[\begin{array}{r}
     2.9564\\
    -2.9564\\
@@ -239,7 +239,7 @@ w_1\\w_2\\
     1.2246\\
 \end{array}\right],\quad
 \left[\begin{array}{r}
-w_3\\w_4\\
+w_2\\w_3\\
 \end{array}\right]=N\overline{v}_1=
 \left[\begin{array}{r}
     3.0832\\
@@ -248,7 +248,7 @@ w_3\\w_4\\
     3.0089\\
 \end{array}\right]\]
 The reconstruction is
-\[u_2=\frac{1}{2}(w_2+w_3)=\frac{1}{2}
+\[u_1=\frac{1}{2}(w_1+w_2)=\frac{1}{2}
 \left(
 \left[\begin{array}{r}
    1.2246\\
@@ -266,7 +266,7 @@ The reconstruction is
 compared to the original overlapped data \([2, -1]\). <p>
 
 <b>7 (c)</b> Similar to part (a).
-\[v_1=M\left[\begin{array}{r}
+\[v_0=M\left[\begin{array}{r}
 4\\1\\-2\\-3\\
 \end{array}\right]=
 \left[\begin{array}{r}
@@ -279,7 +279,7 @@ compared to the original overlapped data \([2, -1]\). <p>
 \left[\begin{array}{r}
 7\\-1\\
 \end{array}\right],\]
-\[v_2=M\left[\begin{array}{r}
+\[v_1=M\left[\begin{array}{r}
 -2\\-3\\0\\3\\
 \end{array}\right]=
 \left[\begin{array}{r}
@@ -294,21 +294,21 @@ compared to the original overlapped data \([2, -1]\). <p>
 \end{array}\right]
 \]
 Dequantization:
-\[\overline{v}_1=\frac{4}{5}\left[\begin{array}{r}
+\[\overline{v}_0=\frac{4}{5}\left[\begin{array}{r}
 7\\-1\\
 \end{array}\right]=
 \left[\begin{array}{r}
 5.6\\-0.8\\
 \end{array}\right],\quad
-\overline{v}_2=\frac{4}{5}\left[\begin{array}{r}
+\overline{v}_1=\frac{4}{5}\left[\begin{array}{r}
 -3\\-3\\
 \end{array}\right]=
 \left[\begin{array}{r}
 -2.4\\-2.4\\
 \end{array}\right]\]
 \[\left[\begin{array}{r}
-w_1\\w_2\\
-\end{array}\right]=N\overline{v}_1=
+w_0\\w_1\\
+\end{array}\right]=N\overline{v}_0=
 \left[\begin{array}{r}
     2.8821\\
    -2.8821\\
@@ -316,7 +316,7 @@ w_1\\w_2\\
    -4.8676\\
 \end{array}\right],\quad
 \left[\begin{array}{r}
-w_3\\w_4\\
+w_2\\w_3\\
 \end{array}\right]=N\overline{v}_1=
 \left[\begin{array}{r}
      1.2989\\
@@ -325,7 +325,7 @@ w_3\\w_4\\
     3.1358\\
 \end{array}\right]\]
 The reconstruction is
-\[u_2=\frac{1}{2}(w_2+w_3)=\frac{1}{2}
+\[u_1=\frac{1}{2}(w_1+w_2)=\frac{1}{2}
 \left(
 \left[\begin{array}{r}
    -4.8676\\
