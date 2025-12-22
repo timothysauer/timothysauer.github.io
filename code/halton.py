@@ -4,7 +4,8 @@ def halton(p, n):
             n requested quantity of numbers 
     Output: u array of n quasi-random numbers """
     u = []  # Initialize list for quasi-random numbers
-    for j in range(1,n+1):
+    for k in range(1,n+1):
+        j = k
         num = 0
         i = 1
         while j > 0:
