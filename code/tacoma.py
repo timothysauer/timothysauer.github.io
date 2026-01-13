@@ -26,7 +26,7 @@ def tacoma(inter, ic, n, p):
     for k in range(n):
         for i in range(p):
             t[i + 1] = t[i] + h
-            y[i + 1, :] = trapstep(t[i], y[i, :], h)
+            y[i + 1, :] = trapstep(f, t[i], y[i, :], h)
         y[0, :] = y[p, :]
         t[0] = t[p]
         c = hw * np.cos(y[0, 2])  # Calculate horizontal cable position
@@ -40,23 +40,22 @@ def tacoma(inter, ic, n, p):
     plt.show()
     return t,y
 
-def trapstep(t, x, h):    # One step of the Trapezoid Method
-    z1 = ydot(t, x)
-    g = x + h*z1
-    z2 = ydot(t + h, g)
+def trapstep(f, t, x, h):    # One step of the Trapezoid Method
+    z1 = f(t, x)
+    z2 = f(t + h, x + h*z1)
     return x + h*(z1 + z2)/2
 
-def ydot(t, y):
+def f(t, y):
     hw, a, W = 6, 0.2, 80
     omega = 2 * np.pi * 38/60
     a1 = np.exp(a*(y[0] - hw*np.sin(y[2])))
     a2 = np.exp(a*(y[0] + hw*np.sin(y[2])))
-    dydt = np.zeros(4)
-    dydt[0] = y[1]
-    dydt[1] = -0.01*y[1]-0.4*(a1+a2-2)/a+0.2*W*np.sin(omega*t)
-    dydt[2] = y[3]
-    dydt[3] = -0.01*y[3]+1.2*np.cos(y[2])*(a1-a2)/(hw*a)
-    return dydt
+    z = np.zeros(4)
+    z[0] = y[1]
+    z[1] = -0.01*y[1]-0.4*(a1+a2-2)/a+0.2*W*np.sin(omega*t)
+    z[2] = y[3]
+    z[3] = -0.01*y[3]+1.2*np.cos(y[2])*(a1-a2)/(hw*a)
+    return z
 
 # Example usage
-# tacoma([0, 10], [1, 0, 0.001, 0], 2500, 5)
+tacoma([0, 10], [1, 0, 0.001, 0], 2500, 5)

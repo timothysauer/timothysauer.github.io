@@ -8,8 +8,7 @@ def orbit(inter, ic, n, p):
             n number of steps
             p step per plotted point
     Output: t time points
-            traj orbital trajectory
-    """
+            traj orbital trajectory"""
     h = (inter[1] - inter[0]) / n  # Step size
     x0, vx0, y0, vy0 = ic  # Initial conditions
     traj = np.zeros((n+1, 4))  # Initialize position and velocity array
@@ -28,7 +27,7 @@ def orbit(inter, ic, n, p):
     for k in range(n // p):
         for i in range(p):
             t[k*p+i+1] = t[k*p+i] + h
-            y[i + 1, :] = eulerstep(ydot, t[i], y[i, :], h)
+            y[i + 1, :] = eulerstep(f, t[i], y[i, :], h)
         traj[k*p+1:(k+1)*p+1,:] = y[1:,:]
         head.set_data([y[p, 0]], [y[p, 2]]) # Update the plot
         tail.set_data(traj[1:(k+1)*p+1, 0], traj[1:(k+1)*p+1, 2])
@@ -39,9 +38,9 @@ def orbit(inter, ic, n, p):
     plt.show()  # Show the plot window
     return t, traj
 
-def eulerstep(ydot, t, x, h): return x + h*ydot(t, x)
+def eulerstep(f, t, x, h): return x + h*f(t, x)
 
-def ydot(t, x):
+def f(t, x):
     m2 = 3  # Mass of the second object
     g = 1   # Gravitational acceleration
     mg2 = m2*g

@@ -23,7 +23,7 @@ def pend(inter, ic, n):
     rod, = plt.plot([], [], 'b-', linewidth=3)   # rod's position
     for k in range(n):         # Animation loop
         t[k + 1] = t[k] + h
-        y[k + 1, :] = trapstep(ydot, t[k], y[k, :], h)  # Update state 
+        y[k + 1, :] = trapstep(f, t[k], y[k, :], h)  # Update state 
         xbob = np.sin(y[k + 1, 0])  # x position of the bob
         ybob = -np.cos(y[k + 1, 0]) # y position of the bob
         xrod = [0, xbob]  # x coordinates of the rod
@@ -35,14 +35,12 @@ def pend(inter, ic, n):
     plt.show()
     return t,y
 
-def trapstep(ydot, t, x, h):
-    """ One step of the Trapezoid Method """
-    z1 = ydot(t, x)
-    g = x + h*z1
-    z2 = ydot(t + h, g)
+def trapstep(f, t, x, h):  # One step of the Trapezoid Method
+    z1 = f(t, x)
+    z2 = f(t + h, x + h*z1)
     return x + h*(z1 + z2)/2
 
-def ydot(t, y):
+def f(t, y):
     g = 9.81              # Acceleration due to gravity
     length = 1.0          # Length of the pendulum pivot
     z = np.zeros(2)
@@ -51,4 +49,4 @@ def ydot(t, y):
     return z
 
 # Example usage
-pend([0, 10], [np.pi / 2, 0], 200)  # Starting angle and velocity
+pend([0, 10], [np.pi/2, 0], 200)  # Starting angle and velocity
