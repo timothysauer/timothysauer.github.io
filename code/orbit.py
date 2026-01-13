@@ -23,16 +23,15 @@ def orbit(inter, ic, n, p):
     plt.plot(0, 0, 'yo', markersize=16) # Draw sun at origin
     # Prepare line objects for head and tail of the orbit
     head, = plt.plot([], [], 'ro', markersize=8)
-    tail, = plt.plot([], [], 'b-', linestyle='-', markersize=4)
+    tail, = plt.plot([], [], 'b-', markersize=4)
     plt.ion()  # Enable interactive mode for real-time plotting
     for k in range(n // p):
         for i in range(p):
             t[k*p+i+1] = t[k*p+i] + h
             y[i + 1, :] = eulerstep(ydot, t[i], y[i, :], h)
         traj[k*p+1:(k+1)*p+1,:] = y[1:,:]
-        # Update the position for the next frame
-        set_position(head, y[p, 0], y[p, 2])  # Update head position
-        set_position(tail, traj[1:(k+1)*p+1, 0], traj[1:(k+1)*p+1, 2]) 
+        head.set_data([y[p, 0]], [y[p, 2]]) # Update the plot
+        tail.set_data(traj[1:(k+1)*p+1, 0], traj[1:(k+1)*p+1, 2])
         y[0, :] = y[p, :]  # Update last computed position
         plt.draw()
         plt.pause(0.03)  # Pause to visualize updates
@@ -51,13 +50,10 @@ def ydot(t, x):
     dist = np.sqrt((px1 - px0)**2 + (py1 - py0)**2)
     z = np.zeros(4)
     z[0] = vx0
-    z[1] = (mg1*(px1 - px0))/(dist**3)  # Acceleration in x
+    z[1] = (mg2*(px1 - px0))/(dist**3)  # Acceleration in x
     z[2] = vy0
-    z[3] = (mg1*(py1 - py0))/(dist**3)  # Acceleration in y
+    z[3] = (mg2*(py1 - py0))/(dist**3)  # Acceleration in y
     return z
-
-def set_position(line, xdata, ydata):
-    line.set_data(xdata, ydata)  # Function to set the position of plot points
 
 # Example usage
 orbit([0, 100], [0, 1, 2, 0], 10000, 5)

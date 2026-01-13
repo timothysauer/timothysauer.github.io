@@ -23,19 +23,19 @@ def pend(inter, ic, n):
     rod, = plt.plot([], [], 'b-', linewidth=3)   # rod's position
     for k in range(n):         # Animation loop
         t[k + 1] = t[k] + h
-        y[k + 1, :] = trapstep(t[k], y[k, :], h)  # Update state 
+        y[k + 1, :] = trapstep(ydot, t[k], y[k, :], h)  # Update state 
         xbob = np.sin(y[k + 1, 0])  # x position of the bob
-        ybob = -np.cos(y[k + 1, 0])  # y position of the bob
+        ybob = -np.cos(y[k + 1, 0]) # y position of the bob
         xrod = [0, xbob]  # x coordinates of the rod
         yrod = [0, ybob]  # y coordinates of the rod
         rod.set_data(xrod, yrod)
-        bob.set_data(xbob, ybob)
+        bob.set_data([xbob], [ybob])
         plt.draw()
         plt.pause(h)  # Pause for h seconds
     plt.show()
     return t,y
 
-def trapstep(t, x, h):
+def trapstep(ydot, t, x, h):
     """ One step of the Trapezoid Method """
     z1 = ydot(t, x)
     g = x + h*z1
