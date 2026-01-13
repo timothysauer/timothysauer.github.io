@@ -19,7 +19,7 @@ def hh(inter, ic, inp, n):
     t[0] = a
     for i in range(n):
         t[i+1] = t[i] + h
-        y[i+1,:] = rk4step(t[i],y[i,:],h)  # Update using RK4 
+        y[i+1,:] = rk4step(ydot, t[i],y[i,:],h)  # Update using RK4 
     plt.subplot(3, 1, 1)
     plt.plot([a, pa, pa, pb, pb, b], [0, 0, pulse, pulse, 0, 0])
     plt.grid()
@@ -42,7 +42,7 @@ def hh(inter, ic, inp, n):
     plt.show()
     return t,y
 
-def rk4step(t, w, h):
+def rk4step(ydot, t, w, h):
     """ One step of the Runge-Kutta order 4 method """
     s1 = ydot(t, w)
     s2 = ydot(t + h / 2., w + h * s1 / 2.)
