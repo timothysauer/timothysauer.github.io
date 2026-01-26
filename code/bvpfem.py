@@ -31,6 +31,7 @@ def bvpfem(inter, bv, n):
 
 # Example usage
 t, y = bvpfem([0, 1], [1, 3], 39)
+plt.plot(t,y)
 plt.xlabel('t')
 plt.ylabel('y')
 plt.title(' BVP Finite Element Method Solution')
