@@ -25,6 +25,7 @@ def dftfilter(inter, x, m, p):
     return tp, xp
 
 # Example usage
+t = np.arange(64)*2*np.pi/64
 x = np.sin(np.arange(64)*2*np.pi/64) + 0.1*np.random.normal(0,1,64) 
 tp, xp = dftfilter([0,2*np.pi],x, 6, 128)
 plt.plot(t, x, 'o', label='Original Data')
