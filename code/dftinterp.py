@@ -19,6 +19,10 @@ def dftinterp(inter, x, p):
     return tp, xp
 
 # Example usage
+n = 16
+c,d = 0., 2*np.pi
+t = c + (d-c)*np.arange(n)/n
+x = np.sin(t)
 tp, xp = dftinterp([0,2*np.pi],np.sin(np.arange(16)*2*np.pi/16),64)
 plt.plot(t, x, 'o', label='Data Points') # Plot original data 
 plt.plot(tp, xp, label='Interpolant') # Plot interpolant
