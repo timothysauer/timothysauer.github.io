@@ -28,7 +28,8 @@ x_1\\
 2.0001\\
 \end{array}\right],
 \]
-is \([1,1]\). The forward error is \(||[1,1]-[-1,3]||_\infty = 2\). The
+is \([1,1]\). The forward error is \(||[1,1]-[-1,3]||_\infty = 2\), and the relative
+forward error is \(2/1 = 2\). The
 backward error is the infinity norm of
 \[b-Ax_c=
 \left[\begin{array}{rr}
@@ -47,10 +48,10 @@ backward error is the infinity norm of
 0\\
 0.0002\\
 \end{array}\right],\]
-which is \(0.0002\). The error magnification factor is the ratio
+which is \(0.0002\). The relative backward error is \(0.0002/2.0001 = 9.9995\times 10^{-5}\). The error magnification factor is the ratio
 of the relative forward and backward errors, or
 \((2/1)/(0.0002/2.0001)=20001\). <p>
-<b>3 (b)</b> The forward error is \(||[1,1]-[0,2]||_\infty=1\). The backward
+<b>3 (b)</b> The relative forward error is \(||[1,1]-[0,2]||_\infty/1=1\). The backward
 error is the infinity norm of
 \[b-Ax_c=
 \left[\begin{array}{rr}
@@ -65,18 +66,19 @@ error is the infinity norm of
 0\\
 0.0001\\
 \end{array}\right],\]
-which is \(0.0001\). The error magnification factor is the ratio
+which is \(0.0001\), divided by 2.0001, which is \(4.99975\times 10^{-5}\). 
+The error magnification factor is the ratio
 of the relative forward and backward errors, or
 \((1/1)/(0.0001/2.0001)=20001\). <p>
 <b>3 (c)</b> The calculation is similar to (a) and (b).
- The forward error is \(||[1,1]-[2,2]||_\infty=1\), the backward
-error is \(||[-2,-2.0001]||_\infty=2.0001\), and the error magnification factor
+ The relative forward error is \(||[1,1]-[2,2]||_\infty/1=1\), the backward
+error is \(||[-2,-2.0001]||_\infty/2.0001=2.0001/2.0001 = 1\), and the error magnification factor
 is \((1/1)/(2.0001/2.0001)=1\). <p>
-<b>3 (d)</b> Forward error is \(||[1,1]-[-2,4]||_\infty=3\), the backward
-error is \(||[0,0.0003]||_\infty=0.0003\), and the error magnification factor
+<b>3 (d)</b> The relative orward error is \(||[1,1]-[-2,4]||_\infty/1=3\), the backward
+error is \(||[0,0.0003]||_\infty/2.0001=0.0003/2.0001 = 1.4999925\times 10^{-4}\), and the error magnification factor
 is \((3/1)/(0.0003/2.0001)=20001\). <p>
-<b>3 (e)</b> Forward error is \(||[1,1]-[-2,4.0001]||_\infty=3.0001\), the backward
-error is \(||[0.0001,0.0002]||_\infty=0.0002\), and the error magnification factor
+<b>3 (e)</b> The relative orward error is \(||[1,1]-[-2,4.0001]||_\infty/1=3.0001\), the backward
+error is \(||[0.0001,0.0002]||_\infty/2.0001=0.0002/2.0001 = \(9.9995\times 10^{-5}\), and the error magnification factor
 is \((3.0001/1)/(0.0002/2.0001)=30002.5\).
 <hr>
 
