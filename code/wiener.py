@@ -1,6 +1,6 @@
 import numpy as np
 import soundfile as sf
-import playsound as ps
+import playsound3 as ps
 
 def wiener(soundfile, noise_level, p):
     """ Program 10.3 Wiener filter
