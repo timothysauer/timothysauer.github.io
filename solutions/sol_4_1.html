@@ -47,6 +47,64 @@ The normal equations give \(\overline{x}=[16/19,16/19]^T\).
 The residual error is \(e=b-A\overline{x}=[9/19,25/19,9/19,-26/19]\) with 2-norm \(||e||_2 \approx 2.013\).
 <hr>
 
+<b>3(a)</b> The normal equations are \(A^TAx=A^Tb\) where
+\[A^TA =
+\left[\begin{array}{cc}
+3&3\\3&5\\
+\end{array}\right]
+\text{ and }
+A^Tb =
+\left[\begin{array}{r}
+9\\13
+\end{array}\right].\]
+The normal equations give \(\overline{x}=[1,2]^T\).
+The residual error is \(e=b-A\overline{x}=[-1,7,3] - [1,3,5]=[-2,4,2]\) with 
+RMSE \( = \sqrt{((-2)^2+4^2+(-2)^2)/3} = \sqrt{8}\).
+<hr>
+<b>3(b)</b> The normal equations are \(A^TAx=A^Tb\) where
+\[A^TA =
+\left[\begin{array}{cc}
+3&6\\6&14\\
+\end{array}\right]
+\text{ and }
+A^Tb =
+\left[\begin{array}{r}
+9\\22
+\end{array}\right].\]
+The normal equations give \(\overline{x}=[-1,2]^T\).
+The residual error is \(e=b-A\overline{x}=[-1,7,3] - [1,3,5]=[-2,4,2]\) with 
+RMSE \( = \sqrt{((-2)^2+4^2+(-2)^2)/3} = \sqrt{8}\).
+<hr>
+<b>3(c)</b> The normal equations are \(A^TAx=A^Tb\) where
+\[A^TA =
+\left[\begin{array}{ccc}
+4&0&0\\0&6&0\\0&0&14\\
+\end{array}\right]
+\text{ and }
+A^Tb =
+\left[\begin{array}{r}
+5\\9\\14
+\end{array}\right].\]
+The normal equations give \(\overline{x}=[5/4,3/2,1]^T\).
+The residual error is \(e=b-A\overline{x}=[6,1,-1,-1] - [19/4,11/4,-3/4,-7/4]=
+[5/4,-7/4,-1/4,3/4]\) with 
+RMSE \( = \sqrt{21/16}\).
+<hr>
+<b>3(d)</b> The normal equations are \(A^TAx=A^Tb\) where
+\[A^TA =
+\left[\begin{array}{ccc}
+4&0&0\\0&6&0\\0&0&56\\
+\end{array}\right]
+\text{ and }
+A^Tb =
+\left[\begin{array}{r}
+10\\-3\\-14
+\end{array}\right].\]
+The normal equations give \(\overline{x}=[5/2,-1/2,-1/4]^T\).
+The residual error is \(e=b-A\overline{x}=[1,2,3,4] - [1,2,3,4]=
+[0,0,0,0]\) with 
+RMSE \( = 0\).
+<hr>
 <b>5</b>  The normal equations are \(A^TAx=A^Tb\), or
 \[
 \left[\begin{array}{cc}
