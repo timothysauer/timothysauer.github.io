@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Numerical Analysis 3rd Edition Sauer </title>
+<title>Numerical Analysis 4th Edition Sauer </title>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 </head>
 
@@ -47,7 +47,7 @@ The normal equations give \(\overline{x}=[16/19,16/19]^T\).
 The residual error is \(e=b-A\overline{x}=[9/19,25/19,9/19,-26/19]\) with 2-norm \(||e||_2 \approx 2.013\).
 <hr>
 
-<b>3</b>  The normal equations are \(A^TAx=A^Tb\), or
+<b>5</b>  The normal equations are \(A^TAx=A^Tb\), or
 \[
 \left[\begin{array}{cc}
 3&0\\0&0\\
@@ -62,7 +62,7 @@ Solving the normal equations gives \(x_0=4\) and \(x_1\) arbitrary. Therefore th
 infinitely many least squares solutions \(\overline{x}=[4,x_1]\).
 <hr>
 
-<b>5</b>  The three properties: <p>
+<b>7</b>  The three properties: <p>
 (i) \(||x||_2\geq 0\) is guaranteed by the
 definition \(||x||_2=\sqrt{x_0^2+\ldots+x_{n-1}^2}\), and if \(||x||_2=0\), all components
 \(x_i\) must be zero.<p>
@@ -83,7 +83,7 @@ Taking square roots proves the triangle inequality for the 2-norm.
 <hr>
 
 
-<b>7 (a)</b> Substituting the data points \((t,y)\) into the model \(y=c_0+c_1t\) gives the
+<b>9 (a)</b> Substituting the data points \((t,y)\) into the model \(y=c_0+c_1t\) gives the
 five equations
 \begin{eqnarray*}
 c_0+c_1(-3)&=&\ \ \ 3\\
@@ -144,7 +144,7 @@ corresponding to the line
 which has RMSE = \(\sqrt{26}/10\).
 <hr>
 
-<b>9 (a)</b> Substituting the four data points into the model \(y=c_0+c_1t+c_2t^2\)
+<b>11 (a)</b> Substituting the four data points into the model \(y=c_0+c_1t+c_2t^2\)
 results in the system of equations
 \[\left[\begin{array}{ccc}
 1&0&0\\
@@ -173,7 +173,7 @@ c_0\\c_1\\c_2\\
 Solving for \(c_0,c_1, c_2\) leads to the least squares parabola
 \(y=0.3481+1.9475t-0.1657t^2\). The RMSE is \(0.5519\), compared to
 \(0.6944\) for the least squares line fit in Exercise 8(a).<p>
-<b>9 (b)</b> Substituting the four data points into the model \(y=c_0+c_1t+c_2t^2\)
+<b>11 (b)</b> Substituting the four data points into the model \(y=c_0+c_1t+c_2t^2\)
 results in the system of equations
 \[\left[\begin{array}{ccc}
 1&1&1\\
@@ -190,7 +190,7 @@ c_0\\c_1\\c_2\\
 Solving the normal equations for \(c_0, c_1, c_2\) yields the best parabola
 \(y=2.9615-1.0128t+0.1667t^2\). The RMSE is \(0.4160\), compared to \(0.6504\)
 for the best line in Exercise 8(b). <p>
-<b>9 (c)</b> Substituting into the model parabola gives the system of
+<b>11 (c)</b> Substituting into the model parabola gives the system of
 equations
 \[\left[\begin{array}{ccc}
 1&0&0\\
@@ -221,7 +221,7 @@ Therefore the best fit polynomial of degree two or less is the
 line \(y=4.8-1.2t\). The RMSE is \(0.4472\).
 <hr>
 
-<b>11</b> Substituting the data points into the given model
+<b>13</b> Substituting the data points into the given model
 \(h=a+bt-4.905t^2\) results in the system
 \begin{eqnarray*}
 a+b(1)-4.905(1)^2&=& 135\\
